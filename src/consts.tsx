@@ -75,7 +75,7 @@ bUseAuth=True,
 BanListURL="https://api.palworldgame.com/api/banlist.txt"
 */
 
-export const ENTRIES: { [id: string]: Entry } = {
+export const ENTRIES: Record<string, Entry> = {
     Difficulty: {
         name: "Difficulty",
         id: "Difficulty",

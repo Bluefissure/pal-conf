@@ -26,7 +26,8 @@
             "@/*": [
                 "./src/*"
             ]
-        }
+        },
+        "strictNullChecks": true
     },
     "include": [
         "src"

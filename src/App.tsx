@@ -36,7 +36,7 @@ function App() {
         ServerPassword: "",
         PublicPort: "8211",
         DeathPenalty: "All",
-    } as { [id: string]: string })
+    } as Record<string, string>)
 
     const onStateChanged = (id: string) => (e: ChangeEvent<string>) => {
         setEntries((prevEntries) => {
@@ -133,12 +133,20 @@ function App() {
             toast.success("Copied to clipboard", {
                 description: "The server settings have been copied to your clipboard.",
             })
+        }).catch(() => {
+            toast.error("Failed to copy to clipboard", {
+                description: "The server settings failed to be copied to your clipboard.",
+            })
         });
     }
 
     const readFromClipboard = () => {
         navigator.clipboard.readText().then((e) => {
             deserializeEntries(e);
+        }).catch(() => {
+            toast.error("Failed to read from clipboard", {
+                description: "The server settings failed to be read from your clipboard.",
+            })
         });
     }
 
