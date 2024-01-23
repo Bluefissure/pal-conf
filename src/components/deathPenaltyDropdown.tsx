@@ -1,5 +1,3 @@
-"use client"
-
 import { useState } from "react"
 import { ChevronDown } from "lucide-react"
 
@@ -51,16 +49,15 @@ export function DeathPenaltyDropDown(props: {
         <div className="space-y-2">
             <Label>Death Penalty</Label>
             <div className="flex w-full flex-col items-start justify-between rounded-md border px-4 py-3 sm:flex-row sm:items-center">
-
                 <p className="text-sm font-medium leading-none">
                     <span className="mr-2 rounded-lg bg-primary px-2 py-1 text-xs text-primary-foreground normal-case">
                         {label}
                     </span>
-                    <span className="text-muted-foreground">{labelDesc}</span>
+                    <span className="text-muted-foreground leading-7">{labelDesc}</span>
                 </p>
                 <DropdownMenu open={open} onOpenChange={setOpen}>
                     <DropdownMenuTrigger asChild>
-                        <Button variant="ghost" size="sm">
+                        <Button variant="ghost" size="sm" className="ml-auto">
                             <ChevronDown />
                         </Button>
                     </DropdownMenuTrigger>

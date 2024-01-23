@@ -204,7 +204,7 @@ function App() {
                     </CardFooter>
                 </Card>
                 <div className="w-full max-w-3xl mt-8 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">
-                    <pre className="text-wrap break-all text-sm text-gray-800 dark:text-gray-200">
+                    <pre className="text-wrap break-all whitespace-pre-wrap text-sm text-gray-800 dark:text-gray-200">
                         {settingsText}
                     </pre>
                 </div>
