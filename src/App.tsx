@@ -186,7 +186,7 @@ function App() {
                         <TextInput name="Admin Password" id="AdminPassword" value={entries.AdminPassword} onChange={onStateChanged('AdminPassword')} />
                         <TextInput name="Server Password" id="ServerPassword" value={entries.ServerPassword} onChange={onStateChanged('ServerPassword')} />
                         <TextInput name="Public Port" id="PublicPort" value={entries.PublicPort} onChange={onStateChanged('PublicPort')} type="number" />
-                        <DeathPenaltyDropDown label={entries.DeathPenalty} onLabelChange={(labelName) => {
+                        <DeathPenaltyDropDown label={entries.DeathPenalty} onLabelChange={(labelName: string) => {
                             onStateChanged('DeathPenalty')({
                                 target: { value: labelName }
                             })

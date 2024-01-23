@@ -36,10 +36,10 @@ const labels = [
     },
 ]
 
-export function DeathPenaltyDropDown(props: {
+export const DeathPenaltyDropDown = (props: {
     label: string,
     onLabelChange: (label: string) => void,
-}) {
+}) => {
     const { label, onLabelChange } = props;
     const [open, setOpen] = useState(false)
 
@@ -48,7 +48,7 @@ export function DeathPenaltyDropDown(props: {
     return (
         <div className="space-y-2">
             <Label>Death Penalty</Label>
-            <div className="flex w-full flex-col items-start justify-between rounded-md border px-4 py-3 sm:flex-row sm:items-center">
+            <div className="flex w-full items-start justify-between rounded-md border px-4 py-3 sm:flex-row sm:items-center">
                 <p className="text-sm font-medium leading-none">
                     <span className="mr-2 rounded-lg bg-primary px-2 py-1 text-xs text-primary-foreground normal-case">
                         {label}
