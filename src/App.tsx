@@ -409,9 +409,9 @@ function App() {
                     </pre>
                 </div>
                 <div className="w-full max-w-3xl flex justify-center pt-2">
-                    <a
+                    2023-2023 @Bluefissure <a
                         href="https://github.com/Bluefissure/pal-conf"
-                        className="font-medium text-primary underline underline-offset-4 top-2"
+                        className="pl-2 font-medium text-primary underline underline-offset-4 top-2"
                         target="_blank"
                         rel="noreferrer"
                     >
