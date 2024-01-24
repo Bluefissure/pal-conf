@@ -19,4 +19,4 @@ Feel free to translate the `en_US.json` in [src/assets/i18n](https://github.com/
 
 ## Known Issues
 
-Some issures are found (such as `.ini` config file is not working on some entries), for details please check [issues](https://github.com/Bluefissure/pal-conf/issues).
+Some issues are found (such as `.ini` config file is not working on some entries), for details please check [issues](https://github.com/Bluefissure/pal-conf/issues).
