@@ -10,14 +10,22 @@ import {
     DropdownMenuRadioItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import {
+    Collapsible,
+    CollapsibleContent,
+    CollapsibleTrigger,
+} from "@/components/ui/collapsible"
+import { Separator } from "@/components/ui/separator"
 import { Toaster } from "@/components/ui/sonner"
 import { toast } from "sonner"
 
-import { Languages } from "lucide-react"
+import { Languages, ChevronsUpDown } from "lucide-react"
 
 import { ENTRIES } from './consts'
 import { TextInput } from './components/textInput'
 import { DeathPenaltyDropDown } from './components/deathPenaltyDropdown'
+import { SliderInput } from './components/sliderInput'
+import { SwitchInput } from './components/switchInput'
 
 interface ChangeEvent<T> {
     target: {
@@ -29,20 +37,13 @@ interface ChangeEvent<T> {
 function App() {
 
     const [locale, setLocale] = useState("en-US")
-    const [entries, setEntries] = useState({
-        ServerName: "Default Palworld Server",
-        ServerDescription: "",
-        AdminPassword: "",
-        ServerPassword: "",
-        PublicPort: "8211",
-        DeathPenalty: "All",
-    } as Record<string, string>)
+    const [entries, setEntries] = useState({} as Record<string, string>)
 
     const onStateChanged = (id: string) => (e: ChangeEvent<string>) => {
         setEntries((prevEntries) => {
             return {
                 ...prevEntries,
-                [id]: e.target.value,
+                [id]: `${e.target.value}`,
             }
         })
     };
@@ -61,7 +62,7 @@ function App() {
             } else if (entry.type === "integer") {
                 entryStr = `${entry.id}=${entryValue}`
             } else if (entry.type === "float") {
-                entryStr = `${entry.id}=${Number(entry.defaultValue).toFixed(6)}`
+                entryStr = `${entry.id}=${Number(entryValue).toFixed(6)}`
             }
             resultList.push(entryStr)
         })
@@ -150,6 +151,145 @@ function App() {
         });
     }
 
+    const genInput = (id: string) => {
+        const entry = ENTRIES[id];
+        if (!entry) {
+            return null;
+        }
+        const entryValue = entries[entry.id] ?? entry.defaultValue;
+        if (entry.id === "DeathPenalty") {
+            return (
+                <DeathPenaltyDropDown 
+                    key={id}
+                    label={entryValue}
+                    onLabelChange={(labelName: string) => {
+                        onStateChanged('DeathPenalty')({
+                            target: { value: labelName }
+                        });
+                    }}
+                />
+            );
+        }
+        if ((entry.type === "integer" || entry.type === "float") && entry.range && entry.step) {
+            const minValue = Number(entry.range[0]);
+            const maxValue = Number(entry.range[1]);
+            return (
+                <SliderInput
+                    name={entry.name}
+                    id={id}
+                    key={id}
+                    value={Number(entryValue)}
+                    defaultValue={Number(entry.defaultValue)}
+                    minValue={minValue}
+                    maxValue={maxValue}
+                    step={entry.step}
+                    onValueChange={(values) => {
+                        onStateChanged(id)({
+                            target: { value: `${values[0]}` }
+                        });
+                    }}
+                    type={entry.type}
+                />
+            )
+        }
+        if (entry.type === "boolean") {
+            return (
+                <SwitchInput
+                    name={entry.name}
+                    id={id}
+                    key={id}
+                    checked={entryValue === "True"}
+                    onCheckedChange={(e) => {
+                        console.log(e);
+                        onStateChanged(id)({
+                            target: { value: e ? "True" : "False"}
+                        });
+                    }}
+                />
+            );
+        }
+        return (
+            <TextInput
+                name={entry.name}
+                id={id}
+                key={id}
+                value={entryValue}
+                onChange={onStateChanged(id)}
+                {...(entry.type === "integer" ? { type: "number" } : {})}
+            />
+        );
+    }
+
+    const serverSettings = [
+        'ServerName',
+        'ServerDescription',
+        'AdminPassword',
+        'ServerPassword',
+        'PublicIP',
+        'PublicPort',
+        'ServerPlayerMaxNum',
+    ].map(genInput);
+
+
+    const inGameSliderSettings = [
+        'DayTimeSpeedRate',
+        'NightTimeSpeedRate',
+        'ExpRate',
+        'PalCaptureRate',
+        'PalSpawnNumRate',
+        'PalDamageRateAttack',
+        'PalDamageRateDefense',
+        'PalStomachDecreaceRate',
+        'PalStaminaDecreaceRate',
+        'PalAutoHPRegeneRate',
+        'PalAutoHpRegeneRateInSleep',
+        'PlayerDamageRateAttack',
+        'PlayerDamageRateDefense',
+        'PlayerStomachDecreaceRate',
+        'PlayerStaminaDecreaceRate',
+        'PlayerAutoHPRegeneRate',
+        'PlayerAutoHpRegeneRateInSleep',
+        'BuildObjectDamageRate',
+        'BuildObjectDeteriorationDamageRate',
+        'DropItemMaxNum',
+        'CollectionDropRate',
+        'CollectionObjectHpRate',
+        'CollectionObjectRespawnSpeedRate',
+        'EnemyDropItemRate',
+        'PalEggDefaultHatchingTime',
+        'bEnableInvaderEnemy',
+        'DeathPenalty',
+        'GuildPlayerMaxNum',
+        'BaseCampWorkerMaxNum',
+    ].map(genInput);
+
+    const advancedSettings = [
+        'bEnablePlayerToPlayerDamage',
+        'bEnableFriendlyFire',
+        'bActiveUNKO',
+        'bEnableAimAssistPad',
+        'bEnableAimAssistKeyboard',
+        'DropItemMaxNum_UNKO',
+        'BaseCampMaxNum',
+        'DropItemAliveMaxHours',
+        'bAutoResetGuildNoOnlinePlayers',
+        'AutoResetGuildTimeNoOnlinePlayers',
+        'WorkSpeedRate',
+        'bIsMultiplay',
+        'bIsPvP',
+        'bCanPickupOtherGuildDeathPenaltyDrop',
+        'bEnableNonLoginPenalty',
+        'bEnableFastTravel',
+        'bIsStartLocationSelectByMap',
+        'bExistPlayerAfterLogout',
+        'bEnableDefenseOtherGuildPlayer',
+        'RCONEnabled',
+        'RCONPort',
+        'Region',
+        'bUseAuth',
+        'BanListURL',
+    ].map(genInput);
+
 
     return (
         <>
@@ -181,16 +321,49 @@ function App() {
                         <CardDescription>Edit the values and the output below will update in real-time.</CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">
-                        <TextInput name="Server Name" id="ServerName" value={entries.ServerName} onChange={onStateChanged('ServerName')} />
+                        {/* <TextInput name="Server Name" id="ServerName" value={entries.ServerName} onChange={onStateChanged('ServerName')} />
                         <TextInput name="Server Description" id="ServerDescription" value={entries.ServerDescription} onChange={onStateChanged('ServerDescription')} />
                         <TextInput name="Admin Password" id="AdminPassword" value={entries.AdminPassword} onChange={onStateChanged('AdminPassword')} />
                         <TextInput name="Server Password" id="ServerPassword" value={entries.ServerPassword} onChange={onStateChanged('ServerPassword')} />
-                        <TextInput name="Public Port" id="PublicPort" value={entries.PublicPort} onChange={onStateChanged('PublicPort')} type="number" />
-                        <DeathPenaltyDropDown label={entries.DeathPenalty} onLabelChange={(labelName: string) => {
-                            onStateChanged('DeathPenalty')({
-                                target: { value: labelName }
-                            })
-                        }} />
+                        <TextInput name="Public IP" id="PublicIP" value={entries.PublicIP} onChange={onStateChanged('PublicIP')}/>
+                        <TextInput name="Public Port" id="PublicPort" value={entries.PublicPort} onChange={onStateChanged('PublicPort')} type="number" /> */}
+                        
+                        {serverSettings}
+                        <Separator />
+                        <Collapsible className="space-y-4">
+                            <div className="flex items-center justify-between">
+                                <h4 className="text-sm font-bold">
+                                 In-Game Settings
+                                </h4>
+                                <CollapsibleTrigger asChild>
+                                <Button variant="ghost" size="sm">
+                                    <ChevronsUpDown className="h-4 w-4" />
+                                    <span className="sr-only">Toggle</span>
+                                </Button>
+                                </CollapsibleTrigger>
+                            </div>
+                            <CollapsibleContent className="space-y-4">
+                                {inGameSliderSettings}
+                            </CollapsibleContent>
+                        </Collapsible>
+                        <Separator />
+                        <Collapsible className="space-y-4">
+                            <div className="flex items-center justify-between">
+                                <h4 className="text-sm font-bold">
+                                 Advanced Settings
+                                </h4>
+                                <CollapsibleTrigger asChild>
+                                <Button variant="ghost" size="sm">
+                                    <ChevronsUpDown className="h-4 w-4" />
+                                    <span className="sr-only">Toggle</span>
+                                </Button>
+                                </CollapsibleTrigger>
+                            </div>
+                            <CollapsibleContent className="space-y-4">
+                                {advancedSettings}
+                            </CollapsibleContent>
+                        </Collapsible>
+                        <Separator />
 
                     </CardContent>
                     <CardFooter>

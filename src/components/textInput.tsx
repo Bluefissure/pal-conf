@@ -16,7 +16,7 @@ function TextInput(props: {
         onChange,
     } = props;
     return (
-        <div className="space-y-2">
+        <div className="space-y-1">
             <Label htmlFor={name}>{name}</Label>
             <Input value={value} id={id} onChange={onChange} type={type} />
         </div>
