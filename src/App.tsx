@@ -94,16 +94,13 @@ function App() {
                         if (entry.type === "string" && optionSettingValue.startsWith("\"") && optionSettingValue.endsWith("\"")) {
                             optionSettingValue = optionSettingValue.substring(1, optionSettingValue.length - 1);
                         }
-                        const entryState = entries[entry.id];
-                        if (entryState !== undefined) {
-                            newEntries[entry.id] = optionSettingValue;
-                            loadedEntriesNum++;
-                        }
+                        newEntries[entry.id] = optionSettingValue;
+                        loadedEntriesNum++;
                     }
                 });
                 // console.log(newEntries);
                 setEntries(newEntries);
-            } else if (line.startsWith("\\\\") || !line || line.trim() === "[/Script/Pal.PalGameWorldSettings]") {
+            } else if (line.trim().startsWith(";") || line.trim() === "" || line.trim() === "[/Script/Pal.PalGameWorldSettings]") {
                 // skip
             } else {
                 erroredLinesNum++;
@@ -200,7 +197,7 @@ function App() {
                     key={id}
                     checked={entryValue === "True"}
                     onCheckedChange={(e) => {
-                        console.log(e);
+                        // console.log(e);
                         onStateChanged(id)({
                             target: { value: e ? "True" : "False"}
                         });
