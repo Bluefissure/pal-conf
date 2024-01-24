@@ -20,6 +20,7 @@ import { Toaster } from "@/components/ui/sonner"
 import { toast } from "sonner"
 
 import { Languages, ChevronsUpDown } from "lucide-react"
+import ReactCountryFlag from "react-country-flag"
 
 import { ENTRIES } from './consts'
 import { TextInput } from './components/textInput'
@@ -156,7 +157,7 @@ function App() {
         const entryValue = entries[entry.id] ?? entry.defaultValue;
         if (entry.id === "DeathPenalty") {
             return (
-                <DeathPenaltyDropDown 
+                <DeathPenaltyDropDown
                     key={id}
                     label={entryValue}
                     onLabelChange={(labelName: string) => {
@@ -199,7 +200,7 @@ function App() {
                     onCheckedChange={(e) => {
                         // console.log(e);
                         onStateChanged(id)({
-                            target: { value: e ? "True" : "False"}
+                            target: { value: e ? "True" : "False" }
                         });
                     }}
                 />
@@ -305,9 +306,18 @@ function App() {
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent align="end">
                                     <DropdownMenuRadioGroup value={locale} onValueChange={setLocale}>
-                                        <DropdownMenuRadioItem value="en-US">🇺🇸 en-US</DropdownMenuRadioItem>
-                                        <DropdownMenuRadioItem value="zh-CN">🇨🇳 zh-CN</DropdownMenuRadioItem>
-                                        <DropdownMenuRadioItem value="ja-JP">🇯🇵 ja-JP</DropdownMenuRadioItem>
+                                        <DropdownMenuRadioItem value="en-US">
+                                            <ReactCountryFlag countryCode="US" />
+                                            <div className="px-2"> en-US </div>
+                                        </DropdownMenuRadioItem>
+                                        <DropdownMenuRadioItem value="zh-CN">
+                                            <ReactCountryFlag countryCode="CN" />
+                                            <div className="px-2"> zh-CN </div>
+                                        </DropdownMenuRadioItem>
+                                        {/* <DropdownMenuRadioItem value="ja-JP">
+                                            <ReactCountryFlag countryCode="JP" /> 
+                                            <div className="px-2"> ja-JP </div>
+                                        </DropdownMenuRadioItem> */}
                                     </DropdownMenuRadioGroup>
                                 </DropdownMenuContent>
                             </DropdownMenu>
@@ -324,19 +334,19 @@ function App() {
                         <TextInput name="Server Password" id="ServerPassword" value={entries.ServerPassword} onChange={onStateChanged('ServerPassword')} />
                         <TextInput name="Public IP" id="PublicIP" value={entries.PublicIP} onChange={onStateChanged('PublicIP')}/>
                         <TextInput name="Public Port" id="PublicPort" value={entries.PublicPort} onChange={onStateChanged('PublicPort')} type="number" /> */}
-                        
+
                         {serverSettings}
                         <Separator />
                         <Collapsible className="space-y-4">
                             <div className="flex items-center justify-between">
                                 <h4 className="text-sm font-bold">
-                                 In-Game Settings
+                                    In-Game Settings
                                 </h4>
                                 <CollapsibleTrigger asChild>
-                                <Button variant="ghost" size="sm">
-                                    <ChevronsUpDown className="h-4 w-4" />
-                                    <span className="sr-only">Toggle</span>
-                                </Button>
+                                    <Button variant="ghost" size="sm">
+                                        <ChevronsUpDown className="h-4 w-4" />
+                                        <span className="sr-only">Toggle</span>
+                                    </Button>
                                 </CollapsibleTrigger>
                             </div>
                             <CollapsibleContent className="space-y-4">
@@ -347,13 +357,13 @@ function App() {
                         <Collapsible className="space-y-4">
                             <div className="flex items-center justify-between">
                                 <h4 className="text-sm font-bold">
-                                 Advanced Settings
+                                    Advanced Settings
                                 </h4>
                                 <CollapsibleTrigger asChild>
-                                <Button variant="ghost" size="sm">
-                                    <ChevronsUpDown className="h-4 w-4" />
-                                    <span className="sr-only">Toggle</span>
-                                </Button>
+                                    <Button variant="ghost" size="sm">
+                                        <ChevronsUpDown className="h-4 w-4" />
+                                        <span className="sr-only">Toggle</span>
+                                    </Button>
                                 </CollapsibleTrigger>
                             </div>
                             <CollapsibleContent className="space-y-4">
