@@ -102,7 +102,7 @@ function App() {
                 });
                 // console.log(newEntries);
                 setEntries(newEntries);
-            } else if (line.startsWith("\\\\") || !line || line == "[/Script/Pal.PalGameWorldSettings]") {
+            } else if (line.startsWith("\\\\") || !line || line.trim() === "[/Script/Pal.PalGameWorldSettings]") {
                 // skip
             } else {
                 erroredLinesNum++;
