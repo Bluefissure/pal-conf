@@ -44,8 +44,7 @@ interface ChangeEvent<T> {
 
 function App() {
     const { t } = useTranslation();
-
-    const [locale, setLocale] = useState(i18n.language)
+    const [locale, setLocale] = useState(i18n.language === 'en' ? 'en_US' : i18n.language)
     const [entries, setEntries] = useState({} as Record<string, string>)
 
     const onStateChanged = (id: string) => (e: ChangeEvent<string>) => {
@@ -297,7 +296,6 @@ function App() {
         'BanListURL',
     ].map(genInput);
 
-
     useEffect(() => {
         document.title = t('title');
     }, [t]);
@@ -310,19 +308,19 @@ function App() {
 
                     <CardHeader>
                         <CardTitle className="flex">
-                            <div className="">
+                            <div className="leading-10">
                                 <Trans i18nKey={'title'}>
                                     Palworld Server Configuration Generator
                                 </Trans>
                             </div>
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
-                                    <Button className="ml-auto h-7" variant="ghost"><Languages /></Button>
+                                    <Button className="ml-auto h-10" variant="secondary"><Languages /></Button>
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent align="end">
                                     <DropdownMenuRadioGroup value={locale} onValueChange={(value) => {
                                         i18n.changeLanguage(value).then(() => {
-                                            console.log("Language changed to " + value)
+                                            // console.log("Language changed to " + value)
                                         }).catch((e) => { console.error(e); });
                                         setLocale(value);
                                     }}>
@@ -410,6 +408,17 @@ function App() {
                         {settingsText}
                     </pre>
                 </div>
+                <div className="w-full max-w-3xl flex justify-center pt-2">
+                    <a
+                        href="https://github.com/Bluefissure/pal-conf"
+                        className="font-medium text-primary underline underline-offset-4 top-2"
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        Github
+                    </a>
+                </div>
+
             </main>
         </>
     )
