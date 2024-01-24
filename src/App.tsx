@@ -1,6 +1,12 @@
 import './App.css'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+
+// i18n
+import i18n from './i18n';
+import { useTranslation, Trans } from 'react-i18next';
+
+// UI Components
 import { CardTitle, CardDescription, CardHeader, CardContent, CardFooter, Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import {
@@ -18,10 +24,11 @@ import {
 import { Separator } from "@/components/ui/separator"
 import { Toaster } from "@/components/ui/sonner"
 import { toast } from "sonner"
-
+// UI Icons
 import { Languages, ChevronsUpDown } from "lucide-react"
 import ReactCountryFlag from "react-country-flag"
 
+// App Components
 import { ENTRIES } from './consts'
 import { TextInput } from './components/textInput'
 import { DeathPenaltyDropDown } from './components/deathPenaltyDropdown'
@@ -36,8 +43,9 @@ interface ChangeEvent<T> {
 
 
 function App() {
+    const { t } = useTranslation();
 
-    const [locale, setLocale] = useState("en-US")
+    const [locale, setLocale] = useState(i18n.language)
     const [entries, setEntries] = useState({} as Record<string, string>)
 
     const onStateChanged = (id: string) => (e: ChangeEvent<string>) => {
@@ -72,8 +80,8 @@ function App() {
 
     const deserializeEntries = (settingsText: string) => {
         if (!settingsText) {
-            toast.error("Invalid settings from clipboard", {
-                description: "The settings you pasted are invalid.",
+            toast.error(t('toast.invalid'), {
+                description: t('toast.invalidDescription'),
             })
             return;
         }
@@ -108,18 +116,18 @@ function App() {
             }
         });
         if (loadedEntriesNum === 0 || erroredLinesNum > 0) {
-            toast.error("Invalid settings from clipboard", {
-                description: "The settings you pasted are invalid.",
+            toast.error(t('toast.invalid'), {
+                description: t('toast.invalidDescription'),
             })
             return;
         } else if (loadedEntriesNum < Object.keys(entries).length) {
-            toast.warning("Some entries are missing", {
-                description: "The settings you pasted have been loaded. Some settings are missing.",
+            toast.warning(t('toast.missing'), {
+                description: t('toast.missingDescription'),
             })
             return;
         } else {
-            toast.success("Loaded form clipboard", {
-                description: "The settings you pasted have been loaded.",
+            toast.success(t('toast.loaded'), {
+                description: t('toast.loadedDescription'),
             })
             return;
         }
@@ -129,12 +137,12 @@ function App() {
 
     const copyToClipboard = () => {
         navigator.clipboard.writeText(settingsText).then(() => {
-            toast.success("Copied to clipboard", {
-                description: "The server settings have been copied to your clipboard.",
+            toast.success(t('toast.copied'), {
+                description: t('toast.copiedDescription'),
             })
         }).catch(() => {
-            toast.error("Failed to copy to clipboard", {
-                description: "The server settings failed to be copied to your clipboard.",
+            toast.error(t('toast.copyFailed'), {
+                description: t('toast.copyFailedDescription'),
             })
         });
     }
@@ -143,8 +151,8 @@ function App() {
         navigator.clipboard.readText().then((e) => {
             deserializeEntries(e);
         }).catch(() => {
-            toast.error("Failed to read from clipboard", {
-                description: "The server settings failed to be read from your clipboard.",
+            toast.error(t('toast.loadFailed'), {
+                description: t('toast.loadFailedDescription'),
             })
         });
     }
@@ -154,6 +162,7 @@ function App() {
         if (!entry) {
             return null;
         }
+        const entryName = t(`entry.name.${entry.id}`)
         const entryValue = entries[entry.id] ?? entry.defaultValue;
         if (entry.id === "DeathPenalty") {
             return (
@@ -173,7 +182,7 @@ function App() {
             const maxValue = Number(entry.range[1]);
             return (
                 <SliderInput
-                    name={entry.name}
+                    name={entryName}
                     id={id}
                     key={id}
                     value={Number(entryValue)}
@@ -193,7 +202,7 @@ function App() {
         if (entry.type === "boolean") {
             return (
                 <SwitchInput
-                    name={entry.name}
+                    name={entryName}
                     id={id}
                     key={id}
                     checked={entryValue === "True"}
@@ -208,7 +217,7 @@ function App() {
         }
         return (
             <TextInput
-                name={entry.name}
+                name={entryName}
                 id={id}
                 key={id}
                 value={entryValue}
@@ -289,6 +298,10 @@ function App() {
     ].map(genInput);
 
 
+    useEffect(() => {
+        document.title = t('title');
+    }, [t]);
+
     return (
         <>
             <main className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 p-4">
@@ -298,49 +311,49 @@ function App() {
                     <CardHeader>
                         <CardTitle className="flex">
                             <div className="">
-                                Palworld Server Configuration Generator
+                                <Trans i18nKey={'title'}>
+                                    Palworld Server Configuration Generator
+                                </Trans>
                             </div>
                             <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
                                     <Button className="ml-auto h-7" variant="ghost"><Languages /></Button>
                                 </DropdownMenuTrigger>
                                 <DropdownMenuContent align="end">
-                                    <DropdownMenuRadioGroup value={locale} onValueChange={setLocale}>
-                                        <DropdownMenuRadioItem value="en-US">
+                                    <DropdownMenuRadioGroup value={locale} onValueChange={(value) => {
+                                        i18n.changeLanguage(value).then(() => {
+                                            console.log("Language changed to " + value)
+                                        }).catch((e) => { console.error(e); });
+                                        setLocale(value);
+                                    }}>
+                                        <DropdownMenuRadioItem value="en_US">
                                             <ReactCountryFlag countryCode="US" />
                                             <div className="px-2"> en-US </div>
                                         </DropdownMenuRadioItem>
-                                        <DropdownMenuRadioItem value="zh-CN">
+                                        <DropdownMenuRadioItem value="zh_CN">
                                             <ReactCountryFlag countryCode="CN" />
                                             <div className="px-2"> zh-CN </div>
                                         </DropdownMenuRadioItem>
-                                        {/* <DropdownMenuRadioItem value="ja-JP">
-                                            <ReactCountryFlag countryCode="JP" /> 
-                                            <div className="px-2"> ja-JP </div>
-                                        </DropdownMenuRadioItem> */}
                                     </DropdownMenuRadioGroup>
                                 </DropdownMenuContent>
                             </DropdownMenu>
 
                         </CardTitle>
-
-
-                        <CardDescription>Edit the values and the output below will update in real-time.</CardDescription>
+                        <CardDescription>
+                            <Trans i18nKey={'introduction'}>
+                                Edit the values and the output below will update in real-time.
+                            </Trans>
+                        </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">
-                        {/* <TextInput name="Server Name" id="ServerName" value={entries.ServerName} onChange={onStateChanged('ServerName')} />
-                        <TextInput name="Server Description" id="ServerDescription" value={entries.ServerDescription} onChange={onStateChanged('ServerDescription')} />
-                        <TextInput name="Admin Password" id="AdminPassword" value={entries.AdminPassword} onChange={onStateChanged('AdminPassword')} />
-                        <TextInput name="Server Password" id="ServerPassword" value={entries.ServerPassword} onChange={onStateChanged('ServerPassword')} />
-                        <TextInput name="Public IP" id="PublicIP" value={entries.PublicIP} onChange={onStateChanged('PublicIP')}/>
-                        <TextInput name="Public Port" id="PublicPort" value={entries.PublicPort} onChange={onStateChanged('PublicPort')} type="number" /> */}
-
                         {serverSettings}
                         <Separator />
                         <Collapsible className="space-y-4">
                             <div className="flex items-center justify-between">
                                 <h4 className="text-sm font-bold">
-                                    In-Game Settings
+                                    <Trans i18nKey={'ingameSettings'}>
+                                        In-Game Settings
+                                    </Trans>
                                 </h4>
                                 <CollapsibleTrigger asChild>
                                     <Button variant="ghost" size="sm">
@@ -357,7 +370,9 @@ function App() {
                         <Collapsible className="space-y-4">
                             <div className="flex items-center justify-between">
                                 <h4 className="text-sm font-bold">
-                                    Advanced Settings
+                                    <Trans i18nKey={'advancedSettings'}>
+                                        Advanced Settings
+                                    </Trans>
                                 </h4>
                                 <CollapsibleTrigger asChild>
                                     <Button variant="ghost" size="sm">
@@ -376,11 +391,18 @@ function App() {
                     <CardFooter>
                         <Button className="mr-auto" onClick={() => {
                             readFromClipboard();
-                        }}>Load</Button>
+                        }}>
+                            <Trans i18nKey={'load'}>
+                                Load
+                            </Trans>
+                        </Button>
                         <Button className="ml-auto" onClick={() => {
                             copyToClipboard();
-                        }}>Copy</Button>
-
+                        }}>
+                            <Trans i18nKey={'copy'}>
+                                Copy
+                            </Trans>
+                        </Button>
                     </CardFooter>
                 </Card>
                 <div className="w-full max-w-3xl mt-8 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">

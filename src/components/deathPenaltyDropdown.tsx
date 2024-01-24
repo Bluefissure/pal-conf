@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useTranslation, Trans } from 'react-i18next';
 import { ChevronDown } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -40,14 +41,22 @@ export const DeathPenaltyDropDown = (props: {
     label: string,
     onLabelChange: (label: string) => void,
 }) => {
+    const { t } = useTranslation();
+
     const { label, onLabelChange } = props;
     const [open, setOpen] = useState(false)
 
-    const labelDesc = labels.find((l) => l.name === label)?.desc ?? "";
+    const labelDesc = t(`entry.description.DeathPenalty.${label}`, {
+        defaultValue: labels.find((l) => l.name === label)?.desc ?? "",
+    });
 
     return (
         <div className="space-y-1">
-            <Label>Death Penalty</Label>
+            <Label>
+                <Trans i18nKey={'entry.name.DeathPenalty'}>
+                    Death Penalty
+                </Trans>
+            </Label>
             <div className="flex w-full items-start justify-between rounded-md border px-4 py-1 sm:flex-row sm:items-center">
                 <p className="text-sm font-medium leading-none">
                     <span className="mr-2 rounded-lg bg-primary px-2 py-1 text-xs text-primary-foreground normal-case">
@@ -87,5 +96,5 @@ export const DeathPenaltyDropDown = (props: {
                 </DropdownMenu>
             </div>
         </div>
-    )
+    );
 }
