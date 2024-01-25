@@ -3,6 +3,7 @@
         "unknown": "Unknown",
         "title": "Palworld Server Configuration Generator",
         "introduction": "Edit the values and the output below will update in real-time.",
+        "serverSettings": "Server Settings",
         "ingameSettings": "In-Game Settings",
         "advancedSettings": "Advanced Settings",
         "load": "Load",

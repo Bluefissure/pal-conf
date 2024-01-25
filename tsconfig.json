@@ -30,7 +30,8 @@
         "strictNullChecks": true
     },
     "include": [
-        "src"
+        "src",
+        "tailwind.config.js",
     ],
     "references": [
         {

@@ -36,7 +36,7 @@ function SliderInput(props: {
         <div className="space-y-2">
             <div className="flex">
                 <Label className="leading-8" htmlFor={name}>{name}</Label>
-                <Button variant="ghost" className="ml-auto h-8" onClick={() => {
+                <Button variant="ghost" className="ml-auto h-8 px-1" onClick={() => {
                     onValueChange([defaultValue]);
                 }}>
                     <RotateCcw />
@@ -44,7 +44,7 @@ function SliderInput(props: {
             </div>
             <div className="flex">
                 <Label className="px-4">{valueStr}</Label>
-                <Slider className="max-w-[95%]" id={id} value={[value]} max={maxValue} min={minValue} step={step} onValueChange={onValueChange}/>
+                <Slider className="max-w-[95%]" id={id} value={[value]} max={maxValue} min={minValue} step={step} onValueChange={onValueChange} />
             </div>
         </div>
     );

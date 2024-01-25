@@ -17,15 +17,16 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import {
-    Collapsible,
-    CollapsibleContent,
-    CollapsibleTrigger,
-} from "@/components/ui/collapsible"
-import { Separator } from "@/components/ui/separator"
+    Accordion,
+    AccordionContent,
+    AccordionItem,
+    AccordionTrigger,
+} from "@/components/ui/accordion"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Toaster } from "@/components/ui/sonner"
 import { toast } from "sonner"
 // UI Icons
-import { Languages, ChevronsUpDown } from "lucide-react"
+import { Languages, AlertCircle } from "lucide-react"
 import ReactCountryFlag from "react-country-flag"
 
 // App Components
@@ -336,7 +337,6 @@ function App() {
                                     </DropdownMenuRadioGroup>
                                 </DropdownMenuContent>
                             </DropdownMenu>
-
                         </CardTitle>
                         <CardDescription>
                             <Trans i18nKey={'introduction'}>
@@ -345,47 +345,38 @@ function App() {
                         </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">
-                        {serverSettings}
-                        <Separator />
-                        <Collapsible className="space-y-4">
-                            <div className="flex items-center justify-between">
-                                <h4 className="text-sm font-bold">
+                        <Accordion type="single" collapsible defaultValue="server-settings" className="w-full">
+                            <AccordionItem value="server-settings" >
+                                <AccordionTrigger>
+                                    <Trans i18nKey={'serverSettings'}>
+                                        Server Settings
+                                    </Trans>
+                                </AccordionTrigger>
+                                <AccordionContent className="space-y-4">
+                                    {serverSettings}
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="ingame-settings" >
+                                <AccordionTrigger>
                                     <Trans i18nKey={'ingameSettings'}>
                                         In-Game Settings
                                     </Trans>
-                                </h4>
-                                <CollapsibleTrigger asChild>
-                                    <Button variant="ghost" size="sm">
-                                        <ChevronsUpDown className="h-4 w-4" />
-                                        <span className="sr-only">Toggle</span>
-                                    </Button>
-                                </CollapsibleTrigger>
-                            </div>
-                            <CollapsibleContent className="space-y-4">
-                                {inGameSliderSettings}
-                            </CollapsibleContent>
-                        </Collapsible>
-                        <Separator />
-                        <Collapsible className="space-y-4">
-                            <div className="flex items-center justify-between">
-                                <h4 className="text-sm font-bold">
+                                </AccordionTrigger>
+                                <AccordionContent className="space-y-4">
+                                    {inGameSliderSettings}
+                                </AccordionContent>
+                            </AccordionItem>
+                            <AccordionItem value="advanced-settings">
+                                <AccordionTrigger>
                                     <Trans i18nKey={'advancedSettings'}>
                                         Advanced Settings
                                     </Trans>
-                                </h4>
-                                <CollapsibleTrigger asChild>
-                                    <Button variant="ghost" size="sm">
-                                        <ChevronsUpDown className="h-4 w-4" />
-                                        <span className="sr-only">Toggle</span>
-                                    </Button>
-                                </CollapsibleTrigger>
-                            </div>
-                            <CollapsibleContent className="space-y-4">
-                                {advancedSettings}
-                            </CollapsibleContent>
-                        </Collapsible>
-                        <Separator />
-
+                                </AccordionTrigger>
+                                <AccordionContent className="space-y-4">
+                                    {advancedSettings}
+                                </AccordionContent>
+                            </AccordionItem>
+                        </Accordion>
                     </CardContent>
                     <CardFooter>
                         <Button className="mr-auto" onClick={() => {
@@ -404,6 +395,21 @@ function App() {
                         </Button>
                     </CardFooter>
                 </Card>
+                <Alert className="w-full max-w-3xl mt-8 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">
+                    <AlertCircle className="h-4 w-4" />
+                    <AlertTitle>
+                        <Trans i18nKey='iniHintTitle'>
+                            You are using PalWorldSettings.ini
+                        </Trans>
+                    </AlertTitle>
+                    <AlertDescription>
+                        Windows: steamapps/common/PalServer/Pal/Saved/Config/WindowsServer/PalWorldSettings.ini
+                        <br />
+                        Linux: steamapps/common/PalServer/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini
+                        <br />
+                        Some entries may not work.
+                    </AlertDescription>
+                </Alert>
                 <div className="w-full max-w-3xl mt-8 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">
                     <pre className="text-wrap break-all whitespace-pre-wrap text-sm text-gray-800 dark:text-gray-200">
                         {settingsText}

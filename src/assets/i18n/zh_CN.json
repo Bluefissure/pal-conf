@@ -3,6 +3,7 @@
         "unknown": "未知",
         "title": "幻兽帕鲁服务器配置生成器",
         "introduction": "修改值，下面的输出将实时更新。",
+        "serverSettings": "服务器设置",
         "ingameSettings": "游戏内设置",
         "advancedSettings": "高级设置",
         "load": "加载",
