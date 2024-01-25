@@ -176,9 +176,10 @@ function App() {
                 />
             );
         }
-        if ((entry.type === "integer" || entry.type === "float") && entry.range && entry.step) {
+        if ((entry.type === "integer" || entry.type === "float") && entry.range) {
             const minValue = Number(entry.range[0]);
             const maxValue = Number(entry.range[1]);
+            const step = entry.type === "integer" ? 1 : 0.000001;
             return (
                 <SliderInput
                     name={entryName}
@@ -188,7 +189,7 @@ function App() {
                     defaultValue={Number(entry.defaultValue)}
                     minValue={minValue}
                     maxValue={maxValue}
-                    step={entry.step}
+                    step={step}
                     onValueChange={(values) => {
                         onStateChanged(id)({
                             target: { value: `${values[0]}` }

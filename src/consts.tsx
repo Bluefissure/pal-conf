@@ -6,7 +6,6 @@ interface Entry {
     options?: string[],
     range?: [number, number],
     desc?: string,
-    step?: number,
 }
 
 /*
@@ -89,7 +88,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0.1, 5],
-        step: 0.1,
     },
     NightTimeSpeedRate: {
         name: "Night Time Speed Rate",
@@ -97,7 +95,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0.1, 5],
-        step: 0.1,
     },
     ExpRate: {
         name: "Exp Rate",
@@ -105,7 +102,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0, 20],
-        step: 0.1,
     },
     PalCaptureRate: {
         name: "Pal Capture Rate",
@@ -113,7 +109,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0.5, 2],
-        step: 0.1,
     },
     PalSpawnNumRate: {
         name: "Pal Spawn Number Rate",
@@ -121,7 +116,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0.5, 3],
-        step: 0.1,
     },
     PalDamageRateAttack: {
         name: "Pal Damage Rate Attack",
@@ -129,7 +123,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0.1, 5],
-        step: 0.1,
     },
     PalDamageRateDefense: {
         name: "Pal Damage Rate Defense",
@@ -137,7 +130,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0.1, 5],
-        step: 0.1,
     },
     PlayerDamageRateAttack: {
         name: "Player Damage Rate Attack",
@@ -145,7 +137,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0.1, 5],
-        step: 0.1,
         desc: "Player damage rate when attacking",
     },
     PlayerDamageRateDefense: {
@@ -154,7 +145,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0.1, 5],
-        step: 0.1,
         desc: "Player damage rate when defending",
     },
     PlayerStomachDecreaceRate: {
@@ -163,7 +153,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0.1, 5],
-        step: 0.1,
     },
     PlayerStaminaDecreaceRate: {
         name: "Player Stamina Decrease Rate",
@@ -171,7 +160,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0.1, 5],
-        step: 0.1,
     },
     PlayerAutoHPRegeneRate: {
         name: "Player Auto HP Regen Rate",
@@ -179,7 +167,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0.1, 5],
-        step: 0.1,
     },
     PlayerAutoHpRegeneRateInSleep: {
         name: "Player Auto HP Regen Rate In Sleep",
@@ -187,7 +174,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0.1, 5],
-        step: 0.1,
     },
     PalStomachDecreaceRate: {
         name: "Pal Stomach Decrease Rate",
@@ -195,7 +181,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0.1, 5],
-        step: 0.1,
     },
     PalStaminaDecreaceRate: {
         name: "Pal Stamina Decrease Rate",
@@ -203,7 +188,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0.1, 5],
-        step: 0.1,
     },
     PalAutoHPRegeneRate: {
         name: "Pal Auto HP Regen Rate",
@@ -211,7 +195,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0.1, 5],
-        step: 0.1,
     },
     PalAutoHpRegeneRateInSleep: {
         name: "Pal Auto HP Regen Rate In Sleep",
@@ -219,7 +202,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0.1, 5],
-        step: 0.1,
     },
     BuildObjectDamageRate: {
         name: "Build Object Damage Rate",
@@ -227,7 +209,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0.5, 3],
-        step: 0.1,
         desc: "Damage rate to build objects",
     },
     BuildObjectDeteriorationDamageRate: {
@@ -236,7 +217,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0, 10],
-        step: 0.1,
         desc: "Deterioration damage rate to build objects",
     },
     CollectionDropRate: {
@@ -245,7 +225,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0.5, 3],
-        step: 0.1
     },
     CollectionObjectHpRate: {
         name: "Collection Object HP Rate",
@@ -253,7 +232,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0.5, 3],
-        step: 0.1
     },
     CollectionObjectRespawnSpeedRate: {
         name: "Collection Object Respawn Speed Rate",
@@ -261,7 +239,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0.5, 3],
-        step: 0.1
     },
     EnemyDropItemRate: {
         name: "Enemy Drop Item Rate",
@@ -269,7 +246,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0.5, 3],
-        step: 0.1
     },
     DeathPenalty: {
         name: "Death Penalty",
@@ -327,7 +303,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "3000",
         type: "integer",
         range: [0, 5000],
-        step: 1,
         desc: "Drop item max num",
     },
     DropItemMaxNum_UNKO: {
@@ -336,7 +311,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "100",
         type: "integer",
         range: [0, 5000],
-        step: 1,
         desc: "Drop item max num UNKO",
     },
     BaseCampMaxNum: {
@@ -345,7 +319,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "128",
         type: "integer",
         range: [0, 256],
-        step: 1,
         desc: "Base camp max num",
     },
     BaseCampWorkerMaxNum: {
@@ -354,7 +327,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "15",
         type: "integer",
         range: [1, 20],
-        step: 1,
         desc: "Base camp worker max num",
     },
     DropItemAliveMaxHours: {
@@ -363,7 +335,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0, 240],
-        step: 1,
         desc: "Drop item alive max hours",
     },
     bAutoResetGuildNoOnlinePlayers: {
@@ -379,7 +350,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "72.000000",
         type: "float",
         range: [0, 240],
-        step: 1,
         desc: "Auto reset guild time no online players",
     },
     GuildPlayerMaxNum: {
@@ -388,7 +358,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "20",
         type: "integer",
         range: [1, 100],
-        step: 1,
         desc: "Guild player max num",
     },
     PalEggDefaultHatchingTime: {
@@ -397,7 +366,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "72.000000",
         type: "float",
         range: [0, 240],
-        step: 1,
         desc: "Pal egg default hatching time",
     },
     WorkSpeedRate: {
@@ -406,7 +374,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0.1, 5],
-        step: 0.1,
         desc: "Work speed rate",
     },
     bIsMultiplay: {
@@ -471,7 +438,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "4",
         type: "integer",
         range: [1, 4],
-        step: 1,
         desc: "Coop player max num",
     },
     ServerPlayerMaxNum: {
@@ -480,7 +446,6 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "32",
         type: "integer",
         range: [1, 100],
-        step: 1,
         desc: "Server player max num",
     },
     ServerName: {
