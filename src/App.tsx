@@ -398,16 +398,22 @@ function App() {
                 <Alert className="w-full max-w-3xl mt-8 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">
                     <AlertCircle className="h-4 w-4" />
                     <AlertTitle>
-                        <Trans i18nKey='iniHintTitle'>
-                            You are using PalWorldSettings.ini
-                        </Trans>
+                        <Trans
+                            i18nKey="usingSettingsFile"
+                            defaults="You are using {{settingsFile}}"
+                            values={{
+                                settingsFile: 'PalWorldSettings.ini',
+                            }}
+                        />
                     </AlertTitle>
                     <AlertDescription>
                         Windows: steamapps/common/PalServer/Pal/Saved/Config/WindowsServer/PalWorldSettings.ini
                         <br />
                         Linux: steamapps/common/PalServer/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini
                         <br />
-                        Some entries may not work.
+                        <Trans i18nKey="mayNotWorkWarning">
+                            Some entries may not work.
+                        </Trans>
                     </AlertDescription>
                 </Alert>
                 <div className="w-full max-w-3xl mt-8 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">

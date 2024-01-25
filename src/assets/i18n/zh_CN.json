@@ -6,6 +6,8 @@
         "serverSettings": "服务器设置",
         "ingameSettings": "游戏内设置",
         "advancedSettings": "高级设置",
+        "usingSettingsFile": "您在使用 {{settingsFile}}",
+        "mayNotWorkWarning": "某些设置可能不会生效",
         "load": "加载",
         "copy": "复制",
         "toast": {

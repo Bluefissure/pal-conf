@@ -6,6 +6,8 @@
         "serverSettings": "Server Settings",
         "ingameSettings": "In-Game Settings",
         "advancedSettings": "Advanced Settings",
+        "usingSettingsFile": "You are using {{settingsFile}}",
+        "mayNotWorkWarning": "Some entries may not work.",
         "load": "Load",
         "copy": "Copy",
         "toast": {
