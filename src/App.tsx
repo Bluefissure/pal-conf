@@ -325,11 +325,11 @@ function App() {
                                         setLocale(value);
                                     }}>
                                         <DropdownMenuRadioItem value="en_US">
-                                            <ReactCountryFlag countryCode="US" />
+                                            <ReactCountryFlag countryCode="US" svg />
                                             <div className="px-2"> en-US </div>
                                         </DropdownMenuRadioItem>
                                         <DropdownMenuRadioItem value="zh_CN">
-                                            <ReactCountryFlag countryCode="CN" />
+                                            <ReactCountryFlag countryCode="CN" svg />
                                             <div className="px-2"> zh-CN </div>
                                         </DropdownMenuRadioItem>
                                     </DropdownMenuRadioGroup>
