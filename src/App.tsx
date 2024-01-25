@@ -406,7 +406,7 @@ function App() {
                             }}
                         />
                     </AlertTitle>
-                    <AlertDescription>
+                    <AlertDescription className="text-wrap break-all whitespace-pre-wrap">
                         Windows: steamapps/common/PalServer/Pal/Saved/Config/WindowsServer/PalWorldSettings.ini
                         <br />
                         Linux: steamapps/common/PalServer/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini

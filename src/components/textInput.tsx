@@ -16,9 +16,9 @@ function TextInput(props: {
         onChange,
     } = props;
     return (
-        <div className="space-y-1">
-            <Label htmlFor={name}>{name}</Label>
-            <Input value={value} id={id} onChange={onChange} type={type} />
+        <div className="flex flex-col items-center space-y-2">
+            <Label className="mr-auto" htmlFor={name}>{name}</Label>
+            <Input className="w-[98%]" value={value} id={id} onChange={onChange} type={type} />
         </div>
     );
 }
