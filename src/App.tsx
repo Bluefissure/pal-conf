@@ -353,6 +353,7 @@ function App() {
                     }}
                     type={entry.type}
                     disabled={disabled}
+                    difficultyType={entry.difficultyType}
                 />
             )
         }
