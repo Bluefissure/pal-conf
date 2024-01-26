@@ -1,0 +1,19 @@
+{
+  "name": "uesave-wasm",
+  "collaborators": [
+    "ieb <1@wa.vg>"
+  ],
+  "version": "0.1.0",
+  "files": [
+    "uesave_wasm_bg.wasm",
+    "uesave_wasm.js",
+    "uesave_wasm_bg.js",
+    "uesave_wasm.d.ts"
+  ],
+  "module": "uesave_wasm.js",
+  "types": "uesave_wasm.d.ts",
+  "sideEffects": [
+    "./uesave_wasm.js",
+    "./snippets/*"
+  ]
+}

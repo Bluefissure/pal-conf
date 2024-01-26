@@ -1,6 +1,6 @@
 import './App.css'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 
 // i18n
 import i18n from './i18n';
@@ -22,6 +22,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Toaster } from "@/components/ui/sonner"
 import { toast } from "sonner"
@@ -30,11 +31,22 @@ import { Languages, AlertCircle } from "lucide-react"
 import ReactCountryFlag from "react-country-flag"
 
 // App Components
-import { ENTRIES } from './consts'
 import { TextInput } from './components/textInput'
 import { DeathPenaltyDropDown } from './components/deathPenaltyDropdown'
 import { SliderInput } from './components/sliderInput'
 import { SwitchInput } from './components/switchInput'
+import { Input } from './components/ui/input';
+
+// lib & utils
+import * as LosslessJSON from 'lossless-json'
+import { analyzeFile, writeFile } from './lib/save';
+
+// Constants
+import { ENTRIES } from './consts/entries'
+import { DEFAULT_WORLDOPTION, VALID_WORLDOPTION_KEYS } from './consts/worldoption';
+
+// Types
+import { Gvas } from './types/gvas';
 
 interface ChangeEvent<T> {
     target: {
@@ -47,6 +59,14 @@ function App() {
     const { t } = useTranslation();
     const [locale, setLocale] = useState(i18n.language === 'en' ? 'en_US' : i18n.language)
     const [entries, setEntries] = useState({} as Record<string, string>)
+    const [fileMode, setFileMode] = useState("ini")
+    const fileInputRef = useRef<HTMLInputElement>(null)
+    const [openedAccordion, setOpenedAccordion] = useState("server-settings")
+    // useEffect(() => {
+    //     if (fileMode === 'sav') {
+    //         setOpenedAccordion("ingame-settings");
+    //     }
+    // }, [fileMode]);
 
     const onStateChanged = (id: string) => (e: ChangeEvent<string>) => {
         setEntries((prevEntries) => {
@@ -57,7 +77,7 @@ function App() {
         })
     };
 
-    const serializeEntries = () => {
+    const serializeEntriesToIni = () => {
         const resultList: string[] = []
         Object.values(ENTRIES).forEach((entry) => {
             let entryStr = "";
@@ -78,7 +98,7 @@ function App() {
         return resultList.join(",");
     }
 
-    const deserializeEntries = (settingsText: string) => {
+    const deserializeEntriesFromIni = (settingsText: string) => {
         if (!settingsText) {
             toast.error(t('toast.invalid'), {
                 description: t('toast.invalidDescription'),
@@ -133,31 +153,152 @@ function App() {
         }
     };
 
-    const settingsText = `[/Script/Pal.PalGameWorldSettings]\nOptionSettings=(${serializeEntries()})`;
-
-    const copyToClipboard = () => {
-        navigator.clipboard.writeText(settingsText).then(() => {
-            toast.success(t('toast.copied'), {
-                description: t('toast.copiedDescription'),
-            })
-        }).catch(() => {
-            toast.error(t('toast.copyFailed'), {
-                description: t('toast.copyFailedDescription'),
-            })
-        });
+    const serializeEntriesToGvasJson = () => {
+        const result: Record<string, unknown> = {}
+        Object.values(ENTRIES).forEach((entry) => {
+            const entryValue = entries[entry.id] ?? entry.defaultValue;
+            let dictValue = {};
+            if (!(entry.id in DEFAULT_WORLDOPTION.gvas.
+                    root.properties.OptionWorldData.Struct.value.Struct.Settings.Struct.value.Struct)) {
+                return;
+            }
+            if (entryValue === entry.defaultValue) {
+                return;
+            }
+            if (entry.type === "select") {
+                if (entry.id === "DeathPenalty") {
+                    dictValue = {
+                        "Enum": {
+                            "value": `EPalOptionWorldDeathPenalty::${entryValue}`,
+                            "enum_type": "EPalOptionWorldDeathPenalty"
+                        }
+                    }
+                } else if (entry.id === "Difficulty") {
+                    dictValue = {
+                        "Enum": {
+                            "value": `EPalOptionWorldDifficulty::Custom`,
+                            "enum_type": "EPalOptionWorldDifficulty"
+                        }
+                    }
+                }
+            } else if (entry.type === "boolean") {
+                dictValue = {
+                    "Bool": {
+                        "value": entryValue === "True"
+                    }
+                }
+            } else if (entry.type === "integer") {
+                dictValue = {
+                    "Int": {
+                        "value": Number(entryValue)
+                    }
+                }
+            } else if (entry.type === "float") {
+                dictValue = {
+                    "Float": {
+                        "value": Number(entryValue)
+                    }
+                }
+            }
+            result[entry.id] = dictValue;
+        })
+        return result;
     }
 
-    const readFromClipboard = () => {
-        navigator.clipboard.readText().then((e) => {
-            deserializeEntries(e);
-        }).catch(() => {
-            toast.error(t('toast.loadFailed'), {
-                description: t('toast.loadFailedDescription'),
+    const deserializeEntriesFromGvasJson = (gvas: Gvas) => {
+        if (!gvas) {
+            toast.error(t('toast.invalidFile'), {
+                description: t('toast.invalidFileDescription'),
             })
+            return;
+        }
+        const gvasJson: Record<string, unknown> = gvas.
+            root.properties.OptionWorldData.Struct.value.Struct.Settings.Struct.value.Struct;
+        const newEntries = { ...entries };
+        Object.entries(gvasJson).forEach(([key, value]) => {
+            if (key in ENTRIES) {
+                const entry = ENTRIES[key];
+                const valueRecord = value as Record<string, {"value": string}>;
+                let entryValue: number | boolean | string | undefined = undefined;
+                if ("Enum" in valueRecord) {
+                    entryValue = valueRecord.Enum.value.split("::")[1];
+                } else if ("Int" in valueRecord || "Float" in valueRecord) {
+                    entryValue = valueRecord.Int?.value ?? valueRecord.Float?.value;
+                } else if ("Bool" in valueRecord) {
+                    entryValue = valueRecord.Bool.value ? "True" : "False";
+                }
+                newEntries[entry.id] = entryValue?.toString() ?? entry.defaultValue;
+            }
         });
+        setEntries(newEntries);
     }
 
-    const genInput = (id: string) => {
+    const openFile = async (f: File) => {
+        const result = await analyzeFile(f, (e) => {
+            console.error(e);
+            toast.error(t('toast.invalidFile'), {
+                description: t('toast.invalidFileDescription'),
+            })
+        }).catch((e) => {
+            console.error(e);
+        });
+        if (!result) {
+            return;
+        }
+        console.log(result);
+        console.log('magic: ' + result.magic);
+        const gvas: Gvas = result.gvas ?? DEFAULT_WORLDOPTION.gvas;
+        toast.success(t('toast.savFileLoaded'), {
+            description: t('toast.savFileLoadedDescription'),
+        })
+        deserializeEntriesFromGvasJson(gvas);
+    }
+
+    const saveFile = () => {
+        const gvasToSave: Gvas = DEFAULT_WORLDOPTION.gvas;
+        gvasToSave.root.properties.OptionWorldData.Struct.value.Struct.Settings.Struct.value.Struct = serializeEntriesToGvasJson();
+        writeFile(
+            {
+                magic: 828009552,
+                gvas: gvasToSave,
+            },
+            'WorldOption.sav',
+            () => {
+                toast.success(t('toast.saved'), {
+                    description: t('toast.savedDescription'),
+                })
+            },
+            (e) => {
+                console.error(e);
+                toast.error(t('toast.saveFailed'), {
+                    description: t('toast.saveFailedDescription'),
+                })
+            },
+        );
+    }
+
+    const handleFileInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (!file) {
+            toast.error(t('toast.invalidFile'), {
+                description: t('toast.invalidFileDescription'),
+            })
+            return;
+        }
+        openFile(file).then(() => {
+            console.log("File opened");
+            if (fileInputRef.current) {
+                fileInputRef.current.value = "";
+            }
+        }).catch((e) => {
+            console.error(e);
+            toast.error(t('toast.invalidFile'), {
+                description: t('toast.invalidFileDescription'),
+            });
+        });
+    };
+
+    const genInput = (id: string, disabled=false) => {
         const entry = ENTRIES[id];
         if (!entry) {
             return null;
@@ -197,6 +338,7 @@ function App() {
                         });
                     }}
                     type={entry.type}
+                    disabled={disabled}
                 />
             )
         }
@@ -213,6 +355,7 @@ function App() {
                             target: { value: e ? "True" : "False" }
                         });
                     }}
+                    disabled={disabled}
                 />
             );
         }
@@ -223,10 +366,18 @@ function App() {
                 key={id}
                 value={entryValue}
                 onChange={onStateChanged(id)}
+                disabled={disabled}
                 {...(entry.type === "integer" ? { type: "number" } : {})}
             />
         );
     }
+
+    const isEntryValid = useCallback((entryKey: string) => {
+        if (fileMode === 'ini') {
+            return true;
+        }
+        return VALID_WORLDOPTION_KEYS.indexOf(entryKey) >= 0;
+    }, [fileMode]);
 
     const serverSettings = [
         'ServerName',
@@ -236,8 +387,7 @@ function App() {
         'PublicIP',
         'PublicPort',
         'ServerPlayerMaxNum',
-    ].map(genInput);
-
+    ].map((k) => genInput(k, !isEntryValid(k)));
 
     const inGameSliderSettings = [
         'DayTimeSpeedRate',
@@ -269,7 +419,7 @@ function App() {
         'DeathPenalty',
         'GuildPlayerMaxNum',
         'BaseCampWorkerMaxNum',
-    ].map(genInput);
+    ].map((k) => genInput(k, !isEntryValid(k)));
 
     const advancedSettings = [
         'bEnablePlayerToPlayerDamage',
@@ -296,7 +446,33 @@ function App() {
         'Region',
         'bUseAuth',
         'BanListURL',
-    ].map(genInput);
+    ].map((k) => genInput(k, !isEntryValid(k)));
+
+    const settingsText = fileMode === 'ini'
+        ? `[/Script/Pal.PalGameWorldSettings]\nOptionSettings=(${serializeEntriesToIni()})`
+        : LosslessJSON.stringify(serializeEntriesToGvasJson(), null, 4) ?? '';
+
+    const copyToClipboard = () => {
+        navigator.clipboard.writeText(settingsText).then(() => {
+            toast.success(t('toast.copied'), {
+                description: t('toast.copiedDescription'),
+            })
+        }).catch(() => {
+            toast.error(t('toast.copyFailed'), {
+                description: t('toast.copyFailedDescription'),
+            })
+        });
+    }
+
+    const readFromClipboard = () => {
+        navigator.clipboard.readText().then((e) => {
+            deserializeEntriesFromIni(e);
+        }).catch(() => {
+            toast.error(t('toast.loadFailed'), {
+                description: t('toast.loadFailedDescription'),
+            })
+        });
+    }
 
     useEffect(() => {
         document.title = t('title');
@@ -345,7 +521,7 @@ function App() {
                         </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-4">
-                        <Accordion type="single" collapsible defaultValue="server-settings" className="w-full">
+                        <Accordion type="single" collapsible value={openedAccordion} className="w-full" onValueChange={setOpenedAccordion}>
                             <AccordionItem value="server-settings" >
                                 <AccordionTrigger>
                                     <Trans i18nKey={'serverSettings'}>
@@ -379,20 +555,47 @@ function App() {
                         </Accordion>
                     </CardContent>
                     <CardFooter>
-                        <Button className="mr-auto" onClick={() => {
-                            readFromClipboard();
-                        }}>
-                            <Trans i18nKey={'load'}>
-                                Load
-                            </Trans>
-                        </Button>
-                        <Button className="ml-auto" onClick={() => {
-                            copyToClipboard();
-                        }}>
-                            <Trans i18nKey={'copy'}>
-                                Copy
-                            </Trans>
-                        </Button>
+                        <Tabs value={fileMode} className="flex flex-col w-full min-h-10" onValueChange={setFileMode}>
+                            <TabsList>
+                                <TabsTrigger className="w-[50%]" value="ini">PalWorldSettings.ini</TabsTrigger>
+                                <TabsTrigger className="w-[50%]" value="sav">WorldOption.sav</TabsTrigger>
+                            </TabsList>
+                            <div className="mt-4">
+                                <TabsContent value="ini" className="flex mt-0">
+                                    <Button className="mr-auto" onClick={() => {
+                                        readFromClipboard();
+                                    }}>
+                                        <Trans i18nKey={'load'}>
+                                            Load
+                                        </Trans>
+                                    </Button>
+                                    <Button className="ml-auto" onClick={() => {
+                                        copyToClipboard();
+                                    }}>
+                                        <Trans i18nKey={'copy'}>
+                                            Copy
+                                        </Trans>
+                                    </Button>
+                                </TabsContent>
+                                <TabsContent value="sav" className="flex mt-0">
+                                    <Input className="hidden w-[50%]" id="file-upload" type="file" ref={fileInputRef}
+                                        onChange={handleFileInput} />
+                                    <Button className="mr-auto" onClick={() => {
+                                        fileInputRef.current?.click();
+                                    }}>
+                                        <Trans i18nKey={'upload'}>
+                                            Upload
+                                        </Trans>
+                                    </Button>
+                                    <Button className="ml-auto" onClick={saveFile}>
+                                        <Trans i18nKey={'download'}>
+                                            Download
+                                        </Trans>
+                                    </Button>
+                                </TabsContent>
+                            </div>
+                        </Tabs>
+
                     </CardFooter>
                 </Card>
                 <Alert className="w-full max-w-3xl mt-8 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">
@@ -402,18 +605,29 @@ function App() {
                             i18nKey="usingSettingsFile"
                             defaults="You are using {{settingsFile}}"
                             values={{
-                                settingsFile: 'PalWorldSettings.ini',
+                                settingsFile: fileMode === 'ini' ? 'PalWorldSettings.ini' : 'WorldOption.sav',
                             }}
                         />
                     </AlertTitle>
                     <AlertDescription className="text-wrap break-all whitespace-pre-wrap">
-                        Windows: steamapps/common/PalServer/Pal/Saved/Config/WindowsServer/PalWorldSettings.ini
-                        <br />
-                        Linux: steamapps/common/PalServer/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini
-                        <br />
-                        <Trans i18nKey="mayNotWorkWarning">
-                            Some entries may not work.
-                        </Trans>
+                        {
+                            fileMode === 'ini' ? (<>
+                                Windows: steamapps/common/PalServer/Pal/Saved/Config/WindowsServer/PalWorldSettings.ini
+                                <br />
+                                Linux: steamapps/common/PalServer/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini
+                                <br />
+                                <Trans i18nKey="iniFileWarning">
+                                    Some entries may not work.
+                                </Trans>
+                            </>) : (<>
+                                Windows & Linux:
+                                steamapps/common/PalServer/Pal/Saved/SaveGames/0/.../WorldOption.sav
+                                <br />
+                                <Trans i18nKey="savFileWarning">
+                                    Will take control of PalWorldSettings.ini.
+                                </Trans>
+                            </>)
+                        }
                     </AlertDescription>
                 </Alert>
                 <div className="w-full max-w-3xl mt-8 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">

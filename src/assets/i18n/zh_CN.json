@@ -6,10 +6,13 @@
         "serverSettings": "服务器设置",
         "ingameSettings": "游戏内设置",
         "advancedSettings": "高级设置",
-        "usingSettingsFile": "您在使用 {{settingsFile}}",
-        "mayNotWorkWarning": "某些设置可能不会生效",
+        "usingSettingsFile": "您正在使用 {{settingsFile}}",
+        "iniFileWarning": "某些设置（比如 BaseCampWorkerMaxNum）可能不会生效。",
+        "savFileWarning": "只对部分设置生效，并且会接管 PalWorldSettings.ini。",
         "load": "加载",
         "copy": "复制",
+        "upload": "上传",
+        "download": "下载",
         "toast": {
             "copied": "已复制到剪贴板",
             "copiedDescription": "服务器设置已复制到您的剪贴板。",
@@ -22,7 +25,15 @@
             "invalid": "设置无效",
             "invalidDescription": "您粘贴的设置无效。",
             "missing": "部分条目缺失",
-            "missingDescription": "您粘贴的设置已被加载。但是部分设置缺失。"
+            "missingDescription": "您粘贴的设置已被加载。但是部分设置缺失。",
+            "invalidFile": "无效的文件",
+            "invalidFileDescription": "您上传的文件无效。",
+            "savFileLoaded": "文件已加载",
+            "savFileLoadedDescription": "上传的 WorldOption.sav 文件已被加载。",
+            "saveFailed": "保存失败",
+            "saveFailedDescription": "WorldOption.sav 未能保存到您的设备。",
+            "saved": "已保存",
+            "savedDescription": "WorldOption.sav 已保存到您的设备。"
         },
         "entry": {
             "name": {

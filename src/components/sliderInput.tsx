@@ -13,6 +13,7 @@ function SliderInput(props: {
     step: number;
     onValueChange: (value: number[]) => void;
     type?: string;
+    disabled?: boolean;
 }) {
     const {
         id,
@@ -23,7 +24,8 @@ function SliderInput(props: {
         maxValue,
         step,
         onValueChange,
-        type
+        type,
+        disabled
     } = props;
 
     let valueStr = `${value}`;
@@ -38,13 +40,13 @@ function SliderInput(props: {
                 <Label className="leading-8" htmlFor={name}>{name}</Label>
                 <Button variant="ghost" className="ml-auto h-8 px-1" onClick={() => {
                     onValueChange([defaultValue]);
-                }}>
+                }} disabled={disabled}>
                     <RotateCcw />
                 </Button>
             </div>
             <div className="flex">
                 <Label className="px-4">{valueStr}</Label>
-                <Slider className="max-w-[95%]" id={id} value={[value]} max={maxValue} min={minValue} step={step} onValueChange={onValueChange} />
+                <Slider className="max-w-[95%]" id={id} value={[value]} max={maxValue} min={minValue} step={step} onValueChange={onValueChange} disabled={disabled}/>
             </div>
         </div>
     );
