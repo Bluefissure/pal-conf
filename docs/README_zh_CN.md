@@ -24,7 +24,7 @@
 - Windows: `steamapps/common/PalServer/Pal/Saved/Config/WindowsServer/PalWorldSettings.ini`
 - Linux: `steamapps/common/PalServer/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini`
 
-加载和复制按钮与你的 pastebin 通信，请在点击加载按钮之前复制你的服务器设置，
+加载和复制按钮与你的剪切板通信，请在点击加载按钮之前复制你的服务器设置，
 复制按钮将为你复制输出设置。
 
 ### WorldOption.sav

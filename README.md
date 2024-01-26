@@ -24,7 +24,7 @@ The `PalWorldSettings.ini` file is located in:
 - Windows: `steamapps/common/PalServer/Pal/Saved/Config/WindowsServer/PalWorldSettings.ini`
 - Linux: `steamapps/common/PalServer/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini`
 
-The load & copy buttons communicate with your pastebin, please copy your server setings before click the load button,
+The load & copy buttons communicate with your clipboard, please copy your server setings before click the load button,
 and the copy button will copy the output settings for you.
 
 ### WorldOption.sav
