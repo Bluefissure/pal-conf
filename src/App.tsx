@@ -1,6 +1,6 @@
 import './App.css'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 
 // i18n
 import i18n from './i18n';
@@ -22,6 +22,7 @@ import {
     AccordionItem,
     AccordionTrigger,
 } from "@/components/ui/accordion"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Toaster } from "@/components/ui/sonner"
 import { toast } from "sonner"
@@ -35,6 +36,10 @@ import { TextInput } from './components/textInput'
 import { DeathPenaltyDropDown } from './components/deathPenaltyDropdown'
 import { SliderInput } from './components/sliderInput'
 import { SwitchInput } from './components/switchInput'
+import { Input } from './components/ui/input';
+
+// lib
+import { analyzeFile } from './lib/save';
 
 interface ChangeEvent<T> {
     target: {
@@ -44,9 +49,12 @@ interface ChangeEvent<T> {
 
 
 function App() {
+
     const { t } = useTranslation();
     const [locale, setLocale] = useState(i18n.language === 'en' ? 'en_US' : i18n.language)
     const [entries, setEntries] = useState({} as Record<string, string>)
+    const [fileMode, setFileMode] = useState("ini")
+    const fileInputRef = useRef<HTMLInputElement>(null);
 
     const onStateChanged = (id: string) => (e: ChangeEvent<string>) => {
         setEntries((prevEntries) => {
@@ -57,7 +65,7 @@ function App() {
         })
     };
 
-    const serializeEntries = () => {
+    const serializeEntriesToIni = () => {
         const resultList: string[] = []
         Object.values(ENTRIES).forEach((entry) => {
             let entryStr = "";
@@ -78,7 +86,7 @@ function App() {
         return resultList.join(",");
     }
 
-    const deserializeEntries = (settingsText: string) => {
+    const deserializeEntriesFromIni = (settingsText: string) => {
         if (!settingsText) {
             toast.error(t('toast.invalid'), {
                 description: t('toast.invalidDescription'),
@@ -133,7 +141,7 @@ function App() {
         }
     };
 
-    const settingsText = `[/Script/Pal.PalGameWorldSettings]\nOptionSettings=(${serializeEntries()})`;
+    const settingsText = `[/Script/Pal.PalGameWorldSettings]\nOptionSettings=(${serializeEntriesToIni()})`;
 
     const copyToClipboard = () => {
         navigator.clipboard.writeText(settingsText).then(() => {
@@ -149,13 +157,30 @@ function App() {
 
     const readFromClipboard = () => {
         navigator.clipboard.readText().then((e) => {
-            deserializeEntries(e);
+            deserializeEntriesFromIni(e);
         }).catch(() => {
             toast.error(t('toast.loadFailed'), {
                 description: t('toast.loadFailedDescription'),
             })
         });
     }
+
+    const handleFileInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const file = e.target.files?.[0];
+        if (!file) {
+            toast.error(t('toast.invalidFile'), {
+                description: t('toast.invalidFileDescription'),
+            })
+            return;
+        }
+        analyzeFile(file).then((result) => {
+            if (result) {
+                console.log(result);
+            }
+        }).catch((e) => {
+            console.error(e);
+        });
+    };
 
     const genInput = (id: string) => {
         const entry = ENTRIES[id];
@@ -379,20 +404,49 @@ function App() {
                         </Accordion>
                     </CardContent>
                     <CardFooter>
-                        <Button className="mr-auto" onClick={() => {
-                            readFromClipboard();
-                        }}>
-                            <Trans i18nKey={'load'}>
-                                Load
-                            </Trans>
-                        </Button>
-                        <Button className="ml-auto" onClick={() => {
-                            copyToClipboard();
-                        }}>
-                            <Trans i18nKey={'copy'}>
-                                Copy
-                            </Trans>
-                        </Button>
+                        <Tabs value={fileMode} className="flex flex-col w-full min-h-10" onValueChange={setFileMode}>
+                            <TabsList>
+                                <TabsTrigger className="w-[50%]" value="ini">PalWorldSettings.ini</TabsTrigger>
+                                <TabsTrigger className="w-[50%]" value="sav">WorldOption.sav</TabsTrigger>
+                            </TabsList>
+                            <div className="mt-2">
+                                <TabsContent value="ini" className="flex mt-0">
+                                    <Button className="mr-auto" onClick={() => {
+                                        readFromClipboard();
+                                    }}>
+                                        <Trans i18nKey={'load'}>
+                                            Load
+                                        </Trans>
+                                    </Button>
+                                    <Button className="ml-auto" onClick={() => {
+                                        copyToClipboard();
+                                    }}>
+                                        <Trans i18nKey={'copy'}>
+                                            Copy
+                                        </Trans>
+                                    </Button>
+                                </TabsContent>
+                                <TabsContent value="sav" className="flex mt-0">
+                                    <Input className="hidden w-[50%]" id="file-upload" type="file" ref={fileInputRef}
+                                        onChange={handleFileInput} />
+                                    <Button className="mr-auto" onClick={() => {
+                                        fileInputRef.current?.click();
+                                    }}>
+                                        <Trans i18nKey={'upload'}>
+                                            Upload
+                                        </Trans>
+                                    </Button>
+                                    <Button className="ml-auto" onClick={() => {
+                                        copyToClipboard();
+                                    }}>
+                                        <Trans i18nKey={'download'}>
+                                            Download
+                                        </Trans>
+                                    </Button>
+                                </TabsContent>
+                            </div>
+                        </Tabs>
+
                     </CardFooter>
                 </Card>
                 <Alert className="w-full max-w-3xl mt-8 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">

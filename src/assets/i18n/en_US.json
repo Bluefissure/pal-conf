@@ -10,6 +10,8 @@
         "mayNotWorkWarning": "Some entries may not work.",
         "load": "Load",
         "copy": "Copy",
+        "upload": "Upload",
+        "download": "Download",
         "toast": {
             "copied": "Copied to clipboard",
             "copiedDescription": "The server settings have been copied to your clipboard.",
@@ -22,7 +24,9 @@
             "invalid": "Invalid settings",
             "invalidDescription": "The settings you pasted are invalid.",
             "missing": "Some entries are missing",
-            "missingDescription": "The settings you pasted have been loaded. But some settings are missing."
+            "missingDescription": "The settings you pasted have been loaded. But some settings are missing.",
+            "invalidFile": "Invalid file",
+            "invalidFileDescription": "The file you uploaded is invalid."
         },
         "entry": {
             "name": {
