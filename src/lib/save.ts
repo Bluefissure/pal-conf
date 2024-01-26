@@ -5,8 +5,20 @@ import {deserialize, serialize} from "./uesave";
 import { Serializer } from "./serializer";
 import { Buffer } from "buffer";
 
-export const analyzeFile = async (file: File) => {
-  return new Promise((resolve) => {
+import { Gvas } from "@/types/gvas";
+
+export interface AnalyzedFile {
+    fileName: string;
+    lenDecompressed: number;
+    lenCompressed: number;
+    magic: number;
+    gvas: Gvas;
+}
+
+export const analyzeFile = async (
+    file: File,
+    onLoadError?: (e: unknown) => void,) => {
+  return new Promise((resolve: (value: AnalyzedFile) => void) => {
         const reader = new FileReader();
         reader.onload = () => {
             const serial = new Serializer(Buffer.from(reader.result as ArrayBuffer));
@@ -46,7 +58,9 @@ export const analyzeFile = async (file: File) => {
                 );
 
                 console.time("deserialize");
-                const gvas = LosslessJSON.parse(deserialize(decompressed, typeMap));
+                const dataStr = deserialize(decompressed, typeMap);
+                const gvas = LosslessJSON.parse(dataStr);
+                console.log('deserialized', dataStr);
                 console.timeEnd("deserialize");
 
                 resolve({
@@ -54,12 +68,12 @@ export const analyzeFile = async (file: File) => {
                     lenDecompressed,
                     lenCompressed,
                     magic,
-                    gvas
+                    gvas: gvas as Gvas,
                 });
 
             } catch (e) {
                 console.error(e);
-                alert("Is it really a Palworld Save?");
+                onLoadError?.(e);
             }
         };
         reader.readAsArrayBuffer(file);
@@ -67,12 +81,19 @@ export const analyzeFile = async (file: File) => {
 }
 
 
-export const writeFile = ({ magic, gvas } : {
-    magic: number,
-    gvas: unknown
-}, filename = "save.sav") => {
+export const writeFile = (
+    { magic, gvas } : {
+        magic: number,
+        gvas: Gvas
+    },
+    filename = "save.sav",
+    onWriteSuccess?: () => void,
+    onWriteError?: (e: unknown) => void,
+) => {
   try {
-    let serialized = serialize(LosslessJSON.stringify(gvas) ?? '');
+    const jsonToSerialize = LosslessJSON.stringify(gvas) ?? "{}";
+    console.log('to serialize', jsonToSerialize);
+    let serialized = serialize(jsonToSerialize);
     const lenDecompressed = serialized.length;
     const leadingByte = (magic & 0xff000000) >> 24;
     if (leadingByte == 0x32) {
@@ -90,8 +111,11 @@ export const writeFile = ({ magic, gvas } : {
     buf.writeInt32LE(magic, 8);
     buf.set(serialized, 12);
     saveAs(new Blob([buf], {type: "application/binary"}), filename);
+    onWriteSuccess?.();
   } catch (e) {
-    alert("Serialization failed. Have you accidentally removed something?");
+    console.error(e);
+    onWriteError?.(e);
+    // alert("Serialization failed. Have you accidentally removed something?");
   }
 
 }

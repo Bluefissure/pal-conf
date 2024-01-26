@@ -7,7 +7,8 @@
         "ingameSettings": "In-Game Settings",
         "advancedSettings": "Advanced Settings",
         "usingSettingsFile": "You are using {{settingsFile}}",
-        "mayNotWorkWarning": "Some entries may not work.",
+        "iniFileWarning": "Some entries (such as BaseCampWorkerMaxNum) may not work.",
+        "savFileWarning": "Only works on certain settings, and will take control of PalWorldSettings.ini.",
         "load": "Load",
         "copy": "Copy",
         "upload": "Upload",
@@ -26,7 +27,13 @@
             "missing": "Some entries are missing",
             "missingDescription": "The settings you pasted have been loaded. But some settings are missing.",
             "invalidFile": "Invalid file",
-            "invalidFileDescription": "The file you uploaded is invalid."
+            "invalidFileDescription": "The file you uploaded is invalid.",
+            "savFileLoaded": "File loaded",
+            "savFileLoadedDescription": "The WorldOption.sav file has been loaded.",
+            "saveFailed": "File Save Failed",
+            "saveFailedDescription": "The WorldOption.sav file failed to save.",
+            "saved": "File Saved",
+            "savedDescription": "The WorldOption.sav file has been saved."
         },
         "entry": {
             "name": {
