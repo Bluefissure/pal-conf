@@ -1,21 +1,9 @@
 import { saveAs } from "file-saver";
 import * as LosslessJSON from 'lossless-json'
 import pako from "pako";
-import * as uesave from "./uesave";
+import {deserialize, serialize} from "./uesave";
 import { Serializer } from "./serializer";
 import { Buffer } from "buffer";
-
-// import uesaveUrl from './uesave/uesave_wasm_bg.wasm?url'
-
-// const main = async () => {
-//     const responsePromise = fetch(uesaveUrl)
-//     const { instance: uesave } =
-//         await WebAssembly.instantiateStreaming(responsePromise)
-//     return uesave;
-//     /* ... */
-// }
-
-// const uesave = await main();
 
 export const analyzeFile = async (file: File) => {
   return new Promise((resolve) => {
@@ -58,7 +46,7 @@ export const analyzeFile = async (file: File) => {
                 );
 
                 console.time("deserialize");
-                const gvas = LosslessJSON.parse(uesave.deserialize(decompressed, typeMap));
+                const gvas = LosslessJSON.parse(deserialize(decompressed, typeMap));
                 console.timeEnd("deserialize");
 
                 resolve({
@@ -84,7 +72,7 @@ export const writeFile = ({ magic, gvas } : {
     gvas: unknown
 }, filename = "save.sav") => {
   try {
-    let serialized = uesave.serialize(LosslessJSON.stringify(gvas) ?? '');
+    let serialized = serialize(LosslessJSON.stringify(gvas) ?? '');
     const lenDecompressed = serialized.length;
     const leadingByte = (magic & 0xff000000) >> 24;
     if (leadingByte == 0x32) {

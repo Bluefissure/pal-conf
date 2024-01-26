@@ -165,6 +165,11 @@ function App() {
         });
     }
 
+    const openFile = async (f: File) => {
+        const result = await analyzeFile(f);
+        console.log(result);
+    }
+
     const handleFileInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (!file) {
@@ -173,10 +178,8 @@ function App() {
             })
             return;
         }
-        analyzeFile(file).then((result) => {
-            if (result) {
-                console.log(result);
-            }
+        openFile(file).then(() => {
+            console.log("File opened");
         }).catch((e) => {
             console.error(e);
         });
@@ -436,9 +439,7 @@ function App() {
                                             Upload
                                         </Trans>
                                     </Button>
-                                    <Button className="ml-auto" onClick={() => {
-                                        copyToClipboard();
-                                    }}>
+                                    <Button className="ml-auto" onClick={() => {console.log('download')}}>
                                         <Trans i18nKey={'download'}>
                                             Download
                                         </Trans>
