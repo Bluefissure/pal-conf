@@ -621,7 +621,7 @@ function App() {
                                 </Trans>
                             </>) : (<>
                                 Windows & Linux:
-                                steamapps/common/PalServer/Pal/Saved/SaveGames/0/xxx/WorldOption.sav
+                                steamapps/common/PalServer/Pal/Saved/SaveGames/0/.../WorldOption.sav
                                 <br />
                                 <Trans i18nKey="savFileWarning">
                                     Will take control of PalWorldSettings.ini.

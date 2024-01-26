@@ -6,7 +6,7 @@
         "serverSettings": "服务器设置",
         "ingameSettings": "游戏内设置",
         "advancedSettings": "高级设置",
-        "usingSettingsFile": "您在使用 {{settingsFile}}",
+        "usingSettingsFile": "您正在使用 {{settingsFile}}",
         "iniFileWarning": "某些设置（比如 BaseCampWorkerMaxNum）可能不会生效。",
         "savFileWarning": "只对部分设置生效，并且会接管 PalWorldSettings.ini。",
         "load": "加载",
