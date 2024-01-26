@@ -60,7 +60,7 @@ export const analyzeFile = async (
                 console.time("deserialize");
                 const dataStr = deserialize(decompressed, typeMap);
                 const gvas = LosslessJSON.parse(dataStr);
-                console.log('deserialized', dataStr);
+                // console.log('deserialized', dataStr);
                 console.timeEnd("deserialize");
 
                 resolve({
@@ -92,7 +92,7 @@ export const writeFile = (
 ) => {
   try {
     const jsonToSerialize = LosslessJSON.stringify(gvas) ?? "{}";
-    console.log('to serialize', jsonToSerialize);
+    // console.log('to serialize', jsonToSerialize);
     let serialized = serialize(jsonToSerialize);
     const lenDecompressed = serialized.length;
     const leadingByte = (magic & 0xff000000) >> 24;

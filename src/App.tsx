@@ -245,8 +245,8 @@ function App() {
         if (!result) {
             return;
         }
-        console.log(result);
-        console.log('magic: ' + result.magic);
+        // console.log(result);
+        // console.log('magic: ' + result.magic);
         const gvas: Gvas = result.gvas ?? DEFAULT_WORLDOPTION.gvas;
         toast.success(t('toast.savFileLoaded'), {
             description: t('toast.savFileLoadedDescription'),
@@ -285,8 +285,14 @@ function App() {
             })
             return;
         }
+        // if (file.name !== 'WorldOption.sav') {
+        //     toast.error(t('toast.invalidFileName'), {
+        //         description: t('toast.invalidFileNameDescription'),
+        //     })
+        //     return;
+        // }
         openFile(file).then(() => {
-            console.log("File opened");
+            // console.log("File opened");
             if (fileInputRef.current) {
                 fileInputRef.current.value = "";
             }

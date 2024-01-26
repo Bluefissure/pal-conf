@@ -33,7 +33,9 @@
             "saveFailed": "File Save Failed",
             "saveFailedDescription": "The WorldOption.sav file failed to save.",
             "saved": "File Saved",
-            "savedDescription": "The WorldOption.sav file has been saved."
+            "savedDescription": "The WorldOption.sav file has been saved.",
+            "invalidFileName": "Invalid File Name",
+            "invalidFileNameDescription": "Please upload WorldOption.sav file."
         },
         "entry": {
             "name": {
