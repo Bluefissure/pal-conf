@@ -574,6 +574,11 @@ export const DEFAULT_WORLDOPTION = {
                               "value": true
                             }
                           },
+                          "bEnableFastTravel": {
+                            "Bool": {
+                              "value": true
+                            }
+                          },
                           "BanListURL": {
                             "Str": {
                               "value": "https://api.palworldgame.com/api/banlist.txt"
