@@ -464,6 +464,21 @@ export const DEFAULT_WORLDOPTION = {
                               "value": 1928
                             }
                           },
+                          "DropItemMaxNum_UNKO": {
+                            "Int": {
+                              "value": 100
+                            }
+                          },
+                          "BaseCampMaxNum": {
+                            "Int": {
+                              "value": 128
+                            }
+                          },
+                          "DropItemAliveMaxHours": {
+                            "Float": {
+                              "value": 1
+                            }
+                          },
                           "BaseCampWorkerMaxNum": {
                             "Int": {
                               "value": 20
@@ -472,6 +487,16 @@ export const DEFAULT_WORLDOPTION = {
                           "bAutoResetGuildNoOnlinePlayers": {
                             "Bool": {
                               "value": true
+                            }
+                          },
+                          "AutoResetGuildTimeNoOnlinePlayers": {
+                            "Float": {
+                              "value": 116.0
+                            }
+                          },
+                          "WorkSpeedRate": {
+                            "Float": {
+                              "value": 1.0
                             }
                           },
                           "GuildPlayerMaxNum": {
@@ -495,6 +520,106 @@ export const DEFAULT_WORLDOPTION = {
                             }
                           },
                           "bIsStartLocationSelectByMap": {
+                            "Bool": {
+                              "value": false
+                            }
+                          },
+                          "ServerName": {
+                            "Str": {
+                              "value": "Default Palworld Server"
+                            }
+                          },
+                          "ServerDescription": {
+                            "Str": {
+                              "value": ""
+                            }
+                          },
+                          "AdminPassword": {
+                            "Str": {
+                              "value": ""
+                            }
+                          },
+                          "ServerPassword": {
+                            "Str": {
+                              "value": ""
+                            }
+                          },
+                          "PublicPort": {
+                            "Int": {
+                              "value": 8211
+                            }
+                          },
+                          "PublicIP": {
+                            "Str": {
+                              "value": ""
+                            }
+                          },
+                          "RCONEnabled": {
+                            "Bool": {
+                              "value": false
+                            }
+                          },
+                          "RCONPort": {
+                            "Int": {
+                              "value": 25575
+                            }
+                          },
+                          "Region": {
+                            "Str": {
+                              "value": ""
+                            }
+                          },
+                          "bUseAuth": {
+                            "Bool": {
+                              "value": true
+                            }
+                          },
+                          "BanListURL": {
+                            "Str": {
+                              "value": "https://api.palworldgame.com/api/banlist.txt"
+                            }
+                          },
+                          "ServerPlayerMaxNum": {
+                            "Int": {
+                              "value": 32
+                            }
+                          },
+                          "bIsPvP": {
+                            "Bool": {
+                              "value": false
+                            }
+                          },
+                          "bCanPickupOtherGuildDeathPenaltyDrop": {
+                            "Bool": {
+                              "value": false
+                            }
+                          },
+                          "bExistPlayerAfterLogout": {
+                            "Bool": {
+                              "value": false
+                            }
+                          },
+                          "bEnableDefenseOtherGuildPlayer": {
+                            "Bool": {
+                              "value": false
+                            }
+                          },
+                          "bEnablePlayerToPlayerDamage": {
+                            "Bool": {
+                              "value": false
+                            }
+                          },
+                          "bEnableFriendlyFire": {
+                            "Bool": {
+                              "value": false
+                            }
+                          },
+                          "bEnableAimAssistPad": {
+                            "Bool": {
+                              "value": true
+                            }
+                          },
+                          "bEnableAimAssistKeyboard": {
                             "Bool": {
                               "value": false
                             }

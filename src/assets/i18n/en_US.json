@@ -8,7 +8,7 @@
         "advancedSettings": "Advanced Settings",
         "usingSettingsFile": "You are using {{settingsFile}}",
         "iniFileWarning": "Some entries (such as BaseCampWorkerMaxNum) may not work.",
-        "savFileWarning": "Only works on certain settings, and will take control of PalWorldSettings.ini.",
+        "savFileWarning": "WorldOption.sav will take control of PalWorldSettings.ini.",
         "load": "Load",
         "copy": "Copy",
         "upload": "Upload",

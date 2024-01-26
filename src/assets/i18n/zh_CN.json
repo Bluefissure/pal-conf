@@ -8,7 +8,7 @@
         "advancedSettings": "高级设置",
         "usingSettingsFile": "您正在使用 {{settingsFile}}",
         "iniFileWarning": "某些设置（比如 BaseCampWorkerMaxNum）可能不会生效。",
-        "savFileWarning": "只对部分设置生效，并且会接管 PalWorldSettings.ini。",
+        "savFileWarning": "WorldOption.sav 会接管 PalWorldSettings.ini。",
         "load": "加载",
         "copy": "复制",
         "upload": "上传",

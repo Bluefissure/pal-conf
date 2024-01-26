@@ -199,6 +199,12 @@ function App() {
                         "value": Number(entryValue)
                     }
                 }
+            } else if (entry.type === "string") {
+                dictValue = {
+                    "Str": {
+                        "value": entryValue
+                    }
+                }
             }
             result[entry.id] = dictValue;
         })
@@ -226,6 +232,8 @@ function App() {
                     entryValue = valueRecord.Int?.value ?? valueRecord.Float?.value;
                 } else if ("Bool" in valueRecord) {
                     entryValue = valueRecord.Bool.value ? "True" : "False";
+                } else if ("Str" in valueRecord) {
+                    entryValue = valueRecord.Str.value;
                 }
                 newEntries[entry.id] = entryValue?.toString() ?? entry.defaultValue;
             }
