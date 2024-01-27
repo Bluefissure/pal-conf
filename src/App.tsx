@@ -188,12 +188,18 @@ function App() {
                     }
                 }
             } else if (entry.type === "integer") {
+                if (Number(entryValue) === Number(entry.defaultValue)) {
+                    return;
+                }
                 dictValue = {
                     "Int": {
                         "value": Number(entryValue)
                     }
                 }
             } else if (entry.type === "float") {
+                if (Number(entryValue) === Number(entry.defaultValue)) {
+                    return;
+                }
                 dictValue = {
                     "Float": {
                         "value": Number(entryValue)

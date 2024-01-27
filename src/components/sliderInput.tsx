@@ -2,7 +2,15 @@ import { Label } from "@/components/ui/label"
 import { Slider } from "@/components/ui/slider"
 import { Trans } from 'react-i18next';
 import { Button } from "./ui/button";
+import { Input } from "@/components/ui/input"
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+  } from "@/components/ui/tooltip"
 import { RotateCcw, ArrowBigLeftDash, ArrowBigRightDash } from "lucide-react"
+import { useEffect, useState } from "react";
 
 /**
  * increasing: number increases game harder
@@ -38,12 +46,9 @@ function SliderInput(props: {
         difficultyType = 'independence'
     } = props;
 
-    let valueStr = `${value}`;
-    if (type === "integer") {
-        valueStr = value.toString();
-    } else if (type === "float") {
-        valueStr = `${+value.toFixed(1)}`;
-    }
+    const [inputValue, setInputValue] = useState(`${value}`);
+
+
 
     const difficultyTypeArrowRenderer = (difficultyType: DifficultyType) => {
         switch (difficultyType) {
@@ -78,6 +83,36 @@ function SliderInput(props: {
         }
     }
 
+    const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setInputValue(e.target.value);
+    }
+
+    const shownStep = type === "integer" ? 1 : 0.1;
+
+    useEffect(() => {
+        const handler = setTimeout(() => {
+            let value = +inputValue;
+            if (value < minValue) {
+                value = minValue;
+                setInputValue(`${minValue}`);
+            }
+            if (value > maxValue) {
+                value = maxValue;
+                setInputValue(`${maxValue}`);
+            }
+            onValueChange([value]);
+        }, 1500);
+        return () => {
+            clearTimeout(handler);
+        };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [inputValue, type, minValue, maxValue]);
+
+    useEffect(() => {
+        setInputValue(`${value}`);
+    }, [value]);
+
+    
     return (
         <div className="space-y-2">
             <div className="flex">
@@ -90,8 +125,17 @@ function SliderInput(props: {
                 </Button>
             </div>
             <div className="flex">
-                <Label className="px-4">{valueStr}</Label>
-                <Slider className="max-w-[95%]" id={id} value={[value]} max={maxValue} min={minValue} step={step} onValueChange={onValueChange} disabled={disabled}/>
+                <TooltipProvider>
+                    <Tooltip >
+                        <TooltipTrigger className="mx-2 w-[15%] px-0" >
+                            <Input value={inputValue} id={id} type="number" disabled={disabled} onChange={onInputChange} step={shownStep}/></TooltipTrigger>
+                        <TooltipContent>
+                        <p>{minValue} ~ {maxValue}</p>
+                        </TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
+                {/* <Label className="px-4">{valueStr}</Label> */}
+                <Slider className="max-w-[80%]" id={id} value={[value]} max={maxValue} min={minValue} step={step} onValueChange={onValueChange} disabled={disabled}/>
             </div>
         </div>
     );
