@@ -105,7 +105,7 @@ function App() {
             })
             return;
         }
-        const settingsTextList = settingsText.split("\n");
+        const settingsTextList = settingsText.trim().split("\n");
         let loadedEntriesNum = 0;
         let erroredLinesNum = 0;
         settingsTextList.forEach((line) => {
