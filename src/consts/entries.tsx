@@ -246,7 +246,7 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0.5, 3],
-        difficultyType: "increasing",
+        difficultyType: "decreasing",
     },
     CollectionObjectRespawnSpeedRate: {
         name: "Collection Object Respawn Speed Rate",
@@ -254,7 +254,7 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0.5, 3],
-        difficultyType: "decreasing",
+        difficultyType: "increasing",
     },
     EnemyDropItemRate: {
         name: "Enemy Drop Item Rate",
