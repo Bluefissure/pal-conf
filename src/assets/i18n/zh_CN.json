@@ -63,7 +63,7 @@
                 "BuildObjectDeteriorationDamageRate": "建筑物的劣化速度倍率",
                 "CollectionDropRate": "道具采集量倍率",
                 "CollectionObjectHpRate": "可采集物品生命值倍率",
-                "CollectionObjectRespawnSpeedRate": "可采集物品刷新间隔",
+                "CollectionObjectRespawnSpeedRate": "可采集物品刷新速度倍率",
                 "EnemyDropItemRate": "道具掉落量倍率",
                 "DeathPenalty": "死亡惩罚",
                 "bEnablePlayerToPlayerDamage": "启用玩家对玩家伤害",

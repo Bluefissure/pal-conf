@@ -254,7 +254,7 @@ export const ENTRIES: Record<string, Entry> = {
         defaultValue: "1.000000",
         type: "float",
         range: [0.5, 3],
-        difficultyType: "increasing",
+        difficultyType: "decreasing",
     },
     EnemyDropItemRate: {
         name: "Enemy Drop Item Rate",
