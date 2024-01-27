@@ -101,7 +101,7 @@ function SliderInput(props: {
                 setInputValue(`${maxValue}`);
             }
             onValueChange([value]);
-        }, 500);
+        }, 1500);
         return () => {
             clearTimeout(handler);
         };
