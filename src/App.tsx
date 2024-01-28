@@ -105,13 +105,28 @@ function App() {
             })
             return;
         }
-        const settingsTextList = settingsText.split("\n");
+        const settingsTextList = settingsText.trim().split("\n");
         let loadedEntriesNum = 0;
         let erroredLinesNum = 0;
         settingsTextList.forEach((line) => {
             if (line.startsWith("OptionSettings=(") && line.endsWith(")")) {
                 const optionSettings = line.substring("OptionSettings=(".length, line.length - 1);
-                const optionSettingsList = optionSettings.split(",");
+                const optionSettingsList: string[] = [];
+                let start = 0;
+                let end = 0;
+                let quotation = false;
+                for (const char of optionSettings) {
+                    if (char === "\"") {
+                        quotation = !quotation;
+                    }
+                    end++;
+                    if (char === "," && false === quotation) {
+                        optionSettingsList.push(optionSettings.substring(start, end - 1));
+                        start = end;
+                    }
+                }
+                // the last one
+                optionSettingsList.push(optionSettings.substring(start, end));
                 const newEntries = { ...entries };
                 optionSettingsList.forEach((optionSetting) => {
                     // console.log(optionSetting)
