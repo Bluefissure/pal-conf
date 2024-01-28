@@ -154,7 +154,7 @@ function App() {
     };
 
     const serializeEntriesToGvasJson = () => {
-        const result: Record<string, unknown> = {}
+        const gvasJson: Record<string, unknown> = {}
         Object.values(ENTRIES).forEach((entry) => {
             const entryValue = entries[entry.id] ?? entry.defaultValue;
             let dictValue = {};
@@ -212,9 +212,9 @@ function App() {
                     }
                 }
             }
-            result[entry.id] = dictValue;
+            gvasJson[entry.id] = dictValue;
         })
-        return result;
+        return gvasJson;
     }
 
     const deserializeEntriesFromGvasJson = (gvas: Gvas) => {
@@ -269,7 +269,7 @@ function App() {
     }
 
     const saveFile = () => {
-        const gvasToSave: Gvas = DEFAULT_WORLDOPTION.gvas;
+        const gvasToSave: Gvas = structuredClone(DEFAULT_WORLDOPTION.gvas);
         gvasToSave.root.properties.OptionWorldData.Struct.value.Struct.Settings.Struct.value.Struct = serializeEntriesToGvasJson();
         writeFile(
             {
