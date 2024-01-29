@@ -284,7 +284,7 @@ function App() {
     }
 
     const saveFile = () => {
-        const gvasToSave: Gvas = structuredClone(DEFAULT_WORLDOPTION.gvas);
+        const gvasToSave: Gvas = LosslessJSON.parse(LosslessJSON.stringify(DEFAULT_WORLDOPTION.gvas)!) as Gvas;
         gvasToSave.root.properties.OptionWorldData.Struct.value.Struct.Settings.Struct.value.Struct = serializeEntriesToGvasJson();
         writeFile(
             {
