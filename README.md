@@ -49,6 +49,9 @@ You can simply switch mode without losing any data! So you can simply:
 
 ## Localization
 
+[![inlang status badge](https://badge.inlang.com/?url=github.com/Bluefissure/pal-conf)](https://fink.inlang.com/github.com/Bluefissure/pal-conf?ref=badge)
+
+You can use the no-code [fink editor](https://fink.inlang.com/github.com/Bluefissure/pal-conf) for updating translations or adding languages.
 Feel free to translate the `en-US.json` in [src/assets/i18n](/src/assets/i18n) into your language and make a PR!
 
 ## Acknowledgement
