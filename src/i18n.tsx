@@ -4,18 +4,18 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
-import en_US from './assets/i18n/en_US.json';
-import zh_CN from './assets/i18n/zh_CN.json';
+import en-US from './assets/i18n/en-US.json';
+import zh-CN from './assets/i18n/zh-CN.json';
 
 const initConfig = {
     debug: false,
-    fallbackLng: 'en_US',
+    fallbackLng: 'en-US',
     interpolation: {
         escapeValue: false, // not needed for react as it escapes by default
     },
     resources: {
-        en_US: en_US,
-        zh_CN: zh_CN,
+        en-US: en-US,
+        zh-CN: zh-CN,
     }
 };
 
