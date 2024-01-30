@@ -57,7 +57,7 @@ interface ChangeEvent<T> {
 
 function App() {
     const { t } = useTranslation();
-    const [locale, setLocale] = useState(i18n.language === 'en' ? 'en-US' : i18n.language)
+    const [locale, setLocale] = useState(i18n.language === 'en' ? 'en_US' : i18n.language)
     const [entries, setEntries] = useState({} as Record<string, string>)
     const [fileMode, setFileMode] = useState("ini")
     const fileInputRef = useRef<HTMLInputElement>(null)
@@ -174,7 +174,7 @@ function App() {
             const entryValue = entries[entry.id] ?? entry.defaultValue;
             let dictValue = {};
             if (!(entry.id in DEFAULT_WORLDOPTION.gvas.
-                    root.properties.OptionWorldData.Struct.value.Struct.Settings.Struct.value.Struct)) {
+                root.properties.OptionWorldData.Struct.value.Struct.Settings.Struct.value.Struct)) {
                 return;
             }
             if (entryValue === entry.defaultValue) {
@@ -245,7 +245,7 @@ function App() {
         Object.entries(gvasJson).forEach(([key, value]) => {
             if (key in ENTRIES) {
                 const entry = ENTRIES[key];
-                const valueRecord = value as Record<string, {"value": string}>;
+                const valueRecord = value as Record<string, { "value": string }>;
                 let entryValue: number | boolean | string | undefined = undefined;
                 if ("Enum" in valueRecord) {
                     entryValue = valueRecord.Enum.value.split("::")[1];
@@ -333,7 +333,7 @@ function App() {
         });
     };
 
-    const genInput = (id: string, disabled=false) => {
+    const genInput = (id: string, disabled = false) => {
         const entry = ENTRIES[id];
         if (!entry) {
             return null;
@@ -538,11 +538,11 @@ function App() {
                                         }).catch((e) => { console.error(e); });
                                         setLocale(value);
                                     }}>
-                                        <DropdownMenuRadioItem value="en-US">
+                                        <DropdownMenuRadioItem value="en_US">
                                             <ReactCountryFlag countryCode="US" svg />
                                             <div className="px-2"> en-US </div>
                                         </DropdownMenuRadioItem>
-                                        <DropdownMenuRadioItem value="zh-CN">
+                                        <DropdownMenuRadioItem value="zh_CN">
                                             <ReactCountryFlag countryCode="CN" svg />
                                             <div className="px-2"> zh-CN </div>
                                         </DropdownMenuRadioItem>
