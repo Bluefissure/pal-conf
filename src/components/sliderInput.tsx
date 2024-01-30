@@ -91,16 +91,16 @@ function SliderInput(props: {
 
     useEffect(() => {
         const handler = setTimeout(() => {
-            let value = +inputValue;
-            if (value < minValue) {
-                value = minValue;
-                setInputValue(`${minValue}`);
-            }
-            if (value > maxValue) {
-                value = maxValue;
-                setInputValue(`${maxValue}`);
-            }
-            onValueChange([value]);
+            // let value = +inputValue;
+            // if (value < minValue) {
+            //     value = minValue;
+            //     setInputValue(`${minValue}`);
+            // }
+            // if (value > maxValue) {
+            //     value = maxValue;
+            //     setInputValue(`${maxValue}`);
+            // }
+            onValueChange([+inputValue]);
         }, 1500);
         return () => {
             clearTimeout(handler);
