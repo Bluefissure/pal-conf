@@ -5,7 +5,7 @@
 </h1>
 <p align="center">
    • <a href="/README.md">English</a>
-   • <a href="/docs/README_zh_CN.md">简体中文</a>
+   • <a href="/docs/README_zh-CN.md">简体中文</a>
 </p>
 
 Manage you [Palworld](https://store.steampowered.com/app/1623730/Palworld/) server settings in a friendly way!
@@ -49,7 +49,10 @@ You can simply switch mode without losing any data! So you can simply:
 
 ## Localization
 
-Feel free to translate the `en_US.json` in [src/assets/i18n](/src/assets/i18n) into your language and make a PR!
+[![inlang status badge](https://badge.inlang.com/?url=github.com/Bluefissure/pal-conf)](https://fink.inlang.com/github.com/Bluefissure/pal-conf?ref=badge)
+
+You can use the no-code [fink editor](https://fink.inlang.com/github.com/Bluefissure/pal-conf) for updating translations or adding languages.
+Feel free to translate the `en-US.json` in [src/assets/i18n](/src/assets/i18n) into your language and make a PR!
 
 ## Acknowledgement
 

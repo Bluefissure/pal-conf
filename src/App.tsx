@@ -57,7 +57,7 @@ interface ChangeEvent<T> {
 
 function App() {
     const { t } = useTranslation();
-    const [locale, setLocale] = useState(i18n.language === 'en' ? 'en_US' : i18n.language)
+    const [locale, setLocale] = useState(i18n.language === 'en' ? 'en-US' : i18n.language)
     const [entries, setEntries] = useState({} as Record<string, string>)
     const [fileMode, setFileMode] = useState("ini")
     const fileInputRef = useRef<HTMLInputElement>(null)
@@ -538,11 +538,11 @@ function App() {
                                         }).catch((e) => { console.error(e); });
                                         setLocale(value);
                                     }}>
-                                        <DropdownMenuRadioItem value="en_US">
+                                        <DropdownMenuRadioItem value="en-US">
                                             <ReactCountryFlag countryCode="US" svg />
                                             <div className="px-2"> en-US </div>
                                         </DropdownMenuRadioItem>
-                                        <DropdownMenuRadioItem value="zh_CN">
+                                        <DropdownMenuRadioItem value="zh-CN">
                                             <ReactCountryFlag countryCode="CN" svg />
                                             <div className="px-2"> zh-CN </div>
                                         </DropdownMenuRadioItem>

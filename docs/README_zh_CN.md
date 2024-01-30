@@ -5,7 +5,7 @@
 </h1>
 <p align="center">
    • <a href="/README.md">English</a>
-   • <a href="/docs/README_zh_CN.md">简体中文</a>
+   • <a href="/docs/README_zh-CN.md">简体中文</a>
 </p>
 
 以友好的方式管理你的 [幻兽帕鲁](https://store.steampowered.com/app/1623730/Palworld/) 服务器设置！
@@ -49,7 +49,7 @@
 
 ## 本地化
 
-欢迎将 [src/assets/i18n](/src/assets/i18n) 中的 `en_US.json` 翻译成你的语言，并提出 PR！
+欢迎将 [src/assets/i18n](/src/assets/i18n) 中的 `en-US.json` 翻译成你的语言，并提出 PR！
 
 ## 致谢
 
