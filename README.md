@@ -5,7 +5,7 @@
 </h1>
 <p align="center">
    • <a href="/README.md">English</a>
-   • <a href="/docs/README_zh-CN.md">简体中文</a>
+   • <a href="/docs/README_zh_CN.md">简体中文</a>
 </p>
 
 Manage you [Palworld](https://store.steampowered.com/app/1623730/Palworld/) server settings in a friendly way!
@@ -56,10 +56,10 @@ Feel free to translate the `en-US.json` in [src/assets/i18n](/src/assets/i18n) i
 
 ## Acknowledgement
 
-- The `uesave-wasm` part to load/save `.sav` file is ported from https://github.com/iebb/PalworldSaveEditor/tree/master/rust/uesave-wasm
+- The `uesave-wasm` part to load/save `.sav` file is ported from https://github.com/iebb/PalworldSaveEditor/tree/master/rust/
 - The vite plugin that handles wasm well enough at https://github.com/Menci/vite-plugin-wasm/
 
-## Donation
+## Sponsor
 
 Not necessary, but I'll appreciate it if you can star this project!!
 <img width="662" alt="image" src="https://github.com/Bluefissure/pal-conf/assets/9719003/906de048-99cc-4448-bf21-93440ac0c1f1">

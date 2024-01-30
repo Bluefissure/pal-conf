@@ -5,7 +5,7 @@
 </h1>
 <p align="center">
    • <a href="/README.md">English</a>
-   • <a href="/docs/README_zh-CN.md">简体中文</a>
+   • <a href="/docs/README_zh_CN.md">简体中文</a>
 </p>
 
 以友好的方式管理你的 [幻兽帕鲁](https://store.steampowered.com/app/1623730/Palworld/) 服务器设置！
@@ -53,7 +53,7 @@
 
 ## 致谢
 
-- 加载/保存 `.sav` 文件的 `uesave-wasm` 部分移植自 https://github.com/iebb/PalworldSaveEditor/tree/master/rust/uesave-wasm
+- 加载/保存 `.sav` 文件的 `uesave-wasm` 部分移植自 https://github.com/iebb/PalworldSaveEditor/tree/master/rust/
 - 处理 wasm 的 vite 插件，效果不错 https://github.com/Menci/vite-plugin-wasm/
 
 ## 捐赠
