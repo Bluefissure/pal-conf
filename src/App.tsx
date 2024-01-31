@@ -546,6 +546,10 @@ function App() {
                                             <ReactCountryFlag countryCode="CN" svg />
                                             <div className="px-2"> zh-CN </div>
                                         </DropdownMenuRadioItem>
+                                        <DropdownMenuRadioItem value="ja_JP">
+                                            <ReactCountryFlag countryCode="JP" svg />
+                                            <div className="px-2"> ja-JP </div>
+                                        </DropdownMenuRadioItem>
                                     </DropdownMenuRadioGroup>
                                 </DropdownMenuContent>
                             </DropdownMenu>

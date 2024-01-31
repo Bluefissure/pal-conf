@@ -6,6 +6,7 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import en_US from './assets/i18n/en-US.json';
 import zh_CN from './assets/i18n/zh-CN.json';
+import ja_JP from './assets/i18n/ja-JP.json';
 
 const initConfig = {
     debug: false,
@@ -16,6 +17,7 @@ const initConfig = {
     resources: {
         en_US: en_US,
         zh_CN: zh_CN,
+        ja_JP: ja_JP
     }
 };
 
