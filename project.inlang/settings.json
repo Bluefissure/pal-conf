@@ -1,18 +1,19 @@
 {
     "$schema": "https://inlang.com/schema/project-settings",
-    "sourceLanguageTag": "zh-CN",
+    "sourceLanguageTag": "en-US",
     "languageTags": [
-      "zh-CN",
-      "en-US"
+        "en-US",
+        "zh-CN",
+        "ja-JP"
     ],
     "modules": [
-      "https://cdn.jsdelivr.net/npm/@inlang/plugin-i18next@4/dist/index.js",
-      "https://cdn.jsdelivr.net/npm/@inlang/message-lint-rule-empty-pattern@1/dist/index.js",
-      "https://cdn.jsdelivr.net/npm/@inlang/message-lint-rule-identical-pattern@1/dist/index.js",
-      "https://cdn.jsdelivr.net/npm/@inlang/message-lint-rule-without-source@1/dist/index.js",
-      "https://cdn.jsdelivr.net/npm/@inlang/message-lint-rule-missing-translation@1/dist/index.js"
+        "https://cdn.jsdelivr.net/npm/@inlang/plugin-i18next@4/dist/index.js",
+        "https://cdn.jsdelivr.net/npm/@inlang/message-lint-rule-empty-pattern@1/dist/index.js",
+        "https://cdn.jsdelivr.net/npm/@inlang/message-lint-rule-identical-pattern@1/dist/index.js",
+        "https://cdn.jsdelivr.net/npm/@inlang/message-lint-rule-without-source@1/dist/index.js",
+        "https://cdn.jsdelivr.net/npm/@inlang/message-lint-rule-missing-translation@1/dist/index.js"
     ],
     "plugin.inlang.i18next": {
-      "pathPattern": "./src/assets/i18n/{languageTag}.json"
+        "pathPattern": "./src/assets/i18n/{languageTag}.json"
     }
-  }
+}
