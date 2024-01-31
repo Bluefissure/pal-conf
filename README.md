@@ -8,7 +8,7 @@
    • <a href="/docs/README_zh_CN.md">简体中文</a>
 </p>
 
-Manage you [Palworld](https://store.steampowered.com/app/1623730/Palworld/) server settings in a friendly way!
+Manage you [Palworld](https://store.steampowered.com/app/1623730/Palworld/) [server settings](https://tech.palworldgame.com/optimize-game-balance) in a friendly way!
 
 ## Use
 
@@ -52,7 +52,10 @@ You can simply switch mode without losing any data! So you can simply:
 [![inlang status badge](https://badge.inlang.com/?url=github.com/Bluefissure/pal-conf)](https://fink.inlang.com/github.com/Bluefissure/pal-conf?ref=badge)
 
 You can use the no-code [fink editor](https://fink.inlang.com/github.com/Bluefissure/pal-conf) for updating translations or adding languages.
+
 Feel free to translate the `en-US.json` in [src/assets/i18n](/src/assets/i18n) into your language and make a PR!
+
+You can add the `?lng=<langCode>`(such as `?lng=zh_CN` or `?lng=ja_JP`) to the end of the site URL and it will load the language by default!
 
 ## Acknowledgement
 

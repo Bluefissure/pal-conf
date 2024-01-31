@@ -48,8 +48,13 @@
 `pnpm i` 和 `pnpm run dev`
 
 ## 本地化
+[![inlang status badge](https://badge.inlang.com/?url=github.com/Bluefissure/pal-conf)](https://fink.inlang.com/github.com/Bluefissure/pal-conf?ref=badge)
+
+您可以使用无代码 [Fink 编辑器](https://fink.inlang.com/github.com/Bluefissure/pal-conf) 来更新翻译或添加语言。
 
 欢迎将 [src/assets/i18n](/src/assets/i18n) 中的 `en-US.json` 翻译成你的语言，并提出 PR！
+
+您可以在站点 URL 末尾添加`?lng=<langCode>`（例如`?lng=zh_CN`或`?lng=ja_JP`），它将默认加载对应语言！
 
 ## 致谢
 
