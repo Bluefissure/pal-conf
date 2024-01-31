@@ -540,15 +540,15 @@ function App() {
                                     }}>
                                         <DropdownMenuRadioItem value="en_US">
                                             <ReactCountryFlag countryCode="US" svg />
-                                            <div className="px-2"> en-US </div>
+                                            <div className="px-2"> English </div>
                                         </DropdownMenuRadioItem>
                                         <DropdownMenuRadioItem value="zh_CN">
                                             <ReactCountryFlag countryCode="CN" svg />
-                                            <div className="px-2"> zh-CN </div>
+                                            <div className="px-2"> 简体中文 </div>
                                         </DropdownMenuRadioItem>
                                         <DropdownMenuRadioItem value="ja_JP">
                                             <ReactCountryFlag countryCode="JP" svg />
-                                            <div className="px-2"> ja-JP </div>
+                                            <div className="px-2"> 日本語 </div>
                                         </DropdownMenuRadioItem>
                                     </DropdownMenuRadioGroup>
                                 </DropdownMenuContent>
