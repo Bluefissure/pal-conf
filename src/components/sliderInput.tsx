@@ -8,7 +8,7 @@ import {
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
-  } from "@/components/ui/tooltip"
+} from "@/components/ui/tooltip"
 import { RotateCcw, ArrowBigLeftDash, ArrowBigRightDash } from "lucide-react"
 import { useEffect, useState } from "react";
 
@@ -105,18 +105,27 @@ function SliderInput(props: {
         return () => {
             clearTimeout(handler);
         };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [inputValue, type, minValue, maxValue]);
 
     useEffect(() => {
         setInputValue(`${value}`);
     }, [value]);
 
-    
+
     return (
         <div className="space-y-2">
             <div className="flex">
-                <Label className="leading-8 whitespace-nowrap" htmlFor={name}>{name}</Label>
+                <TooltipProvider>
+                    <Tooltip>
+                        <TooltipTrigger className="cursor-default">
+                            <Label className="leading-8 whitespace-nowrap">{name}</Label>
+                            <TooltipContent>
+                                <p>{id}</p>
+                            </TooltipContent>
+                        </TooltipTrigger>
+                    </Tooltip>
+                </TooltipProvider>
                 {difficultyTypeArrowRenderer(difficultyType)}
                 <Button variant="ghost" className="ml-auto h-8 px-1" onClick={() => {
                     onValueChange([defaultValue]);
@@ -128,14 +137,15 @@ function SliderInput(props: {
                 <TooltipProvider>
                     <Tooltip >
                         <TooltipTrigger className="mx-2 w-[15%] px-0" >
-                            <Input value={inputValue} id={id} type="number" disabled={disabled} onChange={onInputChange} step={shownStep}/></TooltipTrigger>
+                            <Input value={inputValue} id={id} type="number" disabled={disabled} onChange={onInputChange} step={shownStep} />
+                        </TooltipTrigger>
                         <TooltipContent>
-                        <p>{minValue} ~ {maxValue}</p>
+                            <p>{minValue} ~ {maxValue}</p>
                         </TooltipContent>
                     </Tooltip>
                 </TooltipProvider>
                 {/* <Label className="px-4">{valueStr}</Label> */}
-                <Slider className="max-w-[80%]" id={id} value={[value]} max={maxValue} min={minValue} step={step} onValueChange={onValueChange} disabled={disabled}/>
+                <Slider className="max-w-[80%]" id={id} value={[value]} max={maxValue} min={minValue} step={step} onValueChange={onValueChange} disabled={disabled} />
             </div>
         </div>
     );

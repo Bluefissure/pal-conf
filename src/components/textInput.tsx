@@ -1,5 +1,11 @@
 import { Label } from "@/components/ui/label"
 import { Input } from "@/components/ui/input"
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 function TextInput(props: {
     id: string;
@@ -19,8 +25,17 @@ function TextInput(props: {
     } = props;
     return (
         <div className="flex flex-col items-center space-y-2">
-            <Label className="mr-auto" htmlFor={name}>{name}</Label>
-            <Input className="w-[98%]" value={value} id={id} onChange={onChange} type={type} disabled={disabled}/>
+            <TooltipProvider>
+                <Tooltip>
+                    <TooltipTrigger className="cursor-default mr-auto">
+                        <Label>{name}</Label>
+                        <TooltipContent>
+                            <p>{id}</p>
+                        </TooltipContent>
+                    </TooltipTrigger>
+                </Tooltip>
+            </TooltipProvider>
+            <Input className="w-[98%]" value={value} id={id} onChange={onChange} type={type} disabled={disabled} />
         </div>
     );
 }

@@ -1,5 +1,11 @@
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 export function SwitchInput(props: {
     id: string;
@@ -17,8 +23,17 @@ export function SwitchInput(props: {
     } = props;
     return (
         <div className="flex">
-            <Label htmlFor={name} className="leading-6">{name}</Label>
-            <Switch className="ml-auto" checked={checked} id={id} onCheckedChange={onCheckedChange} disabled={disabled}/>
+            <TooltipProvider>
+                <Tooltip>
+                    <TooltipTrigger className="cursor-default leading-6">
+                        <Label>{name}</Label>
+                        <TooltipContent>
+                            <p>{id}</p>
+                        </TooltipContent>
+                    </TooltipTrigger>
+                </Tooltip>
+            </TooltipProvider>
+            <Switch className="ml-auto" checked={checked} id={id} onCheckedChange={onCheckedChange} disabled={disabled} />
         </div>
     );
 }

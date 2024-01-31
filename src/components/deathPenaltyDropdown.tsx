@@ -17,6 +17,12 @@ import {
     DropdownMenuGroup,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip"
 
 const labels = [
     {
@@ -53,9 +59,18 @@ export const DeathPenaltyDropDown = (props: {
     return (
         <div className="space-y-1">
             <Label>
-                <Trans i18nKey={'entry.name.DeathPenalty'}>
-                    Death Penalty
-                </Trans>
+                <TooltipProvider>
+                    <Tooltip>
+                        <TooltipTrigger className="cursor-default">
+                            <Trans i18nKey={'entry.name.DeathPenalty'}>
+                                Death Penalty
+                            </Trans>
+                            <TooltipContent>
+                                <p>DeathPenalty</p>
+                            </TooltipContent>
+                        </TooltipTrigger>
+                    </Tooltip>
+                </TooltipProvider>
             </Label>
             <div className="flex w-full items-start justify-between rounded-md border px-4 py-1 sm:flex-row sm:items-center">
                 <p className="text-sm font-medium leading-none">
