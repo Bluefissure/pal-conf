@@ -110,7 +110,7 @@ export const ENTRIES: Record<string, Entry> = {
         id: "PalCaptureRate",
         defaultValue: "1.000000",
         type: "float",
-        range: [0.5, 2],
+        range: [0.5, 5],
         difficultyType: "decreasing",
     },
     PalSpawnNumRate: {
@@ -118,7 +118,7 @@ export const ENTRIES: Record<string, Entry> = {
         id: "PalSpawnNumRate",
         defaultValue: "1.000000",
         type: "float",
-        range: [0.5, 3],
+        range: [0.5, 5],
     },
     PalDamageRateAttack: {
         name: "Pal Damage Rate Attack",
@@ -237,7 +237,7 @@ export const ENTRIES: Record<string, Entry> = {
         id: "CollectionDropRate",
         defaultValue: "1.000000",
         type: "float",
-        range: [0.5, 3],
+        range: [0.5, 5],
         difficultyType: "decreasing",
     },
     CollectionObjectHpRate: {
@@ -253,7 +253,7 @@ export const ENTRIES: Record<string, Entry> = {
         id: "CollectionObjectRespawnSpeedRate",
         defaultValue: "1.000000",
         type: "float",
-        range: [0.5, 3],
+        range: [0.5, 5],
         difficultyType: "decreasing",
     },
     EnemyDropItemRate: {
@@ -261,7 +261,7 @@ export const ENTRIES: Record<string, Entry> = {
         id: "EnemyDropItemRate",
         defaultValue: "1.000000",
         type: "float",
-        range: [0.5, 3],
+        range: [0.5, 5],
         difficultyType: "decreasing",
     },
     DeathPenalty: {
@@ -319,7 +319,7 @@ export const ENTRIES: Record<string, Entry> = {
         id: "DropItemMaxNum",
         defaultValue: "3000",
         type: "integer",
-        range: [0, 5000],
+        range: [0, 10000],
         desc: "Drop item max num",
     },
     DropItemMaxNum_UNKO: {
@@ -335,7 +335,7 @@ export const ENTRIES: Record<string, Entry> = {
         id: "BaseCampMaxNum",
         defaultValue: "128",
         type: "integer",
-        range: [0, 256],
+        range: [0, 10240],
         desc: "Base camp max num",
     },
     BaseCampWorkerMaxNum: {
@@ -464,7 +464,7 @@ export const ENTRIES: Record<string, Entry> = {
         id: "ServerPlayerMaxNum",
         defaultValue: "32",
         type: "integer",
-        range: [1, 100],
+        range: [1, 512],
         desc: "Server player max num",
     },
     ServerName: {
