@@ -108,7 +108,6 @@ function App() {
         const settingsTextList = settingsText.trim().split("\n");
         let loadedEntriesNum = 0;
         let erroredLinesNum = 0;
-        let loadSucess = true;
         settingsTextList.forEach((line) => {
             if (line.startsWith("OptionSettings=(") && line.endsWith(")")) {
                 const optionSettings = line.substring("OptionSettings=(".length, line.length - 1);
@@ -142,7 +141,7 @@ function App() {
                         if (entry.type === "float" || entry.type === "integer") {
                             const optionSettingValueNum = Number(optionSettingValue);
                             if (!Number.isFinite(optionSettingValueNum)) {
-                                loadSucess = false;
+                                console.error(`${entry.id} has an invalid number: ${optionSettingValue}`);
                                 return;
                             }
                         }
@@ -151,21 +150,19 @@ function App() {
                     }
                 });
                 // console.log(newEntries);
-                if (loadSucess) {
-                    setEntries(newEntries);
-                }
+                setEntries(newEntries);
             } else if (line.trim().startsWith(";") || line.trim() === "" || line.trim() === "[/Script/Pal.PalGameWorldSettings]") {
                 // skip
             } else {
                 erroredLinesNum++;
             }
         });
-        if (loadedEntriesNum === 0 || erroredLinesNum > 0 || !loadSucess) {
+        if (loadedEntriesNum === 0 || erroredLinesNum > 0) {
             toast.error(t('toast.invalid'), {
                 description: t('toast.invalidDescription'),
             })
             return;
-        } else if (loadedEntriesNum < Object.keys(entries).length) {
+        } else if (loadedEntriesNum < Object.keys(ENTRIES).length) {
             toast.warning(t('toast.missing'), {
                 description: t('toast.missingDescription'),
             })
