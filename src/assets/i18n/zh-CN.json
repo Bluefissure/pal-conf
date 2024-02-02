@@ -37,7 +37,9 @@
             "saved": "已保存",
             "savedDescription": "WorldOption.sav 已保存到您的设备。",
             "invalidFileName": "无效的文件名",
-            "invalidFileNameDescription": "请上传 WorldOption.sav 文件。"
+            "invalidFileNameDescription": "请上传 WorldOption.sav 文件。",
+            "fileTooLarge": "文件尺寸过大",
+            "fileTooLargeDescription": "请上传正确的文件。"
         },
         "entry": {
             "name": {

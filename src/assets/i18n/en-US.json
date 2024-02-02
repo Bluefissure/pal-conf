@@ -37,7 +37,9 @@
             "saved": "File Saved",
             "savedDescription": "The WorldOption.sav file has been saved.",
             "invalidFileName": "Invalid File Name",
-            "invalidFileNameDescription": "Please upload WorldOption.sav file."
+            "invalidFileNameDescription": "Please upload WorldOption.sav file.",
+            "fileTooLarge": "File size is too large",
+            "fileTooLargeDescription": "Please upload a correct file."
         },
         "entry": {
             "name": {

@@ -321,6 +321,14 @@ function App() {
             })
             return;
         }
+
+        if (file.size > 102400) {
+            toast.error(t('toast.fileTooLarge'), {
+                description: t('toast.fileTooLargeDescription'),
+            })
+            return;
+        }
+
         // if (file.name !== 'WorldOption.sav') {
         //     toast.error(t('toast.invalidFileName'), {
         //         description: t('toast.invalidFileNameDescription'),
