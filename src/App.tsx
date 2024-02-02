@@ -27,7 +27,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Toaster } from "@/components/ui/sonner"
 import { toast } from "sonner"
 // UI Icons
-import { Languages, AlertCircle } from "lucide-react"
+import { Languages, AlertCircle, FileUp } from "lucide-react"
 import ReactCountryFlag from "react-country-flag"
 
 // App Components
@@ -62,6 +62,7 @@ function App() {
     const [fileMode, setFileMode] = useState("ini")
     const fileInputRef = useRef<HTMLInputElement>(null)
     const [openedAccordion, setOpenedAccordion] = useState("server-settings")
+    const [showUploadPrompt, setShowUploadPrompt] = useState(false);
     // useEffect(() => {
     //     if (fileMode === 'sav') {
     //         setOpenedAccordion("ingame-settings");
@@ -327,10 +328,26 @@ function App() {
         //     })
         //     return;
         // }
+        if (file.name.endsWith('.ini')) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                if (!e.target?.result) {
+                    toast.error(t('toast.invalidFile'), {
+                        description: t('toast.invalidFileDescription'),
+                    })
+                    return;
+                }
+                deserializeEntriesFromIni(e.target.result as string);
+            }
+            reader.readAsText(file);
+            setFileMode('ini');
+            return;
+        }
         openFile(file).then(() => {
             // console.log("File opened");
             if (fileInputRef.current) {
                 fileInputRef.current.value = "";
+                setFileMode('sav');
             }
         }).catch((e) => {
             console.error(e);
@@ -523,7 +540,36 @@ function App() {
 
     return (
         <>
-            <main className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 p-4">
+            <main className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 p-4"
+                onDragOver={(e) => {
+                    e.preventDefault();
+                    setShowUploadPrompt(true);
+                }}
+                onDragLeave={(e) => {
+                    e.preventDefault();
+                    setShowUploadPrompt(false);
+                }}
+                onDrop={(e) => {
+                    e.preventDefault();
+                    setShowUploadPrompt(false);
+                    if (fileInputRef.current) {
+                        fileInputRef.current.files = e.dataTransfer.files;
+                        fileInputRef.current.dispatchEvent(new Event('change', { bubbles: true }));
+                    }
+                }}>
+                {showUploadPrompt && 
+                    <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50">
+                        <div className="text-white flex items-center justify-center">
+                            <FileUp className="mr-2" />
+                            <span className="text-lg">
+                                <Trans i18nKey={'drag'}>
+                                    Drag PalWorldSettings.ini or WorldOption.sav files here
+                                </Trans>
+                            </span>
+                        </div>
+                    </div>
+                }
+
                 <Toaster richColors />
                 <Card className="w-full max-w-3xl">
 
@@ -607,6 +653,8 @@ function App() {
                                 <TabsTrigger className="w-[50%]" value="ini">PalWorldSettings.ini</TabsTrigger>
                                 <TabsTrigger className="w-[50%]" value="sav">WorldOption.sav</TabsTrigger>
                             </TabsList>
+                            <Input className="hidden w-[50%]" id="file-upload" type="file" ref={fileInputRef}
+                                        onChange={handleFileInput} />
                             <div className="mt-4">
                                 <TabsContent value="ini" className="flex mt-0">
                                     <Button className="mr-auto" onClick={() => {
@@ -625,8 +673,6 @@ function App() {
                                     </Button>
                                 </TabsContent>
                                 <TabsContent value="sav" className="flex mt-0">
-                                    <Input className="hidden w-[50%]" id="file-upload" type="file" ref={fileInputRef}
-                                        onChange={handleFileInput} />
                                     <Button className="mr-auto" onClick={() => {
                                         fileInputRef.current?.click();
                                     }}>
