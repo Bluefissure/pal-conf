@@ -36,6 +36,7 @@ import { AdvancedSettings, InGameSettings, ServerSettings } from "./consts/setti
 
 // Types
 import { Gvas } from "./types/gvas";
+import { DeathPenaltyLabel } from "./components/deathPenaltyDropdown"
 
 interface ChangeEvent<T> {
   target: {
@@ -373,7 +374,7 @@ function App() {
       return (
         <DeathPenaltyDropDown
           key={id}
-          label={entryValue}
+          label={entryValue as DeathPenaltyLabel}
           onLabelChange={(labelName: string) => {
             onStateChanged("DeathPenalty")({
               target: { value: labelName },

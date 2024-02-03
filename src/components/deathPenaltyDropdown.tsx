@@ -44,8 +44,10 @@ const labels = [
     },
 ]
 
+export type DeathPenaltyLabel = "None" | "Item" | "ItemAndEquipment" | "All";
+
 export const DeathPenaltyDropDown = (props: {
-    label: string,
+    label: DeathPenaltyLabel,
     onLabelChange: (label: string) => void,
 }) => {
     const { t } = useTranslation();
@@ -53,7 +55,7 @@ export const DeathPenaltyDropDown = (props: {
     const { label, onLabelChange } = props;
     const [open, setOpen] = useState(false)
 
-    const labelDesc = t(`${I18nStr.entry.name.DeathPenalty}.${label}`, {
+    const labelDesc = t(I18nStr.entry.description.DeathPenalty[label], {
         defaultValue: labels.find((l) => l.name === label)?.desc ?? "",
     });
 
