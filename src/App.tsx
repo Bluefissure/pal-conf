@@ -555,7 +555,10 @@ function App() {
                 }}
                 onDragLeave={(e) => {
                     e.preventDefault();
-                    setShowUploadPrompt(false);
+                    const relatedTarget = e.relatedTarget as Node;
+                    if (!relatedTarget || !e.currentTarget.contains(relatedTarget)) {
+                        setShowUploadPrompt(false);
+                    }
                 }}
                 onDrop={(e) => {
                     e.preventDefault();
