@@ -432,6 +432,7 @@ function App() {
         value={entryValue}
         onChange={onStateChanged(id)}
         disabled={disabled}
+        multiline={entry.id === "ServerDescription"}
         {...(entry.type === "integer" ? { type: "number" } : {})}
       />
     );

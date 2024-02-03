@@ -11,9 +11,10 @@ function TextInput(props: {
     id: string;
     name: string;
     value: string;
-    onChange: React.ChangeEventHandler<HTMLInputElement>;
+    onChange: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement>;
     type?: string;
     disabled?: boolean;
+    multiline?: boolean;
 }) {
     const {
         id,
@@ -22,7 +23,26 @@ function TextInput(props: {
         value,
         onChange,
         disabled,
+        multiline,
     } = props;
+    const inputElement = multiline ? (
+        <textarea
+            id={id}
+            value={value}
+            onChange={onChange}
+            className="w-[98%] h-[100px] p-2 border border-gray-300 rounded-md"
+            disabled={disabled}
+        />
+    ): (
+        <Input
+            value={value}
+            id={id}
+            onChange={onChange}
+            type={type}
+            className="w-[98%]"
+            disabled={disabled}
+        />
+    )
     return (
         <div className="flex flex-col items-center space-y-2">
             <TooltipProvider>
@@ -35,7 +55,7 @@ function TextInput(props: {
                     </TooltipTrigger>
                 </Tooltip>
             </TooltipProvider>
-            <Input className="w-[98%]" value={value} id={id} onChange={onChange} type={type} disabled={disabled} />
+            {inputElement}            
         </div>
     );
 }
