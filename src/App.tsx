@@ -90,7 +90,7 @@ function App() {
           resultList.push(`${entry.id}=${Number(entryValue).toFixed(6)}`);
           break;
         case "string":
-          resultList.push(`${entry.id}="${entryValue}"`);
+          resultList.push(`${entry.id}=${JSON.stringify(entryValue)}`);
           break;
         default:
           resultList.push("");
