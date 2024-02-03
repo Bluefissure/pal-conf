@@ -7,7 +7,7 @@ import i18n from './i18n';
 import { useTranslation, Trans } from 'react-i18next';
 
 // UI Components
-import { CardTitle, CardDescription, CardHeader, CardContent, CardFooter, Card } from "@/components/ui/card"
+import { CardTitle, CardDescription, CardHeader, CardContent, Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import {
     DropdownMenu,
@@ -16,12 +16,6 @@ import {
     DropdownMenuRadioItem,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from "@/components/ui/accordion"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Toaster } from "@/components/ui/sonner"
@@ -61,13 +55,15 @@ function App() {
     const [entries, setEntries] = useState({} as Record<string, string>)
     const [fileMode, setFileMode] = useState("ini")
     const fileInputRef = useRef<HTMLInputElement>(null)
+    const tabRef = useRef<HTMLInputElement>(null)
     const [openedAccordion, setOpenedAccordion] = useState("server-settings")
     const [showUploadPrompt, setShowUploadPrompt] = useState(false);
-    // useEffect(() => {
-    //     if (fileMode === 'sav') {
-    //         setOpenedAccordion("ingame-settings");
-    //     }
-    // }, [fileMode]);
+
+    useEffect(() => {
+        if(tabRef.current && tabRef.current.getBoundingClientRect().top < 0) {
+            tabRef.current?.scrollIntoView({ behavior: "smooth" });
+        }
+    }, [openedAccordion]);
 
     const onStateChanged = (id: string) => (e: ChangeEvent<string>) => {
         setEntries((prevEntries) => {
@@ -546,9 +542,24 @@ function App() {
         document.title = t('title');
     }, [t]);
 
+    useEffect(() => {
+        const handleKeyDown = (e:KeyboardEvent) => {
+            const code = e.which || e.keyCode;
+            const charCode = String.fromCharCode(code).toLowerCase();
+            if ((e.ctrlKey || e.metaKey) && charCode === 's') {
+                e.preventDefault();
+                saveFile();
+          }
+        };
+    
+        window.addEventListener('keydown', handleKeyDown);
+    
+        return () => window.removeEventListener('keydown', handleKeyDown);
+      }, []);
+
     return (
         <>
-            <main className="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 p-4"
+            <main className="flex flex-col items-center min-h-screen bg-gray-100 dark:bg-gray-900 p-4"
                 onDragOver={(e) => {
                     e.preventDefault();
                     setShowUploadPrompt(true);
@@ -583,7 +594,6 @@ function App() {
 
                 <Toaster richColors />
                 <Card className="w-full max-w-3xl">
-
                     <CardHeader>
                         <CardTitle className="flex">
                             <div className="leading-10">
@@ -624,41 +634,41 @@ function App() {
                             </Trans>
                         </CardDescription>
                     </CardHeader>
-                    <CardContent className="space-y-4">
-                        <Accordion type="single" collapsible value={openedAccordion} className="w-full" onValueChange={setOpenedAccordion}>
-                            <AccordionItem value="server-settings" >
-                                <AccordionTrigger>
+                    <CardContent className="space-y-4" ref={tabRef}>
+                        <Tabs value={openedAccordion} className="flex flex-col w-full min-h-10" onValueChange={setOpenedAccordion}>
+                            <TabsList className="sticky top-2 z-10 shadow-lg">
+                                <TabsTrigger className="w-[33%] whitespace-normal" value="server-settings">
                                     <Trans i18nKey={'serverSettings'}>
                                         Server Settings
                                     </Trans>
-                                </AccordionTrigger>
-                                <AccordionContent className="space-y-4">
-                                    {serverSettings}
-                                </AccordionContent>
-                            </AccordionItem>
-                            <AccordionItem value="ingame-settings" >
-                                <AccordionTrigger>
+                                </TabsTrigger>
+                                <TabsTrigger className="w-[33%] whitespace-normal" value="ingame-settings">
                                     <Trans i18nKey={'ingameSettings'}>
                                         In-Game Settings
                                     </Trans>
-                                </AccordionTrigger>
-                                <AccordionContent className="space-y-4">
-                                    {inGameSliderSettings}
-                                </AccordionContent>
-                            </AccordionItem>
-                            <AccordionItem value="advanced-settings">
-                                <AccordionTrigger>
+                                </TabsTrigger>
+                                <TabsTrigger className="w-[33%] whitespace-normal" value="advanced-settings">
                                     <Trans i18nKey={'advancedSettings'}>
                                         Advanced Settings
                                     </Trans>
-                                </AccordionTrigger>
-                                <AccordionContent className="space-y-4">
+                                </TabsTrigger>
+                            </TabsList>
+                            <div className="mt-4 overflow-hidden">
+                                <TabsContent value="server-settings" className="space-y-2">
+                                    {serverSettings}
+                                </TabsContent>
+                                <TabsContent value="ingame-settings" className="space-y-2">
+                                    {inGameSliderSettings}
+                                </TabsContent>
+                                <TabsContent value="advanced-settings" className="space-y-2">
                                     {advancedSettings}
-                                </AccordionContent>
-                            </AccordionItem>
-                        </Accordion>
+                                </TabsContent>
+                            </div>
+                        </Tabs>
                     </CardContent>
-                    <CardFooter>
+                </Card>
+                <Card className="w-full max-w-3xl mt-8 sticky bottom-0 z-10 shadow-lg">
+                    <CardHeader>
                         <Tabs value={fileMode} className="flex flex-col w-full min-h-10" onValueChange={setFileMode}>
                             <TabsList>
                                 <TabsTrigger className="w-[50%]" value="ini">PalWorldSettings.ini</TabsTrigger>
@@ -667,14 +677,15 @@ function App() {
                             <Input className="hidden w-[50%]" id="file-upload" type="file" ref={fileInputRef}
                                         onChange={handleFileInput} />
                             <div className="mt-4">
-                                <TabsContent value="ini" className="flex mt-0">
+                                <TabsContent value="ini" className="flex justify-between items-center gap-4 mt-0">
                                     <Button className="mr-auto" onClick={() => {
                                         readFromClipboard();
                                     }}>
-                                        <Trans i18nKey={'load'}>
-                                            Load
+                                        <Trans i18nKey={'paste'}>
+                                            Paste
                                         </Trans>
                                     </Button>
+                                    <div className="text-sm text-muted-foreground"><Trans i18nKey={'dragAndDrop'}>dragAndDrop</Trans></div>
                                     <Button className="ml-auto" onClick={() => {
                                         copyToClipboard();
                                     }}>
@@ -683,15 +694,16 @@ function App() {
                                         </Trans>
                                     </Button>
                                 </TabsContent>
-                                <TabsContent value="sav" className="flex mt-0">
-                                    <Button className="mr-auto" onClick={() => {
+                                <TabsContent value="sav" className="flex justify-between items-center gap-4 mt-0">
+                                    <Button className="" onClick={() => {
                                         fileInputRef.current?.click();
                                     }}>
                                         <Trans i18nKey={'upload'}>
                                             Upload
                                         </Trans>
                                     </Button>
-                                    <Button className="ml-auto" onClick={saveFile}>
+                                    <div className="text-sm text-muted-foreground"><Trans i18nKey={'dragAndDrop'}>dragAndDrop</Trans></div>
+                                    <Button className="" onClick={saveFile}>
                                         <Trans i18nKey={'download'}>
                                             Download
                                         </Trans>
@@ -699,8 +711,7 @@ function App() {
                                 </TabsContent>
                             </div>
                         </Tabs>
-
-                    </CardFooter>
+                    </CardHeader>
                 </Card>
                 <Alert className="w-full max-w-3xl mt-8 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">
                     <AlertCircle className="h-4 w-4" />
