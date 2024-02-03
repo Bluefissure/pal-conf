@@ -23,6 +23,7 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from "@/components/ui/tooltip"
+import { I18nStr } from "@/i18n";
 
 const labels = [
     {
@@ -52,7 +53,7 @@ export const DeathPenaltyDropDown = (props: {
     const { label, onLabelChange } = props;
     const [open, setOpen] = useState(false)
 
-    const labelDesc = t(`entry.description.DeathPenalty.${label}`, {
+    const labelDesc = t(`${I18nStr.entry.name.DeathPenalty}.${label}`, {
         defaultValue: labels.find((l) => l.name === label)?.desc ?? "",
     });
 
@@ -62,9 +63,7 @@ export const DeathPenaltyDropDown = (props: {
                 <TooltipProvider>
                     <Tooltip>
                         <TooltipTrigger className="cursor-default">
-                            <Trans i18nKey={'entry.name.DeathPenalty'}>
-                                Death Penalty
-                            </Trans>
+                            <Trans i18nKey={I18nStr.entry.name.DeathPenalty} />
                             <TooltipContent>
                                 <p>DeathPenalty</p>
                             </TooltipContent>

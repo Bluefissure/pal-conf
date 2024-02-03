@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/tooltip"
 import { RotateCcw, ArrowBigLeftDash, ArrowBigRightDash } from "lucide-react"
 import { useEffect, useState } from "react";
+import { I18nStr } from "@/i18n";
 
 /**
  * increasing: number increases game harder
@@ -48,8 +49,6 @@ function SliderInput(props: {
 
     const [inputValue, setInputValue] = useState(`${value}`);
 
-
-
     const difficultyTypeArrowRenderer = (difficultyType: DifficultyType) => {
         switch (difficultyType) {
             case "increasing":
@@ -57,11 +56,11 @@ function SliderInput(props: {
                     <div className="flex flex-row mt-1.5 mx-5 w-full">
                         <div className="basis-1/2 flex flex-row space-x-1">
                             <ArrowBigLeftDash color="#31A46C" size={20} />
-                            <Trans i18nKey={'easier'}>easier</Trans>
+                            <Trans i18nKey={I18nStr.easier} />
                         </div>
                         <div className="basis-1/2 flex flex-row-reverse space-x-1">
                             <ArrowBigRightDash color="#E5474D" size={20} />
-                            <Trans i18nKey={'harder'}>harder</Trans>
+                            <Trans i18nKey={I18nStr.harder} />
                         </div>
                     </div>
                 )
@@ -70,11 +69,11 @@ function SliderInput(props: {
                     <div className="flex flex-row mt-1.5 mx-5 w-full">
                         <div className="basis-1/2 flex flex-row space-x-1">
                             <ArrowBigLeftDash color="#E5474D" size={20} />
-                            <Trans i18nKey={'harder'}>harder</Trans>
+                            <Trans i18nKey={I18nStr.harder} />
                         </div>
                         <div className="basis-1/2 flex flex-row-reverse space-x-1">
                             <ArrowBigRightDash color="#31A46C" size={20} />
-                            <Trans i18nKey={'easier'}>easier</Trans>
+                            <Trans i18nKey={I18nStr.easier} />
                         </div>
                     </div>
                 )
