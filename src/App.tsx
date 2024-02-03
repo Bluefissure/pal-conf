@@ -474,8 +474,9 @@ function App() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      const code = e.which || e.keyCode;
-      const charCode = String.fromCharCode(code).toLowerCase();
+      // const code = e.which || e.keyCode;
+      // const charCode = String.fromCharCode(code).toLowerCase();
+      const charCode = e.key.toLowerCase();
       if ((e.ctrlKey || e.metaKey) && charCode === "s") {
         e.preventDefault();
         saveFile();
@@ -485,6 +486,7 @@ function App() {
     window.addEventListener("keydown", handleKeyDown);
 
     return () => window.removeEventListener("keydown", handleKeyDown);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
