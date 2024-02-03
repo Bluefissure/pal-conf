@@ -38,7 +38,9 @@
             "saved": "ファイルを保存しました",
             "savedDescription": "WorldOption.sav を保存しました。",
             "invalidFileName": "無効なファイル名",
-            "invalidFileNameDescription": "WorldOption.sav をアップロードしてください。"
+            "invalidFileNameDescription": "WorldOption.sav をアップロードしてください。",
+            "fileTooLarge": "ファイルサイズが大きすぎます",
+            "fileTooLargeDescription": "正しいファイルをアップロードしてください"
         },
         "entry": {
             "name": {
