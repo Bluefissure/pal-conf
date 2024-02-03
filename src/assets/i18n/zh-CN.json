@@ -15,6 +15,7 @@
         "download": "下载",
         "easier": "更简单",
         "harder": "更难",
+        "drag": "拖拽 PalWorldSettings.ini 或 WorldOption.sav 到这里",
         "toast": {
             "copied": "已复制到剪贴板",
             "copiedDescription": "服务器设置已复制到您的剪贴板。",

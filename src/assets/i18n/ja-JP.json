@@ -15,6 +15,7 @@
         "download": "ダウンロード",
         "easier": "イージー",
         "harder": "ハード",
+        "drag": "PalWorldSettings.ini や WorldOption.sav をここにドラッグしてください",
         "toast": {
             "copied": "コピーしました",
             "copiedDescription": "サーバーの設定をクリップボードにコピーしました。",
