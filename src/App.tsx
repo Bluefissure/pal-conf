@@ -36,7 +36,7 @@ import { AdvancedSettings, InGameSettings, ServerSettings } from "./consts/setti
 
 // Types
 import { Gvas } from "./types/gvas";
-import { DeathPenaltyLabel } from "./components/deathPenaltyDropdown"
+import { DeathPenaltyLabel } from "./components/deathPenaltyDropdown";
 
 interface ChangeEvent<T> {
   target: {
@@ -488,7 +488,7 @@ function App() {
     window.addEventListener("keydown", handleKeyDown);
 
     return () => window.removeEventListener("keydown", handleKeyDown);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -563,6 +563,10 @@ function App() {
                     <DropdownMenuRadioItem value="ja_JP">
                       <ReactCountryFlag countryCode="JP" svg />
                       <div className="px-2"> 日本語 </div>
+                    </DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value="ko_KR">
+                      <ReactCountryFlag countryCode="KR" svg />
+                      <div className="px-2"> 한국인 </div>
                     </DropdownMenuRadioItem>
                   </DropdownMenuRadioGroup>
                 </DropdownMenuContent>
