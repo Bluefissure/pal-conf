@@ -144,6 +144,9 @@ function App() {
                 return;
               }
             }
+            if (entry.type === "boolean") {
+              optionSettingValue = optionSettingValue.toLowerCase() === "true" ? "True" : "False";
+            }
             newEntries[entry.id] = optionSettingValue;
             loadedEntriesNum++;
           }
