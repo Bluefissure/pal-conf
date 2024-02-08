@@ -47,6 +47,8 @@ You can simply switch mode without losing any data! So you can simply:
 
 `pnpm i` and `pnpm run dev`
 
+For MacOS use ` npx pnpm i` and `npx pnpm run dev`
+
 ## Localization
 
 [![inlang status badge](https://badge.inlang.com/?url=github.com/Bluefissure/pal-conf)](https://fink.inlang.com/github.com/Bluefissure/pal-conf?ref=badge)
