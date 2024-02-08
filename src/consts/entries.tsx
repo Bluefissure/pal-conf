@@ -7,6 +7,7 @@ interface Entry {
     range?: [number, number],
     desc?: string,
     difficultyType?: "increasing" | "decreasing" | "independence"
+    // timeType?: "faster" | "slower" | "independence"
 }
 
 /*
@@ -110,7 +111,7 @@ export const ENTRIES: Record<string, Entry> = {
         id: "PalCaptureRate",
         defaultValue: "1.000000",
         type: "float",
-        range: [0.5, 5],
+        range: [0.5, 20],
         difficultyType: "decreasing",
     },
     PalSpawnNumRate: {
@@ -118,21 +119,21 @@ export const ENTRIES: Record<string, Entry> = {
         id: "PalSpawnNumRate",
         defaultValue: "1.000000",
         type: "float",
-        range: [0.5, 5],
+        range: [0.5, 20],
     },
     PalDamageRateAttack: {
         name: "Pal Damage Rate Attack",
         id: "PalDamageRateAttack",
         defaultValue: "1.000000",
         type: "float",
-        range: [0.1, 5],
+        range: [0.1, 20],
     },
     PalDamageRateDefense: {
         name: "Pal Damage Rate Defense",
         id: "PalDamageRateDefense",
         defaultValue: "1.000000",
         type: "float",
-        range: [0.1, 5],
+        range: [0.1, 10],
     },
     PlayerDamageRateAttack: {
         name: "Player Damage Rate Attack",
@@ -229,7 +230,7 @@ export const ENTRIES: Record<string, Entry> = {
         id: "BuildObjectDeteriorationDamageRate",
         defaultValue: "1.000000",
         type: "float",
-        range: [0, 10],
+        range: [0, 30],
         desc: "Deterioration damage rate to build objects",
     },
     CollectionDropRate: {
@@ -237,7 +238,7 @@ export const ENTRIES: Record<string, Entry> = {
         id: "CollectionDropRate",
         defaultValue: "1.000000",
         type: "float",
-        range: [0.5, 5],
+        range: [0.5, 20],
         difficultyType: "decreasing",
     },
     CollectionObjectHpRate: {
@@ -253,7 +254,7 @@ export const ENTRIES: Record<string, Entry> = {
         id: "CollectionObjectRespawnSpeedRate",
         defaultValue: "1.000000",
         type: "float",
-        range: [0.5, 5],
+        range: [0.5, 10],
         difficultyType: "increasing",
     },
     EnemyDropItemRate: {
@@ -261,7 +262,7 @@ export const ENTRIES: Record<string, Entry> = {
         id: "EnemyDropItemRate",
         defaultValue: "1.000000",
         type: "float",
-        range: [0.5, 5],
+        range: [0.5, 10],
         difficultyType: "decreasing",
     },
     DeathPenalty: {
@@ -319,7 +320,7 @@ export const ENTRIES: Record<string, Entry> = {
         id: "DropItemMaxNum",
         defaultValue: "3000",
         type: "integer",
-        range: [0, 10000],
+        range: [0, 100000],
         desc: "Drop item max num",
     },
     DropItemMaxNum_UNKO: {
@@ -366,7 +367,7 @@ export const ENTRIES: Record<string, Entry> = {
         id: "AutoResetGuildTimeNoOnlinePlayers",
         defaultValue: "72.000000",
         type: "float",
-        range: [0, 240],
+        range: [0, 2160],
         desc: "Auto reset guild time no online players",
     },
     GuildPlayerMaxNum: {
@@ -374,7 +375,7 @@ export const ENTRIES: Record<string, Entry> = {
         id: "GuildPlayerMaxNum",
         defaultValue: "20",
         type: "integer",
-        range: [1, 100],
+        range: [1, 256],
         desc: "Guild player max num",
     },
     PalEggDefaultHatchingTime: {
@@ -382,7 +383,7 @@ export const ENTRIES: Record<string, Entry> = {
         id: "PalEggDefaultHatchingTime",
         defaultValue: "72.000000",
         type: "float",
-        range: [0, 240],
+        range: [0, 720],
         desc: "Pal egg default hatching time",
         difficultyType: "increasing",
     },
@@ -391,7 +392,7 @@ export const ENTRIES: Record<string, Entry> = {
         id: "WorkSpeedRate",
         defaultValue: "1.000000",
         type: "float",
-        range: [0.1, 5],
+        range: [0.1, 10],
         desc: "Work speed rate",
         difficultyType: "decreasing",
     },

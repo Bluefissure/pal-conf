@@ -47,6 +47,8 @@
 
 `pnpm i` 和 `pnpm run dev`
 
+MacOS 使用 ` npx pnpm i` 和 `npx pnpm run dev`
+
 ## 本地化
 [![inlang status badge](https://badge.inlang.com/?url=github.com/Bluefissure/pal-conf)](https://fink.inlang.com/github.com/Bluefissure/pal-conf?ref=badge)
 
