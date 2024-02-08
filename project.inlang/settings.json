@@ -4,7 +4,8 @@
     "languageTags": [
         "en-US",
         "zh-CN",
-        "ja-JP"
+        "ja-JP",
+        "ko-KR"
     ],
     "modules": [
         "https://cdn.jsdelivr.net/npm/@inlang/plugin-i18next@4/dist/index.js",
