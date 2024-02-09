@@ -68,7 +68,7 @@
                 "BuildObjectDeteriorationDamageRate": "Build Object Deterioration Damage Rate",
                 "CollectionDropRate": "Collection Drop Rate",
                 "CollectionObjectHpRate": "Collection Object HP Rate",
-                "CollectionObjectRespawnSpeedRate": "Collection Object Respawn Speed Rate",
+                "CollectionObjectRespawnSpeedRate": "Collection Object Respawn Interval Rate",
                 "EnemyDropItemRate": "Enemy Drop Item Rate",
                 "DeathPenalty": "Death Penalty",
                 "bEnablePlayerToPlayerDamage": "Enable Player To Player Damage",
