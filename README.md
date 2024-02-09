@@ -47,6 +47,10 @@ You can simply switch mode without losing any data! So you can simply:
 
 `pnpm i` and `pnpm run dev`
 
+## Deploy
+
+`pnpm build` and deploy the files in `dist` folder to any webserver.
+
 ## Localization
 
 [![inlang status badge](https://badge.inlang.com/?url=github.com/Bluefissure/pal-conf)](https://fink.inlang.com/github.com/Bluefissure/pal-conf?ref=badge)
@@ -66,4 +70,3 @@ You can add the `?lng=<langCode>`(such as `?lng=zh_CN` or `?lng=ja_JP`) to the e
 
 Not necessary, but I'll appreciate it if you can star this project!!
 <img width="662" alt="image" src="https://github.com/Bluefissure/pal-conf/assets/9719003/906de048-99cc-4448-bf21-93440ac0c1f1">
-

@@ -8,7 +8,7 @@
    • <a href="/docs/README_zh_CN.md">简体中文</a>
 </p>
 
-以友好的方式管理你的 [幻兽帕鲁](https://store.steampowered.com/app/1623730/Palworld/) 服务器设置！
+以友好的方式管理你的 [幻兽帕鲁](https://store.steampowered.com/app/1623730/Palworld/) [服务器设置](https://tech.palworldgame.com/optimize-game-balance)！
 
 ## 使用方法
 
@@ -47,7 +47,12 @@
 
 `pnpm i` 和 `pnpm run dev`
 
+## 部署
+
+`pnpm build` 然后将 `dist` 文件夹内的文件部署到任意网络服务器。
+
 ## 本地化
+
 [![inlang status badge](https://badge.inlang.com/?url=github.com/Bluefissure/pal-conf)](https://fink.inlang.com/github.com/Bluefissure/pal-conf?ref=badge)
 
 您可以使用无代码 [Fink 编辑器](https://fink.inlang.com/github.com/Bluefissure/pal-conf) 来更新翻译或添加语言。
