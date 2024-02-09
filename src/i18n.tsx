@@ -8,6 +8,7 @@ import en_US from "./assets/i18n/en-US.json";
 import zh_CN from "./assets/i18n/zh-CN.json";
 import ja_JP from "./assets/i18n/ja-JP.json";
 import ko_KR from "./assets/i18n/ko-KR.json";
+import zh_TW from "./assets/i18n/zh-TW.json";
 
 type I18nStr = typeof en_US.translation;
 
@@ -17,7 +18,7 @@ const initConfig = {
   interpolation: {
     escapeValue: false, // not needed for react as it escapes by default
   },
-  resources: { en_US, zh_CN, ja_JP, ko_KR },
+  resources: { en_US, zh_CN, ja_JP, ko_KR, zh_TW },
 };
 
 i18n
