@@ -5,7 +5,8 @@
         "en-US",
         "zh-CN",
         "ja-JP",
-        "ko-KR"
+        "ko-KR",
+        "zh-TW"
     ],
     "modules": [
         "https://cdn.jsdelivr.net/npm/@inlang/plugin-i18next@4/dist/index.js",

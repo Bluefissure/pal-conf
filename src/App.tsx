@@ -563,6 +563,10 @@ function App() {
                       <ReactCountryFlag countryCode="CN" svg />
                       <div className="px-2"> 简体中文 </div>
                     </DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value="zh_TW">
+                      <ReactCountryFlag countryCode="TW" svg />
+                      <div className="px-2"> 繁體中文 </div>
+                    </DropdownMenuRadioItem>
                     <DropdownMenuRadioItem value="ja_JP">
                       <ReactCountryFlag countryCode="JP" svg />
                       <div className="px-2"> 日本語 </div>
