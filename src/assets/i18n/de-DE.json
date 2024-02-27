@@ -95,6 +95,7 @@
                 "bIsStartLocationSelectByMap": "Ist der Startort, wählen Sie ihn anhand der Karte aus",
                 "bExistPlayerAfterLogout": "Existierender Spieler nach dem Abmelden",
                 "bEnableDefenseOtherGuildPlayer": "Aktivieren Sie die Verteidigung anderer Gildenspieler",
+                "bShowPlayerList": "Aktivieren Sie die Online-Spielerliste auf dem dedizierten Server",
                 "CoopPlayerMaxNum": "Max. Anzahl der Coop-Spieler",
                 "ServerPlayerMaxNum": "Maximale Serverspieleranzahl",
                 "ServerName": "Servername",
