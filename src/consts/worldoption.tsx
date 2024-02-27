@@ -609,6 +609,11 @@ export const DEFAULT_WORLDOPTION = {
                               "value": false
                             }
                           },
+                          "bShowPlayerList": {
+                            "Bool": {
+                              "value": false
+                            }
+                          },
                           "bEnablePlayerToPlayerDamage": {
                             "Bool": {
                               "value": false
