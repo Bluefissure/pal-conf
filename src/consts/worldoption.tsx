@@ -554,16 +554,16 @@ export const DEFAULT_WORLDOPTION = {
                               "value": ""
                             }
                           },
-                        //   "RCONEnabled": {
-                        //     "Bool": {
-                        //       "value": false
-                        //     }
-                        //   },
-                        //   "RCONPort": {
-                        //     "Int": {
-                        //       "value": 25575
-                        //     }
-                        //   },
+                          "RCONEnabled": {
+                            "Bool": {
+                              "value": false
+                            }
+                          },
+                          "RCONPort": {
+                            "Int": {
+                              "value": 25575
+                            }
+                          },
                           "Region": {
                             "Str": {
                               "value": ""
