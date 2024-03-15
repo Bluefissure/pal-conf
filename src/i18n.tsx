@@ -11,7 +11,7 @@ import ko_KR from "./assets/i18n/ko-KR.json";
 import zh_TW from "./assets/i18n/zh-TW.json";
 import de_DE from "./assets/i18n/de-DE.json";
 import pt_BR from "./assets/i18n/pt-BR.json";
-import pt_BR from "./assets/i18n/es-ES.json";
+import es_ES from "./assets/i18n/es-ES.json";
 
 type I18nStr = typeof en_US.translation;
 
