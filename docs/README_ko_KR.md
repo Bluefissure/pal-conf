@@ -7,6 +7,7 @@
    • <a href="/README.md">English</a>
    • <a href="/docs/README_zh_CN.md">简体中文</a>
    • <a href="/docs/README_ko_KR.md">한국어</a>
+   • <a href="/docs/README_es_ES.md">Español</a>
 </p>
 
 [팰월드](https://store.steampowered.com/app/1623730/Palworld/) [서버설정](https://tech.palworldgame.com/optimize-game-balance)을 편리하게 관리해줍니다.
