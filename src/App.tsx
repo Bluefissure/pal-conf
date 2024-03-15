@@ -583,6 +583,10 @@ function App() {
                       <ReactCountryFlag countryCode="BR" svg />
                       <div className="px-2"> Português </div>
                     </DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value="es_ES">
+                      <ReactCountryFlag countryCode="ES" svg />
+                      <div className="px-2"> Español </div>
+                    </DropdownMenuRadioItem>
                   </DropdownMenuRadioGroup>
                 </DropdownMenuContent>
               </DropdownMenu>
