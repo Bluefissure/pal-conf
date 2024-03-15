@@ -6,6 +6,8 @@
 <p align="center">
    • <a href="/README.md">English</a>
    • <a href="/docs/README_zh_CN.md">简体中文</a>
+   • <a href="/docs/README_ko_KR.md">한국어</a>
+   • <a href="/docs/README_es_ES.md">Español</a>
 </p>
 
 以友好的方式管理你的 [幻兽帕鲁](https://store.steampowered.com/app/1623730/Palworld/) [服务器设置](https://tech.palworldgame.com/optimize-game-balance)！
