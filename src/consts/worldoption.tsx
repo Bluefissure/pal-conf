@@ -477,7 +477,7 @@ export const DEFAULT_WORLDOPTION = {
                         },
                         BaseCampWorkerMaxNum: {
                           Int: {
-                            value: 20,
+                            value: 15,
                           },
                         },
                         bAutoResetGuildNoOnlinePlayers: {
