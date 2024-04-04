@@ -572,7 +572,7 @@ export const DEFAULT_WORLDOPTION = {
                         },
                         bIsUseBackupSaveData: {
                           Bool: {
-                            value: false,
+                            value: true,
                           },
                         },
                         Region: {

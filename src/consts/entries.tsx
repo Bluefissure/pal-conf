@@ -548,7 +548,7 @@ export const ENTRIES: Record<string, Entry> = {
   bIsUseBackupSaveData: {
     name: "Is Use Backup Save Data",
     id: "bIsUseBackupSaveData",
-    defaultValue: "False",
+    defaultValue: "True",
     type: "boolean",
     desc: "Is use backup save data",
   },
