@@ -83,22 +83,23 @@ function SliderInput(props: {
     }
 
     const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setInputValue(e.target.value);
+        const value = +e.target.value;
+        if (value < minValue || isNaN(value)) {
+            setInputValue(`${minValue}`);
+            return;
+        }
+        if (value > maxValue) {
+            setInputValue(`${maxValue}`);
+            return;
+        }
+        
+        setInputValue(`${value}`);
     }
 
     const shownStep = type === "integer" ? 1 : 0.1;
 
     useEffect(() => {
         const handler = setTimeout(() => {
-            // let value = +inputValue;
-            // if (value < minValue) {
-            //     value = minValue;
-            //     setInputValue(`${minValue}`);
-            // }
-            // if (value > maxValue) {
-            //     value = maxValue;
-            //     setInputValue(`${maxValue}`);
-            // }
             onValueChange([+inputValue]);
         }, 1500);
         return () => {
