@@ -136,7 +136,7 @@ function SliderInput(props: {
                 <TooltipProvider>
                     <Tooltip >
                         <TooltipTrigger className="mx-2 w-[15%] px-0" >
-                            <Input value={inputValue} id={id} type="number" disabled={disabled} onChange={onInputChange} step={shownStep} />
+                            <Input value={inputValue} id={id} type="number" disabled={disabled} onChange={onInputChange} step={shownStep} max={maxValue} min={minValue} />
                         </TooltipTrigger>
                         <TooltipContent>
                             <p>{minValue} ~ {maxValue}</p>
