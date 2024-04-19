@@ -54,11 +54,11 @@ function SliderInput(props: {
             case "increasing":
                 return (
                     <div className="flex flex-row mt-1.5 mx-5 w-full">
-                        <div className="basis-1/2 flex flex-row space-x-1">
+                        <div className="basis-1/2 flex flex-row space-x-1 items-center">
                             <ArrowBigLeftDash color="#31A46C" size={20} />
                             <Trans i18nKey={I18nStr.easier} />
                         </div>
-                        <div className="basis-1/2 flex flex-row-reverse space-x-1">
+                        <div className="basis-1/2 flex flex-row-reverse space-x-1 items-center">
                             <ArrowBigRightDash color="#E5474D" size={20} />
                             <Trans i18nKey={I18nStr.harder} />
                         </div>
@@ -67,11 +67,11 @@ function SliderInput(props: {
             case "decreasing":
                 return (
                     <div className="flex flex-row mt-1.5 mx-5 w-full">
-                        <div className="basis-1/2 flex flex-row space-x-1">
+                        <div className="basis-1/2 flex flex-row space-x-1 items-center">
                             <ArrowBigLeftDash color="#E5474D" size={20} />
                             <Trans i18nKey={I18nStr.harder} />
                         </div>
-                        <div className="basis-1/2 flex flex-row-reverse space-x-1">
+                        <div className="basis-1/2 flex flex-row-reverse space-x-1 items-center">
                             <ArrowBigRightDash color="#31A46C" size={20} />
                             <Trans i18nKey={I18nStr.easier} />
                         </div>
