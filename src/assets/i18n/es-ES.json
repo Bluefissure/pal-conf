@@ -80,6 +80,7 @@
         "DropItemMaxNum": "Número Máximo de Objetos Caídos",
         "DropItemMaxNum_UNKO": "Número Máximo de Caída de Excrementos de Pal (UNKO)",
         "BaseCampMaxNum": "Número Máximo de Campamentos Base",
+        "BaseCampMaxNumInGuild": "Número Máximo de campamentos base en la guilda",
         "BaseCampWorkerMaxNum": "Número Máximo de Trabajadores en Campamento Base",
         "DropItemAliveMaxHours": "Horas Máximas de Vida de Objetos Caídos",
         "bAutoResetGuildNoOnlinePlayers": "Restablecer Automáticamente el Gremio sin Jugadores Conectados",

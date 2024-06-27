@@ -80,6 +80,7 @@
         "DropItemMaxNum": "월드 내의 드롭 아이템 최대 수",
         "DropItemMaxNum_UNKO": "팰 대변 드롭 최대 수 (UNKO)",
         "BaseCampMaxNum": "거점 최대 수량",
+        "BaseCampMaxNumInGuild": "길드에서 최대 캠프 수",
         "BaseCampWorkerMaxNum": "거점 작업 팰 최대 수",
         "DropItemAliveMaxHours": "드롭 아이템 최대 유효시간",
         "bAutoResetGuildNoOnlinePlayers": "온라인 플레이어가 없는 길드 자동 재설정",

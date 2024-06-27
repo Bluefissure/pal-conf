@@ -80,6 +80,7 @@
         "DropItemMaxNum": "Max. Anzahl der Drop-Items",
         "DropItemMaxNum_UNKO": "Pal Poop Drop Max Num (UNKO)",
         "BaseCampMaxNum": "Max. Anzahl Basislager",
+        "BaseCampMaxNumInGuild": "Max. Anzahl an Basislagern in der Gilde",
         "BaseCampWorkerMaxNum": "Max. Anzahl Basislagerarbeiter",
         "DropItemAliveMaxHours": "Maximale Anzahl an lebendigen Drop-Item-Stunden",
         "bAutoResetGuildNoOnlinePlayers": "Auto-Reset-Gilde Keine Online-Spieler",

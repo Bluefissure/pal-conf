@@ -80,6 +80,7 @@
         "DropItemMaxNum": "ドロップアイテムの最大数",
         "DropItemMaxNum_UNKO": "パルのうんちのドロップの最大数",
         "BaseCampMaxNum": "拠点の最大数",
+        "BaseCampMaxNumInGuild": "ギルドの拠点最大数",
         "BaseCampWorkerMaxNum": "拠点に出せるパルの最大数",
         "DropItemAliveMaxHours": "ドロップアイテムが消失するまでの時間[h]",
         "bAutoResetGuildNoOnlinePlayers": "プレイヤーがいないギルドを自動でリセットする",

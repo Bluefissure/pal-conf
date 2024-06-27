@@ -80,6 +80,7 @@
         "DropItemMaxNum": "Define o número máximo de itens largados no jogo.",
         "DropItemMaxNum_UNKO": "Define o número máximo de itens UNKO largados no jogo.",
         "BaseCampMaxNum": "Define o número máximo de acampamentos base que podem ser construídos.",
+        "BaseCampMaxNumInGuild": "Número máximo de acampamentos base na guilda",
         "BaseCampWorkerMaxNum": "Define o número máximo de trabalhadores em um acampamento base.",
         "DropItemAliveMaxHours": "Define o tempo máximo de vida dos itens após serem largados.",
         "bAutoResetGuildNoOnlinePlayers": "Reseta automaticamente as guildas sem jogadores online.",

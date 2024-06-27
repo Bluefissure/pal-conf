@@ -80,6 +80,7 @@
         "DropItemMaxNum": "世界內的掉落物上限",
         "DropItemMaxNum_UNKO": "世界內的帕魯便便掉落上限",
         "BaseCampMaxNum": "基地最大數量",
+        "BaseCampMaxNumInGuild": "公會的基地最大數量",
         "BaseCampWorkerMaxNum": "據點工作帕魯數量上限",
         "DropItemAliveMaxHours": "掉落物品留存時間(小時)",
         "bAutoResetGuildNoOnlinePlayers": "啟用自動清理公會成員",
