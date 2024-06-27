@@ -38,6 +38,7 @@ export const InGameSettings = [
   "bEnableInvaderEnemy",
   "DeathPenalty",
   "GuildPlayerMaxNum",
+  "BaseCampMaxNumInGuild",
   "BaseCampWorkerMaxNum",
 ];
 

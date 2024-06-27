@@ -475,6 +475,11 @@ export const DEFAULT_WORLDOPTION = {
                             value: 1,
                           },
                         },
+                        BaseCampMaxNumInGuild: {
+                          Int: {
+                            value: 3,
+                          },
+                        },
                         BaseCampWorkerMaxNum: {
                           Int: {
                             value: 15,

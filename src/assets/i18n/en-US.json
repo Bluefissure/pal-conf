@@ -80,6 +80,7 @@
         "DropItemMaxNum": "Drop Item Max Num",
         "DropItemMaxNum_UNKO": "Pal Poop Drop Max Num (UNKO)",
         "BaseCampMaxNum": "Base Camp Max Num",
+        "BaseCampMaxNumInGuild": "Base Camp Max Num In Guild",
         "BaseCampWorkerMaxNum": "Base Camp Worker Max Num",
         "DropItemAliveMaxHours": "Drop Item Alive Max Hours",
         "bAutoResetGuildNoOnlinePlayers": "Auto Reset Guild No Online Players",

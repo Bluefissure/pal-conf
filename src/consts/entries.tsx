@@ -339,12 +339,20 @@ export const ENTRIES: Record<string, Entry> = {
     range: [0, 10240],
     desc: "Base camp max num",
   },
+  BaseCampMaxNumInGuild: {
+    name: "Base Camp Max Num In Guild",
+    id: "BaseCampMaxNumInGuild",
+    defaultValue: "3",
+    type: "integer",
+    range: [1, 10],
+    desc: "Base camp max num in guild",
+  },
   BaseCampWorkerMaxNum: {
     name: "Base Camp Worker Max Num",
     id: "BaseCampWorkerMaxNum",
     defaultValue: "15",
     type: "integer",
-    range: [1, 20],
+    range: [1, 50],
     desc: "Base camp worker max num",
   },
   DropItemAliveMaxHours: {
