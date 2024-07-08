@@ -500,6 +500,11 @@ export const DEFAULT_WORLDOPTION = {
                             value: 1.0,
                           },
                         },
+                        AutoSaveSpan: {
+                          Float: {
+                            value: 30.0,
+                          },
+                        },
                         GuildPlayerMaxNum: {
                           Int: {
                             value: 100,

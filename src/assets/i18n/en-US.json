@@ -88,6 +88,7 @@
         "GuildPlayerMaxNum": "Guild Player Max Num",
         "PalEggDefaultHatchingTime": "Pal Egg Default Hatching Time",
         "WorkSpeedRate": "Work Speed Rate",
+        "AutoSaveSpan": "Auto Save Span",
         "bIsMultiplay": "Is Multiplay",
         "bIsPvP": "Is PvP",
         "bCanPickupOtherGuildDeathPenaltyDrop": "Can Pickup Other Guild Death Penalty Drop",
