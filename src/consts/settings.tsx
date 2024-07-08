@@ -7,6 +7,7 @@ export const ServerSettings = [
   "PublicPort",
   "ServerPlayerMaxNum",
   "bIsUseBackupSaveData",
+  "AutoSaveSpan"
 ];
 
 export const InGameSettings = [
