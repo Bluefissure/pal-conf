@@ -88,6 +88,7 @@
         "GuildPlayerMaxNum": "公会玩家最大数量",
         "PalEggDefaultHatchingTime": "巨大蛋孵化所需时间(小时)",
         "WorkSpeedRate": "工作速率",
+        "AutoSaveSpan": "自动保存间隔",
         "bIsMultiplay": "是否多人游戏",
         "bIsPvP": "是否 PvP",
         "bCanPickupOtherGuildDeathPenaltyDrop": "能否拾取其他公会玩家的死亡惩罚掉落物",

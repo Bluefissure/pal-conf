@@ -88,6 +88,7 @@
         "GuildPlayerMaxNum": "Número Máximo de Jugadores del Gremio",
         "PalEggDefaultHatchingTime": "Tiempo Predeterminado de Eclosión de Huevos de Pal",
         "WorkSpeedRate": "Ratio de Velocidad de Trabajo",
+        "AutoSaveSpan": "Intervalo de guardado automático",
         "bIsMultiplay": "Es Multijugador",
         "bIsPvP": "Es JcJ",
         "bCanPickupOtherGuildDeathPenaltyDrop": "Puede Recoger la Penalización por Muerte de Otro Gremio",

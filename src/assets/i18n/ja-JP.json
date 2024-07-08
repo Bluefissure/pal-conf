@@ -88,6 +88,7 @@
         "GuildPlayerMaxNum": "ギルドの最大人数",
         "PalEggDefaultHatchingTime": "キョダイタマゴの孵化にかかる時間[h]",
         "WorkSpeedRate": "作業速度倍率",
+        "AutoSaveSpan": "自動保存間隔",
         "bIsMultiplay": "マルチプレイを有効にする",
         "bIsPvP": "PvPを有効にする",
         "bCanPickupOtherGuildDeathPenaltyDrop": "デスペナルティによるドロップを他のギルドが拾えるようにする",

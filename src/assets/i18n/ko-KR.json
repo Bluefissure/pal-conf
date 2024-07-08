@@ -88,6 +88,7 @@
         "GuildPlayerMaxNum": "길드 내 최대 플레이어 수 설정",
         "PalEggDefaultHatchingTime": "팰 알의 기본 부화 시간 설정",
         "WorkSpeedRate": "작업 속도 배율",
+        "AutoSaveSpan": "자동 저장 간격",
         "bIsMultiplay": "멀티플레이 모드",
         "bIsPvP": "PvP 모드",
         "bCanPickupOtherGuildDeathPenaltyDrop": "다른 길드의 사망 패널티 아이템 획득",

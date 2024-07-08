@@ -88,6 +88,7 @@
         "GuildPlayerMaxNum": "Maximale Anzahl Gildenspieler",
         "PalEggDefaultHatchingTime": "Standard-Schlüpfzeit der Pal Eier",
         "WorkSpeedRate": "Arbeitsgeschwindigkeitsrate",
+        "AutoSaveSpan": "Automatisches Speicherintervall",
         "bIsMultiplay": "Ist Mehrspieler",
         "bIsPvP": "Ist PvP",
         "bCanPickupOtherGuildDeathPenaltyDrop": "Kann Todesstrafen-Drops anderer Gilden erhalten",
