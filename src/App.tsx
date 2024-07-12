@@ -129,9 +129,9 @@ function App() {
         const newEntries = { ...entries };
         optionSettingsList.forEach((optionSetting) => {
           // console.log(optionSetting)
-          const optionSettingList = optionSetting.split("=");
-          const optionSettingName = optionSettingList[0];
-          let optionSettingValue = optionSettingList[1];
+          const equalSignIndex = optionSetting.indexOf("=");
+          const optionSettingName = optionSetting.slice(0, equalSignIndex);
+          let optionSettingValue = optionSetting.slice(equalSignIndex + 1);
           const entry = ENTRIES[optionSettingName];
           if (entry) {
             if (entry.type === "string" && optionSettingValue.startsWith('"') && optionSettingValue.endsWith('"')) {
