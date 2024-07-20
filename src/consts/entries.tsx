@@ -413,6 +413,22 @@ export const ENTRIES: Record<string, Entry> = {
     range: [30, 3600],
     desc: "Auto save span",
   },
+  AllowConnectPlatform: {
+    name: "Allow Connect Platform",
+    id: "AllowConnectPlatform",
+    defaultValue: "Steam",
+    type: "select",
+    options: ["Steam", "Xbox"],
+    desc: "Allow connect platform",
+  },
+  LogFormatType: {
+    name: "Log Format Type",
+    id: "LogFormatType",
+    defaultValue: "Text",
+    type: "select",
+    options: ["Text", "Json"],
+    desc: "Log format type",
+  },
   bIsMultiplay: {
     name: "Is Multiplay",
     id: "bIsMultiplay",

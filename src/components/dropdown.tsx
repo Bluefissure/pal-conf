@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useTranslation, Trans } from 'react-i18next';
 import { ChevronDown } from "lucide-react"
 
+import { DeathPenaltyLabels, AllowConnectPlatformLabels, LogFormatTypeLabels } from "@/consts/dropdownLabels"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import {
@@ -25,39 +26,33 @@ import {
 } from "@/components/ui/tooltip"
 import { I18nStr } from "@/i18n";
 
-const labels = [
-    {
-        name: "None",
-        desc: "No lost",
-    },
-    {
-        name: "Item",
-        desc: "Lost item without equipment",
-    },
-    {
-        name: "ItemAndEquipment",
-        desc: "Lost item and equipment",
-    },
-    {
-        name: "All",
-        desc: "Lost All item, equipment, pal(in inventory)",
-    },
-]
+type Labels = typeof DeathPenaltyLabels | typeof AllowConnectPlatformLabels | typeof LogFormatTypeLabels;
+export type LabelValue = Labels[number]['name'];
+type Key =  'DeathPenalty' | 'AllowConnectPlatform' | 'LogFormatType';
 
-export type DeathPenaltyLabel = "None" | "Item" | "ItemAndEquipment" | "All";
+function get<T>(dict: Record<string, T>, key: string, defaultValue: T): T {
+    return Object.prototype.hasOwnProperty.call(dict, key) ? dict[key] : defaultValue;
+}
 
-export const DeathPenaltyDropDown = (props: {
-    label: DeathPenaltyLabel,
-    onLabelChange: (label: string) => void,
-}) => {
+export function DropDown(props: {
+    dKey: Key;
+    label: LabelValue;
+    onLabelChange: (label: string) => void;
+}) {
+    const { dKey, label, onLabelChange } = props;
+    const labels = {
+      DeathPenalty: DeathPenaltyLabels,
+      AllowConnectPlatform: AllowConnectPlatformLabels,
+      LogFormatType: LogFormatTypeLabels
+    }[dKey] as Labels;
     const { t } = useTranslation();
+    const [open, setOpen] = useState(false);
+    const i18nLabelDesc = get(I18nStr.entry.description[dKey] as Record<string, string>, label, "");
 
-    const { label, onLabelChange } = props;
-    const [open, setOpen] = useState(false)
-
-    const labelDesc = t(I18nStr.entry.description.DeathPenalty[label], {
+    const labelDesc = t(i18nLabelDesc, {
         defaultValue: labels.find((l) => l.name === label)?.desc ?? "",
     });
+
 
     return (
         <div className="space-y-1">
@@ -65,9 +60,9 @@ export const DeathPenaltyDropDown = (props: {
                 <TooltipProvider>
                     <Tooltip>
                         <TooltipTrigger className="cursor-default">
-                            <Trans i18nKey={I18nStr.entry.name.DeathPenalty} />
+                            <Trans i18nKey={get(I18nStr.entry.name, dKey, "")} />
                             <TooltipContent>
-                                <p>DeathPenalty</p>
+                                <p>{dKey}</p>
                             </TooltipContent>
                         </TooltipTrigger>
                     </Tooltip>
