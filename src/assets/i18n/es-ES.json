@@ -89,6 +89,8 @@
         "PalEggDefaultHatchingTime": "Tiempo Predeterminado de Eclosión de Huevos de Pal",
         "WorkSpeedRate": "Ratio de Velocidad de Trabajo",
         "AutoSaveSpan": "Intervalo de guardado automático",
+        "AllowConnectPlatform": "Permitir Conectar Plataforma",
+        "LogFormatType": "Tipo de Formato de Registro",
         "bIsMultiplay": "Es Multijugador",
         "bIsPvP": "Es JcJ",
         "bCanPickupOtherGuildDeathPenaltyDrop": "Puede Recoger la Penalización por Muerte de Otro Gremio",
@@ -121,6 +123,14 @@
           "Item": "Pérdida de objetos sin equipo",
           "ItemAndEquipment": "Pérdida de objetos y equipo",
           "All": "Pérdida de todos los objetos, equipo y Pal (en inventario)"
+        },
+        "AllowConnectPlatform": {
+          "Steam": "Permitir solo la conexión de Steam",
+          "Xbox": "Permitir solo la conexión de Xbox"
+        },
+        "LogFormatType": {
+          "Text": "Usar formato de texto para registrar",
+          "Json": "Usar formato Json para registrar"
         }
       }
     }

@@ -89,6 +89,8 @@
         "PalEggDefaultHatchingTime": "キョダイタマゴの孵化にかかる時間[h]",
         "WorkSpeedRate": "作業速度倍率",
         "AutoSaveSpan": "自動保存間隔",
+        "AllowConnectPlatform": "プラットフォーム接続を許可",
+        "LogFormatType": "ログ形式タイプ",
         "bIsMultiplay": "マルチプレイを有効にする",
         "bIsPvP": "PvPを有効にする",
         "bCanPickupOtherGuildDeathPenaltyDrop": "デスペナルティによるドロップを他のギルドが拾えるようにする",
@@ -121,6 +123,14 @@
           "Item": "装備品以外のアイテム",
           "ItemAndEquipment": "全ての装備品とアイテム",
           "All": "全ての装備品とアイテムと手持ちのパル"
+        },
+        "AllowConnectPlatform": {
+          "Steam": "Steamのみ接続を許可",
+          "Xbox": "Xboxのみ接続を許可"
+        },
+        "LogFormatType": {
+          "Text": "テキスト形式を使用してログを記録",
+          "Json": "Json形式を使用してログを記録"
         }
       }
     }

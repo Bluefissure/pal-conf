@@ -89,6 +89,8 @@
         "PalEggDefaultHatchingTime": "巨大蛋孵化所需时间(小时)",
         "WorkSpeedRate": "工作速率",
         "AutoSaveSpan": "自动保存间隔",
+        "AllowConnectPlatform": "允许连接平台",
+        "LogFormatType": "日志格式类型",
         "bIsMultiplay": "是否多人游戏",
         "bIsPvP": "是否 PvP",
         "bCanPickupOtherGuildDeathPenaltyDrop": "能否拾取其他公会玩家的死亡惩罚掉落物",
@@ -121,6 +123,14 @@
           "Item": "丢失非装备物品",
           "ItemAndEquipment": "丢失物品和装备",
           "All": "丢失所有物品、装备、帕鲁（在背包中的）"
+        },
+        "AllowConnectPlatform": {
+          "Steam": "允许 Steam 连接",
+          "Xbox": "允许 Xbox 连接"
+        },
+        "LogFormatType": {
+          "Text": "使用文本格式记录日志",
+          "Json": "使用 JSON 格式记录日志"
         }
       }
     }

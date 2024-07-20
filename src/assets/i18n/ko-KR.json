@@ -89,6 +89,8 @@
         "PalEggDefaultHatchingTime": "팰 알의 기본 부화 시간 설정",
         "WorkSpeedRate": "작업 속도 배율",
         "AutoSaveSpan": "자동 저장 간격",
+        "AllowConnectPlatform": "플랫폼 연결 허용",
+        "LogFormatType": "로그 형식 유형",
         "bIsMultiplay": "멀티플레이 모드",
         "bIsPvP": "PvP 모드",
         "bCanPickupOtherGuildDeathPenaltyDrop": "다른 길드의 사망 패널티 아이템 획득",
@@ -121,6 +123,14 @@
           "Item": "아이템만 드롭",
           "ItemAndEquipment": "아이템 및 장비만 드롭",
           "All": "장비, 팰, 인벤토리 전부 드롭"
+        },
+        "AllowConnectPlatform": {
+          "Steam": "Steam만 연결 허용",
+          "Xbox": "Xbox만 연결 허용"
+        },
+        "LogFormatType": {
+          "Text": "텍스트 형식을 사용하여 로그 기록",
+          "Json": "Json 형식을 사용하여 로그 기록"
         }
       }
     }
