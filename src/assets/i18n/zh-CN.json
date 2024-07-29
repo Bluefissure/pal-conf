@@ -115,7 +115,9 @@
         "bIsUseBackupSaveData": "是否自动备份存档数据",
         "Region": "地区",
         "bUseAuth": "使用授权",
-        "BanListURL": "封禁列表 URL"
+        "BanListURL": "封禁列表 URL",
+        "SupplyDropSpan":"陨石或空投的间隔（分钟）"
+
       },
       "description": {
         "DeathPenalty": {

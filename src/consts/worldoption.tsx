@@ -522,6 +522,11 @@ export const DEFAULT_WORLDOPTION = {
                             value: 100,
                           },
                         },
+                        SupplyDropSpan: {
+                          Int: {
+                            value: 180,
+                          },
+                        },
                         PalEggDefaultHatchingTime: {
                           Float: {
                             value: 116.0,

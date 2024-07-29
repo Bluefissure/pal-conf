@@ -43,6 +43,7 @@ export const InGameSettings = [
   "GuildPlayerMaxNum",
   "BaseCampMaxNumInGuild",
   "BaseCampWorkerMaxNum",
+  "SupplyDropSpan",
 ];
 
 export const AdvancedSettings = [

@@ -115,7 +115,8 @@
         "bIsUseBackupSaveData": "Usar Datos de Guardado de Respaldo",
         "Region": "Región",
         "bUseAuth": "Usar Autenticación",
-        "BanListURL": "URL de Lista de Prohibidos"
+        "BanListURL": "URL de Lista de Prohibidos",
+        "SupplyDropSpan":"Intervalo de meteoritos y entrega de suministros (minutos)"
       },
       "description": {
         "DeathPenalty": {

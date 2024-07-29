@@ -115,7 +115,9 @@
         "bIsUseBackupSaveData": "バックアップセーブデータを使用する",
         "Region": "リージョン",
         "bUseAuth": "認証を使用する",
-        "BanListURL": "BANリストURL"
+        "BanListURL": "BANリストURL",
+        "SupplyDropSpan":"隕石・補給物資の投下間隔（分）"
+
       },
       "description": {
         "DeathPenalty": {
