@@ -115,7 +115,9 @@
         "bIsUseBackupSaveData": "Is Use Backup Save Data",
         "Region": "Region",
         "bUseAuth": "Use Auth",
-        "BanListURL": "Ban List URL"
+        "BanListURL": "Ban List URL",
+        "SupplyDropSpan":"Interval for supply drop or meteorite (minutes)"
+
       },
       "description": {
         "DeathPenalty": {

@@ -74,7 +74,8 @@ RCONEnabled=False,
 RCONPort=25575,
 Region="",
 bUseAuth=True,
-BanListURL="https://api.palworldgame.com/api/banlist.txt"
+BanListURL="https://api.palworldgame.com/api/banlist.txt",
+SupplyDropSpan=180
 */
 
 export const ENTRIES: Record<string, Entry> = {
@@ -605,5 +606,13 @@ export const ENTRIES: Record<string, Entry> = {
     defaultValue: "https://api.palworldgame.com/api/banlist.txt",
     type: "string",
     desc: "Ban list URL",
+  },
+  SupplyDropSpan:{
+    name: "Supply Drop Span",
+    id: "SupplyDropSpan",
+    defaultValue: "180",
+    type: "integer",
+    range: [0, 1000],
+    desc: "Interval for supply drop and meteorite (minutes)",
   },
 };

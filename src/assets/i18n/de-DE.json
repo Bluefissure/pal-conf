@@ -115,7 +115,9 @@
         "bIsUseBackupSaveData": "Verwenden Sie Sicherungs-Speicherdaten",
         "Region": "Region",
         "bUseAuth": "Verwenden Sie Auth",
-        "BanListURL": "URL der Verbotsliste"
+        "BanListURL": "URL der Verbotsliste",
+        "SupplyDropSpan":"Meteorit- und Versorgungsabwurf-Intervall (Minuten)"
+
       },
       "description": {
         "DeathPenalty": {
