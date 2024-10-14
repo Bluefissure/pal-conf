@@ -527,6 +527,11 @@ export const DEFAULT_WORLDOPTION = {
                             value: 180,
                           },
                         },
+                        ChatPostLimitPerMinute: {
+                          Int: {
+                            value: 10,
+                          },
+                        },
                         PalEggDefaultHatchingTime: {
                           Float: {
                             value: 116.0,

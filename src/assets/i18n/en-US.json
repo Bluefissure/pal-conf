@@ -116,8 +116,8 @@
         "Region": "Region",
         "bUseAuth": "Use Auth",
         "BanListURL": "Ban List URL",
-        "SupplyDropSpan":"Interval for supply drop or meteorite (minutes)"
-
+        "SupplyDropSpan":"Interval for supply drop or meteorite (minutes)",
+        "ChatPostLimitPerMinute":"Chat Post Limit Per Minute"
       },
       "description": {
         "DeathPenalty": {

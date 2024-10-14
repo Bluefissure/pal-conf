@@ -116,7 +116,8 @@
         "Region": "Define a região para o servidor Palworld.",
         "bUseAuth": "Habilita ou desabilita autenticação do servidor.",
         "BanListURL": "Define a URL para a lista de banidos do servidor.",
-        "SupplyDropSpan":"Intervalo de queda de meteoritos e suprimentos (minutos)"
+        "SupplyDropSpan":"Intervalo de queda de meteoritos e suprimentos (minutos)",
+        "ChatPostLimitPerMinute":"Limite de postagem de chat por minuto"
       },
       "description": {
         "DeathPenalty": {

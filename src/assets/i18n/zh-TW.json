@@ -116,8 +116,8 @@
         "Region": "地區",
         "bUseAuth": "使用驗證",
         "BanListURL": "封禁列表來源",
-        "SupplyDropSpan":"隕石或空投的間隔（分鐘）"
-
+        "SupplyDropSpan":"隕石或空投的間隔（分鐘）",
+        "ChatPostLimitPerMinute":"每分鐘聊天限制數"
       },
       "description": {
         "DeathPenalty": {
