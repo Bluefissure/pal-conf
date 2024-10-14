@@ -44,6 +44,7 @@ export const InGameSettings = [
   "BaseCampMaxNumInGuild",
   "BaseCampWorkerMaxNum",
   "SupplyDropSpan",
+  "ChatPostLimitPerMinute",
 ];
 
 export const AdvancedSettings = [

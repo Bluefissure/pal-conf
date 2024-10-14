@@ -615,4 +615,12 @@ export const ENTRIES: Record<string, Entry> = {
     range: [0, 1000],
     desc: "Interval for supply drop and meteorite (minutes)",
   },
+  ChatPostLimitPerMinute:{
+    name: "Chat Post Limit Per Minute",
+    id: "ChatPostLimitPerMinute",
+    defaultValue: "10",
+    type: "integer",
+    range: [0, 100],
+    desc: "Number of chats that can be posted per minute",
+  },
 };

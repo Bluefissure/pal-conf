@@ -116,7 +116,8 @@
         "Region": "Región",
         "bUseAuth": "Usar Autenticación",
         "BanListURL": "URL de Lista de Prohibidos",
-        "SupplyDropSpan":"Intervalo de meteoritos y entrega de suministros (minutos)"
+        "SupplyDropSpan":"Intervalo de meteoritos y entrega de suministros (minutos)",
+        "ChatPostLimitPerMinute":"Límite de mensajes por minuto"
       },
       "description": {
         "DeathPenalty": {

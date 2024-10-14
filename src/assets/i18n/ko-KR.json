@@ -116,7 +116,8 @@
         "Region": "서버 지역",
         "bUseAuth": "서버 인증",
         "BanListURL": "서버 밴 리스트의 URL",
-        "SupplyDropSpan":"운석 및 보급 투하 간격 (분)"
+        "SupplyDropSpan":"운석 및 보급 투하 간격 (분)",
+        "ChatPostLimitPerMinute":"분당 채팅 제한 수"
       },
       "description": {
         "DeathPenalty": {
