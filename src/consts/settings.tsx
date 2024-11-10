@@ -67,6 +67,7 @@ export const AdvancedSettings = [
   "bIsStartLocationSelectByMap",
   "bExistPlayerAfterLogout",
   "bEnableDefenseOtherGuildPlayer",
+  "bInvisibleOtherGuildBaseCampAreaFX",
   "bShowPlayerList",
   "RCONEnabled",
   "RCONPort",

@@ -99,6 +99,7 @@
         "bIsStartLocationSelectByMap": "Is Start Location Select By Map",
         "bExistPlayerAfterLogout": "Exist Player After Logout",
         "bEnableDefenseOtherGuildPlayer": "Enable Defense Other Guild Player",
+        "bInvisibleOtherGuildBaseCampAreaFX": "Invisible Other Guild Base Camp Area FX",
         "bShowPlayerList": "Enable Online Player List in Dedicated Server",
         "CoopPlayerMaxNum": "Coop Player Max Num",
         "ServerPlayerMaxNum": "Server Player Max Num",

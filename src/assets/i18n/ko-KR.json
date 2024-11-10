@@ -99,6 +99,7 @@
         "bIsStartLocationSelectByMap": "지도에서 시작 위치 선택 활성화",
         "bExistPlayerAfterLogout": "로그아웃 후 플레이어 존재 활성화",
         "bEnableDefenseOtherGuildPlayer": "다른 길드 플레이어의 방어를 활성화",
+        "bInvisibleOtherGuildBaseCampAreaFX": "다른 길드의 기지 영역 FX 숨김",
         "bShowPlayerList": "전용 서버에서 온라인 플레이어 목록 활성화",
         "CoopPlayerMaxNum": "세션 내 최대 협동 플레이어 수 설정",
         "ServerPlayerMaxNum": "서버에 허용된 최대 플레이어 수 설정",

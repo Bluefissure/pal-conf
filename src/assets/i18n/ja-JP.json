@@ -99,6 +99,7 @@
         "bIsStartLocationSelectByMap": "スタートするロケーションを選べるようにする",
         "bExistPlayerAfterLogout": "プレイヤーがログアウトしても存在し続ける",
         "bEnableDefenseOtherGuildPlayer": "他のギルドからの攻撃を防御する",
+        "bInvisibleOtherGuildBaseCampAreaFX": "他のギルドの拠点エリアFXを非表示にする",
         "bShowPlayerList": "オンラインプレーヤーリストを有効にする",
         "CoopPlayerMaxNum": "協力プレイの最大人数",
         "ServerPlayerMaxNum": "サーバーに参加できる最大人数",
