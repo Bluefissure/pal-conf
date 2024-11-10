@@ -99,6 +99,7 @@
         "bIsStartLocationSelectByMap": "是否通过地图选择复活位置",
         "bExistPlayerAfterLogout": "登出后玩家人物是否存在",
         "bEnableDefenseOtherGuildPlayer": "启用据点内防御其他公会玩家",
+        "bInvisibleOtherGuildBaseCampAreaFX": "隐藏其他公会据点区域特效",
         "bShowPlayerList": "启用服务器内可以查看其他玩家列表",
         "CoopPlayerMaxNum": "合作玩家最大数量",
         "ServerPlayerMaxNum": "服务器玩家最大数量",

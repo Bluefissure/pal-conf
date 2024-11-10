@@ -652,6 +652,11 @@ export const DEFAULT_WORLDOPTION = {
                             value: false,
                           },
                         },
+                        bInvisibleOtherGuildBaseCampAreaFX: {
+                          Bool: {
+                            value: false,
+                          },
+                        },
                         bShowPlayerList: {
                           Bool: {
                             value: false,

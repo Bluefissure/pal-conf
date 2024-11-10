@@ -486,6 +486,13 @@ export const ENTRIES: Record<string, Entry> = {
     type: "boolean",
     desc: "Enable defense other guild player",
   },
+  bInvisibleOtherGuildBaseCampAreaFX: {
+    name: "Invisible Other Guild Base Camp Area FX",
+    id: "bInvisibleOtherGuildBaseCampAreaFX",
+    defaultValue: "False",
+    type: "boolean",
+    desc: "Enable invisible other guild base camp area FX",
+  },
   bShowPlayerList: {
     name: "Enable Online Player List in Dedicated Server",
     id: "bShowPlayerList",

@@ -99,6 +99,7 @@
         "bIsStartLocationSelectByMap": "允許從地圖選擇起始位置",
         "bExistPlayerAfterLogout": "玩家登出後人物是否消失",
         "bEnableDefenseOtherGuildPlayer": "啟用公會戰",
+        "bInvisibleOtherGuildBaseCampAreaFX": "隱藏其他公會基地特效",
         "bShowPlayerList": "啟用伺服器內可以查看其他玩家列表",
         "CoopPlayerMaxNum": "隊伍最大人數",
         "ServerPlayerMaxNum": "伺服器同時遊玩最大人數",

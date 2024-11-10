@@ -99,6 +99,7 @@
         "bIsStartLocationSelectByMap": "Habilita ou desabilita a seleção de locais iniciais no mapa.",
         "bExistPlayerAfterLogout": "Habilita ou desabilita a existência de jogadores após logout.",
         "bEnableDefenseOtherGuildPlayer": "Habilita ou desabilita a defesa de outros jogadores de guilda.",
+        "bInvisibleOtherGuildBaseCampAreaFX": "Habilita ou desabilita o efeito visual da área de acampamento base de outras guildas.",
         "bShowPlayerList": "Habilitar lista de jogadores online em servidor dedicado",
         "CoopPlayerMaxNum": "Define o número máximo de jogadores cooperativos em uma sessão.",
         "ServerPlayerMaxNum": "Define o número máximo de jogadores permitidos no servidor.",

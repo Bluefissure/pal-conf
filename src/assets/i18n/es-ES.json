@@ -99,6 +99,7 @@
         "bIsStartLocationSelectByMap": "Selección de Ubicación de Inicio por Mapa",
         "bExistPlayerAfterLogout": "Existencia de Jugador Después de Cerrar Sesión",
         "bEnableDefenseOtherGuildPlayer": "Habilitar Defensa de Otros Jugadores del Gremio",
+        "bInvisibleOtherGuildBaseCampAreaFX": "Área FX de Campamento Base de Otros Gremios Invisible",
         "bShowPlayerList": "Habilitar Lista de Jugadores en Línea en el Servidor Dedicado",
         "CoopPlayerMaxNum": "Número Máximo de Jugadores en Cooperativa",
         "ServerPlayerMaxNum": "Número Máximo de Jugadores del Servidor",
