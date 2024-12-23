@@ -219,6 +219,14 @@ export const ENTRIES: Record<string, Entry> = {
     range: [0.1, 5],
     difficultyType: "decreasing",
   },
+  BuildObjectHpRate: {
+    name: "Build Object HP Rate",
+    id: "BuildObjectHpRate",
+    defaultValue: "1.000000",
+    type: "float",
+    range: [0.5, 5],
+    desc: "HP rate to build objects",
+  },
   BuildObjectDamageRate: {
     name: "Build Object Damage Rate",
     id: "BuildObjectDamageRate",
@@ -295,6 +303,13 @@ export const ENTRIES: Record<string, Entry> = {
     defaultValue: "True",
     type: "boolean",
     desc: "Enable invader enemy",
+  },
+  EnablePredatorBossPal:{
+    name: "Enable Predator Boss Pal",
+    id: "EnablePredatorBossPal",
+    defaultValue: "True",
+    type: "boolean",
+    desc: "Enable predator boss pal",
   },
   bActiveUNKO: {
     name: "Active UNKO",
@@ -629,5 +644,21 @@ export const ENTRIES: Record<string, Entry> = {
     type: "integer",
     range: [0, 100],
     desc: "Number of chats that can be posted per minute",
+  },
+  MaxBuildingLimitNum:{
+    name: "Max Building Limit Num",
+    id: "MaxBuildingLimitNum",
+    defaultValue: "0",
+    type: "integer",
+    range: [0, 8],
+    desc: "Building number limit per player",
+  },
+  ServerReplicatePawnCullDistance:{
+    name: "Server Replicate Pawn Cull Distance",
+    id: "ServerReplicatePawnCullDistance",
+    defaultValue: "15000",
+    type: "integer",
+    range: [5000, 15000],
+    desc: "Pal sync distance from player",
   },
 };

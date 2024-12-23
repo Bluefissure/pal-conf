@@ -409,6 +409,11 @@ export const DEFAULT_WORLDOPTION = {
                             value: 1.5732236,
                           },
                         },
+                        BuildObjectHpRate: {
+                          Float: {
+                            value: 1.5131578,
+                          },
+                        },
                         BuildObjectDamageRate: {
                           Float: {
                             value: 1.5131578,
@@ -462,6 +467,11 @@ export const DEFAULT_WORLDOPTION = {
                             value: false,
                           },
                         },
+                        EnablePredatorBossPal: {
+                          Bool: {
+                            value: false,
+                          },
+                        },
                         bActiveUNKO: {
                           Bool: {
                             value: true,
@@ -495,6 +505,11 @@ export const DEFAULT_WORLDOPTION = {
                         BaseCampWorkerMaxNum: {
                           Int: {
                             value: 15,
+                          },
+                        },
+                        MaxBuildingLimitNum: {
+                          Int: {
+                            value: 0,
                           },
                         },
                         bAutoResetGuildNoOnlinePlayers: {
@@ -655,6 +670,11 @@ export const DEFAULT_WORLDOPTION = {
                         bInvisibleOtherGuildBaseCampAreaFX: {
                           Bool: {
                             value: false,
+                          },
+                        },
+                        ServerReplicatePawnCullDistance: {
+                          Float: {
+                            value: 15000.0,
                           },
                         },
                         bShowPlayerList: {
