@@ -444,6 +444,11 @@ export const DEFAULT_WORLDOPTION = {
                             value: 1.1134868,
                           },
                         },
+                        ItemWeightRate: {
+                          Float: {
+                            value: 1.5131578,
+                          },
+                        },
                         DeathPenalty: {
                           Enum: {
                             value: "EPalOptionWorldDeathPenalty::None",
@@ -652,6 +657,16 @@ export const DEFAULT_WORLDOPTION = {
                             value: false,
                           },
                         },
+                        bHardcore: {
+                          Bool: {
+                            value: false,
+                          },
+                        },
+                        bPalLost: {
+                          Bool: {
+                            value: false,
+                          },
+                        },
                         bCanPickupOtherGuildDeathPenaltyDrop: {
                           Bool: {
                             value: false,
@@ -668,6 +683,11 @@ export const DEFAULT_WORLDOPTION = {
                           },
                         },
                         bInvisibleOtherGuildBaseCampAreaFX: {
+                          Bool: {
+                            value: false,
+                          },
+                        },
+                        bBuildAreaLimit: {
                           Bool: {
                             value: false,
                           },
