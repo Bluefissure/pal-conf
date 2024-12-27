@@ -47,6 +47,8 @@
     "entry": {
       "name": {
         "Difficulty": "Difficulty",
+        "RandomizerType": "Randomizer Type",
+        "RandomizerSeed": "Randomizer Seed",
         "DayTimeSpeedRate": "Day Time Speed Rate",
         "NightTimeSpeedRate": "Night Time Speed Rate",
         "ExpRate": "Exp Rate",
@@ -142,6 +144,11 @@
         "LogFormatType": {
           "Text": "Use Text format to log",
           "Json": "Use Json format to log"
+        },
+        "RandomizerType": {
+          "None": "No randomizer set",
+          "Region": "Set to randomize region",
+          "All": "Set to randomize all"
         }
       }
     }

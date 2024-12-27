@@ -47,6 +47,8 @@
     "entry": {
       "name": {
         "Difficulty": "Dificultad",
+        "RandomizerType": "Tipo de Aleatorizador",
+        "RandomizerSeed": "Semilla del Aleatorizador",
         "DayTimeSpeedRate": "Ratio de Velocidad del Tiempo de Día",
         "NightTimeSpeedRate": "Ratio de Velocidad del Tiempo de Noche",
         "ExpRate": "Ratio de Experiencia",
@@ -142,6 +144,11 @@
         "LogFormatType": {
           "Text": "Usar formato de texto para registrar",
           "Json": "Usar formato Json para registrar"
+        },
+        "RandomizerType": {
+          "None": "Ningún aleatorizador establecido",
+          "Region": "Establecido para aleatorizar la región",
+          "All": "Establecido para aleatorizar todo"
         }
       }
     }

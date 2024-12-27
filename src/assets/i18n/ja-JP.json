@@ -47,6 +47,8 @@
     "entry": {
       "name": {
         "Difficulty": "難易度",
+        "RandomizerType": "ランダマイザータイプ",
+        "RandomizerSeed": "ランダマイザーシード",
         "DayTimeSpeedRate": "昼の経過速度",
         "NightTimeSpeedRate": "夜の経過速度",
         "ExpRate": "経験値の入手倍率",
@@ -142,6 +144,11 @@
         "LogFormatType": {
           "Text": "テキスト形式を使用してログを記録",
           "Json": "Json形式を使用してログを記録"
+        },
+        "RandomizerType": {
+          "None": "ランダマイザーが設定されていません",
+          "Region": "地域をランダムに設定",
+          "All": "すべてをランダムに設定"
         }
       }
     }

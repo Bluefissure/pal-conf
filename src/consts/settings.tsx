@@ -9,7 +9,9 @@ export const ServerSettings = [
   "bIsUseBackupSaveData",
   "AutoSaveSpan",
   "AllowConnectPlatform",
-  "LogFormatType"
+  "LogFormatType",
+  "RandomizerType",
+  "RandomizerSeed",
 ];
 
 export const InGameSettings = [

@@ -47,6 +47,8 @@
     "entry": {
       "name": {
         "Difficulty": "遊戲難度",
+        "RandomizerType": "隨機器類型",
+        "RandomizerSeed": "隨機種子",
         "DayTimeSpeedRate": "白天流逝速度",
         "NightTimeSpeedRate": "夜晚流逝速度",
         "ExpRate": "經驗值倍率",
@@ -142,6 +144,11 @@
         "LogFormatType": {
           "Text": "使用文本格式記錄日誌",
           "Json": "使用Json格式記錄日誌"
+        },
+        "RandomizerType": {
+          "None": "未設定隨機器",
+          "Region": "設定為隨機地區",
+          "All": "設定為全面隨機"
         }
       }
     }

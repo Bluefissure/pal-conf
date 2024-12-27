@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useTranslation, Trans } from 'react-i18next';
 import { ChevronDown } from "lucide-react"
 
-import { DeathPenaltyLabels, AllowConnectPlatformLabels, LogFormatTypeLabels } from "@/consts/dropdownLabels"
+import { DeathPenaltyLabels, AllowConnectPlatformLabels, LogFormatTypeLabels, RandomizerTypeLabels } from "@/consts/dropdownLabels"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import {
@@ -26,9 +26,9 @@ import {
 } from "@/components/ui/tooltip"
 import { I18nStr } from "@/i18n";
 
-type Labels = typeof DeathPenaltyLabels | typeof AllowConnectPlatformLabels | typeof LogFormatTypeLabels;
+type Labels = typeof DeathPenaltyLabels | typeof AllowConnectPlatformLabels | typeof LogFormatTypeLabels | typeof RandomizerTypeLabels;
 export type LabelValue = Labels[number]['name'];
-type Key =  'DeathPenalty' | 'AllowConnectPlatform' | 'LogFormatType';
+type Key =  'DeathPenalty' | 'AllowConnectPlatform' | 'LogFormatType' | 'RandomizerType';
 
 function get<T>(dict: Record<string, T>, key: string, defaultValue: T): T {
     return Object.prototype.hasOwnProperty.call(dict, key) ? dict[key] : defaultValue;
@@ -43,7 +43,8 @@ export function DropDown(props: {
     const labels = {
       DeathPenalty: DeathPenaltyLabels,
       AllowConnectPlatform: AllowConnectPlatformLabels,
-      LogFormatType: LogFormatTypeLabels
+      LogFormatType: LogFormatTypeLabels,
+      RandomizerType: RandomizerTypeLabels
     }[dKey] as Labels;
     const { t } = useTranslation();
     const [open, setOpen] = useState(false);

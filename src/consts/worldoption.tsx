@@ -324,6 +324,17 @@ export const DEFAULT_WORLDOPTION = {
                             enum_type: "EPalOptionWorldDifficulty",
                           },
                         },
+                        RandomizerType: {
+                          Enum: {
+                            value: "EPalRandomizerType::None",
+                            enum_type: "EPalRandomizerType",
+                          },
+                        },
+                        RandomizerSeed: {
+                          Str: {
+                            value: "",
+                          },
+                        },
                         DayTimeSpeedRate: {
                           Float: {
                             value: 4.590592,

@@ -47,6 +47,8 @@
     "entry": {
       "name": {
         "Difficulty": "Ajusta a dificuldade geral do jogo.",
+        "RandomizerType": "Tipo de Aleatorizador",
+        "RandomizerSeed": "Semente do Aleatorizador",
         "DayTimeSpeedRate": "Modifica a velocidade do tempo de jogo durante o dia.",
         "NightTimeSpeedRate": "Modifica a velocidade do tempo de jogo durante a noite.",
         "ExpRate": "Altera a taxa de ganho de experiência para jogadores e criaturas.",
@@ -142,6 +144,11 @@
         "LogFormatType": {
           "Text": "Usar formato de texto para log",
           "Json": "Usar formato Json para log"
+        },
+        "RandomizerType": {
+          "None": "Nenhum aleatorizador definido",
+          "Region": "Configurado para aleatorizar região",
+          "All": "Configurado para aleatorizar tudo"
         }
       }
     }

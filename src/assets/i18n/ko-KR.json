@@ -47,6 +47,8 @@
     "entry": {
       "name": {
         "Difficulty": "난이도",
+        "RandomizerType": "랜덤화 유형",
+        "RandomizerSeed": "랜덤화 시드",
         "DayTimeSpeedRate": "낮 시간 속도 배율",
         "NightTimeSpeedRate": "밤 시간 속도 배율",
         "ExpRate": "경험치 배율",
@@ -142,6 +144,11 @@
         "LogFormatType": {
           "Text": "텍스트 형식을 사용하여 로그 기록",
           "Json": "Json 형식을 사용하여 로그 기록"
+        },
+        "RandomizerType": {
+          "None": "랜덤화 설정 없음",
+          "Region": "지역 랜덤화 설정",
+          "All": "전체 랜덤화 설정"
         }
       }
     }
