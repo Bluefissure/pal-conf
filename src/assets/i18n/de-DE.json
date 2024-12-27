@@ -47,6 +47,8 @@
     "entry": {
       "name": {
         "Difficulty": "Schwierigkeit",
+        "RandomizerType": "Zufallstyp",
+        "RandomizerSeed": "Zufallskeim",
         "DayTimeSpeedRate": "Zeit Geschwindigkeit am Tag",
         "NightTimeSpeedRate": "Zeit Geschwindigkeit bei Nacht",
         "ExpRate": "Exp Rate",
@@ -142,6 +144,11 @@
         "LogFormatType": {
           "Text": "Textformat zum Protokollieren verwenden",
           "Json": "Json-Format zum Protokollieren verwenden"
+        },
+        "RandomizerType": {
+          "None": "Kein Zufallstyp festgelegt",
+          "Region": "Auf Zufallsregion eingestellt",
+          "All": "Auf vollständige Zufälligkeit eingestellt"
         }
       }
     }

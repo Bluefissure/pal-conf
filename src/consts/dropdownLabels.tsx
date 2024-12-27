@@ -38,3 +38,18 @@ export const LogFormatTypeLabels = [
         desc: "Use Json format to log",
     },
 ] as const;
+
+export const RandomizerTypeLabels = [
+    {
+        name: "None",
+        desc: "No randomizer set"
+    },
+    {
+        name: "Region",
+        desc: "Set to randomize region"
+    },
+    {
+        name: "All",
+        desc: "Set to randomize all"
+    }
+] as const;

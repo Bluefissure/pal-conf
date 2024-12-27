@@ -86,6 +86,21 @@ export const ENTRIES: Record<string, Entry> = {
     type: "select",
     options: ["None"],
   },
+  RandomizerType: {
+    name: "Randomizer Type",
+    id: "RandomizerType",
+    defaultValue: "None",
+    type: "select",
+    options: ["None", "Region", "All"],
+    desc: "Randomizer type",
+  },
+  RandomizerSeed: {
+    name: "Randomizer Seed",
+    id: "RandomizerSeed",
+    defaultValue: "",
+    type: "string",
+    desc: "Randomizer seed",
+  },
   DayTimeSpeedRate: {
     name: "Day Time Speed Rate",
     id: "DayTimeSpeedRate",

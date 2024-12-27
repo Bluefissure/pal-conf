@@ -47,6 +47,8 @@
     "entry": {
       "name": {
         "Difficulty": "难度",
+        "RandomizerType": "随机器类型",
+        "RandomizerSeed": "随机种子",
         "DayTimeSpeedRate": "白天流逝速度",
         "NightTimeSpeedRate": "夜间流逝速度",
         "ExpRate": "经验值倍率",
@@ -142,6 +144,11 @@
         "LogFormatType": {
           "Text": "使用文本格式记录日志",
           "Json": "使用 JSON 格式记录日志"
+        },
+        "RandomizerType": {
+          "None": "未设置随机器",
+          "Region": "设置为随机地区",
+          "All": "设置为完全随机"
         }
       }
     }
