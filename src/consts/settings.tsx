@@ -87,3 +87,11 @@ export const AdvancedSettings = [
   "bUseAuth",
   "BanListURL",
 ];
+
+export const EntryIdToEnumName: Record<string, string> = {
+  DeathPenalty: "EPalOptionWorldDeathPenalty",
+  Difficulty: "EPalOptionWorldDifficulty",
+  AllowConnectPlatform: "EPalOptionWorldAllowConnectPlatform",
+  LogFormatType: "EPalOptionWorldLogFormatType",
+  RandomizerType: "EPalRandomizerType",
+}

@@ -32,7 +32,7 @@ import { analyzeFile, writeFile } from "./lib/save";
 // Constants
 import { ENTRIES } from "./consts/entries";
 import { DEFAULT_WORLDOPTION, VALID_WORLDOPTION_KEYS } from "./consts/worldoption";
-import { AdvancedSettings, InGameSettings, ServerSettings } from "./consts/settings";
+import { AdvancedSettings, InGameSettings, ServerSettings, EntryIdToEnumName } from "./consts/settings";
 
 // Types
 import { Gvas } from "./types/gvas";
@@ -188,36 +188,14 @@ function App() {
       if (entryValue === entry.defaultValue) {
         return;
       }
-      if (entry.type === "select") {
-        if (entry.id === "DeathPenalty") {
-          dictValue = {
-            Enum: {
-              value: `EPalOptionWorldDeathPenalty::${entryValue}`,
-              enum_type: "EPalOptionWorldDeathPenalty",
-            },
-          };
-        } else if (entry.id === "Difficulty") {
-          dictValue = {
-            Enum: {
-              value: `EPalOptionWorldDifficulty::Custom`,
-              enum_type: "EPalOptionWorldDifficulty",
-            },
-          };
-        } else if (entry.id === "AllowConnectPlatform") {
-          dictValue = {
-            Enum: {
-              value: `EPalOptionWorldAllowConnectPlatform::${entryValue}`,
-              enum_type: "EPalOptionWorldAllowConnectPlatform",
-            },
-          };
-        } else if (entry.id === "LogFormatType") {
-          dictValue = {
-            Enum: {
-              value: `EPalOptionWorldLogFormatType::${entryValue}`,
-              enum_type: "EPalOptionWorldLogFormatType",
-            },
-          };
-        }
+      if (entry.type === "select" && entry.id in EntryIdToEnumName) {
+        const enumType = EntryIdToEnumName[entry.id];
+        dictValue = {
+          Enum: {
+            value: `${enumType}::${entryValue}`,
+            enum_type: enumType,
+          },
+        };
       } else if (entry.type === "boolean") {
         dictValue = {
           Bool: {
