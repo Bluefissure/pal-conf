@@ -684,7 +684,7 @@ function App() {
           <pre className="text-wrap break-all whitespace-pre-wrap text-sm text-gray-800 dark:text-gray-200">{settingsText}</pre>
         </div>
         <div className="w-full max-w-3xl flex justify-center pt-2">
-          2024 @Bluefissure{" "}
+          2024-2025 @Bluefissure{" "}
           <a
             href="https://github.com/Bluefissure/pal-conf"
             className="pl-2 font-medium text-primary underline underline-offset-4 top-2"
