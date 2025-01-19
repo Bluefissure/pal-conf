@@ -104,7 +104,7 @@ function App() {
       toast.error(t(I18nStr.toast.invalid), { description: t(I18nStr.toast.invalidDescription) });
       return;
     }
-    const settingsTextList = settingsText.trim().split("\n");
+    const settingsTextList = settingsText.trim().split(/\r\n|\r|\n/);
     let loadedEntriesNum = 0;
     let erroredLinesNum = 0;
     settingsTextList.forEach((line) => {
