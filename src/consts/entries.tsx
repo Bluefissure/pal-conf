@@ -376,7 +376,7 @@ export const ENTRIES: Record<string, Entry> = {
     id: "BaseCampMaxNumInGuild",
     defaultValue: "3",
     type: "integer",
-    range: [1, 10],
+    range: [1, 50],
     desc: "Base camp max num in guild",
   },
   BaseCampWorkerMaxNum: {
