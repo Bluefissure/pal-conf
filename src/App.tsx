@@ -14,6 +14,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Toaster } from "@/components/ui/sonner";
 import { toast } from "sonner";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Textarea } from "@/components/ui/textarea";
 // UI Icons
 import { Languages, AlertCircle, FileUp } from "lucide-react";
 import ReactCountryFlag from "react-country-flag";
@@ -62,6 +64,8 @@ function App() {
   const [fileMode, setFileMode] = useState<FileMode>(FileMode.INI);
   const [openedAccordion, setOpenedAccordion] = useState(SettingCategory.ServerSettings);
   const [showUploadPrompt, setShowUploadPrompt] = useState(false);
+  const [pasteDialogOpen, setPasteDialogOpen] = useState(false);
+  const [pasteContent, setPasteContent] = useState("");
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const tabRef = useRef<HTMLInputElement>(null);
@@ -448,21 +452,48 @@ function App() {
       : LosslessJSON.stringify(serializeEntriesToGvasJson(), null, 4) ?? "";
 
   const copyToClipboard = () => {
-    navigator.clipboard
-      .writeText(settingsText)
+    const copyText = (text: string) => {
+      if (navigator.clipboard) {
+        return navigator.clipboard.writeText(text);
+      } else if (document.queryCommandSupported?.('copy')) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        
+        try {
+          document.execCommand('copy');
+          return Promise.resolve();
+        } catch (e) {
+          // console.error(e);
+          return Promise.reject(e);
+        } finally {
+          document.body.removeChild(textarea);
+        }
+      }
+      return Promise.reject(new Error('Copy failed'));
+    };
+
+    copyText(settingsText)
       .then(() => toast.success(t(I18nStr.toast.copied), { description: t(I18nStr.toast.copiedDescription) }))
       .catch(() => toast.error(t(I18nStr.toast.copyFailed), { description: t(I18nStr.toast.copyFailedDescription) }));
   };
 
   const readFromClipboard = () => {
-    navigator.clipboard
-      .readText()
-      .then((e) => deserializeEntriesFromIni(e))
-      .catch(() =>
-        toast.error(t(I18nStr.toast.loadFailed), {
-          description: t(I18nStr.toast.loadFailedDescription),
-        })
-      );
+    if (navigator.clipboard) {
+      navigator.clipboard
+        .readText()
+        .then((e) => deserializeEntriesFromIni(e))
+        .catch(() => {
+          toast.error(t(I18nStr.toast.loadFailed), {
+            description: t(I18nStr.toast.loadFailedDescription),
+          })
+        });
+    } else {
+      setPasteDialogOpen(true);
+    }
   };
 
   useEffect(() => {
@@ -695,6 +726,30 @@ function App() {
           </a>
         </div>
       </main>
+      <Dialog open={pasteDialogOpen} onOpenChange={setPasteDialogOpen}>
+        <DialogContent>
+          <DialogTitle>{t(I18nStr.paste)}</DialogTitle>
+          <Textarea
+            value={pasteContent}
+            onChange={(e) => setPasteContent(e.target.value)}
+            className="min-h-[200px]"
+          />
+          <div className="flex justify-end gap-4">
+            <Button variant="outline" onClick={() => setPasteDialogOpen(false)}>
+              <Trans i18nKey={I18nStr.cancel} />
+            </Button>
+            <Button
+              onClick={() => {
+                deserializeEntriesFromIni(pasteContent);
+                setPasteDialogOpen(false);
+                setPasteContent("");
+              }}
+            >
+              <Trans i18nKey={I18nStr.confirm} />
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </>
   );
 }

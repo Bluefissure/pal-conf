@@ -18,6 +18,8 @@
     "easier": "Mais fácil",
     "harder": "Mais difícil",
     "drag": "Arraste os arquivos PalWorldSettings.ini ou WorldOption.sav até aqui",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
     "toast": {
       "copied": "Copiado para a área de transferência",
       "copiedDescription": "As configurações do servidor foram copiadas para sua área de transferência.",

@@ -18,6 +18,8 @@
     "easier": "아주 쉬움",
     "harder": "매우 어려움",
     "drag": "여기에 PalWorldSettings.ini 또는 WorldOption.sav 파일을 드래그 할 수 있습니다.",
+    "cancel": "취소",
+    "confirm": "확인",
     "toast": {
       "copied": "클립보드에 복사되었습니다.",
       "copiedDescription": "서버 설정이 클립보드에 복사되었습니다.",

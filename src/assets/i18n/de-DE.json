@@ -18,6 +18,8 @@
     "easier": "Einfacher",
     "harder": "Schwerer",
     "drag": "Ziehen Sie die Dateien PalWorldSettings.ini oder WorldOption.sav hierher",
+    "cancel": "Abbrechen",
+    "confirm": "Bestätigen",
     "toast": {
       "copied": "In die Zwischenablage kopiert",
       "copiedDescription": "Die Servereinstellungen wurden in Ihre Zwischenablage kopiert.",
