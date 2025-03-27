@@ -12,6 +12,9 @@ export const ServerSettings = [
   "LogFormatType",
   "RandomizerType",
   "RandomizerSeed",
+  "bIsRandomizerPalLevelRandom",
+  "bAllowGlobalPalboxExport",
+  "bAllowGlobalPalboxImport"
 ];
 
 export const InGameSettings = [

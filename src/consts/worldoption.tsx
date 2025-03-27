@@ -335,6 +335,21 @@ export const DEFAULT_WORLDOPTION = {
                             value: "",
                           },
                         },
+                        bIsRandomizerPalLevelRandom: {
+                          Bool: {
+                            value: true,
+                          },
+                        },
+                        bAllowGlobalPalboxExport: {
+                          Bool: {
+                            value: false,
+                          },
+                        },
+                        bAllowGlobalPalboxImport: {
+                          Bool: {
+                            value: true,
+                          },
+                        },
                         DayTimeSpeedRate: {
                           Float: {
                             value: 4.590592,
