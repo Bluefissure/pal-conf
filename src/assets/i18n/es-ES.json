@@ -128,7 +128,10 @@
         "bUseAuth": "Usar Autenticación",
         "BanListURL": "URL de Lista de Prohibidos",
         "SupplyDropSpan":"Intervalo de meteoritos y entrega de suministros (minutos)",
-        "ChatPostLimitPerMinute":"Límite de mensajes por minuto"
+        "ChatPostLimitPerMinute":"Límite de mensajes por minuto",
+        "bIsRandomizerPalLevelRandom": "Nivel de Palu salvaje completamente aleatorio",
+        "bAllowGlobalPalboxExport": "Permitir exportación global de Palbox",
+        "bAllowGlobalPalboxImport": "Permitir importación global de Palbox"
       },
       "description": {
         "DeathPenalty": {

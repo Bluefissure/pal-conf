@@ -12,6 +12,7 @@ export const ServerSettings = [
   "LogFormatType",
   "RandomizerType",
   "RandomizerSeed",
+  "bIsRandomizerPalLevelRandom",
 ];
 
 export const InGameSettings = [
@@ -79,6 +80,8 @@ export const AdvancedSettings = [
   "bBuildAreaLimit",
   "ServerReplicatePawnCullDistance",
   "bShowPlayerList",
+  "bAllowGlobalPalboxExport",
+  "bAllowGlobalPalboxImport",
   "RCONEnabled",
   "RCONPort",
   "RESTAPIEnabled",

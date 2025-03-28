@@ -128,7 +128,10 @@
         "bUseAuth": "使用驗證",
         "BanListURL": "封禁列表來源",
         "SupplyDropSpan":"隕石或空投的間隔（分鐘）",
-        "ChatPostLimitPerMinute":"每分鐘聊天限制數"
+        "ChatPostLimitPerMinute":"每分鐘聊天限制數",
+        "bIsRandomizerPalLevelRandom": "完全隨機野外帕魯等級",
+        "bAllowGlobalPalboxExport": "允許透過跨界帕魯終端保存帕魯的基因序列",
+        "bAllowGlobalPalboxImport": "允許透過跨界帕魯終端的基因序列復原帕魯"
       },
       "description": {
         "DeathPenalty": {

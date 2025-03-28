@@ -101,6 +101,13 @@ export const ENTRIES: Record<string, Entry> = {
     type: "string",
     desc: "Randomizer seed",
   },
+  bIsRandomizerPalLevelRandom: {
+    name: "Randomizer Pal Level Random",
+    id: "bIsRandomizerPalLevelRandom",
+    defaultValue: "False",
+    type: "boolean",
+    desc: "Randomizer pal level random",
+  },
   DayTimeSpeedRate: {
     name: "Day Time Speed Rate",
     id: "DayTimeSpeedRate",
@@ -704,5 +711,19 @@ export const ENTRIES: Record<string, Entry> = {
     type: "float",
     range: [5000, 15000],
     desc: "Pal sync distance from player",
+  },
+  bAllowGlobalPalboxExport:{
+    name: "Allow Global Palbox Export",
+    id: "bAllowGlobalPalboxExport",
+    defaultValue: "True",
+    type: "boolean",
+    desc: "Allow global palbox export",
+  },
+  bAllowGlobalPalboxImport:{
+    name: "Allow Global Palbox Import",
+    id: "bAllowGlobalPalboxImport",
+    defaultValue: "True",
+    type: "boolean",
+    desc: "Allow global palbox import",
   },
 };

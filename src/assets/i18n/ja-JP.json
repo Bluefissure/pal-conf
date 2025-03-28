@@ -128,7 +128,10 @@
         "bUseAuth": "認証を使用する",
         "BanListURL": "BANリストURL",
         "SupplyDropSpan":"隕石・補給物資の投下間隔（分）",
-        "ChatPostLimitPerMinute":"1分間のチャット投稿制限数"
+        "ChatPostLimitPerMinute":"1分間のチャット投稿制限数",
+        "bIsRandomizerPalLevelRandom": "完全にランダムな野生パルのレベル",
+        "bAllowGlobalPalboxExport": "クロスボーダーパル端末を通じてパルの遺伝子配列を保存可能にする",
+        "bAllowGlobalPalboxImport": "クロスボーダーパル端末の遺伝子配列からパルを復元可能にする"
       },
       "description": {
         "DeathPenalty": {
