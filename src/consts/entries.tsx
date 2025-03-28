@@ -722,7 +722,7 @@ export const ENTRIES: Record<string, Entry> = {
   bAllowGlobalPalboxImport:{
     name: "Allow Global Palbox Import",
     id: "bAllowGlobalPalboxImport",
-    defaultValue: "False",
+    defaultValue: "True",
     type: "boolean",
     desc: "Allow global palbox import",
   },

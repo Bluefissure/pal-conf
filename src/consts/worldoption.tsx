@@ -337,12 +337,12 @@ export const DEFAULT_WORLDOPTION = {
                         },
                         bIsRandomizerPalLevelRandom: {
                           Bool: {
-                            value: true,
+                            value: false,
                           },
                         },
                         bAllowGlobalPalboxExport: {
                           Bool: {
-                            value: false,
+                            value: true,
                           },
                         },
                         bAllowGlobalPalboxImport: {
