@@ -128,7 +128,10 @@
         "bUseAuth": "서버 인증",
         "BanListURL": "서버 밴 리스트의 URL",
         "SupplyDropSpan":"운석 및 보급 투하 간격 (분)",
-        "ChatPostLimitPerMinute":"분당 채팅 제한 수"
+        "ChatPostLimitPerMinute":"분당 채팅 제한 수",
+        "bIsRandomizerPalLevelRandom": "완전히 무작위 야생 팔루 레벨",
+        "bAllowGlobalPalboxExport": "국경 간 팔루 터미널을 통해 팔루의 유전자 서열을 저장할 수 있음",
+        "bAllowGlobalPalboxImport": "국경 간 팔루 터미널의 유전자 서열로부터 팔루를 복원할 수 있음"
       },
       "description": {
         "DeathPenalty": {

@@ -49,7 +49,6 @@
         "Difficulty": "Difficulty",
         "RandomizerType": "Randomizer Type",
         "RandomizerSeed": "Randomizer Seed",
-        "bIsRandomizerPalLevelRandom": "Is Randomizer Pal Level Random",
         "DayTimeSpeedRate": "Day Time Speed Rate",
         "NightTimeSpeedRate": "Night Time Speed Rate",
         "ExpRate": "Exp Rate",
@@ -130,6 +129,7 @@
         "BanListURL": "Ban List URL",
         "SupplyDropSpan":"Interval for supply drop or meteorite (minutes)",
         "ChatPostLimitPerMinute":"Chat Post Limit Per Minute",
+        "bIsRandomizerPalLevelRandom": "Is Randomizer Pal Level Random",
         "bAllowGlobalPalboxExport":"Allow Global Palbox Export",
         "bAllowGlobalPalboxImport":"Allow Global Palbox Import"
       },
