@@ -14,7 +14,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Toaster } from "@/components/ui/sonner";
 import { toast } from "sonner";
-import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Textarea } from "@/components/ui/textarea";
 // UI Icons
 import { Languages, AlertCircle, FileUp } from "lucide-react";
@@ -609,6 +609,10 @@ function App() {
                     <DropdownMenuRadioItem value="es_ES">
                       <ReactCountryFlag countryCode="ES" svg />
                       <div className="px-2"> Español </div>
+                    </DropdownMenuRadioItem>
+                    <DropdownMenuRadioItem value="fr_FR">
+                      <ReactCountryFlag countryCode="FR" svg />
+                      <div className="px-2"> Français </div>
                     </DropdownMenuRadioItem>
                   </DropdownMenuRadioGroup>
                 </DropdownMenuContent>
