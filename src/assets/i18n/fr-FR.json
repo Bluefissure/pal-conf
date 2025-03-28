@@ -18,6 +18,8 @@
     "easier": "Plus facile",
     "harder": "Plus dur",
     "drag": "Faites glisser les fichiers PalWorldSettings.ini ou WorldOption.sav ici.",
+    "cancel": "Annuler",
+    "confirm": "Confirmer",
     "toast": {
       "copied": "Copié dans le presse-papiers",
       "copiedDescription": "Les paramètres du serveur ont été copiés dans votre presse-papiers.",
@@ -128,7 +130,10 @@
         "bUseAuth": "Utiliser l'authentification",
         "BanListURL": "URL de la liste des membres bannis",
         "SupplyDropSpan":"Intervalle de largage de ravitaillement ou de chute de météorite (en minutes)",
-        "ChatPostLimitPerMinute":"Limite de messages par minute dans le chat"
+        "ChatPostLimitPerMinute":"Limite de messages par minute dans le chat",
+        "bIsRandomizerPalLevelRandom": "Niveau de Palu sauvage entièrement aléatoire",
+        "bAllowGlobalPalboxExport": "Permettre l’exportation globale de Palbox",
+        "bAllowGlobalPalboxImport": "Permettre l’importation globale de Palbox"
       },
       "description": {
         "DeathPenalty": {
