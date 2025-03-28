@@ -18,6 +18,8 @@
     "easier": "Easier",
     "harder": "Harder",
     "drag": "Drag PalWorldSettings.ini or WorldOption.sav files here",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
     "toast": {
       "copied": "Copied to clipboard",
       "copiedDescription": "The server settings have been copied to your clipboard.",

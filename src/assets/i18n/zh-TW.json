@@ -18,6 +18,8 @@
     "easier": "更簡單",
     "harder": "更困難",
     "drag": "將 PalWorldSettings.ini 或 WorldOption.sav 檔案拖放到這裡",
+    "cancel": "取消",
+    "confirm": "確定",
     "toast": {
       "copied": "已複製到剪貼簿",
       "copiedDescription": "伺服器設定已複製到您的剪貼簿。",
