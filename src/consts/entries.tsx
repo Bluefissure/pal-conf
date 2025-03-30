@@ -2,7 +2,7 @@ interface Entry {
   name: string;
   id: string;
   defaultValue: string;
-  type: "string" | "integer" | "float" | "boolean" | "select";
+  type: "string" | "integer" | "float" | "boolean" | "select" | "array";
   options?: string[];
   range?: [number, number];
   desc?: string;
@@ -451,13 +451,12 @@ export const ENTRIES: Record<string, Entry> = {
     range: [30, 3600],
     desc: "Auto save span",
   },
-  AllowConnectPlatform: {
-    name: "Allow Connect Platform",
-    id: "AllowConnectPlatform",
-    defaultValue: "Steam",
-    type: "select",
-    options: ["Steam", "Xbox"],
-    desc: "Allow connect platform",
+  CrossplayPlatforms: {
+    name: "Crossplay Platforms",
+    id: "CrossplayPlatforms",
+    defaultValue: "Steam,Xbox,PS5,Mac",
+    type: "array",
+    desc: "Crossplay platforms",
   },
   LogFormatType: {
     name: "Log Format Type",

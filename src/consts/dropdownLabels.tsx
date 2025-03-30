@@ -17,14 +17,18 @@ export const DeathPenaltyLabels = [
     },
 ] as const;
 
-export const AllowConnectPlatformLabels = [
+export const CrossplayPlatformsLabels = [
     {
         name: "Steam",
-        desc: "Only allow Steam to connect",
     },
     {
         name: "Xbox",
-        desc: "Only allow Xbox to connect",
+    },
+    {
+        name: "PS5",
+    },
+    {
+        name: "Mac",
     },
 ] as const;
 

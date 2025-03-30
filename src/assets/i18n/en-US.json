@@ -96,7 +96,7 @@
         "PalEggDefaultHatchingTime": "Pal Egg Default Hatching Time",
         "WorkSpeedRate": "Work Speed Rate",
         "AutoSaveSpan": "Auto Save Span",
-        "AllowConnectPlatform": "Allow Connect Platform",
+        "CrossplayPlatforms": "Allow Connect Platform",
         "LogFormatType": "Log Format Type",
         "bIsMultiplay": "Is Multiplay",
         "bIsPvP": "Is PvP",
@@ -141,10 +141,6 @@
           "Item": "Lost item without equipment",
           "ItemAndEquipment": "Lost item and equipment",
           "All": "Lost All item, equipment, pal (in inventory)"
-        },
-        "AllowConnectPlatform": {
-          "Steam": "Only allow Steam to connect",
-          "Xbox": "Only allow Xbox to connect"
         },
         "LogFormatType": {
           "Text": "Use Text format to log",

@@ -290,7 +290,7 @@ const FIXED_HEADER = {
   ],
 };
 
-export const DEFAULT_WORLDOPTION = {
+export const DEFAULT_WORLDOPTION_SAV = {
   magic: 828009552,
   gvas: {
     header: FIXED_HEADER,
@@ -463,6 +463,26 @@ export const DEFAULT_WORLDOPTION = {
                         CollectionObjectRespawnSpeedRate: {
                           Float: {
                             value: 1.4391446,
+                          },
+                        },
+                        CoopPlayerMaxNum: {
+                          Int: {
+                            value: 4,
+                          },
+                        },
+                        CrossplayPlatforms: {
+                          Array: {
+                            array_type: "EnumProperty",
+                            value: {
+                              Base: {
+                                Enum: [
+                                  "EPalAllowConnectPlatform::Steam",
+                                  "EPalAllowConnectPlatform::Xbox",
+                                  "EPalAllowConnectPlatform::PS5",
+                                  "EPalAllowConnectPlatform::Mac",
+                                ]
+                              }
+                            }
                           },
                         },
                         EnemyDropItemRate: {
@@ -768,6 +788,6 @@ export const DEFAULT_WORLDOPTION = {
   },
 };
 
-export const VALID_WORLDOPTION_KEYS = Object.keys(
-  DEFAULT_WORLDOPTION.gvas.root.properties.OptionWorldData.Struct.value.Struct.Settings.Struct.value.Struct
-);
+export const DEFAULT_WORLDOPTION = DEFAULT_WORLDOPTION_SAV.gvas.root.properties.OptionWorldData.Struct.value.Struct.Settings.Struct.value.Struct;
+
+export const VALID_WORLDOPTION_KEYS = Object.keys(DEFAULT_WORLDOPTION);

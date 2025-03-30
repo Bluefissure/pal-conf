@@ -96,7 +96,7 @@
         "PalEggDefaultHatchingTime": "巨大蛋孵化所需時間(小時)",
         "WorkSpeedRate": "工作速度倍率",
         "AutoSaveSpan": "自動保存間隔",
-        "AllowConnectPlatform": "允許連接平台",
+        "CrossplayPlatforms": "允許連接平台",
         "LogFormatType": "日誌格式類型",
         "bIsMultiplay": "啟用多人遊戲",
         "bIsPvP": "啟用PvP",
@@ -141,10 +141,6 @@
           "Item": "掉落裝備以外的道具",
           "ItemAndEquipment": "掉落所有道具",
           "All": "掉落所有道具及隊伍內帕魯"
-        },
-        "AllowConnectPlatform": {
-          "Steam": "允許Steam連接",
-          "Xbox": "允許Xbox連接"
         },
         "LogFormatType": {
           "Text": "使用文本格式記錄日誌",

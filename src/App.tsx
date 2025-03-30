@@ -22,7 +22,8 @@ import ReactCountryFlag from "react-country-flag";
 
 // App Components
 import { TextInput } from "./components/textInput";
-import { DropDown } from "./components/dropdown";
+import { SelectInput } from "./components/selectInput";
+import { MultiSelectInput } from "./components/multiSelectInput";
 import { SliderInput } from "./components/sliderInput";
 import { SwitchInput } from "./components/switchInput";
 import { Input } from "./components/ui/input";
@@ -33,12 +34,13 @@ import { analyzeFile, writeFile } from "./lib/save";
 
 // Constants
 import { ENTRIES } from "./consts/entries";
-import { DEFAULT_WORLDOPTION, VALID_WORLDOPTION_KEYS } from "./consts/worldoption";
+import { DEFAULT_WORLDOPTION_SAV, VALID_WORLDOPTION_KEYS, DEFAULT_WORLDOPTION } from "./consts/worldoption";
 import { AdvancedSettings, InGameSettings, ServerSettings, EntryIdToEnumName } from "./consts/settings";
 
 // Types
-import { Gvas } from "./types/gvas";
-import { LabelValue } from "./components/dropdown";
+import { Gvas, WorldOption, WorldOptionEntry } from "./types/gvas";
+import { LabelValue } from "./components/selectInput";
+import { LabelValues } from "./components/multiSelectInput";
 
 interface ChangeEvent<T> {
   target: {
@@ -85,6 +87,9 @@ function App() {
     Object.values(ENTRIES).forEach((entry) => {
       const entryValue = entries[entry.id] ?? entry.defaultValue;
       switch (entry.type) {
+        case "array":
+          resultList.push(`${entry.id}=(${entryValue})`);
+          break;
         case "select":
         case "boolean":
         case "integer":
@@ -118,12 +123,19 @@ function App() {
         let start = 0;
         let end = 0;
         let quotation = false;
+        let bracket = false;
         for (const char of optionSettings) {
           if (char === '"') {
             quotation = !quotation;
           }
+          if (char === '(') {
+            bracket = true;
+          }
+          if (char === ')') {
+            bracket = false;
+          }
           end++;
-          if (char === "," && false === quotation) {
+          if (char === "," && false === quotation && false === bracket) {
             optionSettingsList.push(optionSettings.substring(start, end - 1));
             start = end;
           }
@@ -132,7 +144,7 @@ function App() {
         optionSettingsList.push(optionSettings.substring(start, end));
         const newEntries = { ...entries };
         optionSettingsList.forEach((optionSetting) => {
-          // console.log(optionSetting)
+          // console.log(optionSetting);
           const equalSignIndex = optionSetting.indexOf("=");
           const optionSettingName = optionSetting.slice(0, equalSignIndex);
           let optionSettingValue = optionSetting.slice(equalSignIndex + 1);
@@ -150,6 +162,9 @@ function App() {
             }
             if (entry.type === "boolean") {
               optionSettingValue = optionSettingValue.toLowerCase() === "true" ? "True" : "False";
+            }
+            if (entry.type === "array") {
+              optionSettingValue = optionSettingValue.trim().replace(/^\(|\)$/g, "");
             }
             newEntries[entry.id] = optionSettingValue;
             loadedEntriesNum++;
@@ -181,12 +196,12 @@ function App() {
     }
   };
 
-  const serializeEntriesToGvasJson = () => {
-    const gvasJson: Record<string, unknown> = {};
+  const serializeEntriesToWorldOptionJson = () => {
+    const worldOptionJson: Partial<Record<keyof WorldOption, WorldOptionEntry>> = {};
     Object.values(ENTRIES).forEach((entry) => {
       const entryValue = entries[entry.id] ?? entry.defaultValue;
-      let dictValue = {};
-      if (!(entry.id in DEFAULT_WORLDOPTION.gvas.root.properties.OptionWorldData.Struct.value.Struct.Settings.Struct.value.Struct)) {
+      let dictValue = {} as WorldOptionEntry;
+      if (!(entry.id in DEFAULT_WORLDOPTION)) {
         return;
       }
       if (entryValue === entry.defaultValue) {
@@ -198,6 +213,20 @@ function App() {
           Enum: {
             value: `${enumType}::${entryValue}`,
             enum_type: enumType,
+          },
+        };
+      } else if (entry.type === "array" && entry.id in EntryIdToEnumName) {
+        const enumType = EntryIdToEnumName[entry.id];
+        const enums = entryValue.trim() === "" ? []
+          : entryValue.split(",").map((e) => `${enumType}::${e}`);
+        dictValue = {
+          Array: {
+            array_type: "EnumProperty",
+            value: {
+              Base: {
+                Enum: enums
+              }
+            }
           },
         };
       } else if (entry.type === "boolean") {
@@ -231,9 +260,9 @@ function App() {
           },
         };
       }
-      gvasJson[entry.id] = dictValue;
+      worldOptionJson[entry.id as keyof WorldOption] = dictValue;
     });
-    return gvasJson;
+    return worldOptionJson;
   };
 
   const deserializeEntriesFromGvasJson = (gvas: Gvas) => {
@@ -243,21 +272,26 @@ function App() {
       });
       return;
     }
-    const gvasJson: Record<string, unknown> = gvas.root.properties.OptionWorldData.Struct.value.Struct.Settings.Struct.value.Struct;
+    const worldOptionStructDictJson = gvas.root.properties.OptionWorldData.Struct.value.Struct.Settings.Struct.value.Struct;
     const newEntries = { ...entries };
-    Object.entries(gvasJson).forEach(([key, value]) => {
+    Object.entries(worldOptionStructDictJson).forEach(([key, value]) => {
       if (key in ENTRIES) {
         const entry = ENTRIES[key];
-        const valueRecord = value as Record<string, { value: string }>;
+        // const valueRecord = value as Record<string, { value: string, array_type?: string }>;
+        const valueRecord = value ;
         let entryValue: number | boolean | string | undefined = undefined;
         if ("Enum" in valueRecord) {
           entryValue = valueRecord.Enum.value.split("::")[1];
-        } else if ("Int" in valueRecord || "Float" in valueRecord) {
-          entryValue = valueRecord.Int?.value ?? valueRecord.Float?.value;
+        } else if ("Int" in valueRecord ) {
+          entryValue = valueRecord.Int.value;
+        } else if ("Float" in valueRecord) {
+          entryValue = valueRecord.Float?.value;
         } else if ("Bool" in valueRecord) {
           entryValue = valueRecord.Bool.value ? "True" : "False";
         } else if ("Str" in valueRecord) {
           entryValue = valueRecord.Str.value;
+        } else if ("Array" in valueRecord && valueRecord.Array.array_type === "EnumProperty") {
+          entryValue = valueRecord.Array.value.Base.Enum.map((e: string) => e.split("::")[1]).join(",");
         }
         newEntries[entry.id] = entryValue?.toString() ?? entry.defaultValue;
       }
@@ -265,7 +299,7 @@ function App() {
     setEntries(newEntries);
   };
 
-  const openFile = async (f: File) => {
+  const openSavFile = async (f: File) => {
     const result = await analyzeFile(f, (e) => {
       console.error(e);
       toast.error(t(I18nStr.toast.invalidFile), {
@@ -279,7 +313,7 @@ function App() {
     }
     // console.log(result);
     // console.log('magic: ' + result.magic);
-    const gvas: Gvas = result.gvas ?? DEFAULT_WORLDOPTION.gvas;
+    const gvas: Gvas = result.gvas ?? DEFAULT_WORLDOPTION_SAV.gvas;
     toast.success(t(I18nStr.toast.savFileLoaded), {
       description: t(I18nStr.toast.savFileLoadedDescription),
     });
@@ -287,8 +321,8 @@ function App() {
   };
 
   const saveFile = () => {
-    const gvasToSave: Gvas = LosslessJSON.parse(LosslessJSON.stringify(DEFAULT_WORLDOPTION.gvas)!) as Gvas;
-    gvasToSave.root.properties.OptionWorldData.Struct.value.Struct.Settings.Struct.value.Struct = serializeEntriesToGvasJson();
+    const gvasToSave: Gvas = LosslessJSON.parse(LosslessJSON.stringify(DEFAULT_WORLDOPTION_SAV.gvas)!) as Gvas;
+    gvasToSave.root.properties.OptionWorldData.Struct.value.Struct.Settings.Struct.value.Struct = serializeEntriesToWorldOptionJson() as WorldOption;
     writeFile(
       {
         magic: 828009552,
@@ -346,7 +380,7 @@ function App() {
       setFileMode(FileMode.INI);
       return;
     }
-    openFile(file)
+    openSavFile(file)
       .then(() => {
         // console.log("File opened");
         if (fileInputRef.current) {
@@ -371,12 +405,28 @@ function App() {
     const entryValue = entries[entry.id] ?? entry.defaultValue;
     if (entry.type === "select") {
       return (
-        <DropDown
-          dKey={entry.id as "DeathPenalty" | "AllowConnectPlatform" | "LogFormatType"}
+        <SelectInput
+          key={id}
+          dKey={entry.id as "DeathPenalty" | "LogFormatType" | "RandomizerType"}
           label={entryValue as LabelValue}
           onLabelChange={(labelName: string) => {
             onStateChanged(entry.id)({
               target: { value: labelName },
+            });
+          }}
+        />
+      );
+    }
+    if (entry.type === "array") {
+      const labelValues = (entryValue.trim() === "" ? [] : entryValue.split(",")) as LabelValues;
+      return (
+        <MultiSelectInput
+          key={id}
+          dKey={entry.id as "CrossplayPlatforms"}
+          selectedLabels={labelValues}
+          onLabelsChange={(labelNames: string[]) => {
+            onStateChanged(entry.id)({
+              target: { value: labelNames.join(",") },
             });
           }}
         />
@@ -449,7 +499,7 @@ function App() {
   const settingsText =
     fileMode === FileMode.INI
       ? `[/Script/Pal.PalGameWorldSettings]\nOptionSettings=(${serializeEntriesToIni()})`
-      : LosslessJSON.stringify(serializeEntriesToGvasJson(), null, 4) ?? "";
+      : LosslessJSON.stringify(serializeEntriesToWorldOptionJson(), null, 4) ?? "";
 
   const copyToClipboard = () => {
     const copyText = (text: string) => {

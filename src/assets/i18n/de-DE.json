@@ -96,7 +96,7 @@
         "PalEggDefaultHatchingTime": "Standard-Schlüpfzeit der Pal Eier",
         "WorkSpeedRate": "Arbeitsgeschwindigkeitsrate",
         "AutoSaveSpan": "Automatisches Speicherintervall",
-        "AllowConnectPlatform": "Verbindung zur Plattform zulassen",
+        "CrossplayPlatforms": "Verbindung zur Plattform zulassen",
         "LogFormatType": "Protokollformattyp",
         "bIsMultiplay": "Ist Mehrspieler",
         "bIsPvP": "Ist PvP",
@@ -141,10 +141,6 @@
           "Item": "Verlorener Gegenstand ohne Ausrüstung",
           "ItemAndEquipment": "Verlorener Gegenstand und Ausrüstung",
           "All": "Alle Gegenstände, Ausrüstung, Pal (im Inventar) verloren"
-        },
-        "AllowConnectPlatform": {
-          "Steam": "Nur Steam darf sich verbinden",
-          "Xbox": "Nur Xbox darf sich verbinden"
         },
         "LogFormatType": {
           "Text": "Textformat zum Protokollieren verwenden",

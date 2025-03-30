@@ -96,7 +96,7 @@
         "PalEggDefaultHatchingTime": "Temps d'incubation maximum des œufs de Pal (en heures)",
         "WorkSpeedRate": "Taux de vitesse de travail",
         "AutoSaveSpan": "Intervalle de sauvegarde automatique (en minutes)",
-        "AllowConnectPlatform": "Plateforme de connexion autorisée",
+        "CrossplayPlatforms": "Plateforme de connexion autorisée",
         "LogFormatType": "Format des fichiers journaux",
         "bIsMultiplay": "Liste le serveur dans l'annuaire officiel.",
         "bIsPvP": "Activer le mode Joueur VS Joueur",
@@ -141,10 +141,6 @@
           "Item": "Perte des objets de l'inventaire",
           "ItemAndEquipment": "Perte de l'inventaire et de l'équipement",
           "All": "Perte de l'inventaire, de l'équipement et de l'équipe de Pal"
-        },
-        "AllowConnectPlatform": {
-          "Steam": "Seulement autoriser les connections Steam",
-          "Xbox": "Seulement autoriser les connections Xbox"
         },
         "LogFormatType": {
           "Text": "Formater les fichiers journaux en TXT",

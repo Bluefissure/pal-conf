@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useTranslation, Trans } from 'react-i18next';
 import { ChevronDown } from "lucide-react"
 
-import { DeathPenaltyLabels, AllowConnectPlatformLabels, LogFormatTypeLabels, RandomizerTypeLabels } from "@/consts/dropdownLabels"
+import { DeathPenaltyLabels, LogFormatTypeLabels, RandomizerTypeLabels } from "@/consts/dropdownLabels"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import {
@@ -26,15 +26,15 @@ import {
 } from "@/components/ui/tooltip"
 import { I18nStr } from "@/i18n";
 
-type Labels = typeof DeathPenaltyLabels | typeof AllowConnectPlatformLabels | typeof LogFormatTypeLabels | typeof RandomizerTypeLabels;
+type Labels = typeof DeathPenaltyLabels | typeof LogFormatTypeLabels | typeof RandomizerTypeLabels;
 export type LabelValue = Labels[number]['name'];
-type Key =  'DeathPenalty' | 'AllowConnectPlatform' | 'LogFormatType' | 'RandomizerType';
+type Key =  'DeathPenalty' | 'LogFormatType' | 'RandomizerType';
 
 function get<T>(dict: Record<string, T>, key: string, defaultValue: T): T {
     return Object.prototype.hasOwnProperty.call(dict, key) ? dict[key] : defaultValue;
 }
 
-export function DropDown(props: {
+export function SelectInput(props: {
     dKey: Key;
     label: LabelValue;
     onLabelChange: (label: string) => void;
@@ -42,7 +42,6 @@ export function DropDown(props: {
     const { dKey, label, onLabelChange } = props;
     const labels = {
       DeathPenalty: DeathPenaltyLabels,
-      AllowConnectPlatform: AllowConnectPlatformLabels,
       LogFormatType: LogFormatTypeLabels,
       RandomizerType: RandomizerTypeLabels
     }[dKey] as Labels;
@@ -90,7 +89,7 @@ export function DropDown(props: {
                                     <CommandGroup>
                                         {labels.map((label) => (
                                             <CommandItem
-                                                key={label.name}
+                                                key={`select-${dKey}-${label.name}`}
                                                 value={label.name}
                                                 onSelect={() => {
                                                     setOpen(false);

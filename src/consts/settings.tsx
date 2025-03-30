@@ -8,7 +8,7 @@ export const ServerSettings = [
   "ServerPlayerMaxNum",
   "bIsUseBackupSaveData",
   "AutoSaveSpan",
-  "AllowConnectPlatform",
+  "CrossplayPlatforms",
   "LogFormatType",
   "RandomizerType",
   "RandomizerSeed",
@@ -94,7 +94,7 @@ export const AdvancedSettings = [
 export const EntryIdToEnumName: Record<string, string> = {
   DeathPenalty: "EPalOptionWorldDeathPenalty",
   Difficulty: "EPalOptionWorldDifficulty",
-  AllowConnectPlatform: "EPalOptionWorldAllowConnectPlatform",
   LogFormatType: "EPalOptionWorldLogFormatType",
   RandomizerType: "EPalRandomizerType",
+  CrossplayPlatforms: "EPalAllowConnectPlatform",
 }

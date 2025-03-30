@@ -96,7 +96,7 @@
         "PalEggDefaultHatchingTime": "Define o tempo padrão de chocagem de ovos de Pal.",
         "WorkSpeedRate": "Adapta a velocidade geral de trabalho no jogo.",
         "AutoSaveSpan": "Intervalo de salvamento automático",
-        "AllowConnectPlatform": "Permitir Conectar Plataforma",
+        "CrossplayPlatforms": "Permitir Conectar Plataforma",
         "LogFormatType": "Tipo de Formato de Log",
         "bIsMultiplay": "Habilita ou desabilita o modo multijogador.",
         "bIsPvP": "Habilita ou desabilita o modo jogador versus jogador (PvP).",
@@ -141,10 +141,6 @@
           "Item": "Perder apenas itens do inventário",
           "ItemAndEquipment": "Perder itens do inventário e equipamento",
           "All": "Perder todos os itens, equipamentos, pals (no inventário)"
-        },
-        "AllowConnectPlatform": {
-          "Steam": "Permitir apenas a conexão do Steam",
-          "Xbox": "Permitir apenas a conexão do SteXboxam"
         },
         "LogFormatType": {
           "Text": "Usar formato de texto para log",
