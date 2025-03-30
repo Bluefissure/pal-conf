@@ -16,6 +16,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { toast } from "sonner";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Textarea } from "@/components/ui/textarea";
+import { Badge } from "@/components/ui/badge"
 // UI Icons
 import { Languages, AlertCircle, FileUp } from "lucide-react";
 import ReactCountryFlag from "react-country-flag";
@@ -33,6 +34,7 @@ import * as LosslessJSON from "lossless-json";
 import { analyzeFile, writeFile } from "./lib/save";
 
 // Constants
+import { configVersion } from '../package.json';
 import { ENTRIES } from "./consts/entries";
 import { DEFAULT_WORLDOPTION_SAV, VALID_WORLDOPTION_KEYS, DEFAULT_WORLDOPTION } from "./consts/worldoption";
 import { AdvancedSettings, InGameSettings, ServerSettings, EntryIdToEnumName } from "./consts/settings";
@@ -606,6 +608,17 @@ function App() {
             <CardTitle className="flex">
               <div className="leading-10">
                 <Trans i18nKey={I18nStr.title} />
+                <Badge variant="secondary" className="ml-2">
+                <a
+                  href="https://docs.palworldgame.com/settings-and-operation/configuration/"
+                  className="underline"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {configVersion}
+                </a>
+
+                </Badge>
               </div>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -769,7 +782,7 @@ function App() {
           <pre className="text-wrap break-all whitespace-pre-wrap text-sm text-gray-800 dark:text-gray-200">{settingsText}</pre>
         </div>
         <div className="w-full max-w-3xl flex justify-center pt-2">
-          2024-2025 @Bluefissure{" "}
+          2024-{`${new Date().getFullYear()}`} @Bluefissure
           <a
             href="https://github.com/Bluefissure/pal-conf"
             className="pl-2 font-medium text-primary underline underline-offset-4 top-2"
@@ -778,6 +791,7 @@ function App() {
           >
             Github
           </a>
+          {__COMMIT_HASH__ && (`@${__COMMIT_HASH__}`)}
         </div>
       </main>
       <Dialog open={pasteDialogOpen} onOpenChange={setPasteDialogOpen}>

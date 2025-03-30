@@ -12,4 +12,7 @@ export default defineConfig({
             "@": path.resolve(__dirname, "./src"),
         },
     },
+    define: {
+        __COMMIT_HASH__: JSON.stringify(process.env.CF_PAGES_COMMIT_SHA?.substring(0, 7)),
+    },
 })
