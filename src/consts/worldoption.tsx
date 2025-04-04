@@ -347,7 +347,7 @@ export const DEFAULT_WORLDOPTION_SAV = {
                         },
                         bAllowGlobalPalboxImport: {
                           Bool: {
-                            value: true,
+                            value: false,
                           },
                         },
                         DayTimeSpeedRate: {
