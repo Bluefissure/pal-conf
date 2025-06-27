@@ -52,6 +52,8 @@ export const InGameSettings = [
   "MaxBuildingLimitNum",
   "SupplyDropSpan",
   "ChatPostLimitPerMinute",
+  "EquipmentDurabilityDamageRate",
+  "ItemContainerForceMarkDirtyInterval",
 ];
 
 export const AdvancedSettings = [
@@ -70,6 +72,7 @@ export const AdvancedSettings = [
   "bIsPvP",
   "bHardcore",
   "bPalLost",
+  "bCharacterRecreateInHardcore",
   "bCanPickupOtherGuildDeathPenaltyDrop",
   "bEnableNonLoginPenalty",
   "bEnableFastTravel",

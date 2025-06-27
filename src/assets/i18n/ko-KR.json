@@ -102,6 +102,7 @@
         "bIsPvP": "PvP 모드",
         "bHardcore": "하드코어 모드",
         "bPalLost": "팰 손실 모드",
+        "bCharacterRecreateInHardcore": "하드코어 모드에서 캐릭터 재생성 허용",
         "bCanPickupOtherGuildDeathPenaltyDrop": "다른 길드의 사망 패널티 아이템 획득",
         "bEnableNonLoginPenalty": "비로그인 패널티 활성화",
         "bEnableFastTravel": "빠른 이동 활성화",
@@ -133,7 +134,9 @@
         "ChatPostLimitPerMinute":"분당 채팅 제한 수",
         "bIsRandomizerPalLevelRandom": "완전히 무작위 야생 팔루 레벨",
         "bAllowGlobalPalboxExport": "국경 간 팔루 터미널을 통해 팔루의 유전자 서열을 저장할 수 있음",
-        "bAllowGlobalPalboxImport": "국경 간 팔루 터미널의 유전자 서열로부터 팔루를 복원할 수 있음"
+        "bAllowGlobalPalboxImport": "국경 간 팔루 터미널의 유전자 서열로부터 팔루를 복원할 수 있음",
+        "EquipmentDurabilityDamageRate": "장비 내구도 손상률",
+        "ItemContainerForceMarkDirtyInterval": "아이템 컨테이너 강제 마크 더티 간격 (초)"
       },
       "description": {
         "DeathPenalty": {

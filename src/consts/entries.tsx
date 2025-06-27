@@ -494,6 +494,13 @@ export const ENTRIES: Record<string, Entry> = {
     type: "boolean",
     desc: "Pal Hardcore",
   },
+  bCharacterRecreateInHardcore: {
+    name: "Character Recreate In Hardcore",
+    id: "bCharacterRecreateInHardcore",
+    defaultValue: "False",
+    type: "boolean",
+    desc: "Character recreate in hardcore",
+  },
   bCanPickupOtherGuildDeathPenaltyDrop: {
     name: "Can Pickup Other Guild Death Penalty Drop",
     id: "bCanPickupOtherGuildDeathPenaltyDrop",
@@ -724,5 +731,21 @@ export const ENTRIES: Record<string, Entry> = {
     defaultValue: "False",
     type: "boolean",
     desc: "Allow global palbox import",
+  },
+  EquipmentDurabilityDamageRate: {
+    name: "Equipment Durability Damage Rate",
+    id: "EquipmentDurabilityDamageRate",
+    defaultValue: "1.000000",
+    type: "float",
+    range: [0.1, 5],
+    desc: "Equipment durability damage rate",
+  },
+  ItemContainerForceMarkDirtyInterval: {
+    name: "Item Container Force Mark Dirty Interval",
+    id: "ItemContainerForceMarkDirtyInterval",
+    defaultValue: "1.000000",
+    type: "float",
+    range: [0.1, 10],
+    desc: "Interval for marking item container as dirty",
   },
 };

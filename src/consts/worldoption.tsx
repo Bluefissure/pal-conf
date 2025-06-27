@@ -495,6 +495,16 @@ export const DEFAULT_WORLDOPTION_SAV = {
                             value: 1.5131578,
                           },
                         },
+                        EquipmentDurabilityDamageRate: {
+                          Float: {
+                            value: 1.5131578,
+                          },
+                        },
+                        ItemContainerForceMarkDirtyInterval: {
+                          Float: {
+                            value: 1.5131578,
+                          },
+                        },
                         DeathPenalty: {
                           Enum: {
                             value: "EPalOptionWorldDeathPenalty::None",
@@ -709,6 +719,11 @@ export const DEFAULT_WORLDOPTION_SAV = {
                           },
                         },
                         bPalLost: {
+                          Bool: {
+                            value: false,
+                          },
+                        },
+                        bCharacterRecreateInHardcore: {
                           Bool: {
                             value: false,
                           },

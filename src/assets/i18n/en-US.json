@@ -102,6 +102,7 @@
         "bIsPvP": "Is PvP",
         "bHardcore": "Hardcore Mode",
         "bPalLost": "Pal Lost Mode",
+        "bCharacterRecreateInHardcore": "Allow Character Recreate In Hardcore",
         "bCanPickupOtherGuildDeathPenaltyDrop": "Can Pickup Other Guild Death Penalty Drop",
         "bEnableNonLoginPenalty": "Enable Non Login Penalty",
         "bEnableFastTravel": "Enable Fast Travel",
@@ -133,7 +134,9 @@
         "ChatPostLimitPerMinute":"Chat Post Limit Per Minute",
         "bIsRandomizerPalLevelRandom": "Is Randomizer Pal Level Random",
         "bAllowGlobalPalboxExport":"Allow Global Palbox Export",
-        "bAllowGlobalPalboxImport":"Allow Global Palbox Import"
+        "bAllowGlobalPalboxImport":"Allow Global Palbox Import",
+        "EquipmentDurabilityDamageRate": "Equipment Durability Damage Rate",
+        "ItemContainerForceMarkDirtyInterval": "Item Container Force Mark Dirty Interval"
       },
       "description": {
         "DeathPenalty": {

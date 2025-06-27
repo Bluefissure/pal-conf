@@ -102,6 +102,7 @@
         "bIsPvP": "啟用PvP",
         "bHardcore": "啟用硬核模式",
         "bPalLost": "啟用帕魯遺失模式",
+        "bCharacterRecreateInHardcore": "允許在硬核模式下重新創建角色",
         "bCanPickupOtherGuildDeathPenaltyDrop": "允許拾取其他公會死亡掉落物",
         "bEnableNonLoginPenalty": "啟用未登入懲罰",
         "bEnableFastTravel": "啟用快速旅行",
@@ -133,7 +134,9 @@
         "ChatPostLimitPerMinute":"每分鐘聊天限制數",
         "bIsRandomizerPalLevelRandom": "完全隨機野外帕魯等級",
         "bAllowGlobalPalboxExport": "允許透過跨界帕魯終端保存帕魯的基因序列",
-        "bAllowGlobalPalboxImport": "允許透過跨界帕魯終端的基因序列復原帕魯"
+        "bAllowGlobalPalboxImport": "允許透過跨界帕魯終端的基因序列復原帕魯",
+        "EquipmentDurabilityDamageRate": "裝備耐久度減少倍率",
+        "ItemContainerForceMarkDirtyInterval": "物品容器強制標記為脏的間隔（秒）"
       },
       "description": {
         "DeathPenalty": {
