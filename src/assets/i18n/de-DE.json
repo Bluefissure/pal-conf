@@ -102,6 +102,7 @@
         "bIsPvP": "Ist PvP",
         "bHardcore": "Hardcore-Modus",
         "bPalLost": "Pal-Verlust-Modus",
+        "bCharacterRecreateInHardcore": "Erlaube Charakter-Neuerstellung im Hardcore",
         "bCanPickupOtherGuildDeathPenaltyDrop": "Kann Todesstrafen-Drops anderer Gilden erhalten",
         "bEnableNonLoginPenalty": "Aktivieren Sie die Nicht-Login-Strafe",
         "bEnableFastTravel": "Aktivieren Sie Schnellreisen",
@@ -133,7 +134,9 @@
         "ChatPostLimitPerMinute":"Chat-Post-Limit pro Minute",
         "bIsRandomizerPalLevelRandom": "Vollständig zufälliges Wild-Palu-Level",
         "bAllowGlobalPalboxExport": "Globalen Palbox-Export zulassen",
-        "bAllowGlobalPalboxImport": "Globalen Palbox-Import zulassen"
+        "bAllowGlobalPalboxImport": "Globalen Palbox-Import zulassen",
+        "EquipmentDurabilityDamageRate": "Ausrüstungsverschleißschaden Rate",
+        "ItemContainerForceMarkDirtyInterval": "Zwangsmarkierung des Gegenstandscontainers Intervall"
       },
       "description": {
         "DeathPenalty": {

@@ -102,6 +102,7 @@
         "bIsPvP": "是否 PvP",
         "bHardcore": "是否硬核模式",
         "bPalLost": "是否帕鲁丢失模式",
+        "bCharacterRecreateInHardcore": "是否允许在硬核模式下重新创建角色",
         "bCanPickupOtherGuildDeathPenaltyDrop": "能否拾取其他公会玩家的死亡惩罚掉落物",
         "bEnableNonLoginPenalty": "启用超时未登录惩罚",
         "bEnableFastTravel": "启用快速传送",
@@ -133,7 +134,9 @@
         "ChatPostLimitPerMinute":"每分钟聊天限制数",
         "bIsRandomizerPalLevelRandom": "完全随机野外帕鲁等级",
         "bAllowGlobalPalboxExport":"允许通过跨界帕鲁终端保存帕鲁的基因序列",
-        "bAllowGlobalPalboxImport":"允许通过跨界帕鲁终端的基因序列复原帕鲁"
+        "bAllowGlobalPalboxImport":"允许通过跨界帕鲁终端的基因序列复原帕鲁",
+        "EquipmentDurabilityDamageRate": "装备耐久度损坏率",
+        "ItemContainerForceMarkDirtyInterval": "物品容器强制标记为脏的间隔（秒）"
       },
       "description": {
         "DeathPenalty": {

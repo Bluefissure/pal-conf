@@ -102,6 +102,7 @@
         "bIsPvP": "Habilita ou desabilita o modo jogador versus jogador (PvP).",
         "bHardcore": "Habilita ou desabilita o modo hardcore.",
         "bPalLost": "Habilita ou desabilita o modo Pal perdido.",
+        "bCharacterRecreateInHardcore": "Habilita ou desabilita a recriação de personagem no modo hardcore.",
         "bCanPickupOtherGuildDeathPenaltyDrop": "Habilita ou desabilita a coleta de penalidades de morte de outras guildas.",
         "bEnableNonLoginPenalty": "Habilita ou desabilita penalidades sem login.",
         "bEnableFastTravel": "Habilita ou desabilita a viagem rápida.",
@@ -133,7 +134,9 @@
         "ChatPostLimitPerMinute":"Limite de postagem de chat por minuto",
         "bIsRandomizerPalLevelRandom": "Nível de Palu selvagem completamente aleatório",
         "bAllowGlobalPalboxExport": "Permitir exportação global de Palbox",
-        "bAllowGlobalPalboxImport": "Permitir importação global de Palbox"
+        "bAllowGlobalPalboxImport": "Permitir importação global de Palbox",
+        "EquipmentDurabilityDamageRate": "Taxa de dano por durabilidade do equipamento",
+        "ItemContainerForceMarkDirtyInterval": "Intervalo de marcação forçada de contêiner de itens"
       },
       "description": {
         "DeathPenalty": {

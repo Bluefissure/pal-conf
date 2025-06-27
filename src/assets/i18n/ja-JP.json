@@ -102,6 +102,7 @@
         "bIsPvP": "PvPを有効にする",
         "bHardcore": "ハードコアモード",
         "bPalLost": "パルロストモード",
+        "bCharacterRecreateInHardcore": "ハードコアモードでキャラクターの再作成を許可",
         "bCanPickupOtherGuildDeathPenaltyDrop": "デスペナルティによるドロップを他のギルドが拾えるようにする",
         "bEnableNonLoginPenalty": "ログインしていないプレイヤーにペナルティ",
         "bEnableFastTravel": "ファストトラベルを有効にする",
@@ -133,7 +134,9 @@
         "ChatPostLimitPerMinute":"1分間のチャット投稿制限数",
         "bIsRandomizerPalLevelRandom": "完全にランダムな野生パルのレベル",
         "bAllowGlobalPalboxExport": "クロスボーダーパル端末を通じてパルの遺伝子配列を保存可能にする",
-        "bAllowGlobalPalboxImport": "クロスボーダーパル端末の遺伝子配列からパルを復元可能にする"
+        "bAllowGlobalPalboxImport": "クロスボーダーパル端末の遺伝子配列からパルを復元可能にする",
+        "EquipmentDurabilityDamageRate": "装備品の耐久値減少率",
+        "ItemContainerForceMarkDirtyInterval": "アイテムコンテナの強制マークダーティ間隔（秒）"
       },
       "description": {
         "DeathPenalty": {

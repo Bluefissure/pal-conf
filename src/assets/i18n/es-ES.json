@@ -102,6 +102,7 @@
         "bIsPvP": "Es JcJ",
         "bHardcore": "Modo Difícil",
         "bPalLost": "Modo Pal Perdido",
+        "bCharacterRecreateInHardcore": "Permitir Re-creación de Personaje en Modo Difícil",
         "bCanPickupOtherGuildDeathPenaltyDrop": "Puede Recoger la Penalización por Muerte de Otro Gremio",
         "bEnableNonLoginPenalty": "Habilitar Penalización por No Iniciar Sesión",
         "bEnableFastTravel": "Habilitar Viaje Rápido",
@@ -133,7 +134,9 @@
         "ChatPostLimitPerMinute":"Límite de mensajes por minuto",
         "bIsRandomizerPalLevelRandom": "Nivel de Palu salvaje completamente aleatorio",
         "bAllowGlobalPalboxExport": "Permitir exportación global de Palbox",
-        "bAllowGlobalPalboxImport": "Permitir importación global de Palbox"
+        "bAllowGlobalPalboxImport": "Permitir importación global de Palbox",
+        "EquipmentDurabilityDamageRate": "Tasa de daño por durabilidad del equipo",
+        "ItemContainerForceMarkDirtyInterval": "Intervalo de marcado forzado de contenedor de objetos"
       },
       "description": {
         "DeathPenalty": {
