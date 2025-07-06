@@ -7,7 +7,6 @@ RUN wget -qO- https://get.pnpm.io/install.sh \
     && export PATH="$PNPM_HOME:$PATH" \
     && ln -s "$HOME/.local/share/pnpm/pnpm" /usr/local/bin/pnpm
 
-RUN echo $HOME
 COPY . /app
 
 WORKDIR /app
