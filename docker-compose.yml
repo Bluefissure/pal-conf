@@ -1,0 +1,9 @@
+services:
+  pal-conf:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: Bluefissure/pal-conf:latest
+    ports:
+      - "${HTTP_PORT_DEV:-5173}:5173" # for pnpm run dev
+      - "${HTTP_PORT_PREVIEW:-4173}:4173" # for pnpm run preview
