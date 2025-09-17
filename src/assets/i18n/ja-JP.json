@@ -136,7 +136,8 @@
         "bAllowGlobalPalboxExport": "クロスボーダーパル端末を通じてパルの遺伝子配列を保存可能にする",
         "bAllowGlobalPalboxImport": "クロスボーダーパル端末の遺伝子配列からパルを復元可能にする",
         "EquipmentDurabilityDamageRate": "装備品の耐久値減少率",
-        "ItemContainerForceMarkDirtyInterval": "アイテムコンテナの強制マークダーティ間隔（秒）"
+        "ItemContainerForceMarkDirtyInterval": "アイテムコンテナの強制マークダーティ間隔（秒）",
+        "ItemCorruptionMultiplier": "アイテム腐敗倍率"
       },
       "description": {
         "DeathPenalty": {

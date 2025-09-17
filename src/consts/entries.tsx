@@ -748,4 +748,12 @@ export const ENTRIES: Record<string, Entry> = {
     range: [0.1, 10],
     desc: "Interval for marking item container as dirty",
   },
+  ItemCorruptionMultiplier: {
+    name: "Item Corruption Multiplier",
+    id: "ItemCorruptionMultiplier",
+    defaultValue: "1.000000",
+    type: "float",
+    range: [0.1, 10],
+    desc: "Item corruption multiplier",
+  },
 };

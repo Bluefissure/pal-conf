@@ -505,6 +505,11 @@ export const DEFAULT_WORLDOPTION_SAV = {
                             value: 1.5131578,
                           },
                         },
+                        ItemCorruptionMultiplier: {
+                          Float: {
+                            value: 1.5131578,
+                          },
+                        },
                         DeathPenalty: {
                           Enum: {
                             value: "EPalOptionWorldDeathPenalty::None",

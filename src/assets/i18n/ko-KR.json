@@ -136,7 +136,8 @@
         "bAllowGlobalPalboxExport": "국경 간 팔루 터미널을 통해 팔루의 유전자 서열을 저장할 수 있음",
         "bAllowGlobalPalboxImport": "국경 간 팔루 터미널의 유전자 서열로부터 팔루를 복원할 수 있음",
         "EquipmentDurabilityDamageRate": "장비 내구도 손상률",
-        "ItemContainerForceMarkDirtyInterval": "아이템 컨테이너 강제 마크 더티 간격 (초)"
+        "ItemContainerForceMarkDirtyInterval": "아이템 컨테이너 강제 마크 더티 간격 (초)",
+        "ItemCorruptionMultiplier": "아이템 부패 배율"
       },
       "description": {
         "DeathPenalty": {

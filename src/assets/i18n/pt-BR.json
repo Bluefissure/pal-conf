@@ -136,7 +136,8 @@
         "bAllowGlobalPalboxExport": "Permitir exportação global de Palbox",
         "bAllowGlobalPalboxImport": "Permitir importação global de Palbox",
         "EquipmentDurabilityDamageRate": "Taxa de dano por durabilidade do equipamento",
-        "ItemContainerForceMarkDirtyInterval": "Intervalo de marcação forçada de contêiner de itens"
+        "ItemContainerForceMarkDirtyInterval": "Intervalo de marcação forçada de contêiner de itens",
+        "ItemCorruptionMultiplier": "Multiplicador de Corrupção de Itens"
       },
       "description": {
         "DeathPenalty": {
