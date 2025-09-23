@@ -136,7 +136,8 @@
         "bAllowGlobalPalboxExport": "Globalen Palbox-Export zulassen",
         "bAllowGlobalPalboxImport": "Globalen Palbox-Import zulassen",
         "EquipmentDurabilityDamageRate": "Ausrüstungsverschleißschaden Rate",
-        "ItemContainerForceMarkDirtyInterval": "Zwangsmarkierung des Gegenstandscontainers Intervall"
+        "ItemContainerForceMarkDirtyInterval": "Zwangsmarkierung des Gegenstandscontainers Intervall",
+        "ItemCorruptionMultiplier": "Gegenstand Korruptionsmultiplikator"
       },
       "description": {
         "DeathPenalty": {

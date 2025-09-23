@@ -136,7 +136,8 @@
         "bAllowGlobalPalboxExport":"允许通过跨界帕鲁终端保存帕鲁的基因序列",
         "bAllowGlobalPalboxImport":"允许通过跨界帕鲁终端的基因序列复原帕鲁",
         "EquipmentDurabilityDamageRate": "装备耐久度损坏率",
-        "ItemContainerForceMarkDirtyInterval": "物品容器强制标记为脏的间隔（秒）"
+        "ItemContainerForceMarkDirtyInterval": "物品容器强制标记为脏的间隔（秒）",
+        "ItemCorruptionMultiplier": "物品腐化倍率"
       },
       "description": {
         "DeathPenalty": {

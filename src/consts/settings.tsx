@@ -54,6 +54,7 @@ export const InGameSettings = [
   "ChatPostLimitPerMinute",
   "EquipmentDurabilityDamageRate",
   "ItemContainerForceMarkDirtyInterval",
+  "ItemCorruptionMultiplier",
 ];
 
 export const AdvancedSettings = [

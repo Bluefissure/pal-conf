@@ -136,7 +136,8 @@
         "bAllowGlobalPalboxExport":"Allow Global Palbox Export",
         "bAllowGlobalPalboxImport":"Allow Global Palbox Import",
         "EquipmentDurabilityDamageRate": "Equipment Durability Damage Rate",
-        "ItemContainerForceMarkDirtyInterval": "Item Container Force Mark Dirty Interval"
+        "ItemContainerForceMarkDirtyInterval": "Item Container Force Mark Dirty Interval",
+        "ItemCorruptionMultiplier": "Item Corruption Multiplier"
       },
       "description": {
         "DeathPenalty": {
