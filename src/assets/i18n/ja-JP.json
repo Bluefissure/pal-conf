@@ -137,7 +137,25 @@
         "bAllowGlobalPalboxImport": "クロスボーダーパル端末の遺伝子配列からパルを復元可能にする",
         "EquipmentDurabilityDamageRate": "装備品の耐久値減少率",
         "ItemContainerForceMarkDirtyInterval": "アイテムコンテナの強制マークダーティ間隔（秒）",
-        "ItemCorruptionMultiplier": "アイテム腐敗倍率"
+        "ItemCorruptionMultiplier": "アイテム腐敗倍率",
+        "bEnableFastTravelOnlyBaseCamp": "拠点のみ高速移動を有効にする",
+        "bAllowClientMod": "クライアントMODを許可",
+        "bIsShowJoinLeftMessage": "参加/退室メッセージを表示",
+        "DenyTechnologyList": "禁止テクノロジーリスト",
+        "GuildRejoinCooldownMinutes": "ギルド再参加クールダウン（分）",
+        "BlockRespawnTime": "ブロックリスポーン時間",
+        "RespawnPenaltyDurationThreshold": "リスポーンペナルティ持続時間のしきい値",
+        "RespawnPenaltyTimeScale": "リスポーンペナルティ時間倍率",
+        "bDisplayPvPItemNumOnWorldMap_BaseCamp": "ワールドマップにPvPアイテム数を表示（拠点）",
+        "bDisplayPvPItemNumOnWorldMap_Player": "ワールドマップにPvPアイテム数を表示（プレイヤー）",
+        "AdditionalDropItemWhenPlayerKillingInPvPMode": "PvPモードでのプレイヤーキル追加ドロップアイテム",
+        "AdditionalDropItemNumWhenPlayerKillingInPvPMode": "PvPモードでのプレイヤーキル追加ドロップアイテム数",
+        "bAdditionalDropItemWhenPlayerKillingInPvPMode": "PvPモードでのプレイヤーキル追加ドロップを有効にする",
+        "bAllowEnhanceStat_Health": "ステータス強化を許可 - 体力",
+        "bAllowEnhanceStat_Attack": "ステータス強化を許可 - 攻撃力",
+        "bAllowEnhanceStat_Stamina": "ステータス強化を許可 - スタミナ",
+        "bAllowEnhanceStat_Weight": "ステータス強化を許可 - 負重量",
+        "bAllowEnhanceStat_WorkSpeed": "ステータス強化を許可 - 作業速度"
       },
       "description": {
         "DeathPenalty": {

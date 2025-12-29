@@ -137,7 +137,25 @@
         "bAllowGlobalPalboxImport":"Allow Global Palbox Import",
         "EquipmentDurabilityDamageRate": "Equipment Durability Damage Rate",
         "ItemContainerForceMarkDirtyInterval": "Item Container Force Mark Dirty Interval",
-        "ItemCorruptionMultiplier": "Item Corruption Multiplier"
+        "ItemCorruptionMultiplier": "Item Corruption Multiplier",
+        "bEnableFastTravelOnlyBaseCamp": "Enable Fast Travel Only Base Camp",
+        "bAllowClientMod": "Allow Client Mod",
+        "bIsShowJoinLeftMessage": "Show Join/Leave Message",
+        "DenyTechnologyList": "Deny Technology List",
+        "GuildRejoinCooldownMinutes": "Guild Rejoin Cooldown (Minutes)",
+        "BlockRespawnTime": "Block Respawn Time",
+        "RespawnPenaltyDurationThreshold": "Respawn Penalty Duration Threshold",
+        "RespawnPenaltyTimeScale": "Respawn Penalty Time Scale",
+        "bDisplayPvPItemNumOnWorldMap_BaseCamp": "Display PvP Item Num on World Map (Base Camp)",
+        "bDisplayPvPItemNumOnWorldMap_Player": "Display PvP Item Num on World Map (Player)",
+        "AdditionalDropItemWhenPlayerKillingInPvPMode": "Additional Drop Item When Player Killing in PvP Mode",
+        "AdditionalDropItemNumWhenPlayerKillingInPvPMode": "Additional Drop Item Num When Player Killing in PvP Mode",
+        "bAdditionalDropItemWhenPlayerKillingInPvPMode": "Enable Additional Drop Item When Player Killing in PvP Mode",
+        "bAllowEnhanceStat_Health": "Allow Enhance Stat - Health",
+        "bAllowEnhanceStat_Attack": "Allow Enhance Stat - Attack",
+        "bAllowEnhanceStat_Stamina": "Allow Enhance Stat - Stamina",
+        "bAllowEnhanceStat_Weight": "Allow Enhance Stat - Weight",
+        "bAllowEnhanceStat_WorkSpeed": "Allow Enhance Stat - Work Speed"
       },
       "description": {
         "DeathPenalty": {

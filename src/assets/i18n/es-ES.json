@@ -137,7 +137,25 @@
         "bAllowGlobalPalboxImport": "Permitir importación global de Palbox",
         "EquipmentDurabilityDamageRate": "Tasa de daño por durabilidad del equipo",
         "ItemContainerForceMarkDirtyInterval": "Intervalo de marcado forzado de contenedor de objetos",
-        "ItemCorruptionMultiplier": "Multiplicador de Corrupción de Objetos"
+        "ItemCorruptionMultiplier": "Multiplicador de Corrupción de Objetos",
+        "bEnableFastTravelOnlyBaseCamp": "Habilitar viaje rápido solo al campamento base",
+        "bAllowClientMod": "Permitir mods del cliente",
+        "bIsShowJoinLeftMessage": "Mostrar mensajes de unirse/salir",
+        "DenyTechnologyList": "Lista de tecnologías denegadas",
+        "GuildRejoinCooldownMinutes": "Tiempo de reutilización para reingresar al gremio (minutos)",
+        "BlockRespawnTime": "Tiempo de reaparición de bloques",
+        "RespawnPenaltyDurationThreshold": "Umbral de duración de penalización por respawn",
+        "RespawnPenaltyTimeScale": "Multiplicador de tiempo de penalización por respawn",
+        "bDisplayPvPItemNumOnWorldMap_BaseCamp": "Mostrar número de objetos PvP en el mapa del mundo (Campamento base)",
+        "bDisplayPvPItemNumOnWorldMap_Player": "Mostrar número de objetos PvP en el mapa del mundo (Jugador)",
+        "AdditionalDropItemWhenPlayerKillingInPvPMode": "Objeto adicional al eliminar jugador en modo PvP",
+        "AdditionalDropItemNumWhenPlayerKillingInPvPMode": "Número de objetos adicionales al eliminar jugador en modo PvP",
+        "bAdditionalDropItemWhenPlayerKillingInPvPMode": "Habilitar objeto adicional al eliminar jugador en modo PvP",
+        "bAllowEnhanceStat_Health": "Permitir mejora de estado - Salud",
+        "bAllowEnhanceStat_Attack": "Permitir mejora de estado - Ataque",
+        "bAllowEnhanceStat_Stamina": "Permitir mejora de estado - Resistencia",
+        "bAllowEnhanceStat_Weight": "Permitir mejora de estado - Peso",
+        "bAllowEnhanceStat_WorkSpeed": "Permitir mejora de estado - Velocidad de trabajo"
       },
       "description": {
         "DeathPenalty": {

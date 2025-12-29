@@ -137,7 +137,25 @@
         "bAllowGlobalPalboxImport": "Permitir importação global de Palbox",
         "EquipmentDurabilityDamageRate": "Taxa de dano por durabilidade do equipamento",
         "ItemContainerForceMarkDirtyInterval": "Intervalo de marcação forçada de contêiner de itens",
-        "ItemCorruptionMultiplier": "Multiplicador de Corrupção de Itens"
+        "ItemCorruptionMultiplier": "Multiplicador de Corrupção de Itens",
+        "bEnableFastTravelOnlyBaseCamp": "Ativar viagem rápida apenas para acampamento base",
+        "bAllowClientMod": "Permitir mods do cliente",
+        "bIsShowJoinLeftMessage": "Mostrar mensagens de entrada/saída",
+        "DenyTechnologyList": "Lista de tecnologias negadas",
+        "GuildRejoinCooldownMinutes": "Tempo de espera para reingressar na guilda (minutos)",
+        "BlockRespawnTime": "Tempo de renascimento do bloco",
+        "RespawnPenaltyDurationThreshold": "Limite de duração da penalidade de renascimento",
+        "RespawnPenaltyTimeScale": "Multiplicador de tempo da penalidade de renascimento",
+        "bDisplayPvPItemNumOnWorldMap_BaseCamp": "Mostrar número de itens PvP no mapa mundial (Acampamento base)",
+        "bDisplayPvPItemNumOnWorldMap_Player": "Mostrar número de itens PvP no mapa mundial (Jogador)",
+        "AdditionalDropItemWhenPlayerKillingInPvPMode": "Item de drop adicional ao matar jogador no modo PvP",
+        "AdditionalDropItemNumWhenPlayerKillingInPvPMode": "Número de itens de drop adicional ao matar jogador no modo PvP",
+        "bAdditionalDropItemWhenPlayerKillingInPvPMode": "Ativar item de drop adicional ao matar jogador no modo PvP",
+        "bAllowEnhanceStat_Health": "Permitir aprimoramento de estatística - Saúde",
+        "bAllowEnhanceStat_Attack": "Permitir aprimoramento de estatística - Ataque",
+        "bAllowEnhanceStat_Stamina": "Permitir aprimoramento de estadística - Resistência",
+        "bAllowEnhanceStat_Weight": "Permitir aprimoramento de estadística - Peso",
+        "bAllowEnhanceStat_WorkSpeed": "Permitir aprimoramento de estadística - Velocidade de trabalho"
       },
       "description": {
         "DeathPenalty": {

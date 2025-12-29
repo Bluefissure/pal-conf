@@ -137,7 +137,25 @@
         "bAllowGlobalPalboxImport": "Permettre l’importation globale de Palbox",
         "EquipmentDurabilityDamageRate": "Taux de dégâts de durabilité de l'équipement",
         "ItemContainerForceMarkDirtyInterval": "Intervalle de marquage forcé du conteneur d'objets (en secondes)",
-        "ItemCorruptionMultiplier": "Multiplicateur de corruption des objets"
+        "ItemCorruptionMultiplier": "Multiplicateur de corruption des objets",
+        "bEnableFastTravelOnlyBaseCamp": "Activer le voyage rapide uniquement vers le camp de base",
+        "bAllowClientMod": "Autoriser les mods client",
+        "bIsShowJoinLeftMessage": "Afficher les messages d'arrivée/départ",
+        "DenyTechnologyList": "Liste des technologies interdites",
+        "GuildRejoinCooldownMinutes": "Délai de réactivitation de guilde (minutes)",
+        "BlockRespawnTime": "Temps de réapparition des blocs",
+        "RespawnPenaltyDurationThreshold": "Seuil de durée de pénalité de réapparition",
+        "RespawnPenaltyTimeScale": "Multiplicateur de temps de pénalité de réapparition",
+        "bDisplayPvPItemNumOnWorldMap_BaseCamp": "Afficher le nombre d'objets PvP sur la carte du monde (Camp de base)",
+        "bDisplayPvPItemNumOnWorldMap_Player": "Afficher le nombre d'objets PvP sur la carte du monde (Joueur)",
+        "AdditionalDropItemWhenPlayerKillingInPvPMode": "Objet de chute supplémentaire lors de la mise à mort d'un joueur en mode PvP",
+        "AdditionalDropItemNumWhenPlayerKillingInPvPMode": "Nombre d'objets de chute supplémentaire lors de la mise à mort d'un joueur en mode PvP",
+        "bAdditionalDropItemWhenPlayerKillingInPvPMode": "Activer l'objet de chute supplémentaire lors de la mise à mort d'un joueur en mode PvP",
+        "bAllowEnhanceStat_Health": "Autoriser amélioration de stat - Santé",
+        "bAllowEnhanceStat_Attack": "Autoriser amélioration de stat - Attaque",
+        "bAllowEnhanceStat_Stamina": "Autoriser amélioration de stat - Endurance",
+        "bAllowEnhanceStat_Weight": "Autoriser amélioration de stat - Poids",
+        "bAllowEnhanceStat_WorkSpeed": "Autoriser amélioration de stat - Vitesse de travail"
       },
       "description": {
         "DeathPenalty": {

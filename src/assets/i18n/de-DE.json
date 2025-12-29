@@ -137,7 +137,25 @@
         "bAllowGlobalPalboxImport": "Globalen Palbox-Import zulassen",
         "EquipmentDurabilityDamageRate": "Ausrüstungsverschleißschaden Rate",
         "ItemContainerForceMarkDirtyInterval": "Zwangsmarkierung des Gegenstandscontainers Intervall",
-        "ItemCorruptionMultiplier": "Gegenstand Korruptionsmultiplikator"
+        "ItemCorruptionMultiplier": "Gegenstand Korruptionsmultiplikator",
+        "bEnableFastTravelOnlyBaseCamp": "Schnellreise nur zum Basislager aktivieren",
+        "bAllowClientMod": "Client-Mods erlauben",
+        "bIsShowJoinLeftMessage": "Beitritts-/Verlassen-Nachrichten anzeigen",
+        "DenyTechnologyList": "Verbotene Technologieliste",
+        "GuildRejoinCooldownMinutes": "Gilden-Wiederbeitrittscooldown (Minuten)",
+        "BlockRespawnTime": "Block-Erneuerungszeit",
+        "RespawnPenaltyDurationThreshold": "Schwellenwert für Wiederbelebungsstrafdauer",
+        "RespawnPenaltyTimeScale": "Zeitmultiplikator für Wiederbelebungsstrafe",
+        "bDisplayPvPItemNumOnWorldMap_BaseCamp": "PvP-Gegenstandszahl auf Weltkarte anzeigen (Basis)",
+        "bDisplayPvPItemNumOnWorldMap_Player": "PvP-Gegenstandszahl auf Weltkarte anzeigen (Spieler)",
+        "AdditionalDropItemWhenPlayerKillingInPvPMode": "Zusätzlicher Gegenstandsdrop bei PvP-Spielertötung",
+        "AdditionalDropItemNumWhenPlayerKillingInPvPMode": "Anzahl zusätzlicher Gegenstandsdrop bei PvP-Spielertötung",
+        "bAdditionalDropItemWhenPlayerKillingInPvPMode": "Zusätzlichen Gegenstandsdrop bei PvP-Spielertötung aktivieren",
+        "bAllowEnhanceStat_Health": "Verbesserungsstat erlauben - Gesundheit",
+        "bAllowEnhanceStat_Attack": "Verbesserungsstat erlauben - Angriff",
+        "bAllowEnhanceStat_Stamina": "Verbesserungsstat erlauben - Ausdauer",
+        "bAllowEnhanceStat_Weight": "Verbesserungsstat erlauben - Gewicht",
+        "bAllowEnhanceStat_WorkSpeed": "Verbesserungsstat erlauben - Arbeitsgeschwindigkeit"
       },
       "description": {
         "DeathPenalty": {
