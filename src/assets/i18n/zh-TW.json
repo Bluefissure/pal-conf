@@ -137,7 +137,25 @@
         "bAllowGlobalPalboxImport": "允許透過跨界帕魯終端的基因序列復原帕魯",
         "EquipmentDurabilityDamageRate": "裝備耐久度減少倍率",
         "ItemContainerForceMarkDirtyInterval": "物品容器強制標記為脏的間隔（秒）",
-        "ItemCorruptionMultiplier": "物品腐化倍率"
+        "ItemCorruptionMultiplier": "物品腐化倍率",
+        "bEnableFastTravelOnlyBaseCamp": "僅基地可快速旅行",
+        "bAllowClientMod": "允許客戶端Mod",
+        "bIsShowJoinLeftMessage": "顯示玩家加入/離開訊息",
+        "DenyTechnologyList": "禁止科技列表",
+        "GuildRejoinCooldownMinutes": "公會重加冷卻時間(分鐘)",
+        "BlockRespawnTime": "阻擋重生時間",
+        "RespawnPenaltyDurationThreshold": "重生懲罰持續時間閾值",
+        "RespawnPenaltyTimeScale": "重生懲罰時間倍數",
+        "bDisplayPvPItemNumOnWorldMap_BaseCamp": "地圖顯示PVP掉落物數量（基地）",
+        "bDisplayPvPItemNumOnWorldMap_Player": "地圖顯示PVP掉落物數量（玩家）",
+        "AdditionalDropItemWhenPlayerKillingInPvPMode": "PVP擊殺附加掉落物",
+        "AdditionalDropItemNumWhenPlayerKillingInPvPMode": "PVP擊殺附加掉落物數量",
+        "bAdditionalDropItemWhenPlayerKillingInPvPMode": "啟用PVP擊殺附加掉落",
+        "bAllowEnhanceStat_Health": "允許加點-生命",
+        "bAllowEnhanceStat_Attack": "允許加點-攻擊",
+        "bAllowEnhanceStat_Stamina": "允許加點-體力",
+        "bAllowEnhanceStat_Weight": "允許加點-負重",
+        "bAllowEnhanceStat_WorkSpeed": "允許加點-工作速度"
       },
       "description": {
         "DeathPenalty": {

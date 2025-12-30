@@ -93,6 +93,24 @@ export const AdvancedSettings = [
   "Region",
   "bUseAuth",
   "BanListURL",
+  "bEnableFastTravelOnlyBaseCamp",
+  "bAllowClientMod",
+  "bIsShowJoinLeftMessage",
+  "DenyTechnologyList",
+  "GuildRejoinCooldownMinutes",
+  "BlockRespawnTime",
+  "RespawnPenaltyDurationThreshold",
+  "RespawnPenaltyTimeScale",
+  "bDisplayPvPItemNumOnWorldMap_BaseCamp",
+  "bDisplayPvPItemNumOnWorldMap_Player",
+  "AdditionalDropItemWhenPlayerKillingInPvPMode",
+  "AdditionalDropItemNumWhenPlayerKillingInPvPMode",
+  "bAdditionalDropItemWhenPlayerKillingInPvPMode",
+  "bAllowEnhanceStat_Health",
+  "bAllowEnhanceStat_Attack",
+  "bAllowEnhanceStat_Stamina",
+  "bAllowEnhanceStat_Weight",
+  "bAllowEnhanceStat_WorkSpeed",
 ];
 
 export const EntryIdToEnumName: Record<string, string> = {
@@ -101,4 +119,5 @@ export const EntryIdToEnumName: Record<string, string> = {
   LogFormatType: "EPalOptionWorldLogFormatType",
   RandomizerType: "EPalRandomizerType",
   CrossplayPlatforms: "EPalAllowConnectPlatform",
+  DenyTechnologyList: "EPalDenyTechnology", // 假设的枚举类型名称
 }

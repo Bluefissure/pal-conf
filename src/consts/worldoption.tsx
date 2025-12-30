@@ -788,6 +788,96 @@ export const DEFAULT_WORLDOPTION_SAV = {
                             value: false,
                           },
                         },
+                        bEnableFastTravelOnlyBaseCamp: {
+                          Bool: {
+                            value: false,
+                          },
+                        },
+                        bAllowClientMod: {
+                          Bool: {
+                            value: true,
+                          },
+                        },
+                        bIsShowJoinLeftMessage: {
+                          Bool: {
+                            value: true,
+                          },
+                        },
+                        DenyTechnologyList: {
+                          Str: {
+                            value: "",
+                          },
+                        },
+                        GuildRejoinCooldownMinutes: {
+                          Int: {
+                            value: 0,
+                          },
+                        },
+                        BlockRespawnTime: {
+                          Float: {
+                            value: 5.0,
+                          },
+                        },
+                        RespawnPenaltyDurationThreshold: {
+                          Float: {
+                            value: 0.0,
+                          },
+                        },
+                        RespawnPenaltyTimeScale: {
+                          Float: {
+                            value: 2.0,
+                          },
+                        },
+                        bDisplayPvPItemNumOnWorldMap_BaseCamp: {
+                          Bool: {
+                            value: false,
+                          },
+                        },
+                        bDisplayPvPItemNumOnWorldMap_Player: {
+                          Bool: {
+                            value: false,
+                          },
+                        },
+                        AdditionalDropItemWhenPlayerKillingInPvPMode: {
+                          Str: {
+                            value: "PlayerDropItem",
+                          },
+                        },
+                        AdditionalDropItemNumWhenPlayerKillingInPvPMode: {
+                          Int: {
+                            value: 1,
+                          },
+                        },
+                        bAdditionalDropItemWhenPlayerKillingInPvPMode: {
+                          Bool: {
+                            value: false,
+                          },
+                        },
+                        bAllowEnhanceStat_Health: {
+                          Bool: {
+                            value: true,
+                          },
+                        },
+                        bAllowEnhanceStat_Attack: {
+                          Bool: {
+                            value: true,
+                          },
+                        },
+                        bAllowEnhanceStat_Stamina: {
+                          Bool: {
+                            value: true,
+                          },
+                        },
+                        bAllowEnhanceStat_Weight: {
+                          Bool: {
+                            value: true,
+                          },
+                        },
+                        bAllowEnhanceStat_WorkSpeed: {
+                          Bool: {
+                            value: true,
+                          },
+                        },
                       },
                     },
                     struct_type: {

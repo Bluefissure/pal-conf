@@ -137,7 +137,25 @@
         "bAllowGlobalPalboxImport": "국경 간 팔루 터미널의 유전자 서열로부터 팔루를 복원할 수 있음",
         "EquipmentDurabilityDamageRate": "장비 내구도 손상률",
         "ItemContainerForceMarkDirtyInterval": "아이템 컨테이너 강제 마크 더티 간격 (초)",
-        "ItemCorruptionMultiplier": "아이템 부패 배율"
+        "ItemCorruptionMultiplier": "아이템 부패 배율",
+        "bEnableFastTravelOnlyBaseCamp": "기지로만 순간이동 활성화",
+        "bAllowClientMod": "클라이언트 모드 허용",
+        "bIsShowJoinLeftMessage": "참가/퇴장 메시지 표시",
+        "DenyTechnologyList": "거부 기술 목록",
+        "GuildRejoinCooldownMinutes": "길드 재가입 쿨다운(분)",
+        "BlockRespawnTime": "블록 리스폰 시간",
+        "RespawnPenaltyDurationThreshold": "리스폰 패널티 지속 시간 임계값",
+        "RespawnPenaltyTimeScale": "리스폰 패널티 시간 배율",
+        "bDisplayPvPItemNumOnWorldMap_BaseCamp": "월드맵에 PvP 아이템 수 표시(기지)",
+        "bDisplayPvPItemNumOnWorldMap_Player": "월드맵에 PvP 아이템 수 표시(플레이어)",
+        "AdditionalDropItemWhenPlayerKillingInPvPMode": "PvP 모드 플레이어 킬 추가 드롭 아이템",
+        "AdditionalDropItemNumWhenPlayerKillingInPvPMode": "PvP 모드 플레이어 킬 추가 드롭 아이템 수",
+        "bAdditionalDropItemWhenPlayerKillingInPvPMode": "PvP 모드 플레이어 킬 추가 드롭 활성화",
+        "bAllowEnhanceStat_Health": "스탯 강화 허용 - 체력",
+        "bAllowEnhanceStat_Attack": "스탯 강화 허용 - 공격력",
+        "bAllowEnhanceStat_Stamina": "스탯 강화 허용 - 스태미나",
+        "bAllowEnhanceStat_Weight": "스탯 강화 허용 - 무게",
+        "bAllowEnhanceStat_WorkSpeed": "스탯 강화 허용 - 작업 속도"
       },
       "description": {
         "DeathPenalty": {

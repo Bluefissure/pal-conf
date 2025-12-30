@@ -2,7 +2,7 @@
     "name": "pal-conf",
     "private": true,
     "version": "0.0.0",
-    "configVersion": "0.6.0",
+    "configVersion": "0.7.0",
     "type": "module",
     "scripts": {
         "dev": "vite --host 0.0.0.0",
