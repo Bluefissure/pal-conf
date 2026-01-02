@@ -90,7 +90,12 @@ function App() {
       const entryValue = entries[entry.id] ?? entry.defaultValue;
       switch (entry.type) {
         case "array":
-          resultList.push(`${entry.id}=(${entryValue})`);
+          if (entryValue.trim() === "") {
+            resultList.push(`${entry.id}=()`);
+          } else {
+            const arrayValues = entryValue.split(",").map(value => `"${value}"`).join(",");
+            resultList.push(`${entry.id}=(${arrayValues})`);
+          }
           break;
         case "select":
         case "boolean":
@@ -167,6 +172,8 @@ function App() {
             }
             if (entry.type === "array") {
               optionSettingValue = optionSettingValue.trim().replace(/^\(|\)$/g, "");
+              // Remove quotes from array values
+              optionSettingValue = optionSettingValue.replace(/"([^"]*)"/g, "$1");
             }
             newEntries[entry.id] = optionSettingValue;
             loadedEntriesNum++;
