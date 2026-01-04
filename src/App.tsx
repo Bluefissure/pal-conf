@@ -91,7 +91,7 @@ function App() {
       switch (entry.type) {
         case "array":
           if (entryValue.trim() === "") {
-            resultList.push(`${entry.id}=()`);
+            resultList.push(`${entry.id}=`);
           } else {
             const arrayValues = entryValue.split(",").map(value => `"${value}"`).join(",");
             resultList.push(`${entry.id}=(${arrayValues})`);
@@ -224,20 +224,37 @@ function App() {
             enum_type: enumType,
           },
         };
-      } else if (entry.type === "array" && entry.id in EntryIdToEnumName) {
-        const enumType = EntryIdToEnumName[entry.id];
-        const enums = entryValue.trim() === "" ? []
-          : entryValue.split(",").map((e) => `${enumType}::${e}`);
-        dictValue = {
-          Array: {
-            array_type: "EnumProperty",
-            value: {
-              Base: {
-                Enum: enums
+      } else if (entry.type === "array") {
+        if (entry.id in EntryIdToEnumName) {
+          // CrossplayPlatforms 使用枚举格式
+          const enumType = EntryIdToEnumName[entry.id];
+          const enums = entryValue.trim() === "" ? []
+            : entryValue.split(",").map((e) => `${enumType}::${e}`);
+          dictValue = {
+            Array: {
+              array_type: "EnumProperty",
+              value: {
+                Base: {
+                  Enum: enums
+                }
               }
-            }
-          },
-        };
+            },
+          };
+        } else {
+          // DenyTechnologyList 使用字符串数组格式
+          const strValues = entryValue.trim() === "" ? [] as string[]
+            : entryValue.split(",");
+          dictValue = {
+            Array: {
+              array_type: "StrProperty",
+              value: {
+                Base: {
+                  Str: strValues
+                }
+              }
+            },
+          };
+        }
       } else if (entry.type === "boolean") {
         dictValue = {
           Bool: {
@@ -299,8 +316,14 @@ function App() {
           entryValue = valueRecord.Bool.value ? "True" : "False";
         } else if ("Str" in valueRecord) {
           entryValue = valueRecord.Str.value;
-        } else if ("Array" in valueRecord && valueRecord.Array.array_type === "EnumProperty") {
-          entryValue = valueRecord.Array.value.Base.Enum.map((e: string) => e.split("::")[1]).join(",");
+        } else if ("Array" in valueRecord) {
+          if (valueRecord.Array.array_type === "EnumProperty") {
+            // CrossplayPlatforms 枚举数组格式
+            entryValue = (valueRecord.Array.value.Base as { Enum: string[] }).Enum.map((e: string) => e.split("::")[1]).join(",");
+          } else if (valueRecord.Array.array_type === "StrProperty") {
+            // DenyTechnologyList 字符串数组格式
+            entryValue = ((valueRecord.Array.value.Base as { Str: string[] }).Str || []).join(",");
+          }
         }
         newEntries[entry.id] = entryValue?.toString() ?? entry.defaultValue;
       }
