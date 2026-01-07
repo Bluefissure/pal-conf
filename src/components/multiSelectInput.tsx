@@ -3,7 +3,7 @@ import { useTranslation, Trans } from 'react-i18next';
 import { ChevronDown } from "lucide-react"
 
 import { CrossplayPlatformsLabels } from "@/consts/dropdownLabels"
-import { DenyTechnologyList, DenyTechnologyLabels } from "@/consts/denyTechnologyList"
+import { DenyTechnologyLabels } from "@/consts/denyTechnologyList"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import {
@@ -33,6 +33,26 @@ type LabelValue = Labels[number]['name'];
 export type LabelValues = LabelValue[];
 type Key =  'CrossplayPlatforms' | 'DenyTechnologyList';
 
+// 为不同类型的label添加类型定义
+interface LabelWithId {
+  id: string;
+  name: string;
+}
+
+interface LabelWithNameOnly {
+  name: string;
+}
+
+type LabelItem = LabelWithId | LabelWithNameOnly;
+
+// 辅助函数：安全获取label的id
+function getLabelId(label: LabelItem): string {
+  if ('id' in label) {
+    return (label as LabelWithId).id;
+  }
+  return label.name; // 对于CrossplayPlatforms，使用name作为id
+}
+
 function get<T>(dict: Record<string, T>, key: string, defaultValue: T): T {
     return Object.prototype.hasOwnProperty.call(dict, key) ? dict[key] : defaultValue;
 }
@@ -47,7 +67,6 @@ export function MultiSelectInput(props: {
       CrossplayPlatforms: CrossplayPlatformsLabels,
       DenyTechnologyList: DenyTechnologyLabels,
     }[dKey] as Labels;
-    const labelNames = labels.map((label) => label.name);
     const { t } = useTranslation();
     const [open, setOpen] = useState(false);
     const [searchValue, setSearchValue] = useState("");
@@ -55,7 +74,7 @@ export function MultiSelectInput(props: {
     // 将外部传入的ID转换为内部显示的中文名称
     const internalSelectedLabels = dKey === 'DenyTechnologyList' 
         ? selectedLabels.map(id => {
-            const techItem = labels.find(label => label.id === id);
+            const techItem = labels.find(label => getLabelId(label) === id);
             return techItem ? techItem.name : id;
           })
         : selectedLabels;
@@ -73,7 +92,7 @@ export function MultiSelectInput(props: {
         const externalLabels = dKey === 'DenyTechnologyList'
             ? newInternalLabels.map(name => {
                 const techItem = labels.find(label => label.name === name);
-                return techItem ? techItem.id : name;
+                return techItem ? getLabelId(techItem) : name;
               })
             : newInternalLabels;
 
@@ -85,8 +104,9 @@ export function MultiSelectInput(props: {
             ? label.name // 直接使用中文名称
             : t(label.name);
         const searchLower = searchValue.toLowerCase();
+        const labelId = getLabelId(label);
         return displayName.toLowerCase().includes(searchLower) || 
-               label.id.toLowerCase().includes(searchLower); // 同时搜索ID和名称
+               labelId.toLowerCase().includes(searchLower); // 同时搜索ID和名称
     });
 
 
@@ -129,7 +149,7 @@ export function MultiSelectInput(props: {
                                     {filteredLabels.map((label) => (
                                         <CommandItem
                                             key={`multi-select-${dKey}-${label.name}`}
-                                            value={`${label.id} ${label.name}`}
+                                            value={`${getLabelId(label)} ${label.name}`}
                                             onSelect={() => onLabelCheckedChange(label.name)()}
                                         >
                                             <div className="flex items-center space-x-2">
