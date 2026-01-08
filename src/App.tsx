@@ -70,9 +70,21 @@ function App() {
   const [showUploadPrompt, setShowUploadPrompt] = useState(false);
   const [pasteDialogOpen, setPasteDialogOpen] = useState(false);
   const [pasteContent, setPasteContent] = useState("");
+  const [showManualCopyDialog, setShowManualCopyDialog] = useState(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const tabRef = useRef<HTMLInputElement>(null);
+
+  const isSecureContext = () => {
+    return window.isSecureContext || 
+           location.protocol === 'https:' || 
+           location.hostname === 'localhost' ||
+           location.hostname === '127.0.0.1';
+  };
+
+  const isClipboardAPISupported = () => {
+    return !!(navigator.clipboard && window.isSecureContext);
+  };
 
   useEffect(() => {
     if (tabRef.current && tabRef.current.getBoundingClientRect().top < 0) {
@@ -533,47 +545,98 @@ function App() {
       ? `[/Script/Pal.PalGameWorldSettings]\nOptionSettings=(${serializeEntriesToIni()})`
       : LosslessJSON.stringify(serializeEntriesToWorldOptionJson(), null, 4) ?? "";
 
-  const copyToClipboard = () => {
-    const copyText = (text: string) => {
-      if (navigator.clipboard) {
-        return navigator.clipboard.writeText(text);
-      } else if (document.queryCommandSupported?.('copy')) {
+  const copyToClipboard = async () => {
+    const copyText = async (text: string) => {
+      // 检查安全上下文
+      if (!isSecureContext()) {
+        throw new Error('HTTPS required for clipboard access');
+      }
+      
+      // 优先使用现代Clipboard API
+      if (isClipboardAPISupported()) {
+        try {
+          await navigator.clipboard.writeText(text);
+          return;
+        } catch (error) {
+          console.warn('Clipboard API failed, falling back to execCommand:', error);
+        }
+      }
+      
+      // Fallback to execCommand
+      if (document.queryCommandSupported?.('copy')) {
         const textarea = document.createElement('textarea');
         textarea.value = text;
         textarea.style.position = 'fixed';
         textarea.style.opacity = '0';
+        textarea.style.left = '-9999px';
         document.body.appendChild(textarea);
         textarea.select();
         
         try {
-          document.execCommand('copy');
-          return Promise.resolve();
-        } catch (e) {
-          // console.error(e);
-          return Promise.reject(e);
+          const successful = document.execCommand('copy');
+          if (!successful) {
+            throw new Error('execCommand failed');
+          }
+        } catch (error) {
+          console.error('execCommand failed:', error);
+          throw error;
         } finally {
           document.body.removeChild(textarea);
         }
+      } else {
+        throw new Error('Clipboard not supported in this browser');
       }
-      return Promise.reject(new Error('Copy failed'));
     };
 
-    copyText(settingsText)
-      .then(() => toast.success(t(I18nStr.toast.copied), { description: t(I18nStr.toast.copiedDescription) }))
-      .catch(() => toast.error(t(I18nStr.toast.copyFailed), { description: t(I18nStr.toast.copyFailedDescription) }));
+    try {
+      await copyText(settingsText);
+      toast.success(t(I18nStr.toast.copied), { 
+        description: t(I18nStr.toast.copiedDescription) 
+      });
+    } catch (error) {
+      console.error('Copy failed:', error);
+      // 显示手动复制对话框作为最终fallback
+      setShowManualCopyDialog(true);
+      toast.error(t(I18nStr.toast.copyFailed), { 
+        description: t(I18nStr.toast.copyFailedDescription) 
+      });
+    }
   };
 
-  const readFromClipboard = () => {
-    if (navigator.clipboard) {
-      navigator.clipboard
-        .readText()
-        .then((e) => deserializeEntriesFromIni(e))
-        .catch(() => {
-          toast.error(t(I18nStr.toast.loadFailed), {
-            description: t(I18nStr.toast.loadFailedDescription),
-          })
-        });
-    } else {
+  const readFromClipboard = async () => {
+    try {
+      // 检查安全上下文
+      if (!isSecureContext()) {
+        // 在HTTP环境下直接显示对话框
+        setPasteDialogOpen(true);
+        return;
+      }
+      
+      // 尝试使用Clipboard API
+      if (isClipboardAPISupported()) {
+        try {
+          const text = await navigator.clipboard.readText();
+          if (text.trim()) {
+            deserializeEntriesFromIni(text);
+          } else {
+            toast.warning(t(I18nStr.toast.clipboardEmpty), {
+              description: t(I18nStr.toast.clipboardEmptyDescription),
+            });
+          }
+        } catch (error) {
+          console.warn('Clipboard read failed, falling back to dialog:', error);
+          setPasteDialogOpen(true);
+        }
+      } else {
+        // 不支持Clipboard API，显示对话框
+        setPasteDialogOpen(true);
+      }
+    } catch (error) {
+      console.error('Paste failed:', error);
+      toast.error(t(I18nStr.toast.loadFailed), {
+        description: t(I18nStr.toast.loadFailedDescription),
+      });
+      // 提供手动粘贴选项
       setPasteDialogOpen(true);
     }
   };
@@ -845,6 +908,60 @@ function App() {
             >
               <Trans i18nKey={I18nStr.confirm} />
             </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      <Dialog open={showManualCopyDialog} onOpenChange={setShowManualCopyDialog}>
+        <DialogContent className="max-w-2xl">
+          <DialogTitle>{t(I18nStr.toast.manualCopyRequired)}</DialogTitle>
+          <div className="space-y-4">
+            <p className="text-sm text-muted-foreground">
+              {t(I18nStr.toast.manualCopyDescription)}
+            </p>
+            <div className="relative">
+              <Textarea
+                value={settingsText}
+                readOnly
+                className="min-h-[300px] font-mono text-sm"
+                onClick={(e) => e.currentTarget.select()}
+              />
+              <div className="absolute top-2 right-2">
+                <Button
+                  size="sm"
+                  variant="outline"
+                  onClick={(e) => {
+                    const textarea = e.currentTarget.parentElement?.querySelector('textarea');
+                    if (textarea) {
+                      textarea.select();
+                    }
+                  }}
+                >
+                  {t(I18nStr.toast.selectText)}
+                </Button>
+              </div>
+            </div>
+            <div className="flex justify-end gap-4">
+              <Button variant="outline" onClick={() => setShowManualCopyDialog(false)}>
+                <Trans i18nKey={I18nStr.cancel} />
+              </Button>
+              <Button
+                onClick={() => {
+                  navigator.clipboard.writeText(settingsText).then(() => {
+                    toast.success(t(I18nStr.toast.copied), { 
+                      description: t(I18nStr.toast.copiedDescription) 
+                    });
+                    setShowManualCopyDialog(false);
+                  }).catch(() => {
+                    toast.info(t(I18nStr.toast.manualCopyInstruction), {
+                      description: t(I18nStr.toast.manualCopyInstructionDescription),
+                    });
+                  });
+                }}
+              >
+                {t(I18nStr.toast.tryAgain)}
+              </Button>
+            </div>
           </div>
         </DialogContent>
       </Dialog>
