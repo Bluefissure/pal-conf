@@ -44,7 +44,17 @@
       "invalidFileName": "Nome de arquivo inválido",
       "invalidFileNameDescription": "Por favor, faça upload do arquivo WorldOption.sav.",
       "fileTooLarge": "O tamanho do arquivo é muito grande",
-      "fileTooLargeDescription": "Por favor, faça upload de um arquivo correto."
+      "fileTooLargeDescription": "Por favor, faça upload de um arquivo correto.",
+      "manualCopyRequired": "Cópia Manual Necessária",
+      "manualCopyDescription": "O acesso automático à área de transferência falhou. Por favor, copie manualmente o texto abaixo usando Ctrl+C (ou Cmd+C no Mac).",
+      "httpsRequired": "HTTPS Necessário",
+      "httpsRequiredDescription": "O acesso à área de transferência requer HTTPS ou localhost por razões de segurança.",
+      "clipboardEmpty": "Área de Transferência Vazia",
+      "clipboardEmptyDescription": "Não há conteúdo na área de transferência para colar.",
+      "selectText": "Selecionar Tudo",
+      "tryAgain": "Tentar Novamente",
+      "manualCopyInstruction": "Por favor, copie manualmente com Ctrl+C",
+      "manualCopyInstructionDescription": "O texto foi selecionado para você"
     },
     "entry": {
       "name": {

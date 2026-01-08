@@ -44,7 +44,17 @@
       "invalidFileName": "Ungültiger Dateiname",
       "invalidFileNameDescription": "Bitte laden Sie die Datei WorldOption.sav hoch.",
       "fileTooLarge": "Die Datei ist zu groß",
-      "fileTooLargeDescription": "Bitte laden Sie eine korrekte Datei hoch."
+      "fileTooLargeDescription": "Bitte laden Sie eine korrekte Datei hoch.",
+      "manualCopyRequired": "Manuelles Kopieren erforderlich",
+      "manualCopyDescription": "Automatischer Zugriff auf die Zwischenablage fehlgeschlagen. Bitte kopieren Sie den Text unten manuell mit Strg+C (oder Cmd+C auf dem Mac).",
+      "httpsRequired": "HTTPS erforderlich",
+      "httpsRequiredDescription": "Der Zugriff auf die Zwischenablage erfordert aus Sicherheitsgründen HTTPS oder localhost.",
+      "clipboardEmpty": "Zwischenablage leer",
+      "clipboardEmptyDescription": "Es ist kein Inhalt in der Zwischenablage zum Einfügen vorhanden.",
+      "selectText": "Alles auswählen",
+      "tryAgain": "Erneut versuchen",
+      "manualCopyInstruction": "Bitte manuell mit Strg+C kopieren",
+      "manualCopyInstructionDescription": "Text wurde für Sie ausgewählt"
     },
     "entry": {
       "name": {

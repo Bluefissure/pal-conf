@@ -44,7 +44,17 @@
       "invalidFileName": "Nombre de archivo inválido",
       "invalidFileNameDescription": "Por favor, suba el archivo WorldOption.sav.",
       "fileTooLarge": "El tamaño del archivo es demasiado grande",
-      "fileTooLargeDescription": "Por favor, suba un archivo correcto."
+      "fileTooLargeDescription": "Por favor, suba un archivo correcto.",
+      "manualCopyRequired": "Copia Manual Requerida",
+      "manualCopyDescription": "El acceso automático al portapapeles falló. Por favor, copie manualmente el texto de abajo usando Ctrl+C (o Cmd+C en Mac).",
+      "httpsRequired": "HTTPS Requerido",
+      "httpsRequiredDescription": "El acceso al portapapeles requiere HTTPS o localhost por razones de seguridad.",
+      "clipboardEmpty": "Portapapeles Vacío",
+      "clipboardEmptyDescription": "No hay contenido en el portapapeles para pegar.",
+      "selectText": "Seleccionar Todo",
+      "tryAgain": "Intentar de Nuevo",
+      "manualCopyInstruction": "Por favor, copie manualmente con Ctrl+C",
+      "manualCopyInstructionDescription": "El texto ha sido seleccionado para usted"
     },
     "entry": {
       "name": {

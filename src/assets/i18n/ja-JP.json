@@ -44,7 +44,17 @@
       "invalidFileName": "無効なファイル名",
       "invalidFileNameDescription": "WorldOption.sav をアップロードしてください。",
       "fileTooLarge": "ファイルサイズが大きすぎます",
-      "fileTooLargeDescription": "正しいファイルをアップロードしてください"
+      "fileTooLargeDescription": "正しいファイルをアップロードしてください",
+      "manualCopyRequired": "手動コピーが必要です",
+      "manualCopyDescription": "クリップボードへの自動アクセスに失敗しました。下のテキストをCtrl+C（またはMacの場合Cmd+C）で手動でコピーしてください。",
+      "httpsRequired": "HTTPSが必要です",
+      "httpsRequiredDescription": "セキュリティ上の理由により、クリップボードアクセスにはHTTPSまたはlocalhostが必要です。",
+      "clipboardEmpty": "クリップボードが空です",
+      "clipboardEmptyDescription": "貼り付ける内容がクリップボードにありません。",
+      "selectText": "すべて選択",
+      "tryAgain": "再試行",
+      "manualCopyInstruction": "Ctrl+Cで手動コピーしてください",
+      "manualCopyInstructionDescription": "テキストが選択されました"
     },
     "entry": {
       "name": {

@@ -44,7 +44,17 @@
       "invalidFileName": "Invalid File Name",
       "invalidFileNameDescription": "Please upload WorldOption.sav file.",
       "fileTooLarge": "File size is too large",
-      "fileTooLargeDescription": "Please upload a correct file."
+      "fileTooLargeDescription": "Please upload a correct file.",
+      "manualCopyRequired": "Manual Copy Required",
+      "manualCopyDescription": "Automatic clipboard access failed. Please manually copy the text below using Ctrl+C (or Cmd+C on Mac).",
+      "httpsRequired": "HTTPS Required",
+      "httpsRequiredDescription": "Clipboard access requires HTTPS or localhost for security reasons.",
+      "clipboardEmpty": "Clipboard Empty",
+      "clipboardEmptyDescription": "There is no content in the clipboard to paste.",
+      "selectText": "Select All",
+      "tryAgain": "Try Again",
+      "manualCopyInstruction": "Please copy manually with Ctrl+C",
+      "manualCopyInstructionDescription": "Text has been selected for you"
     },
     "entry": {
       "name": {

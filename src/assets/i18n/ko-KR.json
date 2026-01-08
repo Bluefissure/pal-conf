@@ -44,7 +44,17 @@
       "invalidFileName": "잘못된 파일 이름",
       "invalidFileNameDescription": "WorldOption.sav 파일을 업로드 해주세요.",
       "fileTooLarge": "파일 크기가 너무 큽니다",
-      "fileTooLargeDescription": "올바른 파일을 업로드해 주세요."
+      "fileTooLargeDescription": "올바른 파일을 업로드해 주세요.",
+      "manualCopyRequired": "수동 복사 필요",
+      "manualCopyDescription": "클립보드 자동 접근에 실패했습니다. 아래 텍스트를 Ctrl+C(Mac의 경우 Cmd+C)로 수동으로 복사해 주세요.",
+      "httpsRequired": "HTTPS 필요",
+      "httpsRequiredDescription": "보안상의 이유로 클립보드 접근에는 HTTPS 또는 localhost가 필요합니다.",
+      "clipboardEmpty": "클립보드가 비어있습니다",
+      "clipboardEmptyDescription": "붙여넣을 내용이 클립보드에 없습니다.",
+      "selectText": "모두 선택",
+      "tryAgain": "다시 시도",
+      "manualCopyInstruction": "Ctrl+C로 수동 복사해 주세요",
+      "manualCopyInstructionDescription": "텍스트가 선택되었습니다"
     },
     "entry": {
       "name": {

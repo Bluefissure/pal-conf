@@ -44,7 +44,17 @@
       "invalidFileName": "无效的文件名",
       "invalidFileNameDescription": "请上传 WorldOption.sav 文件。",
       "fileTooLarge": "文件尺寸过大",
-      "fileTooLargeDescription": "请上传正确的文件。"
+      "fileTooLargeDescription": "请上传正确的文件。",
+      "manualCopyRequired": "需要手动复制",
+      "manualCopyDescription": "自动剪贴板访问失败。请使用Ctrl+C（或Mac上的Cmd+C）手动复制下面的文本。",
+      "httpsRequired": "需要HTTPS",
+      "httpsRequiredDescription": "出于安全原因，剪贴板访问需要HTTPS或localhost。",
+      "clipboardEmpty": "剪贴板为空",
+      "clipboardEmptyDescription": "剪贴板中没有内容可以粘贴。",
+      "selectText": "选择全部",
+      "tryAgain": "重试",
+      "manualCopyInstruction": "请使用Ctrl+C手动复制",
+      "manualCopyInstructionDescription": "文本已为您选择"
     },
     "entry": {
       "name": {

@@ -44,7 +44,17 @@
       "invalidFileName": "無效的檔案名稱",
       "invalidFileNameDescription": "請上傳 WorldOption.sav 檔案。",
       "fileTooLarge": "檔案太大",
-      "fileTooLargeDescription": "請上傳正確的文件。"
+      "fileTooLargeDescription": "請上傳正確的文件。",
+      "manualCopyRequired": "需要手動複製",
+      "manualCopyDescription": "自動剪貼簿存取失敗。請使用Ctrl+C（或Mac上的Cmd+C）手動複製下面的文字。",
+      "httpsRequired": "需要HTTPS",
+      "httpsRequiredDescription": "出於安全原因，剪貼簿存取需要HTTPS或localhost。",
+      "clipboardEmpty": "剪貼簿為空",
+      "clipboardEmptyDescription": "剪貼簿中沒有內容可以貼上。",
+      "selectText": "選擇全部",
+      "tryAgain": "重試",
+      "manualCopyInstruction": "請使用Ctrl+C手動複製",
+      "manualCopyInstructionDescription": "文字已為您選擇"
     },
     "entry": {
       "name": {

@@ -44,7 +44,17 @@
       "invalidFileName": "Nom de fichier invalide",
       "invalidFileNameDescription": "Veuillez envoyer le fichier WorldOption.sav.",
       "fileTooLarge": "La taille du fichier est trop importante",
-      "fileTooLargeDescription": "Veuillez envoyer un fichier correct."
+      "fileTooLargeDescription": "Veuillez envoyer un fichier correct.",
+      "manualCopyRequired": "Copie manuelle requise",
+      "manualCopyDescription": "L'accès automatique au presse-papiers a échoué. Veuillez copier manuellement le texte ci-dessous en utilisant Ctrl+C (ou Cmd+C sur Mac).",
+      "httpsRequired": "HTTPS requis",
+      "httpsRequiredDescription": "L'accès au presse-papiers nécessite HTTPS ou localhost pour des raisons de sécurité.",
+      "clipboardEmpty": "Presse-papiers vide",
+      "clipboardEmptyDescription": "Il n'y a aucun contenu dans le presse-papiers à coller.",
+      "selectText": "Tout sélectionner",
+      "tryAgain": "Réessayer",
+      "manualCopyInstruction": "Veuillez copier manuellement avec Ctrl+C",
+      "manualCopyInstructionDescription": "Le texte a été sélectionné pour vous"
     },
     "entry": {
       "name": {
