@@ -106,7 +106,12 @@ function App() {
           resultList.push(`${entry.id}=${Number(entryValue).toFixed(6)}`);
           break;
         case "string":
-          resultList.push(`${entry.id}=${JSON.stringify(entryValue)}`);
+          if (entry.id === "AdditionalDropItemWhenPlayerKillingInPvPMode") {
+            // 特殊处理 PlayerDropItem 格式，不需要额外引号
+            resultList.push(`${entry.id}=${entryValue}`);
+          } else {
+            resultList.push(`${entry.id}=${JSON.stringify(entryValue)}`);
+          }
           break;
         default:
           resultList.push("");
@@ -157,8 +162,20 @@ function App() {
           let optionSettingValue = optionSetting.slice(equalSignIndex + 1);
           const entry = ENTRIES[optionSettingName];
           if (entry) {
-            if (entry.type === "string" && optionSettingValue.startsWith('"') && optionSettingValue.endsWith('"')) {
-              optionSettingValue = optionSettingValue.substring(1, optionSettingValue.length - 1);
+            if (entry.type === "string") {
+              if (entry.id === "AdditionalDropItemWhenPlayerKillingInPvPMode") {
+                // 特殊处理 PlayerDropItem 格式，如果带引号则去掉引号
+                if (optionSettingValue.startsWith('"') && optionSettingValue.endsWith('"')) {
+                  optionSettingValue = optionSettingValue.substring(1, optionSettingValue.length - 1);
+                }
+                // 验证 PlayerDropItem 格式
+                if (!optionSettingValue.startsWith('PlayerDropItem(') || !optionSettingValue.endsWith(')')) {
+                  console.warn(`${entry.id} has invalid format: ${optionSettingValue}, using default value`);
+                  optionSettingValue = entry.defaultValue;
+                }
+              } else if (optionSettingValue.startsWith('"') && optionSettingValue.endsWith('"')) {
+                optionSettingValue = optionSettingValue.substring(1, optionSettingValue.length - 1);
+              }
             }
             if (entry.type === "float" || entry.type === "integer") {
               const optionSettingValueNum = Number(optionSettingValue);

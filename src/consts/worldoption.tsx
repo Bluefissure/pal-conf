@@ -845,7 +845,7 @@ export const DEFAULT_WORLDOPTION_SAV = {
                         },
                         AdditionalDropItemWhenPlayerKillingInPvPMode: {
                           Str: {
-                            value: "PlayerDropItem",
+                            value: 'PlayerDropItem("Champion\'s Emblem")',
                           },
                         },
                         AdditionalDropItemNumWhenPlayerKillingInPvPMode: {
