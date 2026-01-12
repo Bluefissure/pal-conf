@@ -804,8 +804,13 @@ export const DEFAULT_WORLDOPTION_SAV = {
                           },
                         },
                         DenyTechnologyList: {
-                          Str: {
-                            value: "",
+                          Array: {
+                            array_type: "StrProperty",
+                            value: {
+                              Base: {
+                                Str: [] as string[]
+                              }
+                            }
                           },
                         },
                         GuildRejoinCooldownMinutes: {
