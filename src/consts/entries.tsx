@@ -787,7 +787,7 @@ export const ENTRIES: Record<string, Entry> = {
   GuildRejoinCooldownMinutes: {
     name: "Guild Rejoin Cooldown Minutes",
     id: "GuildRejoinCooldownMinutes",
-    defaultValue: "0",
+    defaultValue: "60",
     type: "integer",
     range: [0, 1440],
     desc: "Cooldown time for guild rejoin in minutes",
