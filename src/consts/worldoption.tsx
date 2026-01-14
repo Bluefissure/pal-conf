@@ -825,7 +825,7 @@ export const DEFAULT_WORLDOPTION_SAV = {
                         },
                         RespawnPenaltyDurationThreshold: {
                           Float: {
-                            value: 0.0,
+                            value: 1800.0,
                           },
                         },
                         RespawnPenaltyTimeScale: {
