@@ -803,7 +803,7 @@ export const ENTRIES: Record<string, Entry> = {
   RespawnPenaltyDurationThreshold: {
     name: "Respawn Penalty Duration Threshold",
     id: "RespawnPenaltyDurationThreshold",
-    defaultValue: "0.000000",
+    defaultValue: "1800.000000",
     type: "float",
     range: [0, 3600],
     desc: "Respawn penalty duration threshold",
