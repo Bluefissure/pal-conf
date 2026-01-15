@@ -787,7 +787,7 @@ export const ENTRIES: Record<string, Entry> = {
   GuildRejoinCooldownMinutes: {
     name: "Guild Rejoin Cooldown Minutes",
     id: "GuildRejoinCooldownMinutes",
-    defaultValue: "0",
+    defaultValue: "60",
     type: "integer",
     range: [0, 1440],
     desc: "Cooldown time for guild rejoin in minutes",
@@ -803,7 +803,7 @@ export const ENTRIES: Record<string, Entry> = {
   RespawnPenaltyDurationThreshold: {
     name: "Respawn Penalty Duration Threshold",
     id: "RespawnPenaltyDurationThreshold",
-    defaultValue: "0.000000",
+    defaultValue: "1800.000000",
     type: "float",
     range: [0, 3600],
     desc: "Respawn penalty duration threshold",
@@ -833,9 +833,9 @@ export const ENTRIES: Record<string, Entry> = {
   AdditionalDropItemWhenPlayerKillingInPvPMode: {
     name: "Additional Drop Item When Player Killing in PvP Mode",
     id: "AdditionalDropItemWhenPlayerKillingInPvPMode",
-    defaultValue: "PlayerDropItem",
+    defaultValue: 'PlayerDropItem("Champion\'s Emblem")',
     type: "string",
-    desc: "Additional drop item when killing player in PvP mode",
+    desc: "Additional drop item when killing player in PvP mode. Format: PlayerDropItem(\"ItemName\")",
   },
   AdditionalDropItemNumWhenPlayerKillingInPvPMode: {
     name: "Additional Drop Item Num When Player Killing in PvP Mode",

@@ -804,8 +804,13 @@ export const DEFAULT_WORLDOPTION_SAV = {
                           },
                         },
                         DenyTechnologyList: {
-                          Str: {
-                            value: "",
+                          Array: {
+                            array_type: "StrProperty",
+                            value: {
+                              Base: {
+                                Str: [] as string[]
+                              }
+                            }
                           },
                         },
                         GuildRejoinCooldownMinutes: {
@@ -820,7 +825,7 @@ export const DEFAULT_WORLDOPTION_SAV = {
                         },
                         RespawnPenaltyDurationThreshold: {
                           Float: {
-                            value: 0.0,
+                            value: 1800.0,
                           },
                         },
                         RespawnPenaltyTimeScale: {
@@ -840,7 +845,7 @@ export const DEFAULT_WORLDOPTION_SAV = {
                         },
                         AdditionalDropItemWhenPlayerKillingInPvPMode: {
                           Str: {
-                            value: "PlayerDropItem",
+                            value: 'PlayerDropItem("Champion\'s Emblem")',
                           },
                         },
                         AdditionalDropItemNumWhenPlayerKillingInPvPMode: {

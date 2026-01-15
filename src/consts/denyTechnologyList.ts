@@ -291,7 +291,6 @@ export const DenyTechnologyList: DenyTechnologyItem[] = [
   { id: "GrenadeBullet", name: "手雷弹药" },
   { id: "GuildChest", name: "公会宝箱" },
   { id: "HandTorch", name: "手电筒" },
-  { id: "GuildChest", name: "公会宝箱" },
   { id: "HandgunBullet", name: "手枪弹药" },
   { id: "Headstone", name: "墓碑" },
   { id: "Heater", name: "加热器" },
@@ -582,7 +581,7 @@ export const DenyTechnologyList: DenyTechnologyItem[] = [
 
 export const DenyTechnologyLabels = DenyTechnologyList.map(tech => ({
   id: tech.id,
-  name: tech.id, // 使用ID作为显示键
+  name: tech.name, // 使用中文名称作为显示键
 }));
 
 export type DenyTechnologyKey = 'DenyTechnologyList';
