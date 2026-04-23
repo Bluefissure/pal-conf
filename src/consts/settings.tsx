@@ -115,9 +115,9 @@ export const AdvancedSettings = [
 
 export const EntryIdToEnumName: Record<string, string> = {
   DeathPenalty: "EPalOptionWorldDeathPenalty",
-  Difficulty: "EPalOptionWorldDifficulty",
+  Difficulty: "EPalOptionWorldDifficulty", 
   LogFormatType: "EPalOptionWorldLogFormatType",
   RandomizerType: "EPalRandomizerType",
   CrossplayPlatforms: "EPalAllowConnectPlatform",
-  DenyTechnologyList: "EPalDenyTechnology", // 假设的枚举类型名称
+  // DenyTechnologyList 使用字符串数组格式，不在这里映射
 }
