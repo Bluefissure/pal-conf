@@ -155,7 +155,18 @@
         "bAllowEnhanceStat_Attack": "Verbesserungsstat erlauben - Angriff",
         "bAllowEnhanceStat_Stamina": "Verbesserungsstat erlauben - Ausdauer",
         "bAllowEnhanceStat_Weight": "Verbesserungsstat erlauben - Gewicht",
-        "bAllowEnhanceStat_WorkSpeed": "Verbesserungsstat erlauben - Arbeitsgeschwindigkeit"
+        "bAllowEnhanceStat_WorkSpeed": "Verbesserungsstat erlauben - Arbeitsgeschwindigkeit",
+        "PhysicsActiveDropItemMaxNum": "Maximale Anzahl von Drop-Items mit Physikverhalten",
+        "PlayerDataPalStorageUpdateCheckTickInterval": "Aktualisierungsintervall für Spieler-Pal-Speicherdaten",
+        "MonsterFarmActionSpeedRate": "Item-Produktionsgeschwindigkeitsmultiplikator durch Weiden",
+        "AutoTransferMasterCheckIntervalSeconds": "Intervall für automatische Gilden-Meister-Übertragungsprüfung (Sekunden)",
+        "AutoTransferMasterThresholdDays": "Offline-Tage-Schwellenwert für automatische Gilden-Meister-Übertragung",
+        "MaxGuildsPerFrame": "Maximale Anzahl von Gilden pro Frame",
+        "bEnableVoiceChat": "Sprachchat im Spiel aktivieren",
+        "VoiceChatMaxVolumeDistance": "Entfernung ohne Sprachchat-Lautstärkedämpfung",
+        "VoiceChatZeroVolumeDistance": "Entfernung, bei der die Sprachchat-Lautstärke null wird",
+        "bEnableBuildingPlayerUIdDisplay": "Ersteller-Spieler-ID auf Strukturen anzeigen",
+        "BuildingNameDisplayCacheTTLSeconds": "Cache-Gültigkeitsdauer für Gebäudenamenanzeige (Sekunden)"
       },
       "description": {
         "DeathPenalty": {

@@ -13,6 +13,9 @@ export const ServerSettings = [
   "RandomizerType",
   "RandomizerSeed",
   "bIsRandomizerPalLevelRandom",
+  "bEnableVoiceChat",
+  "VoiceChatMaxVolumeDistance",
+  "VoiceChatZeroVolumeDistance",
 ];
 
 export const InGameSettings = [
@@ -55,6 +58,8 @@ export const InGameSettings = [
   "EquipmentDurabilityDamageRate",
   "ItemContainerForceMarkDirtyInterval",
   "ItemCorruptionMultiplier",
+  "PhysicsActiveDropItemMaxNum",
+  "MonsterFarmActionSpeedRate",
 ];
 
 export const AdvancedSettings = [
@@ -111,6 +116,12 @@ export const AdvancedSettings = [
   "bAllowEnhanceStat_Stamina",
   "bAllowEnhanceStat_Weight",
   "bAllowEnhanceStat_WorkSpeed",
+  "PlayerDataPalStorageUpdateCheckTickInterval",
+  "AutoTransferMasterCheckIntervalSeconds",
+  "AutoTransferMasterThresholdDays",
+  "MaxGuildsPerFrame",
+  "bEnableBuildingPlayerUIdDisplay",
+  "BuildingNameDisplayCacheTTLSeconds",
 ];
 
 export const EntryIdToEnumName: Record<string, string> = {

@@ -155,7 +155,18 @@
         "bAllowEnhanceStat_Attack": "Autoriser amélioration de stat - Attaque",
         "bAllowEnhanceStat_Stamina": "Autoriser amélioration de stat - Endurance",
         "bAllowEnhanceStat_Weight": "Autoriser amélioration de stat - Poids",
-        "bAllowEnhanceStat_WorkSpeed": "Autoriser amélioration de stat - Vitesse de travail"
+        "bAllowEnhanceStat_WorkSpeed": "Autoriser amélioration de stat - Vitesse de travail",
+        "PhysicsActiveDropItemMaxNum": "Nombre maximum d'objets tombés avec physique active",
+        "PlayerDataPalStorageUpdateCheckTickInterval": "Intervalle de vérification des données de stockage de Pals du joueur",
+        "MonsterFarmActionSpeedRate": "Multiplicateur de vitesse de production d'objets par pâturage",
+        "AutoTransferMasterCheckIntervalSeconds": "Intervalle de vérification du transfert automatique de maître de guilde (secondes)",
+        "AutoTransferMasterThresholdDays": "Seuil de jours d'inactivité pour le transfert automatique de maître de guilde",
+        "MaxGuildsPerFrame": "Nombre maximum de guildes traitées par frame",
+        "bEnableVoiceChat": "Activer le chat vocal en jeu",
+        "VoiceChatMaxVolumeDistance": "Distance sans atténuation du volume du chat vocal",
+        "VoiceChatZeroVolumeDistance": "Distance à laquelle le volume du chat vocal devient nul",
+        "bEnableBuildingPlayerUIdDisplay": "Afficher l'ID du joueur créateur sur les structures",
+        "BuildingNameDisplayCacheTTLSeconds": "Durée de validité du cache d'affichage du nom des bâtiments (secondes)"
       },
       "description": {
         "DeathPenalty": {

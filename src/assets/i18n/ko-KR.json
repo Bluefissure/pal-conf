@@ -155,7 +155,18 @@
         "bAllowEnhanceStat_Attack": "스탯 강화 허용 - 공격력",
         "bAllowEnhanceStat_Stamina": "스탯 강화 허용 - 스태미나",
         "bAllowEnhanceStat_Weight": "스탯 강화 허용 - 무게",
-        "bAllowEnhanceStat_WorkSpeed": "스탯 강화 허용 - 작업 속도"
+        "bAllowEnhanceStat_WorkSpeed": "스탯 강화 허용 - 작업 속도",
+        "PhysicsActiveDropItemMaxNum": "물리 시뮬레이션 가능한 드롭 아이템 최대 수",
+        "PlayerDataPalStorageUpdateCheckTickInterval": "플레이어 팰 스토리지 데이터 업데이트 확인 간격",
+        "MonsterFarmActionSpeedRate": "방목 아이템 생산 속도 배율",
+        "AutoTransferMasterCheckIntervalSeconds": "길드 귀속 자동 이전 감지 간격(초)",
+        "AutoTransferMasterThresholdDays": "길드 마스터 자동 이전 오프라인 일수 임계값",
+        "MaxGuildsPerFrame": "프레임당 길드 처리 최대 수",
+        "bEnableVoiceChat": "게임 내 음성 채팅 활성화",
+        "VoiceChatMaxVolumeDistance": "음성 채팅 볼륨 무감쇠 거리",
+        "VoiceChatZeroVolumeDistance": "음성 채팅 완전 무음 거리",
+        "bEnableBuildingPlayerUIdDisplay": "건축물에 건축자 플레이어 ID 표시",
+        "BuildingNameDisplayCacheTTLSeconds": "건축물 이름 표시 캐시 유효 기간(초)"
       },
       "description": {
         "DeathPenalty": {

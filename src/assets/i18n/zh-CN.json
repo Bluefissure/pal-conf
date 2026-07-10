@@ -155,7 +155,18 @@
         "bAllowEnhanceStat_Attack": "允许加点-攻击",
         "bAllowEnhanceStat_Stamina": "允许加点-体力",
         "bAllowEnhanceStat_Weight": "允许加点-负重",
-        "bAllowEnhanceStat_WorkSpeed": "允许加点-工作速度"
+        "bAllowEnhanceStat_WorkSpeed": "允许加点-工作速度",
+        "PhysicsActiveDropItemMaxNum": "可启用物理模拟的掉落物最大数量",
+        "PlayerDataPalStorageUpdateCheckTickInterval": "玩家帕鲁仓库数据更新检测间隔",
+        "MonsterFarmActionSpeedRate": "帕鲁放牧产出物品速度倍率",
+        "AutoTransferMasterCheckIntervalSeconds": "公会归属自动转移检测间隔(秒)",
+        "AutoTransferMasterThresholdDays": "公会会长自动移交离线天数阈值",
+        "MaxGuildsPerFrame": "单帧处理公会最大数量",
+        "bEnableVoiceChat": "启用游戏内语音聊天",
+        "VoiceChatMaxVolumeDistance": "语音音量无衰减距离",
+        "VoiceChatZeroVolumeDistance": "语音完全静音距离",
+        "bEnableBuildingPlayerUIdDisplay": "显示建筑建造者玩家ID",
+        "BuildingNameDisplayCacheTTLSeconds": "建筑名称显示缓存有效期(秒)"
       },
       "description": {
         "DeathPenalty": {

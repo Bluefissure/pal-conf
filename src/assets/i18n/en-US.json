@@ -155,7 +155,18 @@
         "bAllowEnhanceStat_Attack": "Allow Enhance Stat - Attack",
         "bAllowEnhanceStat_Stamina": "Allow Enhance Stat - Stamina",
         "bAllowEnhanceStat_Weight": "Allow Enhance Stat - Weight",
-        "bAllowEnhanceStat_WorkSpeed": "Allow Enhance Stat - Work Speed"
+        "bAllowEnhanceStat_WorkSpeed": "Allow Enhance Stat - Work Speed",
+        "PhysicsActiveDropItemMaxNum": "Physics Active Drop Item Max Num",
+        "PlayerDataPalStorageUpdateCheckTickInterval": "Player Data Pal Storage Update Check Tick Interval",
+        "MonsterFarmActionSpeedRate": "Monster Farm Action Speed Rate",
+        "AutoTransferMasterCheckIntervalSeconds": "Auto Transfer Master Check Interval (Seconds)",
+        "AutoTransferMasterThresholdDays": "Auto Transfer Master Threshold Days",
+        "MaxGuildsPerFrame": "Max Guilds Processed Per Frame",
+        "bEnableVoiceChat": "Enable Voice Chat",
+        "VoiceChatMaxVolumeDistance": "Voice Chat Max Volume Distance",
+        "VoiceChatZeroVolumeDistance": "Voice Chat Zero Volume Distance",
+        "bEnableBuildingPlayerUIdDisplay": "Display Creator Player ID on Structures",
+        "BuildingNameDisplayCacheTTLSeconds": "Building Name Display Cache TTL (Seconds)"
       },
       "description": {
         "DeathPenalty": {

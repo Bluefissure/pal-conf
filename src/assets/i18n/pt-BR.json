@@ -155,7 +155,18 @@
         "bAllowEnhanceStat_Attack": "Permitir aprimoramento de estatística - Ataque",
         "bAllowEnhanceStat_Stamina": "Permitir aprimoramento de estadística - Resistência",
         "bAllowEnhanceStat_Weight": "Permitir aprimoramento de estadística - Peso",
-        "bAllowEnhanceStat_WorkSpeed": "Permitir aprimoramento de estadística - Velocidade de trabalho"
+        "bAllowEnhanceStat_WorkSpeed": "Permitir aprimoramento de estadística - Velocidade de trabalho",
+        "PhysicsActiveDropItemMaxNum": "Número máximo de itens dropados com física ativa",
+        "PlayerDataPalStorageUpdateCheckTickInterval": "Intervalo de verificação de dados de armazenamento de Pals do jogador",
+        "MonsterFarmActionSpeedRate": "Multiplicador de velocidade de produção de itens por pastoreio",
+        "AutoTransferMasterCheckIntervalSeconds": "Intervalo de verificação de transferência automática de mestre da guilda (segundos)",
+        "AutoTransferMasterThresholdDays": "Limite de dias offline para transferência automática de mestre da guilda",
+        "MaxGuildsPerFrame": "Número máximo de guildas processadas por frame",
+        "bEnableVoiceChat": "Ativar chat de voz no jogo",
+        "VoiceChatMaxVolumeDistance": "Distância sem atenuação do volume do chat de voz",
+        "VoiceChatZeroVolumeDistance": "Distância em que o volume do chat de voz se torna zero",
+        "bEnableBuildingPlayerUIdDisplay": "Exibir ID do jogador criador nas estruturas",
+        "BuildingNameDisplayCacheTTLSeconds": "Validade do cache de exibição do nome da construção (segundos)"
       },
       "description": {
         "DeathPenalty": {
