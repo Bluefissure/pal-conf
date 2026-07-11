@@ -130,8 +130,8 @@
         "Region": "地區",
         "bUseAuth": "使用驗證",
         "BanListURL": "封禁列表來源",
-        "SupplyDropSpan":"隕石或空投的間隔（分鐘）",
-        "ChatPostLimitPerMinute":"每分鐘聊天限制數",
+        "SupplyDropSpan": "隕石或空投的間隔（分鐘）",
+        "ChatPostLimitPerMinute": "每分鐘聊天限制數",
         "bIsRandomizerPalLevelRandom": "完全隨機野外帕魯等級",
         "bAllowGlobalPalboxExport": "允許透過跨界帕魯終端保存帕魯的基因序列",
         "bAllowGlobalPalboxImport": "允許透過跨界帕魯終端的基因序列復原帕魯",
@@ -141,7 +141,7 @@
         "bEnableFastTravelOnlyBaseCamp": "僅基地可快速旅行",
         "bAllowClientMod": "允許客戶端Mod",
         "bIsShowJoinLeftMessage": "顯示玩家加入/離開訊息",
-        "DenyTechnologyList": "禁止科技列表",
+        "DenyTechnologyList": "禁用科技清單",
         "GuildRejoinCooldownMinutes": "公會重加冷卻時間(分鐘)",
         "BlockRespawnTime": "阻擋重生時間",
         "RespawnPenaltyDurationThreshold": "重生懲罰持續時間閾值",
@@ -183,6 +183,11 @@
           "None": "未設定隨機器",
           "Region": "設定為隨機地區",
           "All": "設定為全面隨機"
+        },
+        "bEnableFastTravelOnlyBaseCamp": {
+          "help": "設定是否僅允許在基地（帕魯終端）之間進行快速旅行。",
+          "False": "可在巨鷹雕像與帕魯終端之間快速旅行。",
+          "True": "僅可在帕魯終端之間快速旅行，巨鷹雕像將停用。"
         }
       }
     }

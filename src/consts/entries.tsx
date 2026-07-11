@@ -761,7 +761,7 @@ export const ENTRIES: Record<string, Entry> = {
     id: "bEnableFastTravelOnlyBaseCamp",
     defaultValue: "False",
     type: "boolean",
-    desc: "Enable fast travel only to base camp",
+    desc: "False: fast travel between Great Eagle Statues and Palboxes. True: fast travel only between Palboxes; Great Eagle Statues are disabled.",
   },
   bAllowClientMod: {
     name: "Allow Client Mod",

@@ -586,3 +586,17 @@ export const DenyTechnologyLabels = DenyTechnologyList.map(tech => ({
 }));
 
 export type DenyTechnologyKey = 'DenyTechnologyList';
+
+import { technologyNames } from "./technologyNames";
+
+const localeAliases: Record<string, string> = {
+  "de-de": "de", "en-us": "en", "es-es": "es", "fr-fr": "fr",
+  "ja-jp": "ja", "ko-kr": "ko", "pt-br": "pt",
+  "zh-cn": "zh-CN", "zh-tw": "zh-TW",
+};
+
+export function getDenyTechnologyDisplayName(id: string, language: string): string {
+  const normalized = language.toLowerCase().replace("_", "-");
+  const locale = localeAliases[normalized] ?? localeAliases[normalized.split("-")[0]] ?? "en";
+  return technologyNames[locale]?.[id] ?? technologyNames.en?.[id] ?? id;
+}

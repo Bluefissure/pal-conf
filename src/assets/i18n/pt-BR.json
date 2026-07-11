@@ -130,8 +130,8 @@
         "Region": "Define a região para o servidor Palworld.",
         "bUseAuth": "Habilita ou desabilita autenticação do servidor.",
         "BanListURL": "Define a URL para a lista de banidos do servidor.",
-        "SupplyDropSpan":"Intervalo de queda de meteoritos e suprimentos (minutos)",
-        "ChatPostLimitPerMinute":"Limite de postagem de chat por minuto",
+        "SupplyDropSpan": "Intervalo de queda de meteoritos e suprimentos (minutos)",
+        "ChatPostLimitPerMinute": "Limite de postagem de chat por minuto",
         "bIsRandomizerPalLevelRandom": "Nível de Palu selvagem completamente aleatório",
         "bAllowGlobalPalboxExport": "Permitir exportação global de Palbox",
         "bAllowGlobalPalboxImport": "Permitir importação global de Palbox",
@@ -141,7 +141,7 @@
         "bEnableFastTravelOnlyBaseCamp": "Ativar viagem rápida apenas para acampamento base",
         "bAllowClientMod": "Permitir mods do cliente",
         "bIsShowJoinLeftMessage": "Mostrar mensagens de entrada/saída",
-        "DenyTechnologyList": "Lista de tecnologias negadas",
+        "DenyTechnologyList": "Lista de tecnologias proibidas",
         "GuildRejoinCooldownMinutes": "Tempo de espera para reingressar na guilda (minutos)",
         "BlockRespawnTime": "Tempo de renascimento do bloco",
         "RespawnPenaltyDurationThreshold": "Limite de duração da penalidade de renascimento",
@@ -183,6 +183,11 @@
           "None": "Nenhum aleatorizador definido",
           "Region": "Configurado para aleatorizar região",
           "All": "Configurado para aleatorizar tudo"
+        },
+        "bEnableFastTravelOnlyBaseCamp": {
+          "help": "Define se a viagem rápida será possível apenas entre Acampamentos Base (Palboxes).",
+          "False": "Viagem rápida entre Estátuas da Grande Águia e Palboxes.",
+          "True": "Viagem rápida apenas entre Palboxes; as Estátuas da Grande Águia ficam desativadas."
         }
       }
     }

@@ -130,8 +130,8 @@
         "Region": "リージョン",
         "bUseAuth": "認証を使用する",
         "BanListURL": "BANリストURL",
-        "SupplyDropSpan":"隕石・補給物資の投下間隔（分）",
-        "ChatPostLimitPerMinute":"1分間のチャット投稿制限数",
+        "SupplyDropSpan": "隕石・補給物資の投下間隔（分）",
+        "ChatPostLimitPerMinute": "1分間のチャット投稿制限数",
         "bIsRandomizerPalLevelRandom": "完全にランダムな野生パルのレベル",
         "bAllowGlobalPalboxExport": "クロスボーダーパル端末を通じてパルの遺伝子配列を保存可能にする",
         "bAllowGlobalPalboxImport": "クロスボーダーパル端末の遺伝子配列からパルを復元可能にする",
@@ -141,7 +141,7 @@
         "bEnableFastTravelOnlyBaseCamp": "拠点のみ高速移動を有効にする",
         "bAllowClientMod": "クライアントMODを許可",
         "bIsShowJoinLeftMessage": "参加/退室メッセージを表示",
-        "DenyTechnologyList": "禁止テクノロジーリスト",
+        "DenyTechnologyList": "禁止テクノロジー一覧",
         "GuildRejoinCooldownMinutes": "ギルド再参加クールダウン（分）",
         "BlockRespawnTime": "ブロックリスポーン時間",
         "RespawnPenaltyDurationThreshold": "リスポーンペナルティ持続時間のしきい値",
@@ -183,6 +183,11 @@
           "None": "ランダマイザーが設定されていません",
           "Region": "地域をランダムに設定",
           "All": "すべてをランダムに設定"
+        },
+        "bEnableFastTravelOnlyBaseCamp": {
+          "help": "ファストトラベルを拠点（パルボックス）間のみに制限するか設定します。",
+          "False": "大鷲の像とパルボックス間でファストトラベルできます。",
+          "True": "パルボックス間のみファストトラベルでき、大鷲の像は無効になります。"
         }
       }
     }

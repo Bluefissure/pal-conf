@@ -130,8 +130,8 @@
         "Region": "Région",
         "bUseAuth": "Utiliser l'authentification",
         "BanListURL": "URL de la liste des membres bannis",
-        "SupplyDropSpan":"Intervalle de largage de ravitaillement ou de chute de météorite (en minutes)",
-        "ChatPostLimitPerMinute":"Limite de messages par minute dans le chat",
+        "SupplyDropSpan": "Intervalle de largage de ravitaillement ou de chute de météorite (en minutes)",
+        "ChatPostLimitPerMinute": "Limite de messages par minute dans le chat",
         "bIsRandomizerPalLevelRandom": "Niveau de Palu sauvage entièrement aléatoire",
         "bAllowGlobalPalboxExport": "Permettre l’exportation globale de Palbox",
         "bAllowGlobalPalboxImport": "Permettre l’importation globale de Palbox",
@@ -183,6 +183,11 @@
           "None": "Désactiver toute randomisation",
           "Region": "Randomiser régionnalement",
           "All": "Randomiser mondialement"
+        },
+        "bEnableFastTravelOnlyBaseCamp": {
+          "help": "Détermine si le voyage rapide est uniquement possible entre les camps de base (Palboxes).",
+          "False": "Voyage rapide entre les statues du Grand Aigle et les Palboxes.",
+          "True": "Voyage rapide uniquement entre les Palboxes ; les statues du Grand Aigle sont désactivées."
         }
       }
     }

@@ -130,18 +130,18 @@
         "Region": "地区",
         "bUseAuth": "使用授权",
         "BanListURL": "封禁列表 URL",
-        "SupplyDropSpan":"陨石或空投的间隔（分钟）",
-        "ChatPostLimitPerMinute":"每分钟聊天限制数",
+        "SupplyDropSpan": "陨石或空投的间隔（分钟）",
+        "ChatPostLimitPerMinute": "每分钟聊天限制数",
         "bIsRandomizerPalLevelRandom": "完全随机野外帕鲁等级",
-        "bAllowGlobalPalboxExport":"允许通过跨界帕鲁终端保存帕鲁的基因序列",
-        "bAllowGlobalPalboxImport":"允许通过跨界帕鲁终端的基因序列复原帕鲁",
+        "bAllowGlobalPalboxExport": "允许通过跨界帕鲁终端保存帕鲁的基因序列",
+        "bAllowGlobalPalboxImport": "允许通过跨界帕鲁终端的基因序列复原帕鲁",
         "EquipmentDurabilityDamageRate": "装备耐久度损坏率",
         "ItemContainerForceMarkDirtyInterval": "物品容器强制标记为脏的间隔（秒）",
         "ItemCorruptionMultiplier": "物品腐化倍率",
         "bEnableFastTravelOnlyBaseCamp": "仅基地可快速旅行",
         "bAllowClientMod": "允许客户端Mod",
         "bIsShowJoinLeftMessage": "显示玩家加入/离开消息",
-        "DenyTechnologyList": "禁止科技列表",
+        "DenyTechnologyList": "禁用科技列表",
         "GuildRejoinCooldownMinutes": "公会重加冷却时间(分钟)",
         "BlockRespawnTime": "阻止重生时间",
         "RespawnPenaltyDurationThreshold": "重生惩罚持续时间阈值",
@@ -183,6 +183,11 @@
           "None": "未设置随机器",
           "Region": "设置为随机地区",
           "All": "设置为完全随机"
+        },
+        "bEnableFastTravelOnlyBaseCamp": {
+          "help": "设置是否仅允许在基地（帕鲁终端）之间进行快速旅行。",
+          "False": "可在鹰像与帕鲁终端之间快速旅行。",
+          "True": "仅可在帕鲁终端之间快速旅行，鹰像将被禁用。"
         }
       }
     }

@@ -3,7 +3,7 @@ import { useTranslation, Trans } from 'react-i18next';
 import { ChevronDown } from "lucide-react"
 
 import { CrossplayPlatformsLabels } from "@/consts/dropdownLabels"
-import { DenyTechnologyList, DenyTechnologyLabels } from "@/consts/denyTechnologyList"
+import { DenyTechnologyLabels, getDenyTechnologyDisplayName } from "@/consts/denyTechnologyList"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import {
@@ -40,7 +40,7 @@ export function MultiSelectInput(props: {
       DenyTechnologyList: DenyTechnologyLabels,
     }[dKey] as Labels;
     const labelNames = labels.map((label) => label.name);
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const [open, setOpen] = useState(false);
     const labelDesc = dKey === 'DenyTechnologyList' 
         ? selectedLabels.map(techId => getTechnologyDisplayName(techId)).join(", ")
@@ -95,7 +95,6 @@ export function MultiSelectInput(props: {
     );
 
     function getTechnologyDisplayName(techId: string): string {
-        const techItem = DenyTechnologyList.find(item => item.id === techId);
-        return techItem ? techItem.name : techId;
+        return getDenyTechnologyDisplayName(techId, i18n.resolvedLanguage ?? i18n.language);
     }
 }

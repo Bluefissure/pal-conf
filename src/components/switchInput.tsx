@@ -13,6 +13,7 @@ export function SwitchInput(props: {
     checked: boolean;
     onCheckedChange: (checked: boolean) => void;
     disabled?: boolean;
+    description?: string;
 }) {
     const {
         id,
@@ -20,6 +21,7 @@ export function SwitchInput(props: {
         checked,
         onCheckedChange,
         disabled,
+        description,
     } = props;
     return (
         <div className="flex">
@@ -27,8 +29,9 @@ export function SwitchInput(props: {
                 <Tooltip>
                     <TooltipTrigger className="cursor-default leading-6">
                         <Label>{name}</Label>
-                        <TooltipContent>
-                            <p>{id}</p>
+                        <TooltipContent className="max-w-sm">
+                            <p className="font-medium">{id}</p>
+                            {description && <p className="mt-1 whitespace-pre-line">{description}</p>}
                         </TooltipContent>
                     </TooltipTrigger>
                 </Tooltip>

@@ -473,6 +473,9 @@ function App() {
             });
           }}
           disabled={disabled}
+          description={id === "bEnableFastTravelOnlyBaseCamp"
+            ? `${t("entry.description.bEnableFastTravelOnlyBaseCamp.help")}\nFalse = ${t("entry.description.bEnableFastTravelOnlyBaseCamp.False")}\nTrue = ${t("entry.description.bEnableFastTravelOnlyBaseCamp.True")}`
+            : undefined}
         />
       );
     }

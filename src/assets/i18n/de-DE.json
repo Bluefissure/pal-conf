@@ -130,8 +130,8 @@
         "Region": "Region",
         "bUseAuth": "Verwenden Sie Auth",
         "BanListURL": "URL der Verbotsliste",
-        "SupplyDropSpan":"Meteorit- und Versorgungsabwurf-Intervall (Minuten)",
-        "ChatPostLimitPerMinute":"Chat-Post-Limit pro Minute",
+        "SupplyDropSpan": "Meteorit- und Versorgungsabwurf-Intervall (Minuten)",
+        "ChatPostLimitPerMinute": "Chat-Post-Limit pro Minute",
         "bIsRandomizerPalLevelRandom": "Vollständig zufälliges Wild-Palu-Level",
         "bAllowGlobalPalboxExport": "Globalen Palbox-Export zulassen",
         "bAllowGlobalPalboxImport": "Globalen Palbox-Import zulassen",
@@ -141,7 +141,7 @@
         "bEnableFastTravelOnlyBaseCamp": "Schnellreise nur zum Basislager aktivieren",
         "bAllowClientMod": "Client-Mods erlauben",
         "bIsShowJoinLeftMessage": "Beitritts-/Verlassen-Nachrichten anzeigen",
-        "DenyTechnologyList": "Verbotene Technologieliste",
+        "DenyTechnologyList": "Liste verbotener Technologien",
         "GuildRejoinCooldownMinutes": "Gilden-Wiederbeitrittscooldown (Minuten)",
         "BlockRespawnTime": "Block-Erneuerungszeit",
         "RespawnPenaltyDurationThreshold": "Schwellenwert für Wiederbelebungsstrafdauer",
@@ -183,6 +183,11 @@
           "None": "Kein Zufallstyp festgelegt",
           "Region": "Auf Zufallsregion eingestellt",
           "All": "Auf vollständige Zufälligkeit eingestellt"
+        },
+        "bEnableFastTravelOnlyBaseCamp": {
+          "help": "Legt fest, ob Schnellreisen ausschließlich zwischen Basislagern (Palboxen) möglich sind.",
+          "False": "Schnellreise zwischen Adlerstatuen und Palboxen.",
+          "True": "Schnellreise nur zwischen Palboxen; Adlerstatuen sind deaktiviert."
         }
       }
     }

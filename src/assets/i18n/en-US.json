@@ -130,18 +130,18 @@
         "Region": "Region",
         "bUseAuth": "Use Auth",
         "BanListURL": "Ban List URL",
-        "SupplyDropSpan":"Interval for supply drop or meteorite (minutes)",
-        "ChatPostLimitPerMinute":"Chat Post Limit Per Minute",
+        "SupplyDropSpan": "Interval for supply drop or meteorite (minutes)",
+        "ChatPostLimitPerMinute": "Chat Post Limit Per Minute",
         "bIsRandomizerPalLevelRandom": "Is Randomizer Pal Level Random",
-        "bAllowGlobalPalboxExport":"Allow Global Palbox Export",
-        "bAllowGlobalPalboxImport":"Allow Global Palbox Import",
+        "bAllowGlobalPalboxExport": "Allow Global Palbox Export",
+        "bAllowGlobalPalboxImport": "Allow Global Palbox Import",
         "EquipmentDurabilityDamageRate": "Equipment Durability Damage Rate",
         "ItemContainerForceMarkDirtyInterval": "Item Container Force Mark Dirty Interval",
         "ItemCorruptionMultiplier": "Item Corruption Multiplier",
         "bEnableFastTravelOnlyBaseCamp": "Enable Fast Travel Only Base Camp",
         "bAllowClientMod": "Allow Client Mod",
         "bIsShowJoinLeftMessage": "Show Join/Leave Message",
-        "DenyTechnologyList": "Deny Technology List",
+        "DenyTechnologyList": "Forbidden Technology List",
         "GuildRejoinCooldownMinutes": "Guild Rejoin Cooldown (Minutes)",
         "BlockRespawnTime": "Block Respawn Time",
         "RespawnPenaltyDurationThreshold": "Respawn Penalty Duration Threshold",
@@ -183,6 +183,11 @@
           "None": "No randomizer set",
           "Region": "Set to randomize region",
           "All": "Set to randomize all"
+        },
+        "bEnableFastTravelOnlyBaseCamp": {
+          "help": "Determines whether fast travel is only possible between Base Camps (Palboxes).",
+          "False": "Fast travel between Great Eagle Statues and Palboxes.",
+          "True": "Fast travel only between Palboxes; Great Eagle Statues are disabled."
         }
       }
     }
