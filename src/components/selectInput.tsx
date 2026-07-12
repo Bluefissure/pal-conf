@@ -38,8 +38,9 @@ export function SelectInput(props: {
     dKey: Key;
     label: LabelValue;
     onLabelChange: (label: string) => void;
+    description?: string;
 }) {
-    const { dKey, label, onLabelChange } = props;
+    const { dKey, label, onLabelChange, description } = props;
     const labels = {
       DeathPenalty: DeathPenaltyLabels,
       LogFormatType: LogFormatTypeLabels,
@@ -61,8 +62,9 @@ export function SelectInput(props: {
                     <Tooltip>
                         <TooltipTrigger className="cursor-default">
                             <Trans i18nKey={get(I18nStr.entry.name, dKey, "")} />
-                            <TooltipContent>
-                                <p>{dKey}</p>
+                            <TooltipContent className="max-w-sm">
+                                <p className="font-mono text-xs text-muted-foreground">{dKey}</p>
+                                {description && <p className="mt-1 whitespace-pre-line leading-relaxed">{description}</p>}
                             </TooltipContent>
                         </TooltipTrigger>
                     </Tooltip>

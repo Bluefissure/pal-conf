@@ -169,27 +169,464 @@
         "BuildingNameDisplayCacheTTLSeconds": "Building Name Display Cache TTL (Seconds)"
       },
       "description": {
-        "DeathPenalty": {
-          "None": "No lost",
-          "Item": "Lost item without equipment",
-          "ItemAndEquipment": "Lost item and equipment",
-          "All": "Lost All item, equipment, pal (in inventory)"
-        },
-        "LogFormatType": {
-          "Text": "Use Text format to log",
-          "Json": "Use Json format to log"
+        "Difficulty": {
+          "help": "Selects the behavior for “Difficulty”. Default: None."
         },
         "RandomizerType": {
-          "None": "No randomizer set",
-          "Region": "Set to randomize region",
-          "All": "Set to randomize all"
+          "help": "Selects the Pal spawn randomization mode: disabled, randomized by region, or fully randomized."
+        },
+        "RandomizerSeed": {
+          "help": "Sets the seed used by Pal spawn randomization."
+        },
+        "bIsRandomizerPalLevelRandom": {
+          "help": "When enabled, wild Pal levels are fully random. When disabled, levels are randomized only within each area's intended range.",
+          "False": "Pal levels stay within each region's intended level range.",
+          "True": "Wild Pal levels are fully randomized."
+        },
+        "DayTimeSpeedRate": {
+          "help": "Multiplier for daytime progression speed."
+        },
+        "NightTimeSpeedRate": {
+          "help": "Multiplier for nighttime progression speed."
+        },
+        "ExpRate": {
+          "help": "Multiplier for experience gained by players and Pals."
+        },
+        "PalCaptureRate": {
+          "help": "Multiplier for Pal capture probability."
+        },
+        "PalSpawnNumRate": {
+          "help": "Multiplier for the number of wild Pals spawned. Higher values can significantly increase server load."
+        },
+        "PalDamageRateAttack": {
+          "help": "Multiplier for damage dealt by Pals."
+        },
+        "PalDamageRateDefense": {
+          "help": "Multiplier for damage received by Pals."
+        },
+        "PlayerDamageRateAttack": {
+          "help": "Multiplier for damage dealt by players."
+        },
+        "PlayerDamageRateDefense": {
+          "help": "Multiplier for damage received by players."
+        },
+        "PlayerStomachDecreaceRate": {
+          "help": "Multiplier for player hunger depletion. Higher values make players become hungry faster."
+        },
+        "PlayerStaminaDecreaceRate": {
+          "help": "Multiplier for player stamina consumption. Higher values drain stamina faster."
+        },
+        "PlayerAutoHPRegeneRate": {
+          "help": "Multiplier for natural player health regeneration."
+        },
+        "PlayerAutoHpRegeneRateInSleep": {
+          "help": "Multiplier for player health regeneration while sleeping."
+        },
+        "PalStomachDecreaceRate": {
+          "help": "Multiplier for Pal hunger depletion. Higher values make Pals become hungry faster."
+        },
+        "PalStaminaDecreaceRate": {
+          "help": "Multiplier for Pal stamina consumption. Higher values drain stamina faster."
+        },
+        "PalAutoHPRegeneRate": {
+          "help": "Multiplier for natural Pal health regeneration."
+        },
+        "PalAutoHpRegeneRateInSleep": {
+          "help": "Multiplier for Pal health regeneration while sleeping or stored in a Palbox."
+        },
+        "BuildObjectHpRate": {
+          "help": "Multiplier for building durability. Higher values make structures withstand more damage."
+        },
+        "BuildObjectDamageRate": {
+          "help": "Multiplier for damage dealt to buildings. Higher values make structures easier to destroy."
+        },
+        "BuildObjectDeteriorationDamageRate": {
+          "help": "Multiplier for natural building deterioration. 0 disables deterioration damage."
+        },
+        "CollectionDropRate": {
+          "help": "Multiplier for the amount of resources obtained from gatherable objects."
+        },
+        "CollectionObjectHpRate": {
+          "help": "Multiplier for the durability of gatherable objects such as rocks and trees."
+        },
+        "CollectionObjectRespawnSpeedRate": {
+          "help": "Multiplier affecting how quickly gatherable objects respawn."
+        },
+        "EnemyDropItemRate": {
+          "help": "Multiplier for the quantity of items dropped by enemies."
+        },
+        "DeathPenalty": {
+          "help": "Selects what players drop on death: nothing, items, items and equipment, or items, equipment and team Pals."
+        },
+        "bEnablePlayerToPlayerDamage": {
+          "help": "Controls whether players can directly damage other players.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "bEnableFriendlyFire": {
+          "help": "Controls whether players can damage allied players and friendly targets.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "bEnableInvaderEnemy": {
+          "help": "Enables or disables enemy raids against bases.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "bActiveUNKO": {
+          "help": "Controls whether Pals produce manure while active in the world.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "bEnableAimAssistPad": {
+          "help": "Enables or disables aim assistance when using a controller.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "bEnableAimAssistKeyboard": {
+          "help": "Enables or disables aim assistance when using keyboard and mouse.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "DropItemMaxNum": {
+          "help": "Sets the maximum number of dropped item stacks that may exist in the world at once. Excess items may be removed."
+        },
+        "DropItemMaxNum_UNKO": {
+          "help": "Sets the maximum number of Pal manure drops that may exist in the world at once."
+        },
+        "BaseCampMaxNum": {
+          "help": "Sets the total number of bases that may exist across the entire server."
+        },
+        "BaseCampMaxNumInGuild": {
+          "help": "Sets the maximum number of bases a single guild may own. The official maximum is 10. Higher values increase server load."
+        },
+        "BaseCampWorkerMaxNum": {
+          "help": "Sets the maximum number of working Pals allowed at each base. The official maximum is 50. Higher values increase server load."
+        },
+        "DropItemAliveMaxHours": {
+          "help": "Sets how many real-time hours dropped items remain in the world before they disappear."
+        },
+        "bAutoResetGuildNoOnlinePlayers": {
+          "help": "When enabled, structures and base Pals of a guild are deleted after no guild member has logged in for the configured period.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "AutoResetGuildTimeNoOnlinePlayers": {
+          "help": "Sets how long a guild may remain completely offline before automatic cleanup occurs. Ignored when automatic guild cleanup is disabled."
+        },
+        "GuildPlayerMaxNum": {
+          "help": "Sets the maximum number of players allowed in one guild."
+        },
+        "PalEggDefaultHatchingTime": {
+          "help": "Sets the real-time hours required to hatch a Huge Egg. Other egg sizes scale from this value. 0 makes incubation immediate."
+        },
+        "WorkSpeedRate": {
+          "help": "Multiplier for player and Pal work speed. Higher values complete work tasks faster."
+        },
+        "AutoSaveSpan": {
+          "help": "Sets the interval, in seconds, between automatic world saves. Very short intervals increase disk activity."
+        },
+        "CrossplayPlatforms": {
+          "help": "Selects which platforms are allowed to connect to the server."
+        },
+        "LogFormatType": {
+          "help": "Selects whether server logs are written as plain text or JSON."
+        },
+        "bIsMultiplay": {
+          "help": "Controls whether the world runs with multiplayer functionality enabled.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "bIsPvP": {
+          "help": "Enables or disables player-versus-player gameplay.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "bHardcore": {
+          "help": "Enables Hardcore mode. Players cannot respawn normally after death.",
+          "False": "Normal respawning after death is available.",
+          "True": "Hardcore is enabled; normal respawning after death is unavailable."
+        },
+        "bPalLost": {
+          "help": "Controls whether team Pals are permanently lost when a player dies.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "bCharacterRecreateInHardcore": {
+          "help": "Controls whether a player may recreate their character after dying in Hardcore mode.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "bCanPickupOtherGuildDeathPenaltyDrop": {
+          "help": "Controls whether players may collect death-penalty items dropped by members of other guilds.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "bEnableNonLoginPenalty": {
+          "help": "Controls whether penalties are applied to players or guilds after extended periods without logging in.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "bEnableFastTravel": {
+          "help": "Enables or disables fast travel.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "bIsStartLocationSelectByMap": {
+          "help": "Controls whether players may select their starting location on the map.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "bExistPlayerAfterLogout": {
+          "help": "Controls whether logged-out players remain in the world in a sleeping state at their last location.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "bEnableDefenseOtherGuildPlayer": {
+          "help": "Controls whether defensive systems may target or protect against players from other guilds.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "bInvisibleOtherGuildBaseCampAreaFX": {
+          "help": "Controls whether base-area boundary effects are visible.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "bBuildAreaLimit": {
+          "help": "Prevents building near protected world objects such as fast-travel points.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "ItemWeightRate": {
+          "help": "Multiplier for item weight. Higher values make carried items heavier."
+        },
+        "bShowPlayerList": {
+          "help": "Controls whether the player list is available from the ESC menu.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "CoopPlayerMaxNum": {
+          "help": "Sets the maximum number of players allowed in a cooperative session."
+        },
+        "ServerPlayerMaxNum": {
+          "help": "Sets the maximum number of players who may be connected to the server."
+        },
+        "ServerName": {
+          "help": "Sets the name shown for the server in the server list."
+        },
+        "ServerDescription": {
+          "help": "Sets the description shown for the server in the server list."
+        },
+        "AdminPassword": {
+          "help": "Password used by players to obtain administrator privileges on the server."
+        },
+        "ServerPassword": {
+          "help": "Sets the password players must enter to join the server. Leave empty for no password."
+        },
+        "PublicPort": {
+          "help": "Explicitly sets the external public port advertised by a community server. This does not change the listening port."
+        },
+        "PublicIP": {
+          "help": "Explicitly sets the external public IP used for a community server."
+        },
+        "RCONEnabled": {
+          "help": "Enables or disables remote administration through RCON.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "RCONPort": {
+          "help": "Sets the network port used by RCON."
+        },
+        "RESTAPIEnabled": {
+          "help": "Enables or disables the server REST API.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "RESTAPIPort": {
+          "help": "Sets the network port on which the REST API listens."
+        },
+        "bIsUseBackupSaveData": {
+          "help": "Enables automatic world-save backups. This increases disk activity.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "Region": {
+          "help": "Sets “Region”. Default: empty."
+        },
+        "bUseAuth": {
+          "help": "Controls whether server authentication is required for player connections.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "BanListURL": {
+          "help": "Sets “Ban List URL”. Default: https://b.palworldgame.com/api/banlist.txt."
+        },
+        "EquipmentDurabilityDamageRate": {
+          "help": "Multiplier for equipment durability loss. Higher values make equipment wear out faster."
+        },
+        "ItemContainerForceMarkDirtyInterval": {
+          "help": "Sets how often an open container is forcibly re-synchronized with clients, in seconds."
+        },
+        "ItemCorruptionMultiplier": {
+          "help": "Multiplier for food and item spoilage speed. Higher values cause faster spoilage."
         },
         "bEnableFastTravelOnlyBaseCamp": {
-          "help": "Determines whether fast travel is only possible between Base Camps (Palboxes).",
-          "False": "Fast travel between Great Eagle Statues and Palboxes.",
-          "True": "Fast travel only between Palboxes; Great Eagle Statues are disabled."
+          "help": "Restricts fast travel to travel between bases (Palboxes) only. Great Eagle Statues cannot be used while enabled.",
+          "False": "Fast travel is available between Great Eagle Statues and Palboxes.",
+          "True": "Fast travel is limited to Palboxes; Great Eagle Statues are disabled."
+        },
+        "bAllowClientMod": {
+          "help": "Controls whether players with client-side mods enabled may join the server.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "bIsShowJoinLeftMessage": {
+          "help": "Controls whether dedicated servers show in-game messages when players join or leave.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "DenyTechnologyList": {
+          "help": "Disables the selected technologies so players cannot unlock or use them through the technology system."
+        },
+        "GuildRejoinCooldownMinutes": {
+          "help": "Sets the waiting time, in minutes, before a player may rejoin a guild."
+        },
+        "BlockRespawnTime": {
+          "help": "Sets the cooldown, in seconds, before a player may respawn after death."
+        },
+        "RespawnPenaltyDurationThreshold": {
+          "help": "Sets the survival-time threshold, in seconds, used to determine whether the respawn cooldown multiplier applies on the next death."
+        },
+        "RespawnPenaltyTimeScale": {
+          "help": "Multiplier applied to the respawn cooldown after the configured survival-time threshold is met."
+        },
+        "bDisplayPvPItemNumOnWorldMap_BaseCamp": {
+          "help": "Controls whether the world map shows the number of PvP-exclusive items stored at each base.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "bDisplayPvPItemNumOnWorldMap_Player": {
+          "help": "Controls whether the world map shows player locations and their number of PvP-exclusive items.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "AdditionalDropItemWhenPlayerKillingInPvPMode": {
+          "help": "Sets the item ID of the special item dropped when a player is killed in PvP."
+        },
+        "AdditionalDropItemNumWhenPlayerKillingInPvPMode": {
+          "help": "Sets the quantity of the special item dropped when a player is killed in PvP."
+        },
+        "bAdditionalDropItemWhenPlayerKillingInPvPMode": {
+          "help": "Controls whether a special item is dropped when a player is killed while PvP is enabled.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "bAllowEnhanceStat_Health": {
+          "help": "Controls whether players may spend stat points on Health.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "bAllowEnhanceStat_Attack": {
+          "help": "Controls whether players may spend stat points on Attack.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "bAllowEnhanceStat_Stamina": {
+          "help": "Controls whether players may spend stat points on Stamina.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "bAllowEnhanceStat_Weight": {
+          "help": "Controls whether players may spend stat points on Carry Weight.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "bAllowEnhanceStat_WorkSpeed": {
+          "help": "Controls whether players may spend stat points on Work Speed.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "PhysicsActiveDropItemMaxNum": {
+          "help": "Sets the maximum number of dropped items that may use physics simulation at the same time."
+        },
+        "PlayerDataPalStorageUpdateCheckTickInterval": {
+          "help": "Sets how often the server checks for updates to a player's stored Pal data, in seconds."
+        },
+        "MonsterFarmActionSpeedRate": {
+          "help": "Multiplier for item production speed from grazing Pals at ranches."
+        },
+        "AutoTransferMasterCheckIntervalSeconds": {
+          "help": "Sets how often the server checks whether guild leadership should be transferred automatically, in seconds."
+        },
+        "AutoTransferMasterThresholdDays": {
+          "help": "Sets how many days the guild master may remain offline before leadership can be transferred automatically."
+        },
+        "MaxGuildsPerFrame": {
+          "help": "Limits how many guilds the server processes in one frame. Lower values spread work across more frames."
+        },
+        "bEnableVoiceChat": {
+          "help": "Enables or disables the in-game voice chat.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "VoiceChatMaxVolumeDistance": {
+          "help": "Sets the distance up to which voice-chat audio remains at full volume."
+        },
+        "VoiceChatZeroVolumeDistance": {
+          "help": "Sets the distance at which voice-chat audio becomes completely inaudible."
+        },
+        "bEnableBuildingPlayerUIdDisplay": {
+          "help": "Controls whether a structure displays the player ID of its creator.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "BuildingNameDisplayCacheTTLSeconds": {
+          "help": "Sets how long cached building-name display data remains valid, in seconds."
+        },
+        "EnablePredatorBossPal": {
+          "help": "Controls whether Predator Boss Pals can appear in the world.",
+          "False": "Disabled. The described feature is not used.",
+          "True": "Enabled. The described feature is used."
+        },
+        "SupplyDropSpan": {
+          "help": "Sets the interval, in minutes, between meteorite and supply-drop events."
+        },
+        "ChatPostLimitPerMinute": {
+          "help": "Sets the maximum number of chat messages a player may send per minute."
+        },
+        "MaxBuildingLimitNum": {
+          "help": "Sets the maximum number of structures each player may build. 0 means unlimited."
+        },
+        "ServerReplicatePawnCullDistance": {
+          "help": "Sets the distance, in centimeters, at which Pals and other pawns are synchronized to players. Official range: 5000-15000."
+        },
+        "bAllowGlobalPalboxExport": {
+          "help": "Controls whether Pals may be saved to the Global Palbox."
+        },
+        "bAllowGlobalPalboxImport": {
+          "help": "Controls whether Pals may be loaded from the Global Palbox."
         }
       }
+    },
+    "footer": {
+      "community": "Made with ❤️ by the community, for the community.",
+      "copyright": "2024-{{year}} © Bluefissure"
+    },
+    "dashboard": {
+      "searchPlaceholder": "Search settings…",
+      "settingsCount": "{{count}} settings",
+      "categories": "Categories",
+      "resetAll": "Reset all",
+      "resetSubtitle": "Load default values",
+      "previewTitle": "Configuration preview",
+      "statusLiveTitle": "Live Preview",
+      "statusLiveSubtitle": "Real-time updates",
+      "statusLanguagesTitle": "9 Languages",
+      "statusLanguagesSubtitle": "Fully translated",
+      "statusThemeTitle": "Light & Dark",
+      "statusThemeSubtitle": "Automatic theme",
+      "resetDone": "Settings reset",
+      "resetDoneDescription": "All settings have been restored to their default values."
     }
   }
 }

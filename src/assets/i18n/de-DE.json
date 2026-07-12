@@ -1,7 +1,7 @@
 {
   "translation": {
     "unknown": "Unbekannt",
-    "title": "Palworld Server Konfiguration Generator",
+    "title": "Palworld-Serverkonfigurationsgenerator",
     "introduction": "Bearbeiten Sie die Werte und die Ausgabe unten wird in Echtzeit aktualisiert.",
     "serverSettings": "Server Einstellungen",
     "ingameSettings": "Einstellungen im Spiel",
@@ -169,27 +169,464 @@
         "BuildingNameDisplayCacheTTLSeconds": "Cache-Gültigkeitsdauer für Gebäudenamenanzeige (Sekunden)"
       },
       "description": {
-        "DeathPenalty": {
-          "None": "Nichts verlieren",
-          "Item": "Verlorener Gegenstand ohne Ausrüstung",
-          "ItemAndEquipment": "Verlorener Gegenstand und Ausrüstung",
-          "All": "Alle Gegenstände, Ausrüstung, Pal (im Inventar) verloren"
-        },
-        "LogFormatType": {
-          "Text": "Textformat zum Protokollieren verwenden",
-          "Json": "Json-Format zum Protokollieren verwenden"
+        "Difficulty": {
+          "help": "Wählt das Verhalten für „Schwierigkeit“ aus. Standardwert: None."
         },
         "RandomizerType": {
-          "None": "Kein Zufallstyp festgelegt",
-          "Region": "Auf Zufallsregion eingestellt",
-          "All": "Auf vollständige Zufälligkeit eingestellt"
+          "help": "Legt den Modus für zufällige Pal-Spawns fest: deaktiviert, nach Region zufällig oder vollständig zufällig."
+        },
+        "RandomizerSeed": {
+          "help": "Legt den Startwert für die zufällige Verteilung von Pal-Spawns fest."
+        },
+        "bIsRandomizerPalLevelRandom": {
+          "help": "Bei Aktivierung sind die Level wilder Pals vollständig zufällig. Bei Deaktivierung werden sie nur innerhalb des vorgesehenen Bereichs der jeweiligen Region zufällig gewählt.",
+          "False": "Pal-Level bleiben im vorgesehenen Levelbereich der jeweiligen Region.",
+          "True": "Die Level wilder Pals werden vollständig zufällig bestimmt."
+        },
+        "DayTimeSpeedRate": {
+          "help": "Multiplikator für die Geschwindigkeit des Tagesverlaufs."
+        },
+        "NightTimeSpeedRate": {
+          "help": "Multiplikator für die Geschwindigkeit des Nachtverlaufs."
+        },
+        "ExpRate": {
+          "help": "Multiplikator für die von Spielern und Pals erhaltenen Erfahrungspunkte."
+        },
+        "PalCaptureRate": {
+          "help": "Multiplikator für die Fangwahrscheinlichkeit von Pals."
+        },
+        "PalSpawnNumRate": {
+          "help": "Multiplikator für die Anzahl wilder Pals. Hohe Werte können die Serverleistung deutlich belasten."
+        },
+        "PalDamageRateAttack": {
+          "help": "Multiplikator für den von Pals verursachten Schaden."
+        },
+        "PalDamageRateDefense": {
+          "help": "Multiplikator für den von Pals erlittenen Schaden."
+        },
+        "PlayerDamageRateAttack": {
+          "help": "Multiplikator für den von Spielern verursachten Schaden."
+        },
+        "PlayerDamageRateDefense": {
+          "help": "Multiplikator für den von Spielern erlittenen Schaden."
+        },
+        "PlayerStomachDecreaceRate": {
+          "help": "Multiplikator für den Hunger von Spielern. Höhere Werte machen Spieler schneller hungrig."
+        },
+        "PlayerStaminaDecreaceRate": {
+          "help": "Multiplikator für den Ausdauerverbrauch von Spielern. Höhere Werte leeren die Ausdauer schneller."
+        },
+        "PlayerAutoHPRegeneRate": {
+          "help": "Multiplikator für die natürliche Lebensregeneration von Spielern."
+        },
+        "PlayerAutoHpRegeneRateInSleep": {
+          "help": "Multiplikator für die Lebensregeneration von Spielern beim Schlafen."
+        },
+        "PalStomachDecreaceRate": {
+          "help": "Multiplikator für den Hunger von Pals. Höhere Werte machen Pals schneller hungrig."
+        },
+        "PalStaminaDecreaceRate": {
+          "help": "Multiplikator für den Ausdauerverbrauch von Pals. Höhere Werte leeren die Ausdauer schneller."
+        },
+        "PalAutoHPRegeneRate": {
+          "help": "Multiplikator für die natürliche Lebensregeneration von Pals."
+        },
+        "PalAutoHpRegeneRateInSleep": {
+          "help": "Multiplikator für die Lebensregeneration von Pals beim Schlafen oder in der Palbox."
+        },
+        "BuildObjectHpRate": {
+          "help": "Multiplikator für die Haltbarkeit von Bauwerken. Höhere Werte lassen Gebäude mehr Schaden aushalten."
+        },
+        "BuildObjectDamageRate": {
+          "help": "Multiplikator für Schaden an Bauwerken. Höhere Werte machen Bauwerke leichter zerstörbar."
+        },
+        "BuildObjectDeteriorationDamageRate": {
+          "help": "Multiplikator für den natürlichen Verfall von Bauwerken. 0 deaktiviert Verfallsschaden."
+        },
+        "CollectionDropRate": {
+          "help": "Multiplikator für die Menge an Rohstoffen aus abbaubaren Objekten."
+        },
+        "CollectionObjectHpRate": {
+          "help": "Multiplikator für die Haltbarkeit abbaubarer Objekte wie Felsen und Bäume."
+        },
+        "CollectionObjectRespawnSpeedRate": {
+          "help": "Multiplikator dafür, wie schnell abbaubare Objekte erneut erscheinen."
+        },
+        "EnemyDropItemRate": {
+          "help": "Multiplikator für die Menge der von Gegnern fallengelassenen Gegenstände."
+        },
+        "DeathPenalty": {
+          "help": "Legt fest, was Spieler beim Tod verlieren: nichts, Gegenstände, Gegenstände und Ausrüstung oder zusätzlich alle Team-Pals."
+        },
+        "bEnablePlayerToPlayerDamage": {
+          "help": "Legt fest, ob Spieler anderen Spielern direkten Schaden zufügen können.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "bEnableFriendlyFire": {
+          "help": "Legt fest, ob Spieler verbündete Spieler und freundliche Ziele verletzen können.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "bEnableInvaderEnemy": {
+          "help": "Aktiviert oder deaktiviert feindliche Überfälle auf Basislager.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "bActiveUNKO": {
+          "help": "Legt fest, ob aktive Pals in der Spielwelt Dünger produzieren.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "bEnableAimAssistPad": {
+          "help": "Aktiviert oder deaktiviert die Zielhilfe bei Verwendung eines Controllers.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "bEnableAimAssistKeyboard": {
+          "help": "Aktiviert oder deaktiviert die Zielhilfe bei Verwendung von Tastatur und Maus.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "DropItemMaxNum": {
+          "help": "Legt fest, wie viele fallengelassene Gegenstandsstapel gleichzeitig in der Welt existieren dürfen. Überschüssige Gegenstände können entfernt werden."
+        },
+        "DropItemMaxNum_UNKO": {
+          "help": "Legt fest, wie viele von Pals erzeugte Dünger-Gegenstände gleichzeitig in der Welt existieren dürfen."
+        },
+        "BaseCampMaxNum": {
+          "help": "Legt fest, wie viele Basislager insgesamt auf dem gesamten Server existieren dürfen."
+        },
+        "BaseCampMaxNumInGuild": {
+          "help": "Legt die maximale Anzahl an Basislagern pro Gilde fest. Das offizielle Maximum beträgt 10. Höhere Werte erhöhen die Serverlast."
+        },
+        "BaseCampWorkerMaxNum": {
+          "help": "Legt die maximale Anzahl arbeitender Pals pro Basislager fest. Das offizielle Maximum beträgt 50. Höhere Werte erhöhen die Serverlast."
+        },
+        "DropItemAliveMaxHours": {
+          "help": "Legt fest, wie viele Echtzeitstunden fallengelassene Gegenstände in der Welt verbleiben, bevor sie verschwinden."
+        },
+        "bAutoResetGuildNoOnlinePlayers": {
+          "help": "Wenn aktiviert, werden Bauwerke und Basis-Pals einer Gilde gelöscht, nachdem sich für den festgelegten Zeitraum kein Gildenmitglied angemeldet hat.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "AutoResetGuildTimeNoOnlinePlayers": {
+          "help": "Legt fest, wie lange eine Gilde vollständig offline sein darf, bevor die automatische Bereinigung greift. Wird ignoriert, wenn die automatische Gildenbereinigung deaktiviert ist."
+        },
+        "GuildPlayerMaxNum": {
+          "help": "Legt die maximale Anzahl an Spielern pro Gilde fest."
+        },
+        "PalEggDefaultHatchingTime": {
+          "help": "Legt fest, wie viele Echtzeitstunden ein Riesenei zum Schlüpfen benötigt. Andere Eigrößen werden davon abgeleitet. 0 lässt Eier sofort schlüpfen."
+        },
+        "WorkSpeedRate": {
+          "help": "Multiplikator für das Arbeitstempo von Spielern und Pals. Höhere Werte lassen Arbeitsaufträge schneller abschließen."
+        },
+        "AutoSaveSpan": {
+          "help": "Legt in Sekunden fest, wie oft die Welt automatisch gespeichert wird. Sehr kurze Intervalle erhöhen die Festplattenaktivität."
+        },
+        "CrossplayPlatforms": {
+          "help": "Legt fest, welche Plattformen sich mit dem Server verbinden dürfen."
+        },
+        "LogFormatType": {
+          "help": "Legt fest, ob Serverprotokolle als Klartext oder JSON geschrieben werden."
+        },
+        "bIsMultiplay": {
+          "help": "Legt fest, ob die Welt mit aktivierter Mehrspielerfunktion ausgeführt wird.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "bIsPvP": {
+          "help": "Aktiviert oder deaktiviert Kämpfe zwischen Spielern.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "bHardcore": {
+          "help": "Aktiviert den Hardcore-Modus. Nach dem Tod ist kein normaler Wiedereinstieg möglich.",
+          "False": "Normaler Wiedereinstieg nach dem Tod ist möglich.",
+          "True": "Hardcore ist aktiv; normaler Wiedereinstieg nach dem Tod ist nicht möglich."
+        },
+        "bPalLost": {
+          "help": "Legt fest, ob Team-Pals beim Tod des Spielers dauerhaft verloren gehen.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "bCharacterRecreateInHardcore": {
+          "help": "Legt fest, ob Spieler nach einem Tod im Hardcore-Modus ihren Charakter neu erstellen dürfen.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "bCanPickupOtherGuildDeathPenaltyDrop": {
+          "help": "Legt fest, ob Spieler Gegenstände aufsammeln dürfen, die Mitglieder anderer Gilden durch eine Todesstrafe verloren haben.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "bEnableNonLoginPenalty": {
+          "help": "Legt fest, ob nach längerer Abwesenheit Strafen für Spieler oder Gilden angewendet werden.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "bEnableFastTravel": {
+          "help": "Aktiviert oder deaktiviert das Schnellreisesystem.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "bIsStartLocationSelectByMap": {
+          "help": "Legt fest, ob Spieler ihren Startort auf der Karte auswählen dürfen.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "bExistPlayerAfterLogout": {
+          "help": "Legt fest, ob ausgeloggte Spieler an ihrer letzten Position schlafend in der Welt verbleiben.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "bEnableDefenseOtherGuildPlayer": {
+          "help": "Legt fest, ob Verteidigungssysteme Spieler anderer Gilden als Ziele behandeln dürfen.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "bInvisibleOtherGuildBaseCampAreaFX": {
+          "help": "Legt fest, ob die Begrenzungseffekte von Basisgebieten sichtbar sind.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "bBuildAreaLimit": {
+          "help": "Verhindert das Bauen in der Nähe geschützter Weltobjekte, beispielsweise Schnellreisepunkten.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "ItemWeightRate": {
+          "help": "Multiplikator für das Gewicht von Gegenständen. Höhere Werte machen getragene Gegenstände schwerer."
+        },
+        "bShowPlayerList": {
+          "help": "Legt fest, ob die Spielerliste im ESC-Menü verfügbar ist.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "CoopPlayerMaxNum": {
+          "help": "Legt die maximale Anzahl an Spielern in einer Koop-Sitzung fest."
+        },
+        "ServerPlayerMaxNum": {
+          "help": "Legt fest, wie viele Spieler gleichzeitig mit dem Server verbunden sein dürfen."
+        },
+        "ServerName": {
+          "help": "Legt den Namen fest, der in der Serverliste angezeigt wird."
+        },
+        "ServerDescription": {
+          "help": "Legt die Beschreibung fest, die in der Serverliste angezeigt wird."
+        },
+        "AdminPassword": {
+          "help": "Passwort, mit dem Spieler Administratorrechte auf dem Server erhalten können."
+        },
+        "ServerPassword": {
+          "help": "Legt das Passwort fest, das Spieler zum Beitritt eingeben müssen. Leer lassen, um kein Passwort zu verwenden."
+        },
+        "PublicPort": {
+          "help": "Legt ausdrücklich den extern veröffentlichten Port eines Community-Servers fest. Der tatsächliche Listen-Port wird dadurch nicht geändert."
+        },
+        "PublicIP": {
+          "help": "Legt ausdrücklich die externe öffentliche IP-Adresse eines Community-Servers fest."
+        },
+        "RCONEnabled": {
+          "help": "Aktiviert oder deaktiviert die Fernverwaltung über RCON.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "RCONPort": {
+          "help": "Legt den Netzwerkport für RCON fest."
+        },
+        "RESTAPIEnabled": {
+          "help": "Aktiviert oder deaktiviert die REST-API des Servers.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "RESTAPIPort": {
+          "help": "Legt den Netzwerkport fest, auf dem die REST-API lauscht."
+        },
+        "bIsUseBackupSaveData": {
+          "help": "Aktiviert automatische Sicherungen des Weltspielstands. Dies erhöht die Festplattenaktivität.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "Region": {
+          "help": "Legt „Region“ fest. Standardwert: leer."
+        },
+        "bUseAuth": {
+          "help": "Legt fest, ob für Spieler-Verbindungen eine Serverauthentifizierung erforderlich ist.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "BanListURL": {
+          "help": "Legt „URL der Verbotsliste“ fest. Standardwert: https://b.palworldgame.com/api/banlist.txt."
+        },
+        "EquipmentDurabilityDamageRate": {
+          "help": "Multiplikator für den Haltbarkeitsverlust von Ausrüstung. Höhere Werte lassen Ausrüstung schneller verschleißen."
+        },
+        "ItemContainerForceMarkDirtyInterval": {
+          "help": "Legt in Sekunden fest, wie oft ein geöffneter Behälter zwangsweise mit den Clients neu synchronisiert wird."
+        },
+        "ItemCorruptionMultiplier": {
+          "help": "Multiplikator für die Verderbnisgeschwindigkeit von Nahrung und Gegenständen. Höhere Werte lassen sie schneller verderben."
         },
         "bEnableFastTravelOnlyBaseCamp": {
-          "help": "Legt fest, ob Schnellreisen ausschließlich zwischen Basislagern (Palboxen) möglich sind.",
-          "False": "Schnellreise zwischen Adlerstatuen und Palboxen.",
-          "True": "Schnellreise nur zwischen Palboxen; Adlerstatuen sind deaktiviert."
+          "help": "Legt fest, ob Schnellreisen ausschließlich zwischen Basislagern (Palboxen) möglich sind. Adlerstatuen können bei aktivierter Option nicht verwendet werden.",
+          "False": "Schnellreise zwischen Adlerstatuen und Palboxen ist möglich.",
+          "True": "Schnellreise ist nur zwischen Palboxen möglich; Adlerstatuen sind deaktiviert."
+        },
+        "bAllowClientMod": {
+          "help": "Legt fest, ob Spieler mit aktivierten Client-Mods dem Server beitreten dürfen.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "bIsShowJoinLeftMessage": {
+          "help": "Legt fest, ob auf dedizierten Servern Meldungen beim Beitreten und Verlassen angezeigt werden.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "DenyTechnologyList": {
+          "help": "Deaktiviert die ausgewählten Technologien, sodass Spieler sie im Technologiesystem weder freischalten noch verwenden können."
+        },
+        "GuildRejoinCooldownMinutes": {
+          "help": "Legt in Minuten fest, wie lange ein Spieler warten muss, bevor er einer Gilde erneut beitreten darf."
+        },
+        "BlockRespawnTime": {
+          "help": "Legt in Sekunden fest, wie lange ein Spieler nach dem Tod bis zum Wiedereinstieg warten muss."
+        },
+        "RespawnPenaltyDurationThreshold": {
+          "help": "Legt in Sekunden fest, wie lange ein Spieler überleben muss, damit beim nächsten Tod der Wiedereinstiegs-Multiplikator angewendet wird."
+        },
+        "RespawnPenaltyTimeScale": {
+          "help": "Multiplikator für die Wiedereinstiegs-Wartezeit, nachdem die festgelegte Überlebenszeit erreicht wurde."
+        },
+        "bDisplayPvPItemNumOnWorldMap_BaseCamp": {
+          "help": "Legt fest, ob die Weltkarte die Anzahl PvP-exklusiver Gegenstände in jedem Basislager anzeigt.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "bDisplayPvPItemNumOnWorldMap_Player": {
+          "help": "Legt fest, ob die Weltkarte Spielerpositionen und die Anzahl ihrer PvP-exklusiven Gegenstände anzeigt.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "AdditionalDropItemWhenPlayerKillingInPvPMode": {
+          "help": "Legt die Gegenstands-ID des besonderen Gegenstands fest, der beim Tod eines Spielers im PvP fallengelassen wird."
+        },
+        "AdditionalDropItemNumWhenPlayerKillingInPvPMode": {
+          "help": "Legt die Menge des besonderen Gegenstands fest, der beim Tod eines Spielers im PvP fallengelassen wird."
+        },
+        "bAdditionalDropItemWhenPlayerKillingInPvPMode": {
+          "help": "Legt fest, ob beim Tod eines Spielers im aktivierten PvP ein besonderer Gegenstand fallengelassen wird.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "bAllowEnhanceStat_Health": {
+          "help": "Legt fest, ob Spieler Statuspunkte in Lebenspunkte investieren dürfen.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "bAllowEnhanceStat_Attack": {
+          "help": "Legt fest, ob Spieler Statuspunkte in Angriff investieren dürfen.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "bAllowEnhanceStat_Stamina": {
+          "help": "Legt fest, ob Spieler Statuspunkte in Ausdauer investieren dürfen.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "bAllowEnhanceStat_Weight": {
+          "help": "Legt fest, ob Spieler Statuspunkte in Traglast investieren dürfen.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "bAllowEnhanceStat_WorkSpeed": {
+          "help": "Legt fest, ob Spieler Statuspunkte in Arbeitstempo investieren dürfen.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "PhysicsActiveDropItemMaxNum": {
+          "help": "Legt fest, wie viele fallengelassene Gegenstände gleichzeitig eine Physiksimulation verwenden dürfen."
+        },
+        "PlayerDataPalStorageUpdateCheckTickInterval": {
+          "help": "Legt in Sekunden fest, wie oft der Server gespeicherte Pal-Daten eines Spielers auf Änderungen prüft."
+        },
+        "MonsterFarmActionSpeedRate": {
+          "help": "Multiplikator für die Gegenstandsproduktion durch grasende Pals auf einer Ranch."
+        },
+        "AutoTransferMasterCheckIntervalSeconds": {
+          "help": "Legt in Sekunden fest, wie oft der Server prüft, ob die Gildenleitung automatisch übertragen werden soll."
+        },
+        "AutoTransferMasterThresholdDays": {
+          "help": "Legt fest, wie viele Tage der Gildenmeister offline sein darf, bevor die Leitung automatisch übertragen werden kann."
+        },
+        "MaxGuildsPerFrame": {
+          "help": "Begrenzt, wie viele Gilden der Server pro Frame verarbeitet. Niedrigere Werte verteilen die Arbeit auf mehr Frames."
+        },
+        "bEnableVoiceChat": {
+          "help": "Aktiviert oder deaktiviert den integrierten Sprachchat im Spiel.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "VoiceChatMaxVolumeDistance": {
+          "help": "Legt die Entfernung fest, bis zu der Sprachchat mit voller Lautstärke wiedergegeben wird."
+        },
+        "VoiceChatZeroVolumeDistance": {
+          "help": "Legt die Entfernung fest, ab der Sprachchat vollständig unhörbar ist."
+        },
+        "bEnableBuildingPlayerUIdDisplay": {
+          "help": "Legt fest, ob an Bauwerken die Spieler-ID des Erbauers angezeigt wird.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "BuildingNameDisplayCacheTTLSeconds": {
+          "help": "Legt in Sekunden fest, wie lange zwischengespeicherte Daten für Gebäudenamen gültig bleiben."
+        },
+        "EnablePredatorBossPal": {
+          "help": "Legt fest, ob Raubtier-Boss-Pals in der Spielwelt erscheinen können.",
+          "False": "Deaktiviert. Die beschriebene Funktion wird nicht verwendet.",
+          "True": "Aktiviert. Die beschriebene Funktion wird verwendet."
+        },
+        "SupplyDropSpan": {
+          "help": "Legt in Minuten das Intervall zwischen Meteoriten- und Versorgungslieferungen fest."
+        },
+        "ChatPostLimitPerMinute": {
+          "help": "Legt fest, wie viele Chatnachrichten ein Spieler maximal pro Minute senden darf."
+        },
+        "MaxBuildingLimitNum": {
+          "help": "Legt fest, wie viele Bauwerke jeder Spieler maximal errichten darf. 0 bedeutet unbegrenzt."
+        },
+        "ServerReplicatePawnCullDistance": {
+          "help": "Legt in Zentimetern fest, bis zu welcher Entfernung Pals und andere Figuren mit Spielern synchronisiert werden. Offizieller Bereich: 5000-15000."
+        },
+        "bAllowGlobalPalboxExport": {
+          "help": "Legt fest, ob Pals in der globalen Palbox gespeichert werden dürfen."
+        },
+        "bAllowGlobalPalboxImport": {
+          "help": "Legt fest, ob Pals aus der globalen Palbox geladen werden dürfen."
         }
       }
+    },
+    "footer": {
+      "community": "Mit ❤️ von der Community für die Community.",
+      "copyright": "2024-{{year}} © Bluefissure"
+    },
+    "dashboard": {
+      "searchPlaceholder": "Einstellungen suchen…",
+      "settingsCount": "{{count}} Einstellungen",
+      "categories": "Kategorien",
+      "resetAll": "Alle zurücksetzen",
+      "resetSubtitle": "Standardwerte laden",
+      "previewTitle": "Konfigurationsvorschau",
+      "statusLiveTitle": "Live-Vorschau",
+      "statusLiveSubtitle": "Aktualisierung in Echtzeit",
+      "statusLanguagesTitle": "9 Sprachen",
+      "statusLanguagesSubtitle": "Vollständig übersetzt",
+      "statusThemeTitle": "Hell & Dunkel",
+      "statusThemeSubtitle": "Automatisches Theme",
+      "resetDone": "Einstellungen zurückgesetzt",
+      "resetDoneDescription": "Alle Einstellungen wurden auf ihre Standardwerte zurückgesetzt."
     }
   }
 }

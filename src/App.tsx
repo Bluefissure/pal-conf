@@ -7,18 +7,15 @@ import i18n, { I18nStr } from "./i18n";
 import { useTranslation, Trans } from "react-i18next";
 
 // UI Components
-import { CardTitle, CardDescription, CardHeader, CardContent, Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Toaster } from "@/components/ui/sonner";
 import { toast } from "sonner";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Textarea } from "@/components/ui/textarea";
-import { Badge } from "@/components/ui/badge"
 // UI Icons
-import { Languages, AlertCircle, FileUp } from "lucide-react";
+import { AlertCircle, FileUp, Moon, Sun, Server, Gamepad2, SlidersHorizontal, ChevronDown, Copy, Download, ClipboardPaste, Github, ShieldCheck, Search, RotateCcw, Code2, Sparkles } from "lucide-react";
 import ReactCountryFlag from "react-country-flag";
 
 // App Components
@@ -61,18 +58,98 @@ enum SettingCategory {
   AdvancedSettings = "advanced-settings",
 }
 
+const SUPPORTED_LOCALES = ["en_US", "zh_CN", "zh_TW", "ja_JP", "ko_KR", "de_DE", "pt_BR", "es_ES", "fr_FR"] as const;
+type SupportedLocale = typeof SUPPORTED_LOCALES[number];
+
+const LANGUAGE_OPTIONS: ReadonlyArray<{ value: SupportedLocale; country: string; label: string }> = [
+  { value: "en_US", country: "US", label: "English" },
+  { value: "zh_CN", country: "CN", label: "简体中文" },
+  { value: "zh_TW", country: "TW", label: "繁體中文" },
+  { value: "ja_JP", country: "JP", label: "日本語" },
+  { value: "ko_KR", country: "KR", label: "한국어" },
+  { value: "de_DE", country: "DE", label: "Deutsch" },
+  { value: "pt_BR", country: "BR", label: "Português (Brasil)" },
+  { value: "es_ES", country: "ES", label: "Español" },
+  { value: "fr_FR", country: "FR", label: "Français" },
+];
+
+const normalizeLocale = (language?: string): SupportedLocale => {
+  const normalized = (language || "en_US").replace("-", "_");
+  const exact = SUPPORTED_LOCALES.find((locale) => locale.toLowerCase() === normalized.toLowerCase());
+  if (exact) return exact;
+  const base = normalized.split("_")[0].toLowerCase();
+  return SUPPORTED_LOCALES.find((locale) => locale.split("_")[0].toLowerCase() === base) ?? "en_US";
+};
+
 function App() {
   const { t } = useTranslation();
-  const [locale, setLocale] = useState(i18n.language === "en" ? "en_US" : i18n.language);
+  const [locale, setLocale] = useState<SupportedLocale>(() => normalizeLocale(i18n.resolvedLanguage || i18n.language));
   const [entries, setEntries] = useState({} as Record<string, string>);
   const [fileMode, setFileMode] = useState<FileMode>(FileMode.INI);
   const [openedAccordion, setOpenedAccordion] = useState(SettingCategory.ServerSettings);
   const [showUploadPrompt, setShowUploadPrompt] = useState(false);
   const [pasteDialogOpen, setPasteDialogOpen] = useState(false);
   const [pasteContent, setPasteContent] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+  const currentYear = new Date().getFullYear();
+  const [commitHash, setCommitHash] = useState(__COMMIT_HASH__ && __COMMIT_HASH__ !== "unknown" ? __COMMIT_HASH__ : "");
+  const [theme, setTheme] = useState<"light" | "dark">(() => {
+    const saved = localStorage.getItem("pal-conf-theme");
+    if (saved === "light" || saved === "dark") return saved;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  });
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const tabRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", theme === "dark");
+    document.documentElement.style.colorScheme = theme;
+    localStorage.setItem("pal-conf-theme", theme);
+  }, [theme]);
+
+
+  useEffect(() => {
+    if (commitHash) return;
+    const controller = new AbortController();
+    fetch("https://api.github.com/repos/Bluefissure/pal-conf/commits?per_page=1", { signal: controller.signal })
+      .then((response) => response.ok ? response.json() : Promise.reject(new Error(`GitHub API ${response.status}`)))
+      .then((commits: Array<{ sha?: string }>) => {
+        const sha = commits[0]?.sha?.slice(0, 7);
+        if (sha) setCommitHash(sha);
+      })
+      .catch((error) => {
+        if (error instanceof DOMException && error.name === "AbortError") return;
+        console.warn("Could not load latest GitHub commit", error);
+      });
+    return () => controller.abort();
+  }, [commitHash]);
+
+  useEffect(() => {
+    const handleLanguageChanged = (language: string) => {
+      const nextLocale = normalizeLocale(language);
+      setLocale(nextLocale);
+      document.documentElement.lang = nextLocale.replace("_", "-");
+      localStorage.setItem("pal-conf-language", nextLocale);
+    };
+
+    i18n.on("languageChanged", handleLanguageChanged);
+    const storedLocale = localStorage.getItem("pal-conf-language");
+    const initialLocale = normalizeLocale(storedLocale || i18n.resolvedLanguage || i18n.language);
+    if (i18n.resolvedLanguage !== initialLocale) void i18n.changeLanguage(initialLocale);
+    handleLanguageChanged(initialLocale);
+
+    return () => i18n.off("languageChanged", handleLanguageChanged);
+  }, []);
+
+  const changeLocale = (value: string) => {
+    const nextLocale = normalizeLocale(value);
+    setLocale(nextLocale);
+    void i18n.changeLanguage(nextLocale).catch((error) => {
+      console.error("Could not change language", error);
+      toast.error("Language could not be changed");
+    });
+  };
 
   useEffect(() => {
     if (tabRef.current && tabRef.current.getBoundingClientRect().top < 0) {
@@ -82,6 +159,16 @@ function App() {
 
   const onStateChanged = (id: string) => (e: ChangeEvent<string>) => {
     setEntries((prevEntries) => ({ ...prevEntries, [id]: `${e.target.value}` }));
+  };
+
+  const resetAllSettings = () => {
+    const defaultEntries = Object.fromEntries(
+      Object.values(ENTRIES).map((entry) => [entry.id, entry.defaultValue]),
+    ) as Record<string, string>;
+    setEntries(defaultEntries);
+    toast.success(t("dashboard.resetDone"), {
+      description: t("dashboard.resetDoneDescription"),
+    });
   };
 
   const serializeEntriesToIni = () => {
@@ -398,6 +485,17 @@ function App() {
       });
   };
 
+  const getEntryDescription = (id: string): string => {
+    const raw = t(`entry.description.${id}`, { returnObjects: true }) as unknown;
+    if (!raw || typeof raw !== "object") return "";
+    const values = raw as Record<string, string>;
+    const lines: string[] = [];
+    if (values.help) lines.push(values.help);
+    if (values.False) lines.push(`False - ${values.False}`);
+    if (values.True) lines.push(`True - ${values.True}`);
+    return lines.join("\n");
+  };
+
   const genInput = (id: string, disabled = false) => {
     const entry = ENTRIES[id];
     if (!entry) {
@@ -416,6 +514,7 @@ function App() {
               target: { value: labelName },
             });
           }}
+          description={getEntryDescription(id)}
         />
       );
     }
@@ -431,6 +530,7 @@ function App() {
               target: { value: labelNames.join(",") },
             });
           }}
+          description={getEntryDescription(id)}
         />
       );
     }
@@ -456,6 +556,7 @@ function App() {
           type={entry.type}
           disabled={disabled}
           difficultyType={entry.difficultyType}
+          description={getEntryDescription(id)}
         />
       );
     }
@@ -473,9 +574,7 @@ function App() {
             });
           }}
           disabled={disabled}
-          description={id === "bEnableFastTravelOnlyBaseCamp"
-            ? `${t("entry.description.bEnableFastTravelOnlyBaseCamp.help")}\nFalse = ${t("entry.description.bEnableFastTravelOnlyBaseCamp.False")}\nTrue = ${t("entry.description.bEnableFastTravelOnlyBaseCamp.True")}`
-            : undefined}
+          description={getEntryDescription(id)}
         />
       );
     }
@@ -488,6 +587,7 @@ function App() {
         onChange={onStateChanged(id)}
         disabled={disabled}
         multiline={entry.id === "ServerDescription"}
+        description={getEntryDescription(id)}
         {...(entry.type === "integer" ? { type: "number" } : {})}
       />
     );
@@ -495,11 +595,22 @@ function App() {
 
   const isEntryValid = useCallback((entryKey: string) => fileMode === FileMode.INI || VALID_WORLDOPTION_KEYS.indexOf(entryKey) >= 0, [fileMode]);
 
-  const serverSettings = ServerSettings.map((k) => genInput(k, !isEntryValid(k)));
+  const matchesSearch = (key: string) => {
+    const query = searchQuery.trim().toLowerCase();
+    if (!query) return true;
+    const translatedName = t(`entry.name.${key}`).toLowerCase();
+    return translatedName.includes(query) || key.toLowerCase().includes(query);
+  };
 
-  const inGameSettings = InGameSettings.map((k) => genInput(k, !isEntryValid(k)));
+  const serverSettings = ServerSettings.filter(matchesSearch).map((k) => genInput(k, !isEntryValid(k)));
+  const inGameSettings = InGameSettings.filter(matchesSearch).map((k) => genInput(k, !isEntryValid(k)));
+  const advancedSettings = AdvancedSettings.filter(matchesSearch).map((k) => genInput(k, !isEntryValid(k)));
 
-  const advancedSettings = AdvancedSettings.map((k) => genInput(k, !isEntryValid(k)));
+  const activeSettings = openedAccordion === SettingCategory.ServerSettings
+    ? serverSettings
+    : openedAccordion === SettingCategory.InGameSettings
+      ? inGameSettings
+      : advancedSettings;
 
   const settingsText =
     fileMode === FileMode.INI
@@ -575,11 +686,8 @@ function App() {
   return (
     <>
       <main
-        className="flex flex-col items-center min-h-screen bg-gray-100 dark:bg-gray-900 p-4"
-        onDragOver={(e) => {
-          e.preventDefault();
-          setShowUploadPrompt(true);
-        }}
+        className="app-shell"
+        onDragOver={(e) => { e.preventDefault(); setShowUploadPrompt(true); }}
         onDragLeave={(e) => {
           e.preventDefault();
           if (e.currentTarget.contains(e.relatedTarget as Node)) return;
@@ -595,206 +703,126 @@ function App() {
         }}
       >
         {showUploadPrompt && (
-          <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 z-50">
-            <div className="text-white flex items-center justify-center">
-              <FileUp className="mr-2" />
-              <span className="text-lg">
-                <Trans i18nKey={I18nStr.drag} />
-              </span>
-            </div>
+          <div className="drag-overlay fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70">
+            <div className="drag-overlay-card"><FileUp /><Trans i18nKey={I18nStr.drag} /></div>
           </div>
         )}
-
         <Toaster richColors />
-        <Card className="w-full max-w-3xl">
-          <CardHeader>
-            <CardTitle className="flex">
-              <div className="leading-10">
-                <Trans i18nKey={I18nStr.title} />
-                <Badge variant="secondary" className="ml-2">
-                <a
-                  href="https://docs.palworldgame.com/settings-and-operation/configuration/"
-                  className="underline"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {configVersion}
-                </a>
 
-                </Badge>
+        <div className="dashboard-shell">
+          <header className="dashboard-hero">
+            <div className="hero-art" aria-hidden="true">
+              <span className="hero-island island-one" />
+              <span className="hero-island island-two" />
+              <span className="hero-cloud cloud-one" />
+              <span className="hero-cloud cloud-two" />
+            </div>
+            <div className="dashboard-topbar">
+              <div className="palworld-brand">
+                <div className="palworld-wordmark">PALWORLD</div>
+                <div className="palworld-subtitle">SERVER CONFIG GENERATOR</div>
               </div>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button className="ml-auto h-10" variant="secondary">
-                    <Languages />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  <DropdownMenuRadioGroup
-                    value={locale}
-                    onValueChange={(value) => {
-                      i18n
-                        .changeLanguage(value)
-                        .then(() => {
-                          // console.log("Language changed to " + value)
-                        })
-                        .catch((e) => {
-                          console.error(e);
-                        });
-                      setLocale(value);
-                    }}
-                  >
-                    <DropdownMenuRadioItem value="en_US">
-                      <ReactCountryFlag countryCode="US" svg />
-                      <div className="px-2"> English </div>
-                    </DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="zh_CN">
-                      <ReactCountryFlag countryCode="CN" svg />
-                      <div className="px-2"> 简体中文 </div>
-                    </DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="zh_TW">
-                      <ReactCountryFlag countryCode="TW" svg />
-                      <div className="px-2"> 繁體中文 </div>
-                    </DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="ja_JP">
-                      <ReactCountryFlag countryCode="JP" svg />
-                      <div className="px-2"> 日本語 </div>
-                    </DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="ko_KR">
-                      <ReactCountryFlag countryCode="KR" svg />
-                      <div className="px-2"> 한국인 </div>
-                    </DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="de_DE">
-                      <ReactCountryFlag countryCode="DE" svg />
-                      <div className="px-2"> Deutsch </div>
-                    </DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="pt_BR">
-                      <ReactCountryFlag countryCode="BR" svg />
-                      <div className="px-2"> Português </div>
-                    </DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="es_ES">
-                      <ReactCountryFlag countryCode="ES" svg />
-                      <div className="px-2"> Español </div>
-                    </DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="fr_FR">
-                      <ReactCountryFlag countryCode="FR" svg />
-                      <div className="px-2"> Français </div>
-                    </DropdownMenuRadioItem>
-                  </DropdownMenuRadioGroup>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </CardTitle>
-            <CardDescription>
-              <Trans i18nKey={I18nStr.introduction} />
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4" ref={tabRef}>
-            <Tabs value={openedAccordion} className="flex flex-col w-full min-h-10" onValueChange={(v) => setOpenedAccordion(v as SettingCategory)}>
-              <TabsList className="sticky top-2 z-10 shadow-lg">
-                <TabsTrigger className="w-[33%] whitespace-normal" value={SettingCategory.ServerSettings}>
-                  <Trans i18nKey={I18nStr.serverSettings} />
-                </TabsTrigger>
-                <TabsTrigger className="w-[33%] whitespace-normal" value={SettingCategory.InGameSettings}>
-                  <Trans i18nKey={I18nStr.ingameSettings} />
-                </TabsTrigger>
-                <TabsTrigger className="w-[33%] whitespace-normal" value={SettingCategory.AdvancedSettings}>
-                  <Trans i18nKey={I18nStr.advancedSettings} />
-                </TabsTrigger>
-              </TabsList>
-              <div className="mt-4 overflow-hidden">
-                <TabsContent value={SettingCategory.ServerSettings} className="space-y-2">
-                  {serverSettings}
-                </TabsContent>
-                <TabsContent value={SettingCategory.InGameSettings} className="space-y-2">
-                  {inGameSettings}
-                </TabsContent>
-                <TabsContent value={SettingCategory.AdvancedSettings} className="space-y-2">
-                  {advancedSettings}
-                </TabsContent>
+              <a className="version-pill" href="https://docs.palworldgame.com/settings-and-operation/configuration/" target="_blank" rel="noreferrer">
+                <ShieldCheck className="h-4 w-4" /> v{configVersion}
+              </a>
+              <div className="topbar-actions">
+                <Button type="button" variant="secondary" className="round-control" onClick={() => setTheme((value) => value === "dark" ? "light" : "dark")} aria-label={theme === "dark" ? "Light mode" : "Dark mode"}>
+                  {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+                </Button>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button type="button" variant="secondary" className="language-control">
+                      <ReactCountryFlag countryCode={LANGUAGE_OPTIONS.find((option) => option.value === locale)?.country ?? "US"} svg />
+                      <span>{LANGUAGE_OPTIONS.find((option) => option.value === locale)?.label ?? "English"}</span>
+                      <ChevronDown className="h-4 w-4" />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="language-menu">
+                    <DropdownMenuRadioGroup value={locale} onValueChange={changeLocale}>
+                      {LANGUAGE_OPTIONS.map(({ value, country, label }) => (
+                        <DropdownMenuRadioItem key={value} value={value}>
+                          <ReactCountryFlag countryCode={country} svg /><span className="ml-2">{label}</span>
+                        </DropdownMenuRadioItem>
+                      ))}
+                    </DropdownMenuRadioGroup>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </div>
-            </Tabs>
-          </CardContent>
-        </Card>
-        <Card className="w-full max-w-3xl mt-8 sticky bottom-0 z-10 shadow-lg">
-          <CardHeader>
-            <Tabs value={fileMode} className="flex flex-col w-full min-h-10" onValueChange={(v) => setFileMode(v as FileMode)}>
-              <TabsList>
-                <TabsTrigger className="w-[50%]" value={FileMode.INI}>
-                  PalWorldSettings.ini
-                </TabsTrigger>
-                <TabsTrigger className="w-[50%]" value={FileMode.SAV}>
-                  WorldOption.sav
-                </TabsTrigger>
-              </TabsList>
-              <Input className="hidden w-[50%]" id="file-upload" type="file" ref={fileInputRef} onChange={handleFileInput} />
-              <div className="mt-4">
-                <TabsContent value={FileMode.INI} className="flex justify-between items-center gap-4 mt-0">
-                  <Button className="mr-auto" onClick={readFromClipboard}>
-                    <Trans i18nKey={I18nStr.paste} />
-                  </Button>
-                  <div className="text-sm text-muted-foreground">
-                    <Trans i18nKey={I18nStr.dragAndDrop} />
-                  </div>
-                  <Button className="ml-auto" onClick={copyToClipboard}>
-                    <Trans i18nKey={I18nStr.copy} />
-                  </Button>
-                </TabsContent>
-                <TabsContent value={FileMode.SAV} className="flex justify-between items-center gap-4 mt-0">
-                  <Button onClick={() => fileInputRef.current?.click()}>
-                    <Trans i18nKey={I18nStr.upload} />
-                  </Button>
-                  <div className="text-sm text-muted-foreground">
-                    <Trans i18nKey={I18nStr.dragAndDrop} />
-                  </div>
-                  <Button className="" onClick={saveFile}>
-                    <Trans i18nKey={I18nStr.download} />
-                  </Button>
-                </TabsContent>
+            </div>
+
+          </header>
+
+          <section className="dashboard-grid">
+            <aside className="category-sidebar">
+              <div className="sidebar-title">{t("dashboard.categories")}</div>
+              <nav className="category-nav">
+                <button className={openedAccordion === SettingCategory.ServerSettings ? "active" : ""} onClick={() => setOpenedAccordion(SettingCategory.ServerSettings)}>
+                  <Server /><span><Trans i18nKey={I18nStr.serverSettings} /></span><b>{ServerSettings.length}</b>
+                </button>
+                <button className={openedAccordion === SettingCategory.InGameSettings ? "active" : ""} onClick={() => setOpenedAccordion(SettingCategory.InGameSettings)}>
+                  <Gamepad2 /><span><Trans i18nKey={I18nStr.ingameSettings} /></span><b>{InGameSettings.length}</b>
+                </button>
+                <button className={openedAccordion === SettingCategory.AdvancedSettings ? "active" : ""} onClick={() => setOpenedAccordion(SettingCategory.AdvancedSettings)}>
+                  <SlidersHorizontal /><span><Trans i18nKey={I18nStr.advancedSettings} /></span><b>{AdvancedSettings.length}</b>
+                </button>
+              </nav>
+              <button type="button" className="reset-button" onClick={resetAllSettings}><RotateCcw /><span>{t("dashboard.resetAll")}<small>{t("dashboard.resetSubtitle")}</small></span></button>
+            </aside>
+
+            <section className="settings-workspace" ref={tabRef}>
+              <div className="settings-toolbar">
+                <div className="search-box"><Search /><Input value={searchQuery} onChange={(event) => setSearchQuery(event.target.value)} placeholder={t("dashboard.searchPlaceholder")} /></div>
+                <span className="result-count">{t("dashboard.settingsCount", { count: activeSettings.filter(Boolean).length })}</span>
               </div>
-            </Tabs>
-          </CardHeader>
-        </Card>
-        <Alert className="w-full max-w-3xl mt-8 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">
-          <AlertCircle className="h-4 w-4" />
-          <AlertTitle>
-            <Trans
-              i18nKey={I18nStr.usingSettingsFile}
-              defaults="You are using {{settingsFile}}"
-              values={{ settingsFile: fileMode === FileMode.INI ? "PalWorldSettings.ini" : "WorldOption.sav" }}
-            />
-          </AlertTitle>
-          <AlertDescription className="text-wrap break-all whitespace-pre-wrap">
-            {fileMode === FileMode.INI ? (
-              <>
-                Windows: steamapps/common/PalServer/Pal/Saved/Config/WindowsServer/PalWorldSettings.ini
-                <br />
-                Linux: steamapps/common/PalServer/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini
-                <br />
-                <Trans i18nKey={I18nStr.iniFileWarning} />
-              </>
-            ) : (
-              <>
-                Windows & Linux: steamapps/common/PalServer/Pal/Saved/SaveGames/0/.../WorldOption.sav
-                <br />
-                <Trans i18nKey={I18nStr.savFileWarning} />
-              </>
-            )}
-          </AlertDescription>
-        </Alert>
-        <div className="w-full max-w-3xl mt-8 p-4 bg-white dark:bg-gray-800 rounded-lg shadow-md">
-          <pre className="text-wrap break-all whitespace-pre-wrap text-sm text-gray-800 dark:text-gray-200">{settingsText}</pre>
-        </div>
-        <div className="w-full max-w-3xl flex justify-center pt-2">
-          2024-{`${new Date().getFullYear()}`} @Bluefissure
-          <a
-            href="https://github.com/Bluefissure/pal-conf"
-            className="pl-2 font-medium text-primary underline underline-offset-4 top-2"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Github
-          </a>
-          {__COMMIT_HASH__ && (`@${__COMMIT_HASH__}`)}
+              <div className="workspace-heading"><Sparkles /><span>{openedAccordion === SettingCategory.ServerSettings ? t(I18nStr.serverSettings) : openedAccordion === SettingCategory.InGameSettings ? t(I18nStr.ingameSettings) : t(I18nStr.advancedSettings)}</span></div>
+              <div className="settings-list">{activeSettings}</div>
+            </section>
+
+            <aside className="preview-sidebar">
+              <div className="preview-heading"><span>{t("dashboard.previewTitle")}</span><Code2 /></div>
+              <div className="preview-code"><pre>{settingsText}</pre></div>
+              <Button variant="outline" className="preview-copy" onClick={copyToClipboard}><Copy className="h-4 w-4" /><Trans i18nKey={I18nStr.copy} /></Button>
+            </aside>
+          </section>
+
+          <section className="file-action-bar">
+            <Input className="hidden" id="file-upload" type="file" ref={fileInputRef} onChange={handleFileInput} />
+            <div className="file-mode-switch">
+              <button className={fileMode === FileMode.INI ? "active" : ""} onClick={() => setFileMode(FileMode.INI)}>PalWorldSettings.ini</button>
+              <button className={fileMode === FileMode.SAV ? "active" : ""} onClick={() => setFileMode(FileMode.SAV)}>WorldOption.sav</button>
+            </div>
+            <button className="upload-zone" onClick={() => fileMode === FileMode.INI ? readFromClipboard() : fileInputRef.current?.click()}>
+              {fileMode === FileMode.INI ? <ClipboardPaste /> : <FileUp />}
+              <span><strong>{fileMode === FileMode.INI ? t(I18nStr.paste) : t(I18nStr.upload)}</strong><small>{t(I18nStr.dragAndDrop)}</small></span>
+            </button>
+            <Button className="download-button" onClick={fileMode === FileMode.INI ? copyToClipboard : saveFile}>
+              {fileMode === FileMode.INI ? <Copy /> : <Download />}
+              <span>{fileMode === FileMode.INI ? t(I18nStr.copy) : t(I18nStr.download)}</span>
+            </Button>
+          </section>
+
+          <Alert className="path-alert">
+            <AlertCircle className="h-4 w-4" />
+            <AlertTitle><Trans i18nKey={I18nStr.usingSettingsFile} defaults="You are using {{settingsFile}}" values={{ settingsFile: fileMode === FileMode.INI ? "PalWorldSettings.ini" : "WorldOption.sav" }} /></AlertTitle>
+            <AlertDescription>{fileMode === FileMode.INI ? "Pal/Saved/Config/.../PalWorldSettings.ini" : "Pal/Saved/SaveGames/.../WorldOption.sav"}</AlertDescription>
+          </Alert>
+
+          <footer className="dashboard-footer">
+            <div className="footer-brand">
+              <span className="footer-product"><ShieldCheck /> Palworld Server Config Generator</span>
+              <span className="footer-community">{t("footer.community")}</span>
+            </div>
+            <div className="footer-credits">
+              <span className="copyright-text">2024-{currentYear} @Bluefissure</span>
+              <span className="redesign-credit">Redesign by Koenigsegg</span>
+            </div>
+            <div className="footer-links">
+              <a href="https://github.com/Bluefissure/pal-conf" target="_blank" rel="noreferrer"><Github /> GitHub</a>
+              {commitHash && (
+                <a className="commit-link" href={`https://github.com/Bluefissure/pal-conf/commit/${commitHash}`} target="_blank" rel="noreferrer">@{commitHash}</a>
+              )}
+            </div>
+          </footer>
         </div>
       </main>
       <Dialog open={pasteDialogOpen} onOpenChange={setPasteDialogOpen}>

@@ -1,7 +1,7 @@
 {
   "translation": {
     "unknown": "Desconocido",
-    "title": "Generador de Configuración del Servidor Palworld",
+    "title": "Generador de configuración de servidores de Palworld",
     "introduction": "Edite los valores y la salida a continuación se actualizará en tiempo real.",
     "serverSettings": "Configuración del Servidor",
     "ingameSettings": "Configuración In-Game",
@@ -169,27 +169,471 @@
         "BuildingNameDisplayCacheTTLSeconds": "Validez de la caché de visualización del nombre de la construcción (segundos)"
       },
       "description": {
+        "Difficulty": {
+          "help": "Selecciona el comportamiento de «Dificultad». Valor predeterminado: None."
+        },
+        "RandomizerType": {
+          "help": "Selecciona el comportamiento de «Tipo de Aleatorizador». Valor predeterminado: None.",
+          "None": "Ningún aleatorizador establecido",
+          "Region": "Establecido para aleatorizar la región",
+          "All": "Establecido para aleatorizar todo"
+        },
+        "RandomizerSeed": {
+          "help": "Define «Semilla del Aleatorizador». Valor predeterminado: vacío."
+        },
+        "bIsRandomizerPalLevelRandom": {
+          "help": "Activa o desactiva «Nivel de Palu salvaje completamente aleatorio».",
+          "False": "Desactivado: Nivel de Palu salvaje completamente aleatorio no está activo.",
+          "True": "Activado: Nivel de Palu salvaje completamente aleatorio está activo."
+        },
+        "DayTimeSpeedRate": {
+          "help": "Controla «Ratio de Velocidad del Tiempo de Día». Valor predeterminado: 1.000000. Intervalo permitido: 0.1-5. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "NightTimeSpeedRate": {
+          "help": "Controla «Ratio de Velocidad del Tiempo de Noche». Valor predeterminado: 1.000000. Intervalo permitido: 0.1-5. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "ExpRate": {
+          "help": "Controla «Ratio de Experiencia». Valor predeterminado: 1.000000. Intervalo permitido: 0-20. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "PalCaptureRate": {
+          "help": "Controla «Ratio de Captura de Pal». Valor predeterminado: 1.000000. Intervalo permitido: 0.5-5. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "PalSpawnNumRate": {
+          "help": "Controla «Ratio de Número de Pal Generados». Valor predeterminado: 1.000000. Intervalo permitido: 0.5-5. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "PalDamageRateAttack": {
+          "help": "Controla «Ratio de Daño de Ataque de Pal». Valor predeterminado: 1.000000. Intervalo permitido: 0.1-5. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "PalDamageRateDefense": {
+          "help": "Controla «Ratio de Daño de Defensa de Pal». Valor predeterminado: 1.000000. Intervalo permitido: 0.1-5. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "PlayerDamageRateAttack": {
+          "help": "Controla «Ratio de Daño de Ataque de Jugador». Valor predeterminado: 1.000000. Intervalo permitido: 0.1-5. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "PlayerDamageRateDefense": {
+          "help": "Controla «Ratio de Daño de Defensa de Jugador». Valor predeterminado: 1.000000. Intervalo permitido: 0.1-5. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "PlayerStomachDecreaceRate": {
+          "help": "Controla «Ratio de Decremento de Estómago de Jugador». Valor predeterminado: 1.000000. Intervalo permitido: 0.1-5. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "PlayerStaminaDecreaceRate": {
+          "help": "Controla «Ratio de Decremento de Estamina de Jugador». Valor predeterminado: 1.000000. Intervalo permitido: 0.1-5. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "PlayerAutoHPRegeneRate": {
+          "help": "Controla «Ratio de Regeneración Automática de HP de Jugador». Valor predeterminado: 1.000000. Intervalo permitido: 0.1-5. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "PlayerAutoHpRegeneRateInSleep": {
+          "help": "Controla «Ratio de Regeneración Automática de HP de Jugador en Sueño». Valor predeterminado: 1.000000. Intervalo permitido: 0.1-5. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "PalStomachDecreaceRate": {
+          "help": "Controla «Ratio de Decremento de Estómago de Pal». Valor predeterminado: 1.000000. Intervalo permitido: 0.1-5. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "PalStaminaDecreaceRate": {
+          "help": "Controla «Ratio de Decremento de Estamina de Pal». Valor predeterminado: 1.000000. Intervalo permitido: 0.1-5. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "PalAutoHPRegeneRate": {
+          "help": "Controla «Ratio de Regeneración Automática de HP de Pal». Valor predeterminado: 1.000000. Intervalo permitido: 0.1-5. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "PalAutoHpRegeneRateInSleep": {
+          "help": "Controla «Ratio de Regeneración Automática de HP de Pal en Sueño». Valor predeterminado: 1.000000. Intervalo permitido: 0.1-5. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "BuildObjectHpRate": {
+          "help": "Controla «Ratio de HP de Objeto Construido». Valor predeterminado: 1.000000. Intervalo permitido: 0.5-5. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "BuildObjectDamageRate": {
+          "help": "Controla «Ratio de Daño de Objeto Construido». Valor predeterminado: 1.000000. Intervalo permitido: 0.5-3. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "BuildObjectDeteriorationDamageRate": {
+          "help": "Controla «Ratio de Daño de Deterioro de Objeto Construido». Valor predeterminado: 1.000000. Intervalo permitido: 0-10. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "CollectionDropRate": {
+          "help": "Controla «Ratio de Caída de Colección». Valor predeterminado: 1.000000. Intervalo permitido: 0.5-5. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "CollectionObjectHpRate": {
+          "help": "Controla «Ratio de HP de Objeto de Colección». Valor predeterminado: 1.000000. Intervalo permitido: 0.5-3. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "CollectionObjectRespawnSpeedRate": {
+          "help": "Controla «Ratio de Intervalo de Respawn de Objeto de Colección». Valor predeterminado: 1.000000. Intervalo permitido: 0.5-5. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "EnemyDropItemRate": {
+          "help": "Controla «Ratio de Caída de Objeto de Enemigo». Valor predeterminado: 1.000000. Intervalo permitido: 0.5-5. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
         "DeathPenalty": {
+          "help": "Selecciona el comportamiento de «Penalización por Muerte». Valor predeterminado: All.",
           "None": "Sin pérdida",
           "Item": "Pérdida de objetos sin equipo",
           "ItemAndEquipment": "Pérdida de objetos y equipo",
           "All": "Pérdida de todos los objetos, equipo y Pal (en inventario)"
         },
+        "bEnablePlayerToPlayerDamage": {
+          "help": "Activa o desactiva «Habilitar Daño de Jugador a Jugador».",
+          "False": "Desactivado: Habilitar Daño de Jugador a Jugador no está activo.",
+          "True": "Activado: Habilitar Daño de Jugador a Jugador está activo."
+        },
+        "bEnableFriendlyFire": {
+          "help": "Activa o desactiva «Habilitar Fuego Amigo».",
+          "False": "Desactivado: Habilitar Fuego Amigo no está activo.",
+          "True": "Activado: Habilitar Fuego Amigo está activo."
+        },
+        "bEnableInvaderEnemy": {
+          "help": "Activa o desactiva «Habilitar Invasión de Enemigos».",
+          "False": "Desactivado: Habilitar Invasión de Enemigos no está activo.",
+          "True": "Activado: Habilitar Invasión de Enemigos está activo."
+        },
+        "bActiveUNKO": {
+          "help": "Activa o desactiva «UNKO Activo (Los Pal defecarán)».",
+          "False": "Desactivado: UNKO Activo (Los Pal defecarán) no está activo.",
+          "True": "Activado: UNKO Activo (Los Pal defecarán) está activo."
+        },
+        "bEnableAimAssistPad": {
+          "help": "Activa o desactiva «Habilitar Asistencia de Apuntado de Mando».",
+          "False": "Desactivado: Habilitar Asistencia de Apuntado de Mando no está activo.",
+          "True": "Activado: Habilitar Asistencia de Apuntado de Mando está activo."
+        },
+        "bEnableAimAssistKeyboard": {
+          "help": "Activa o desactiva «Habilitar Asistencia de Apuntado de Teclado».",
+          "False": "Desactivado: Habilitar Asistencia de Apuntado de Teclado no está activo.",
+          "True": "Activado: Habilitar Asistencia de Apuntado de Teclado está activo."
+        },
+        "DropItemMaxNum": {
+          "help": "Controla «Número Máximo de Objetos Caídos». Valor predeterminado: 3000. Intervalo permitido: 0-10000. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "DropItemMaxNum_UNKO": {
+          "help": "Controla «Número Máximo de Caída de Excrementos de Pal (UNKO)». Valor predeterminado: 100. Intervalo permitido: 0-5000. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "BaseCampMaxNum": {
+          "help": "Controla «Número Máximo de Campamentos Base». Valor predeterminado: 128. Intervalo permitido: 0-10240. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "BaseCampMaxNumInGuild": {
+          "help": "Controla «Número Máximo de campamentos base en la guilda». Valor predeterminado: 3. Intervalo permitido: 1-50. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "BaseCampWorkerMaxNum": {
+          "help": "Controla «Número Máximo de Trabajadores en Campamento Base». Valor predeterminado: 15. Intervalo permitido: 1-50. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "DropItemAliveMaxHours": {
+          "help": "Controla «Horas Máximas de Vida de Objetos Caídos». Valor predeterminado: 1.000000. Intervalo permitido: 0-240. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "bAutoResetGuildNoOnlinePlayers": {
+          "help": "Activa o desactiva «Restablecer Automáticamente el Gremio sin Jugadores Conectados».",
+          "False": "Desactivado: Restablecer Automáticamente el Gremio sin Jugadores Conectados no está activo.",
+          "True": "Activado: Restablecer Automáticamente el Gremio sin Jugadores Conectados está activo."
+        },
+        "AutoResetGuildTimeNoOnlinePlayers": {
+          "help": "Controla «Tiempo de Restablecimiento Automático del Gremio sin Jugadores Conectados». Valor predeterminado: 72.000000. Intervalo permitido: 0-240. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "GuildPlayerMaxNum": {
+          "help": "Controla «Número Máximo de Jugadores del Gremio». Valor predeterminado: 20. Intervalo permitido: 1-100. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "PalEggDefaultHatchingTime": {
+          "help": "Controla «Tiempo Predeterminado de Eclosión de Huevos de Pal». Valor predeterminado: 72.000000. Intervalo permitido: 0-240. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "WorkSpeedRate": {
+          "help": "Controla «Ratio de Velocidad de Trabajo». Valor predeterminado: 1.000000. Intervalo permitido: 0.1-5. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "AutoSaveSpan": {
+          "help": "Controla «Intervalo de guardado automático». Valor predeterminado: 30.000000. Intervalo permitido: 30-3600. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "CrossplayPlatforms": {
+          "help": "Selecciona uno o varios valores para «Permitir Conectar Plataforma»."
+        },
         "LogFormatType": {
+          "help": "Selecciona el comportamiento de «Tipo de Formato de Registro». Valor predeterminado: Text.",
           "Text": "Usar formato de texto para registrar",
           "Json": "Usar formato Json para registrar"
         },
-        "RandomizerType": {
-          "None": "Ningún aleatorizador establecido",
-          "Region": "Establecido para aleatorizar la región",
-          "All": "Establecido para aleatorizar todo"
+        "bIsMultiplay": {
+          "help": "Activa o desactiva «Es Multijugador».",
+          "False": "Desactivado: Es Multijugador no está activo.",
+          "True": "Activado: Es Multijugador está activo."
+        },
+        "bIsPvP": {
+          "help": "Activa o desactiva «Es JcJ».",
+          "False": "Desactivado: Es JcJ no está activo.",
+          "True": "Activado: Es JcJ está activo."
+        },
+        "bHardcore": {
+          "help": "Activa o desactiva «Modo Difícil».",
+          "False": "Desactivado: Modo Difícil no está activo.",
+          "True": "Activado: Modo Difícil está activo."
+        },
+        "bPalLost": {
+          "help": "Activa o desactiva «Modo Pal Perdido».",
+          "False": "Desactivado: Modo Pal Perdido no está activo.",
+          "True": "Activado: Modo Pal Perdido está activo."
+        },
+        "bCharacterRecreateInHardcore": {
+          "help": "Activa o desactiva «Permitir Re-creación de Personaje en Modo Difícil».",
+          "False": "Desactivado: Permitir Re-creación de Personaje en Modo Difícil no está activo.",
+          "True": "Activado: Permitir Re-creación de Personaje en Modo Difícil está activo."
+        },
+        "bCanPickupOtherGuildDeathPenaltyDrop": {
+          "help": "Activa o desactiva «Puede Recoger la Penalización por Muerte de Otro Gremio».",
+          "False": "Desactivado: Puede Recoger la Penalización por Muerte de Otro Gremio no está activo.",
+          "True": "Activado: Puede Recoger la Penalización por Muerte de Otro Gremio está activo."
+        },
+        "bEnableNonLoginPenalty": {
+          "help": "Activa o desactiva «Habilitar Penalización por No Iniciar Sesión».",
+          "False": "Desactivado: Habilitar Penalización por No Iniciar Sesión no está activo.",
+          "True": "Activado: Habilitar Penalización por No Iniciar Sesión está activo."
+        },
+        "bEnableFastTravel": {
+          "help": "Activa o desactiva «Habilitar Viaje Rápido».",
+          "False": "Desactivado: Habilitar Viaje Rápido no está activo.",
+          "True": "Activado: Habilitar Viaje Rápido está activo."
+        },
+        "bIsStartLocationSelectByMap": {
+          "help": "Activa o desactiva «Selección de Ubicación de Inicio por Mapa».",
+          "False": "Desactivado: Selección de Ubicación de Inicio por Mapa no está activo.",
+          "True": "Activado: Selección de Ubicación de Inicio por Mapa está activo."
+        },
+        "bExistPlayerAfterLogout": {
+          "help": "Activa o desactiva «Existencia de Jugador Después de Cerrar Sesión».",
+          "False": "Desactivado: Existencia de Jugador Después de Cerrar Sesión no está activo.",
+          "True": "Activado: Existencia de Jugador Después de Cerrar Sesión está activo."
+        },
+        "bEnableDefenseOtherGuildPlayer": {
+          "help": "Activa o desactiva «Habilitar Defensa de Otros Jugadores del Gremio».",
+          "False": "Desactivado: Habilitar Defensa de Otros Jugadores del Gremio no está activo.",
+          "True": "Activado: Habilitar Defensa de Otros Jugadores del Gremio está activo."
+        },
+        "bInvisibleOtherGuildBaseCampAreaFX": {
+          "help": "Activa o desactiva «Área FX de Campamento Base de Otros Gremios Invisible».",
+          "False": "Desactivado: Área FX de Campamento Base de Otros Gremios Invisible no está activo.",
+          "True": "Activado: Área FX de Campamento Base de Otros Gremios Invisible está activo."
+        },
+        "bBuildAreaLimit": {
+          "help": "Activa o desactiva «Límite de Área de Construcción».",
+          "False": "Desactivado: Límite de Área de Construcción no está activo.",
+          "True": "Activado: Límite de Área de Construcción está activo."
+        },
+        "ItemWeightRate": {
+          "help": "Controla «Ratio de Peso de Objetos». Valor predeterminado: 1.000000. Intervalo permitido: 0.1-5. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "bShowPlayerList": {
+          "help": "Activa o desactiva «Habilitar Lista de Jugadores en Línea en el Servidor Dedicado».",
+          "False": "Desactivado: Habilitar Lista de Jugadores en Línea en el Servidor Dedicado no está activo.",
+          "True": "Activado: Habilitar Lista de Jugadores en Línea en el Servidor Dedicado está activo."
+        },
+        "CoopPlayerMaxNum": {
+          "help": "Controla «Número Máximo de Jugadores en Cooperativa». Valor predeterminado: 4. Intervalo permitido: 1-4. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "ServerPlayerMaxNum": {
+          "help": "Controla «Número Máximo de Jugadores del Servidor». Valor predeterminado: 32. Intervalo permitido: 1-512. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "ServerName": {
+          "help": "Define «Nombre del Servidor». Valor predeterminado: Default Palworld Server."
+        },
+        "ServerDescription": {
+          "help": "Define «Descripción del Servidor». Valor predeterminado: vacío."
+        },
+        "AdminPassword": {
+          "help": "Define «Contraseña de Administrador». Valor predeterminado: vacío."
+        },
+        "ServerPassword": {
+          "help": "Define «Contraseña del Servidor». Valor predeterminado: vacío."
+        },
+        "PublicPort": {
+          "help": "Controla «Puerto Público». Valor predeterminado: 8211. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "PublicIP": {
+          "help": "Define «IP Pública». Valor predeterminado: vacío."
+        },
+        "RCONEnabled": {
+          "help": "Activa o desactiva «RCON Habilitado».",
+          "False": "Desactivado: RCON Habilitado no está activo.",
+          "True": "Activado: RCON Habilitado está activo."
+        },
+        "RCONPort": {
+          "help": "Controla «Puerto RCON». Valor predeterminado: 25575. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "RESTAPIEnabled": {
+          "help": "Activa o desactiva «REST API Hablitado».",
+          "False": "Desactivado: REST API Hablitado no está activo.",
+          "True": "Activado: REST API Hablitado está activo."
+        },
+        "RESTAPIPort": {
+          "help": "Controla «Puerto REST API». Valor predeterminado: 8212. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "bIsUseBackupSaveData": {
+          "help": "Activa o desactiva «Usar Datos de Guardado de Respaldo».",
+          "False": "Desactivado: Usar Datos de Guardado de Respaldo no está activo.",
+          "True": "Activado: Usar Datos de Guardado de Respaldo está activo."
+        },
+        "Region": {
+          "help": "Define «Región». Valor predeterminado: vacío."
+        },
+        "bUseAuth": {
+          "help": "Activa o desactiva «Usar Autenticación».",
+          "False": "Desactivado: Usar Autenticación no está activo.",
+          "True": "Activado: Usar Autenticación está activo."
+        },
+        "BanListURL": {
+          "help": "Define «URL de Lista de Prohibidos». Valor predeterminado: https://b.palworldgame.com/api/banlist.txt."
+        },
+        "EquipmentDurabilityDamageRate": {
+          "help": "Controla «Tasa de daño por durabilidad del equipo». Valor predeterminado: 1.000000. Intervalo permitido: 0.1-5. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "ItemContainerForceMarkDirtyInterval": {
+          "help": "Controla «Intervalo de marcado forzado de contenedor de objetos». Valor predeterminado: 1.000000. Intervalo permitido: 0.1-10. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "ItemCorruptionMultiplier": {
+          "help": "Controla «Multiplicador de Corrupción de Objetos». Valor predeterminado: 1.000000. Intervalo permitido: 0.1-10. Los cambios afectan al sistema correspondiente del juego o del servidor."
         },
         "bEnableFastTravelOnlyBaseCamp": {
           "help": "Determina si el viaje rápido solo es posible entre campamentos base (Palboxes).",
           "False": "Viaje rápido entre las Estatuas del Gran Águila y las Palboxes.",
           "True": "Viaje rápido únicamente entre Palboxes; las Estatuas del Gran Águila están deshabilitadas."
+        },
+        "bAllowClientMod": {
+          "help": "Activa o desactiva «Permitir mods del cliente».",
+          "False": "Desactivado: Permitir mods del cliente no está activo.",
+          "True": "Activado: Permitir mods del cliente está activo."
+        },
+        "bIsShowJoinLeftMessage": {
+          "help": "Activa o desactiva «Mostrar mensajes de unirse/salir».",
+          "False": "Desactivado: Mostrar mensajes de unirse/salir no está activo.",
+          "True": "Activado: Mostrar mensajes de unirse/salir está activo."
+        },
+        "DenyTechnologyList": {
+          "help": "Selecciona uno o varios valores para «Lista de tecnologías prohibidas»."
+        },
+        "GuildRejoinCooldownMinutes": {
+          "help": "Controla «Tiempo de reutilización para reingresar al gremio (minutos)». Valor predeterminado: 0. Intervalo permitido: 0-1440. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "BlockRespawnTime": {
+          "help": "Controla «Tiempo de reaparición de bloques». Valor predeterminado: 5.000000. Intervalo permitido: 0-60. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "RespawnPenaltyDurationThreshold": {
+          "help": "Controla «Umbral de duración de penalización por respawn». Valor predeterminado: 0.000000. Intervalo permitido: 0-3600. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "RespawnPenaltyTimeScale": {
+          "help": "Controla «Multiplicador de tiempo de penalización por respawn». Valor predeterminado: 2.000000. Intervalo permitido: 0-10. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "bDisplayPvPItemNumOnWorldMap_BaseCamp": {
+          "help": "Activa o desactiva «Mostrar número de objetos PvP en el mapa del mundo (Campamento base)».",
+          "False": "Desactivado: Mostrar número de objetos PvP en el mapa del mundo (Campamento base) no está activo.",
+          "True": "Activado: Mostrar número de objetos PvP en el mapa del mundo (Campamento base) está activo."
+        },
+        "bDisplayPvPItemNumOnWorldMap_Player": {
+          "help": "Activa o desactiva «Mostrar número de objetos PvP en el mapa del mundo (Jugador)».",
+          "False": "Desactivado: Mostrar número de objetos PvP en el mapa del mundo (Jugador) no está activo.",
+          "True": "Activado: Mostrar número de objetos PvP en el mapa del mundo (Jugador) está activo."
+        },
+        "AdditionalDropItemWhenPlayerKillingInPvPMode": {
+          "help": "Define «Objeto adicional al eliminar jugador en modo PvP». Valor predeterminado: PlayerDropItem."
+        },
+        "AdditionalDropItemNumWhenPlayerKillingInPvPMode": {
+          "help": "Controla «Número de objetos adicionales al eliminar jugador en modo PvP». Valor predeterminado: 1. Intervalo permitido: 0-100. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "bAdditionalDropItemWhenPlayerKillingInPvPMode": {
+          "help": "Activa o desactiva «Habilitar objeto adicional al eliminar jugador en modo PvP».",
+          "False": "Desactivado: Habilitar objeto adicional al eliminar jugador en modo PvP no está activo.",
+          "True": "Activado: Habilitar objeto adicional al eliminar jugador en modo PvP está activo."
+        },
+        "bAllowEnhanceStat_Health": {
+          "help": "Activa o desactiva «Permitir mejora de estado - Salud».",
+          "False": "Desactivado: Permitir mejora de estado - Salud no está activo.",
+          "True": "Activado: Permitir mejora de estado - Salud está activo."
+        },
+        "bAllowEnhanceStat_Attack": {
+          "help": "Activa o desactiva «Permitir mejora de estado - Ataque».",
+          "False": "Desactivado: Permitir mejora de estado - Ataque no está activo.",
+          "True": "Activado: Permitir mejora de estado - Ataque está activo."
+        },
+        "bAllowEnhanceStat_Stamina": {
+          "help": "Activa o desactiva «Permitir mejora de estado - Resistencia».",
+          "False": "Desactivado: Permitir mejora de estado - Resistencia no está activo.",
+          "True": "Activado: Permitir mejora de estado - Resistencia está activo."
+        },
+        "bAllowEnhanceStat_Weight": {
+          "help": "Activa o desactiva «Permitir mejora de estado - Peso».",
+          "False": "Desactivado: Permitir mejora de estado - Peso no está activo.",
+          "True": "Activado: Permitir mejora de estado - Peso está activo."
+        },
+        "bAllowEnhanceStat_WorkSpeed": {
+          "help": "Activa o desactiva «Permitir mejora de estado - Velocidad de trabajo».",
+          "False": "Desactivado: Permitir mejora de estado - Velocidad de trabajo no está activo.",
+          "True": "Activado: Permitir mejora de estado - Velocidad de trabajo está activo."
+        },
+        "PhysicsActiveDropItemMaxNum": {
+          "help": "Controla «Número máximo de objetos caídos con física activa». Valor predeterminado: -1. Intervalo permitido: -1-10000. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "PlayerDataPalStorageUpdateCheckTickInterval": {
+          "help": "Controla «Intervalo de verificación de datos de almacenamiento de Pals del jugador». Valor predeterminado: 1.000000. Intervalo permitido: 0.1-60. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "MonsterFarmActionSpeedRate": {
+          "help": "Controla «Multiplicador de velocidad de producción de objetos por pastoreo». Valor predeterminado: 1.000000. Intervalo permitido: 0.1-5. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "AutoTransferMasterCheckIntervalSeconds": {
+          "help": "Controla «Intervalo de verificación de transferencia automática de maestro de gremio (segundos)». Valor predeterminado: 3600.000000. Intervalo permitido: 60-86400. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "AutoTransferMasterThresholdDays": {
+          "help": "Controla «Umbral de días offline para transferencia automática de maestro de gremio». Valor predeterminado: 14. Intervalo permitido: 1-365. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "MaxGuildsPerFrame": {
+          "help": "Controla «Número máximo de gremios procesados por frame». Valor predeterminado: 10. Intervalo permitido: 1-100. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "bEnableVoiceChat": {
+          "help": "Activa o desactiva «Activar chat de voz en el juego».",
+          "False": "Desactivado: Activar chat de voz en el juego no está activo.",
+          "True": "Activado: Activar chat de voz en el juego está activo."
+        },
+        "VoiceChatMaxVolumeDistance": {
+          "help": "Controla «Distancia sin atenuación del volumen del chat de voz». Valor predeterminado: 3000.000000. Intervalo permitido: 100-50000. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "VoiceChatZeroVolumeDistance": {
+          "help": "Controla «Distancia a la que el volumen del chat de voz se vuelve cero». Valor predeterminado: 15000.000000. Intervalo permitido: 100-50000. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "bEnableBuildingPlayerUIdDisplay": {
+          "help": "Activa o desactiva «Mostrar ID del jugador creador en las estructuras».",
+          "False": "Desactivado: Mostrar ID del jugador creador en las estructuras no está activo.",
+          "True": "Activado: Mostrar ID del jugador creador en las estructuras está activo."
+        },
+        "BuildingNameDisplayCacheTTLSeconds": {
+          "help": "Controla «Validez de la caché de visualización del nombre de la construcción (segundos)». Valor predeterminado: 60. Intervalo permitido: 1-3600. Los cambios afectan al sistema correspondiente del juego o del servidor."
+        },
+        "EnablePredatorBossPal": {
+          "help": "Controla «Habilitar Pal Jefe Depredador»."
+        },
+        "SupplyDropSpan": {
+          "help": "Controla «Intervalo de meteoritos y entrega de suministros (minutos)»."
+        },
+        "ChatPostLimitPerMinute": {
+          "help": "Controla «Límite de mensajes por minuto»."
+        },
+        "MaxBuildingLimitNum": {
+          "help": "Controla «Número Máximo de Límite de Construcción por Jugador»."
+        },
+        "ServerReplicatePawnCullDistance": {
+          "help": "Controla «Distancia de Sincronización de Pal Desde el Jugador»."
+        },
+        "bAllowGlobalPalboxExport": {
+          "help": "Controla «Permitir exportación global de Palbox»."
+        },
+        "bAllowGlobalPalboxImport": {
+          "help": "Controla «Permitir importación global de Palbox»."
         }
       }
+    },
+    "footer": {
+      "community": "Hecho con ❤️ por la comunidad, para la comunidad.",
+      "copyright": "2024-{{year}} © Bluefissure"
+    },
+    "dashboard": {
+      "searchPlaceholder": "Buscar ajustes…",
+      "settingsCount": "{{count}} ajustes",
+      "categories": "Categorías",
+      "resetAll": "Restablecer todo",
+      "resetSubtitle": "Cargar valores predeterminados",
+      "previewTitle": "Vista previa de la configuración",
+      "statusLiveTitle": "Vista previa en vivo",
+      "statusLiveSubtitle": "Actualización en tiempo real",
+      "statusLanguagesTitle": "9 idiomas",
+      "statusLanguagesSubtitle": "Traducción completa",
+      "statusThemeTitle": "Claro y oscuro",
+      "statusThemeSubtitle": "Tema automático",
+      "resetDone": "Ajustes restablecidos",
+      "resetDoneDescription": "Todos los ajustes se han restaurado a sus valores predeterminados."
     }
   }
 }

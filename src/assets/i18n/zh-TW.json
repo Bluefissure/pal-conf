@@ -169,27 +169,471 @@
         "BuildingNameDisplayCacheTTLSeconds": "建築名稱顯示緩存有效期(秒)"
       },
       "description": {
+        "Difficulty": {
+          "help": "選擇「遊戲難度」的行為。預設值：None。"
+        },
+        "RandomizerType": {
+          "help": "選擇「隨機器類型」的行為。預設值：None。",
+          "None": "未設定隨機器",
+          "Region": "設定為隨機地區",
+          "All": "設定為全面隨機"
+        },
+        "RandomizerSeed": {
+          "help": "設定「隨機種子」。預設值：空白。"
+        },
+        "bIsRandomizerPalLevelRandom": {
+          "help": "啟用或停用「完全隨機野外帕魯等級」。",
+          "False": "停用：完全隨機野外帕魯等級不會生效。",
+          "True": "啟用：完全隨機野外帕魯等級會生效。"
+        },
+        "DayTimeSpeedRate": {
+          "help": "調整「白天流逝速度」。預設值：1.000000。 允許範圍：0.1-5。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "NightTimeSpeedRate": {
+          "help": "調整「夜晚流逝速度」。預設值：1.000000。 允許範圍：0.1-5。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "ExpRate": {
+          "help": "調整「經驗值倍率」。預設值：1.000000。 允許範圍：0-20。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "PalCaptureRate": {
+          "help": "調整「捕獲機率倍率」。預設值：1.000000。 允許範圍：0.5-5。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "PalSpawnNumRate": {
+          "help": "調整「帕魯出現數量倍率」。預設值：1.000000。 允許範圍：0.5-5。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "PalDamageRateAttack": {
+          "help": "調整「帕魯攻擊傷害倍率」。預設值：1.000000。 允許範圍：0.1-5。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "PalDamageRateDefense": {
+          "help": "調整「帕魯承受傷害倍率」。預設值：1.000000。 允許範圍：0.1-5。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "PlayerDamageRateAttack": {
+          "help": "調整「玩家攻擊傷害倍率」。預設值：1.000000。 允許範圍：0.1-5。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "PlayerDamageRateDefense": {
+          "help": "調整「玩家承受傷害倍率」。預設值：1.000000。 允許範圍：0.1-5。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "PlayerStomachDecreaceRate": {
+          "help": "調整「玩家飽食度降低倍率」。預設值：1.000000。 允許範圍：0.1-5。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "PlayerStaminaDecreaceRate": {
+          "help": "調整「玩家耐力降低倍率」。預設值：1.000000。 允許範圍：0.1-5。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "PlayerAutoHPRegeneRate": {
+          "help": "調整「玩家生命值自然回復倍率」。預設值：1.000000。 允許範圍：0.1-5。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "PlayerAutoHpRegeneRateInSleep": {
+          "help": "調整「玩家睡眠時生命值回復倍率」。預設值：1.000000。 允許範圍：0.1-5。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "PalStomachDecreaceRate": {
+          "help": "調整「帕魯飽食度降低倍率」。預設值：1.000000。 允許範圍：0.1-5。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "PalStaminaDecreaceRate": {
+          "help": "調整「帕魯耐力降低倍率」。預設值：1.000000。 允許範圍：0.1-5。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "PalAutoHPRegeneRate": {
+          "help": "調整「帕魯生命值自然回復倍率」。預設值：1.000000。 允許範圍：0.1-5。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "PalAutoHpRegeneRateInSleep": {
+          "help": "調整「帕魯睡眠時生命值回復倍率」。預設值：1.000000。 允許範圍：0.1-5。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "BuildObjectHpRate": {
+          "help": "調整「建築物生命值倍率」。預設值：1.000000。 允許範圍：0.5-5。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "BuildObjectDamageRate": {
+          "help": "調整「對建築傷害倍率」。預設值：1.000000。 允許範圍：0.5-3。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "BuildObjectDeteriorationDamageRate": {
+          "help": "調整「建築物的劣化速度倍率」。預設值：1.000000。 允許範圍：0-10。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "CollectionDropRate": {
+          "help": "調整「道具採集量倍率」。預設值：1.000000。 允許範圍：0.5-5。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "CollectionObjectHpRate": {
+          "help": "調整「可採集物品生命值倍率」。預設值：1.000000。 允許範圍：0.5-3。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "CollectionObjectRespawnSpeedRate": {
+          "help": "調整「可採集物品刷新間隔」。預設值：1.000000。 允許範圍：0.5-5。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "EnemyDropItemRate": {
+          "help": "調整「道具掉落量倍率」。預設值：1.000000。 允許範圍：0.5-5。變更會影響對應的遊戲或伺服器系統。"
+        },
         "DeathPenalty": {
+          "help": "選擇「死亡懲罰」的行為。預設值：All。",
           "None": "不掉落任何物品",
           "Item": "掉落裝備以外的道具",
           "ItemAndEquipment": "掉落所有道具",
           "All": "掉落所有道具及隊伍內帕魯"
         },
+        "bEnablePlayerToPlayerDamage": {
+          "help": "啟用或停用「啟用玩家間傷害」。",
+          "False": "停用：啟用玩家間傷害不會生效。",
+          "True": "啟用：啟用玩家間傷害會生效。"
+        },
+        "bEnableFriendlyFire": {
+          "help": "啟用或停用「啟用友軍火力」。",
+          "False": "停用：啟用友軍火力不會生效。",
+          "True": "啟用：啟用友軍火力會生效。"
+        },
+        "bEnableInvaderEnemy": {
+          "help": "啟用或停用「啟用襲擊事件」。",
+          "False": "停用：啟用襲擊事件不會生效。",
+          "True": "啟用：啟用襲擊事件會生效。"
+        },
+        "bActiveUNKO": {
+          "help": "啟用或停用「啟用帕魯便便」。",
+          "False": "停用：啟用帕魯便便不會生效。",
+          "True": "啟用：啟用帕魯便便會生效。"
+        },
+        "bEnableAimAssistPad": {
+          "help": "啟用或停用「啟用手把輔助瞄準」。",
+          "False": "停用：啟用手把輔助瞄準不會生效。",
+          "True": "啟用：啟用手把輔助瞄準會生效。"
+        },
+        "bEnableAimAssistKeyboard": {
+          "help": "啟用或停用「啟用鍵鼠輔助瞄準」。",
+          "False": "停用：啟用鍵鼠輔助瞄準不會生效。",
+          "True": "啟用：啟用鍵鼠輔助瞄準會生效。"
+        },
+        "DropItemMaxNum": {
+          "help": "調整「世界內的掉落物上限」。預設值：3000。 允許範圍：0-10000。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "DropItemMaxNum_UNKO": {
+          "help": "調整「世界內的帕魯便便掉落上限」。預設值：100。 允許範圍：0-5000。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "BaseCampMaxNum": {
+          "help": "調整「基地最大數量」。預設值：128。 允許範圍：0-10240。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "BaseCampMaxNumInGuild": {
+          "help": "調整「公會的基地最大數量」。預設值：3。 允許範圍：1-50。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "BaseCampWorkerMaxNum": {
+          "help": "調整「據點工作帕魯數量上限」。預設值：15。 允許範圍：1-50。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "DropItemAliveMaxHours": {
+          "help": "調整「掉落物品留存時間(小時)」。預設值：1.000000。 允許範圍：0-240。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "bAutoResetGuildNoOnlinePlayers": {
+          "help": "啟用或停用「啟用自動清理公會成員」。",
+          "False": "停用：啟用自動清理公會成員不會生效。",
+          "True": "啟用：啟用自動清理公會成員會生效。"
+        },
+        "AutoResetGuildTimeNoOnlinePlayers": {
+          "help": "調整「自動清理公會成員(小時)」。預設值：72.000000。 允許範圍：0-240。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "GuildPlayerMaxNum": {
+          "help": "調整「公會人數上限」。預設值：20。 允許範圍：1-100。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "PalEggDefaultHatchingTime": {
+          "help": "調整「巨大蛋孵化所需時間(小時)」。預設值：72.000000。 允許範圍：0-240。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "WorkSpeedRate": {
+          "help": "調整「工作速度倍率」。預設值：1.000000。 允許範圍：0.1-5。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "AutoSaveSpan": {
+          "help": "調整「自動保存間隔」。預設值：30.000000。 允許範圍：30-3600。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "CrossplayPlatforms": {
+          "help": "為「允許連接平台」選擇一個或多個值。"
+        },
         "LogFormatType": {
+          "help": "選擇「日誌格式類型」的行為。預設值：Text。",
           "Text": "使用文本格式記錄日誌",
           "Json": "使用Json格式記錄日誌"
         },
-        "RandomizerType": {
-          "None": "未設定隨機器",
-          "Region": "設定為隨機地區",
-          "All": "設定為全面隨機"
+        "bIsMultiplay": {
+          "help": "啟用或停用「啟用多人遊戲」。",
+          "False": "停用：啟用多人遊戲不會生效。",
+          "True": "啟用：啟用多人遊戲會生效。"
+        },
+        "bIsPvP": {
+          "help": "啟用或停用「啟用PvP」。",
+          "False": "停用：啟用PvP不會生效。",
+          "True": "啟用：啟用PvP會生效。"
+        },
+        "bHardcore": {
+          "help": "啟用或停用「啟用硬核模式」。",
+          "False": "停用：啟用硬核模式不會生效。",
+          "True": "啟用：啟用硬核模式會生效。"
+        },
+        "bPalLost": {
+          "help": "啟用或停用「啟用帕魯遺失模式」。",
+          "False": "停用：啟用帕魯遺失模式不會生效。",
+          "True": "啟用：啟用帕魯遺失模式會生效。"
+        },
+        "bCharacterRecreateInHardcore": {
+          "help": "啟用或停用「允許在硬核模式下重新創建角色」。",
+          "False": "停用：允許在硬核模式下重新創建角色不會生效。",
+          "True": "啟用：允許在硬核模式下重新創建角色會生效。"
+        },
+        "bCanPickupOtherGuildDeathPenaltyDrop": {
+          "help": "啟用或停用「允許拾取其他公會死亡掉落物」。",
+          "False": "停用：允許拾取其他公會死亡掉落物不會生效。",
+          "True": "啟用：允許拾取其他公會死亡掉落物會生效。"
+        },
+        "bEnableNonLoginPenalty": {
+          "help": "啟用或停用「啟用未登入懲罰」。",
+          "False": "停用：啟用未登入懲罰不會生效。",
+          "True": "啟用：啟用未登入懲罰會生效。"
+        },
+        "bEnableFastTravel": {
+          "help": "啟用或停用「啟用快速旅行」。",
+          "False": "停用：啟用快速旅行不會生效。",
+          "True": "啟用：啟用快速旅行會生效。"
+        },
+        "bIsStartLocationSelectByMap": {
+          "help": "啟用或停用「允許從地圖選擇起始位置」。",
+          "False": "停用：允許從地圖選擇起始位置不會生效。",
+          "True": "啟用：允許從地圖選擇起始位置會生效。"
+        },
+        "bExistPlayerAfterLogout": {
+          "help": "啟用或停用「玩家登出後人物是否消失」。",
+          "False": "停用：玩家登出後人物是否消失不會生效。",
+          "True": "啟用：玩家登出後人物是否消失會生效。"
+        },
+        "bEnableDefenseOtherGuildPlayer": {
+          "help": "啟用或停用「啟用公會戰」。",
+          "False": "停用：啟用公會戰不會生效。",
+          "True": "啟用：啟用公會戰會生效。"
+        },
+        "bInvisibleOtherGuildBaseCampAreaFX": {
+          "help": "啟用或停用「隱藏其他公會基地特效」。",
+          "False": "停用：隱藏其他公會基地特效不會生效。",
+          "True": "啟用：隱藏其他公會基地特效會生效。"
+        },
+        "bBuildAreaLimit": {
+          "help": "啟用或停用「建築區域限制」。",
+          "False": "停用：建築區域限制不會生效。",
+          "True": "啟用：建築區域限制會生效。"
+        },
+        "ItemWeightRate": {
+          "help": "調整「道具重量倍率」。預設值：1.000000。 允許範圍：0.1-5。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "bShowPlayerList": {
+          "help": "啟用或停用「啟用伺服器內可以查看其他玩家列表」。",
+          "False": "停用：啟用伺服器內可以查看其他玩家列表不會生效。",
+          "True": "啟用：啟用伺服器內可以查看其他玩家列表會生效。"
+        },
+        "CoopPlayerMaxNum": {
+          "help": "調整「隊伍最大人數」。預設值：4。 允許範圍：1-4。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "ServerPlayerMaxNum": {
+          "help": "調整「伺服器同時遊玩最大人數」。預設值：32。 允許範圍：1-512。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "ServerName": {
+          "help": "設定「伺服器名稱」。預設值：Default Palworld Server。"
+        },
+        "ServerDescription": {
+          "help": "設定「伺服器描述」。預設值：空白。"
+        },
+        "AdminPassword": {
+          "help": "設定「管理者密碼」。預設值：空白。"
+        },
+        "ServerPassword": {
+          "help": "設定「伺服器密碼」。預設值：空白。"
+        },
+        "PublicPort": {
+          "help": "調整「公共連接埠」。預設值：8211。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "PublicIP": {
+          "help": "設定「公共 IP」。預設值：空白。"
+        },
+        "RCONEnabled": {
+          "help": "啟用或停用「啟用RCON」。",
+          "False": "停用：啟用RCON不會生效。",
+          "True": "啟用：啟用RCON會生效。"
+        },
+        "RCONPort": {
+          "help": "調整「RCON連接埠」。預設值：25575。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "RESTAPIEnabled": {
+          "help": "啟用或停用「啟用RESTAPI」。",
+          "False": "停用：啟用RESTAPI不會生效。",
+          "True": "啟用：啟用RESTAPI會生效。"
+        },
+        "RESTAPIPort": {
+          "help": "調整「RESTAPI連接埠」。預設值：8212。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "bIsUseBackupSaveData": {
+          "help": "啟用或停用「啟用備份存檔」。",
+          "False": "停用：啟用備份存檔不會生效。",
+          "True": "啟用：啟用備份存檔會生效。"
+        },
+        "Region": {
+          "help": "設定「地區」。預設值：空白。"
+        },
+        "bUseAuth": {
+          "help": "啟用或停用「使用驗證」。",
+          "False": "停用：使用驗證不會生效。",
+          "True": "啟用：使用驗證會生效。"
+        },
+        "BanListURL": {
+          "help": "設定「封禁列表來源」。預設值：https://b.palworldgame.com/api/banlist.txt。"
+        },
+        "EquipmentDurabilityDamageRate": {
+          "help": "調整「裝備耐久度減少倍率」。預設值：1.000000。 允許範圍：0.1-5。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "ItemContainerForceMarkDirtyInterval": {
+          "help": "調整「物品容器強制標記為脏的間隔（秒）」。預設值：1.000000。 允許範圍：0.1-10。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "ItemCorruptionMultiplier": {
+          "help": "調整「物品腐化倍率」。預設值：1.000000。 允許範圍：0.1-10。變更會影響對應的遊戲或伺服器系統。"
         },
         "bEnableFastTravelOnlyBaseCamp": {
           "help": "設定是否僅允許在基地（帕魯終端）之間進行快速旅行。",
           "False": "可在巨鷹雕像與帕魯終端之間快速旅行。",
           "True": "僅可在帕魯終端之間快速旅行，巨鷹雕像將停用。"
+        },
+        "bAllowClientMod": {
+          "help": "啟用或停用「允許客戶端Mod」。",
+          "False": "停用：允許客戶端Mod不會生效。",
+          "True": "啟用：允許客戶端Mod會生效。"
+        },
+        "bIsShowJoinLeftMessage": {
+          "help": "啟用或停用「顯示玩家加入/離開訊息」。",
+          "False": "停用：顯示玩家加入/離開訊息不會生效。",
+          "True": "啟用：顯示玩家加入/離開訊息會生效。"
+        },
+        "DenyTechnologyList": {
+          "help": "為「禁用科技清單」選擇一個或多個值。"
+        },
+        "GuildRejoinCooldownMinutes": {
+          "help": "調整「公會重加冷卻時間(分鐘)」。預設值：0。 允許範圍：0-1440。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "BlockRespawnTime": {
+          "help": "調整「阻擋重生時間」。預設值：5.000000。 允許範圍：0-60。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "RespawnPenaltyDurationThreshold": {
+          "help": "調整「重生懲罰持續時間閾值」。預設值：0.000000。 允許範圍：0-3600。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "RespawnPenaltyTimeScale": {
+          "help": "調整「重生懲罰時間倍數」。預設值：2.000000。 允許範圍：0-10。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "bDisplayPvPItemNumOnWorldMap_BaseCamp": {
+          "help": "啟用或停用「地圖顯示PVP掉落物數量（基地）」。",
+          "False": "停用：地圖顯示PVP掉落物數量（基地）不會生效。",
+          "True": "啟用：地圖顯示PVP掉落物數量（基地）會生效。"
+        },
+        "bDisplayPvPItemNumOnWorldMap_Player": {
+          "help": "啟用或停用「地圖顯示PVP掉落物數量（玩家）」。",
+          "False": "停用：地圖顯示PVP掉落物數量（玩家）不會生效。",
+          "True": "啟用：地圖顯示PVP掉落物數量（玩家）會生效。"
+        },
+        "AdditionalDropItemWhenPlayerKillingInPvPMode": {
+          "help": "設定「PVP擊殺附加掉落物」。預設值：PlayerDropItem。"
+        },
+        "AdditionalDropItemNumWhenPlayerKillingInPvPMode": {
+          "help": "調整「PVP擊殺附加掉落物數量」。預設值：1。 允許範圍：0-100。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "bAdditionalDropItemWhenPlayerKillingInPvPMode": {
+          "help": "啟用或停用「啟用PVP擊殺附加掉落」。",
+          "False": "停用：啟用PVP擊殺附加掉落不會生效。",
+          "True": "啟用：啟用PVP擊殺附加掉落會生效。"
+        },
+        "bAllowEnhanceStat_Health": {
+          "help": "啟用或停用「允許加點-生命」。",
+          "False": "停用：允許加點-生命不會生效。",
+          "True": "啟用：允許加點-生命會生效。"
+        },
+        "bAllowEnhanceStat_Attack": {
+          "help": "啟用或停用「允許加點-攻擊」。",
+          "False": "停用：允許加點-攻擊不會生效。",
+          "True": "啟用：允許加點-攻擊會生效。"
+        },
+        "bAllowEnhanceStat_Stamina": {
+          "help": "啟用或停用「允許加點-體力」。",
+          "False": "停用：允許加點-體力不會生效。",
+          "True": "啟用：允許加點-體力會生效。"
+        },
+        "bAllowEnhanceStat_Weight": {
+          "help": "啟用或停用「允許加點-負重」。",
+          "False": "停用：允許加點-負重不會生效。",
+          "True": "啟用：允許加點-負重會生效。"
+        },
+        "bAllowEnhanceStat_WorkSpeed": {
+          "help": "啟用或停用「允許加點-工作速度」。",
+          "False": "停用：允許加點-工作速度不會生效。",
+          "True": "啟用：允許加點-工作速度會生效。"
+        },
+        "PhysicsActiveDropItemMaxNum": {
+          "help": "調整「可啟用物理模擬的掉落物最大數量」。預設值：-1。 允許範圍：-1-10000。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "PlayerDataPalStorageUpdateCheckTickInterval": {
+          "help": "調整「玩家帕魯倉庫數據更新檢測間隔」。預設值：1.000000。 允許範圍：0.1-60。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "MonsterFarmActionSpeedRate": {
+          "help": "調整「帕魯放牧產出物品速度倍率」。預設值：1.000000。 允許範圍：0.1-5。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "AutoTransferMasterCheckIntervalSeconds": {
+          "help": "調整「公會歸屬自動轉移檢測間隔(秒)」。預設值：3600.000000。 允許範圍：60-86400。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "AutoTransferMasterThresholdDays": {
+          "help": "調整「公會會長自動移交離線天數閾值」。預設值：14。 允許範圍：1-365。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "MaxGuildsPerFrame": {
+          "help": "調整「單幀處理公會最大數量」。預設值：10。 允許範圍：1-100。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "bEnableVoiceChat": {
+          "help": "啟用或停用「啟用遊戲內語音聊天」。",
+          "False": "停用：啟用遊戲內語音聊天不會生效。",
+          "True": "啟用：啟用遊戲內語音聊天會生效。"
+        },
+        "VoiceChatMaxVolumeDistance": {
+          "help": "調整「語音音量無衰減距離」。預設值：3000.000000。 允許範圍：100-50000。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "VoiceChatZeroVolumeDistance": {
+          "help": "調整「語音完全靜音距離」。預設值：15000.000000。 允許範圍：100-50000。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "bEnableBuildingPlayerUIdDisplay": {
+          "help": "啟用或停用「顯示建築建造者玩家ID」。",
+          "False": "停用：顯示建築建造者玩家ID不會生效。",
+          "True": "啟用：顯示建築建造者玩家ID會生效。"
+        },
+        "BuildingNameDisplayCacheTTLSeconds": {
+          "help": "調整「建築名稱顯示緩存有效期(秒)」。預設值：60。 允許範圍：1-3600。變更會影響對應的遊戲或伺服器系統。"
+        },
+        "EnablePredatorBossPal": {
+          "help": "調整「啟用猛獸 Boss 帕魯」。"
+        },
+        "SupplyDropSpan": {
+          "help": "調整「隕石或空投的間隔（分鐘）」。"
+        },
+        "ChatPostLimitPerMinute": {
+          "help": "調整「每分鐘聊天限制數」。"
+        },
+        "MaxBuildingLimitNum": {
+          "help": "調整「每個玩家的建築物上限」。"
+        },
+        "ServerReplicatePawnCullDistance": {
+          "help": "調整「玩家與帕魯同步距離」。"
+        },
+        "bAllowGlobalPalboxExport": {
+          "help": "調整「允許透過跨界帕魯終端保存帕魯的基因序列」。"
+        },
+        "bAllowGlobalPalboxImport": {
+          "help": "調整「允許透過跨界帕魯終端的基因序列復原帕魯」。"
         }
       }
+    },
+    "footer": {
+      "community": "由社群用 ❤️ 打造，服務於社群。",
+      "copyright": "2024-{{year}} © Bluefissure"
+    },
+    "dashboard": {
+      "searchPlaceholder": "搜尋設定…",
+      "settingsCount": "{{count}} 項設定",
+      "categories": "分類",
+      "resetAll": "全部重設",
+      "resetSubtitle": "載入預設值",
+      "previewTitle": "設定預覽",
+      "statusLiveTitle": "即時預覽",
+      "statusLiveSubtitle": "即時更新",
+      "statusLanguagesTitle": "9 種語言",
+      "statusLanguagesSubtitle": "完整翻譯",
+      "statusThemeTitle": "淺色與深色",
+      "statusThemeSubtitle": "自動主題",
+      "resetDone": "設定已重設",
+      "resetDoneDescription": "所有設定均已恢復為預設值。"
     }
   }
 }
