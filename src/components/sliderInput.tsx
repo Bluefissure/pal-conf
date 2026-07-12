@@ -32,6 +32,7 @@ function SliderInput(props: {
     type?: string;
     disabled?: boolean;
     difficultyType?: DifficultyType;
+    description?: string;
 }) {
     const {
         id,
@@ -44,7 +45,8 @@ function SliderInput(props: {
         onValueChange,
         type,
         disabled,
-        difficultyType = 'independence'
+        difficultyType = 'independence',
+        description
     } = props;
 
     const [inputValue, setInputValue] = useState(`${value}`);
@@ -119,8 +121,9 @@ function SliderInput(props: {
                     <Tooltip>
                         <TooltipTrigger className="cursor-default">
                             <Label className="leading-8 whitespace-nowrap">{name}</Label>
-                            <TooltipContent>
-                                <p>{id}</p>
+                            <TooltipContent className="max-w-sm">
+                                <p className="font-mono text-xs text-muted-foreground">{id}</p>
+                                {description && <p className="mt-1 whitespace-pre-line leading-relaxed">{description}</p>}
                             </TooltipContent>
                         </TooltipTrigger>
                     </Tooltip>

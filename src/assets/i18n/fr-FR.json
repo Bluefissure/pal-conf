@@ -169,27 +169,471 @@
         "BuildingNameDisplayCacheTTLSeconds": "Durée de validité du cache d'affichage du nom des bâtiments (secondes)"
       },
       "description": {
+        "Difficulty": {
+          "help": "Sélectionne le comportement de « Difficulté ». Valeur par défaut : None."
+        },
+        "RandomizerType": {
+          "help": "Sélectionne le comportement de « Type de randomisation ». Valeur par défaut : None.",
+          "None": "Désactiver toute randomisation",
+          "Region": "Randomiser régionnalement",
+          "All": "Randomiser mondialement"
+        },
+        "RandomizerSeed": {
+          "help": "Définit « Graine de l'aléatoire ». Valeur par défaut : vide."
+        },
+        "bIsRandomizerPalLevelRandom": {
+          "help": "Active ou désactive « Niveau de Palu sauvage entièrement aléatoire ».",
+          "False": "Désactivé : Niveau de Palu sauvage entièrement aléatoire n’est pas actif.",
+          "True": "Activé : Niveau de Palu sauvage entièrement aléatoire est actif."
+        },
+        "DayTimeSpeedRate": {
+          "help": "Contrôle « Vitesse du jour ». Valeur par défaut : 1.000000. Plage autorisée : 0.1-5. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "NightTimeSpeedRate": {
+          "help": "Contrôle « Vitesse de nuit ». Valeur par défaut : 1.000000. Plage autorisée : 0.1-5. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "ExpRate": {
+          "help": "Contrôle « Taux d'expérience ». Valeur par défaut : 1.000000. Plage autorisée : 0-20. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "PalCaptureRate": {
+          "help": "Contrôle « Taux de capture des Pal ». Valeur par défaut : 1.000000. Plage autorisée : 0.5-5. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "PalSpawnNumRate": {
+          "help": "Contrôle « Taux d'apparition des Pal ». Valeur par défaut : 1.000000. Plage autorisée : 0.5-5. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "PalDamageRateAttack": {
+          "help": "Contrôle « Taux de dégâts des Pal ». Valeur par défaut : 1.000000. Plage autorisée : 0.1-5. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "PalDamageRateDefense": {
+          "help": "Contrôle « Taux de défense des Pal ». Valeur par défaut : 1.000000. Plage autorisée : 0.1-5. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "PlayerDamageRateAttack": {
+          "help": "Contrôle « Taux de dégâts des joueurs ». Valeur par défaut : 1.000000. Plage autorisée : 0.1-5. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "PlayerDamageRateDefense": {
+          "help": "Contrôle « Taux de défense des joueurs ». Valeur par défaut : 1.000000. Plage autorisée : 0.1-5. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "PlayerStomachDecreaceRate": {
+          "help": "Contrôle « Vitesse de diminution de la satiété des joueurs ». Valeur par défaut : 1.000000. Plage autorisée : 0.1-5. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "PlayerStaminaDecreaceRate": {
+          "help": "Contrôle « Vitesse de diminution de l'endurance des joueurs ». Valeur par défaut : 1.000000. Plage autorisée : 0.1-5. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "PlayerAutoHPRegeneRate": {
+          "help": "Contrôle « Taux de régénération automatique des PV des joueurs ». Valeur par défaut : 1.000000. Plage autorisée : 0.1-5. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "PlayerAutoHpRegeneRateInSleep": {
+          "help": "Contrôle « Taux de régénération automatique des PV des joueurs pendant le sommeil ». Valeur par défaut : 1.000000. Plage autorisée : 0.1-5. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "PalStomachDecreaceRate": {
+          "help": "Contrôle « Vitesse de diminution de la satiété des Pal ». Valeur par défaut : 1.000000. Plage autorisée : 0.1-5. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "PalStaminaDecreaceRate": {
+          "help": "Contrôle « Vitesse de diminution de l'endurance des Pal ». Valeur par défaut : 1.000000. Plage autorisée : 0.1-5. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "PalAutoHPRegeneRate": {
+          "help": "Contrôle « Taux de régénération automatique des PV des Pal ». Valeur par défaut : 1.000000. Plage autorisée : 0.1-5. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "PalAutoHpRegeneRateInSleep": {
+          "help": "Contrôle « Taux de régénération automatique des PV des Pal pendant le sommeil ». Valeur par défaut : 1.000000. Plage autorisée : 0.1-5. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "BuildObjectHpRate": {
+          "help": "Contrôle « Taux de PV des structures et des objets confectionnés ». Valeur par défaut : 1.000000. Plage autorisée : 0.5-5. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "BuildObjectDamageRate": {
+          "help": "Contrôle « Taux de dégâts des structures et des objets confectionnés ». Valeur par défaut : 1.000000. Plage autorisée : 0.5-3. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "BuildObjectDeteriorationDamageRate": {
+          "help": "Contrôle « Taux de détérioration des structures et des objets confectionnés ». Valeur par défaut : 1.000000. Plage autorisée : 0-10. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "CollectionDropRate": {
+          "help": "Contrôle « Taux de chute des objets collectables ». Valeur par défaut : 1.000000. Plage autorisée : 0.5-5. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "CollectionObjectHpRate": {
+          "help": "Contrôle « Taux de PV des objets collectables ». Valeur par défaut : 1.000000. Plage autorisée : 0.5-3. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "CollectionObjectRespawnSpeedRate": {
+          "help": "Contrôle « Vitesse de réapparition des objets collectables ». Valeur par défaut : 1.000000. Plage autorisée : 0.5-5. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "EnemyDropItemRate": {
+          "help": "Contrôle « Taux de chute des objets des ennemis ». Valeur par défaut : 1.000000. Plage autorisée : 0.5-5. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
         "DeathPenalty": {
+          "help": "Sélectionne le comportement de « Pénalité de mort ». Valeur par défaut : All.",
           "None": "Aucune",
           "Item": "Perte des objets de l'inventaire",
           "ItemAndEquipment": "Perte de l'inventaire et de l'équipement",
           "All": "Perte de l'inventaire, de l'équipement et de l'équipe de Pal"
         },
+        "bEnablePlayerToPlayerDamage": {
+          "help": "Active ou désactive « Activer les dégâts entre joueurs ».",
+          "False": "Désactivé : Activer les dégâts entre joueurs n’est pas actif.",
+          "True": "Activé : Activer les dégâts entre joueurs est actif."
+        },
+        "bEnableFriendlyFire": {
+          "help": "Active ou désactive « Activer les tirs amicaux ».",
+          "False": "Désactivé : Activer les tirs amicaux n’est pas actif.",
+          "True": "Activé : Activer les tirs amicaux est actif."
+        },
+        "bEnableInvaderEnemy": {
+          "help": "Active ou désactive « Activer les invasions ennemies ».",
+          "False": "Désactivé : Activer les invasions ennemies n’est pas actif.",
+          "True": "Activé : Activer les invasions ennemies est actif."
+        },
+        "bActiveUNKO": {
+          "help": "Active ou désactive « Activer les déjections de Pal ».",
+          "False": "Désactivé : Activer les déjections de Pal n’est pas actif.",
+          "True": "Activé : Activer les déjections de Pal est actif."
+        },
+        "bEnableAimAssistPad": {
+          "help": "Active ou désactive « Activer l'assistance à la visée pour manette ».",
+          "False": "Désactivé : Activer l'assistance à la visée pour manette n’est pas actif.",
+          "True": "Activé : Activer l'assistance à la visée pour manette est actif."
+        },
+        "bEnableAimAssistKeyboard": {
+          "help": "Active ou désactive « Activer l'assistance à la visée au clavier ».",
+          "False": "Désactivé : Activer l'assistance à la visée au clavier n’est pas actif.",
+          "True": "Activé : Activer l'assistance à la visée au clavier est actif."
+        },
+        "DropItemMaxNum": {
+          "help": "Contrôle « Nombre maximum d'objets au sol ». Valeur par défaut : 3000. Plage autorisée : 0-10000. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "DropItemMaxNum_UNKO": {
+          "help": "Contrôle « Nombre maximum de déjections au sol ». Valeur par défaut : 100. Plage autorisée : 0-5000. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "BaseCampMaxNum": {
+          "help": "Contrôle « Nombre maximum de camps de base ». Valeur par défaut : 128. Plage autorisée : 0-10240. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "BaseCampMaxNumInGuild": {
+          "help": "Contrôle « Nombre maximum de camps de base par guilde ». Valeur par défaut : 3. Plage autorisée : 1-50. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "BaseCampWorkerMaxNum": {
+          "help": "Contrôle « Nombre maximum de travailleurs par camp de base ». Valeur par défaut : 15. Plage autorisée : 1-50. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "DropItemAliveMaxHours": {
+          "help": "Contrôle « Durée de vie maximale des objets lâchés au sol (en heures) ». Valeur par défaut : 1.000000. Plage autorisée : 0-240. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "bAutoResetGuildNoOnlinePlayers": {
+          "help": "Active ou désactive « Dissolution automatique des guildes sans joueurs en ligne ».",
+          "False": "Désactivé : Dissolution automatique des guildes sans joueurs en ligne n’est pas actif.",
+          "True": "Activé : Dissolution automatique des guildes sans joueurs en ligne est actif."
+        },
+        "AutoResetGuildTimeNoOnlinePlayers": {
+          "help": "Contrôle « Délai avant dissolution automatique des guildes sans joueurs en ligne (en heures) ». Valeur par défaut : 72.000000. Plage autorisée : 0-240. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "GuildPlayerMaxNum": {
+          "help": "Contrôle « Nombre maximum de joueurs par guilde ». Valeur par défaut : 20. Plage autorisée : 1-100. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "PalEggDefaultHatchingTime": {
+          "help": "Contrôle « Temps d'incubation maximum des œufs de Pal (en heures) ». Valeur par défaut : 72.000000. Plage autorisée : 0-240. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "WorkSpeedRate": {
+          "help": "Contrôle « Taux de vitesse de travail ». Valeur par défaut : 1.000000. Plage autorisée : 0.1-5. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "AutoSaveSpan": {
+          "help": "Contrôle « Intervalle de sauvegarde automatique (en minutes) ». Valeur par défaut : 30.000000. Plage autorisée : 30-3600. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "CrossplayPlatforms": {
+          "help": "Sélectionne une ou plusieurs valeurs pour « Plateforme de connexion autorisée »."
+        },
         "LogFormatType": {
+          "help": "Sélectionne le comportement de « Format des fichiers journaux ». Valeur par défaut : Text.",
           "Text": "Formater les fichiers journaux en TXT",
           "Json": "Formater les fichiers journaux en JSON"
         },
-        "RandomizerType": {
-          "None": "Désactiver toute randomisation",
-          "Region": "Randomiser régionnalement",
-          "All": "Randomiser mondialement"
+        "bIsMultiplay": {
+          "help": "Active ou désactive « Liste le serveur dans l'annuaire officiel. ».",
+          "False": "Désactivé : Liste le serveur dans l'annuaire officiel. n’est pas actif.",
+          "True": "Activé : Liste le serveur dans l'annuaire officiel. est actif."
+        },
+        "bIsPvP": {
+          "help": "Active ou désactive « Activer le mode Joueur VS Joueur ».",
+          "False": "Désactivé : Activer le mode Joueur VS Joueur n’est pas actif.",
+          "True": "Activé : Activer le mode Joueur VS Joueur est actif."
+        },
+        "bHardcore": {
+          "help": "Active ou désactive « Mode Hardcore ».",
+          "False": "Désactivé : Mode Hardcore n’est pas actif.",
+          "True": "Activé : Mode Hardcore est actif."
+        },
+        "bPalLost": {
+          "help": "Active ou désactive « Mort définitive des Pal ».",
+          "False": "Désactivé : Mort définitive des Pal n’est pas actif.",
+          "True": "Activé : Mort définitive des Pal est actif."
+        },
+        "bCharacterRecreateInHardcore": {
+          "help": "Active ou désactive « Autoriser la recréation de personnage en mode Hardcore ».",
+          "False": "Désactivé : Autoriser la recréation de personnage en mode Hardcore n’est pas actif.",
+          "True": "Activé : Autoriser la recréation de personnage en mode Hardcore est actif."
+        },
+        "bCanPickupOtherGuildDeathPenaltyDrop": {
+          "help": "Active ou désactive « Autoriser la récupération des objets perdus par d'autres guildes lors d'une pénalité de mort ».",
+          "False": "Désactivé : Autoriser la récupération des objets perdus par d'autres guildes lors d'une pénalité de mort n’est pas actif.",
+          "True": "Activé : Autoriser la récupération des objets perdus par d'autres guildes lors d'une pénalité de mort est actif."
+        },
+        "bEnableNonLoginPenalty": {
+          "help": "Active ou désactive « Activer la pénalité de non-connexion ».",
+          "False": "Désactivé : Activer la pénalité de non-connexion n’est pas actif.",
+          "True": "Activé : Activer la pénalité de non-connexion est actif."
+        },
+        "bEnableFastTravel": {
+          "help": "Active ou désactive « Activer les voyages rapides ».",
+          "False": "Désactivé : Activer les voyages rapides n’est pas actif.",
+          "True": "Activé : Activer les voyages rapides est actif."
+        },
+        "bIsStartLocationSelectByMap": {
+          "help": "Active ou désactive « Sélection du lieu de départ sur la carte ».",
+          "False": "Désactivé : Sélection du lieu de départ sur la carte n’est pas actif.",
+          "True": "Activé : Sélection du lieu de départ sur la carte est actif."
+        },
+        "bExistPlayerAfterLogout": {
+          "help": "Active ou désactive « Persistance du joueur après déconnexion ».",
+          "False": "Désactivé : Persistance du joueur après déconnexion n’est pas actif.",
+          "True": "Activé : Persistance du joueur après déconnexion est actif."
+        },
+        "bEnableDefenseOtherGuildPlayer": {
+          "help": "Active ou désactive « Activer la défense des joueurs d'autres guildes ».",
+          "False": "Désactivé : Activer la défense des joueurs d'autres guildes n’est pas actif.",
+          "True": "Activé : Activer la défense des joueurs d'autres guildes est actif."
+        },
+        "bInvisibleOtherGuildBaseCampAreaFX": {
+          "help": "Active ou désactive « Rendre invisible l'effet visuel de la zone de camp des autres guildes ».",
+          "False": "Désactivé : Rendre invisible l'effet visuel de la zone de camp des autres guildes n’est pas actif.",
+          "True": "Activé : Rendre invisible l'effet visuel de la zone de camp des autres guildes est actif."
+        },
+        "bBuildAreaLimit": {
+          "help": "Active ou désactive « Limite de zone de construction ».",
+          "False": "Désactivé : Limite de zone de construction n’est pas actif.",
+          "True": "Activé : Limite de zone de construction est actif."
+        },
+        "ItemWeightRate": {
+          "help": "Contrôle « Taux de poids des objets ». Valeur par défaut : 1.000000. Plage autorisée : 0.1-5. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "bShowPlayerList": {
+          "help": "Active ou désactive « Afficher la liste des joueurs en ligne ».",
+          "False": "Désactivé : Afficher la liste des joueurs en ligne n’est pas actif.",
+          "True": "Activé : Afficher la liste des joueurs en ligne est actif."
+        },
+        "CoopPlayerMaxNum": {
+          "help": "Contrôle « Nombre maximal de joueurs en coopération ». Valeur par défaut : 4. Plage autorisée : 1-4. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "ServerPlayerMaxNum": {
+          "help": "Contrôle « Nombre maximal de joueurs sur le serveur ». Valeur par défaut : 32. Plage autorisée : 1-512. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "ServerName": {
+          "help": "Définit « Nom du serveur ». Valeur par défaut : Default Palworld Server."
+        },
+        "ServerDescription": {
+          "help": "Définit « Description du serveur ». Valeur par défaut : vide."
+        },
+        "AdminPassword": {
+          "help": "Définit « Mot de passe administrateur (pour être administrateur du serveur) ». Valeur par défaut : vide."
+        },
+        "ServerPassword": {
+          "help": "Définit « Mot de passe du serveur (pour rejoindre le serveur) ». Valeur par défaut : vide."
+        },
+        "PublicPort": {
+          "help": "Contrôle « Numéro de port public ». Valeur par défaut : 8211. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "PublicIP": {
+          "help": "Définit « Adresse IP publique ». Valeur par défaut : vide."
+        },
+        "RCONEnabled": {
+          "help": "Active ou désactive « Activer le RCON ».",
+          "False": "Désactivé : Activer le RCON n’est pas actif.",
+          "True": "Activé : Activer le RCON est actif."
+        },
+        "RCONPort": {
+          "help": "Contrôle « Port du RCON ». Valeur par défaut : 25575. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "RESTAPIEnabled": {
+          "help": "Active ou désactive « Activer l'API REST ».",
+          "False": "Désactivé : Activer l'API REST n’est pas actif.",
+          "True": "Activé : Activer l'API REST est actif."
+        },
+        "RESTAPIPort": {
+          "help": "Contrôle « Port de l'API REST ». Valeur par défaut : 8212. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "bIsUseBackupSaveData": {
+          "help": "Active ou désactive « Activer les sauvegardes automatiques ».",
+          "False": "Désactivé : Activer les sauvegardes automatiques n’est pas actif.",
+          "True": "Activé : Activer les sauvegardes automatiques est actif."
+        },
+        "Region": {
+          "help": "Définit « Région ». Valeur par défaut : vide."
+        },
+        "bUseAuth": {
+          "help": "Active ou désactive « Utiliser l'authentification ».",
+          "False": "Désactivé : Utiliser l'authentification n’est pas actif.",
+          "True": "Activé : Utiliser l'authentification est actif."
+        },
+        "BanListURL": {
+          "help": "Définit « URL de la liste des membres bannis ». Valeur par défaut : https://b.palworldgame.com/api/banlist.txt."
+        },
+        "EquipmentDurabilityDamageRate": {
+          "help": "Contrôle « Taux de dégâts de durabilité de l'équipement ». Valeur par défaut : 1.000000. Plage autorisée : 0.1-5. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "ItemContainerForceMarkDirtyInterval": {
+          "help": "Contrôle « Intervalle de marquage forcé du conteneur d'objets (en secondes) ». Valeur par défaut : 1.000000. Plage autorisée : 0.1-10. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "ItemCorruptionMultiplier": {
+          "help": "Contrôle « Multiplicateur de corruption des objets ». Valeur par défaut : 1.000000. Plage autorisée : 0.1-10. Les modifications affectent le système de jeu ou de serveur correspondant."
         },
         "bEnableFastTravelOnlyBaseCamp": {
           "help": "Détermine si le voyage rapide est uniquement possible entre les camps de base (Palboxes).",
           "False": "Voyage rapide entre les statues du Grand Aigle et les Palboxes.",
           "True": "Voyage rapide uniquement entre les Palboxes ; les statues du Grand Aigle sont désactivées."
+        },
+        "bAllowClientMod": {
+          "help": "Active ou désactive « Autoriser les mods client ».",
+          "False": "Désactivé : Autoriser les mods client n’est pas actif.",
+          "True": "Activé : Autoriser les mods client est actif."
+        },
+        "bIsShowJoinLeftMessage": {
+          "help": "Active ou désactive « Afficher les messages d'arrivée/départ ».",
+          "False": "Désactivé : Afficher les messages d'arrivée/départ n’est pas actif.",
+          "True": "Activé : Afficher les messages d'arrivée/départ est actif."
+        },
+        "DenyTechnologyList": {
+          "help": "Sélectionne une ou plusieurs valeurs pour « Liste des technologies interdites »."
+        },
+        "GuildRejoinCooldownMinutes": {
+          "help": "Contrôle « Délai de réactivitation de guilde (minutes) ». Valeur par défaut : 0. Plage autorisée : 0-1440. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "BlockRespawnTime": {
+          "help": "Contrôle « Temps de réapparition des blocs ». Valeur par défaut : 5.000000. Plage autorisée : 0-60. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "RespawnPenaltyDurationThreshold": {
+          "help": "Contrôle « Seuil de durée de pénalité de réapparition ». Valeur par défaut : 0.000000. Plage autorisée : 0-3600. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "RespawnPenaltyTimeScale": {
+          "help": "Contrôle « Multiplicateur de temps de pénalité de réapparition ». Valeur par défaut : 2.000000. Plage autorisée : 0-10. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "bDisplayPvPItemNumOnWorldMap_BaseCamp": {
+          "help": "Active ou désactive « Afficher le nombre d'objets PvP sur la carte du monde (Camp de base) ».",
+          "False": "Désactivé : Afficher le nombre d'objets PvP sur la carte du monde (Camp de base) n’est pas actif.",
+          "True": "Activé : Afficher le nombre d'objets PvP sur la carte du monde (Camp de base) est actif."
+        },
+        "bDisplayPvPItemNumOnWorldMap_Player": {
+          "help": "Active ou désactive « Afficher le nombre d'objets PvP sur la carte du monde (Joueur) ».",
+          "False": "Désactivé : Afficher le nombre d'objets PvP sur la carte du monde (Joueur) n’est pas actif.",
+          "True": "Activé : Afficher le nombre d'objets PvP sur la carte du monde (Joueur) est actif."
+        },
+        "AdditionalDropItemWhenPlayerKillingInPvPMode": {
+          "help": "Définit « Objet de chute supplémentaire lors de la mise à mort d'un joueur en mode PvP ». Valeur par défaut : PlayerDropItem."
+        },
+        "AdditionalDropItemNumWhenPlayerKillingInPvPMode": {
+          "help": "Contrôle « Nombre d'objets de chute supplémentaire lors de la mise à mort d'un joueur en mode PvP ». Valeur par défaut : 1. Plage autorisée : 0-100. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "bAdditionalDropItemWhenPlayerKillingInPvPMode": {
+          "help": "Active ou désactive « Activer l'objet de chute supplémentaire lors de la mise à mort d'un joueur en mode PvP ».",
+          "False": "Désactivé : Activer l'objet de chute supplémentaire lors de la mise à mort d'un joueur en mode PvP n’est pas actif.",
+          "True": "Activé : Activer l'objet de chute supplémentaire lors de la mise à mort d'un joueur en mode PvP est actif."
+        },
+        "bAllowEnhanceStat_Health": {
+          "help": "Active ou désactive « Autoriser amélioration de stat - Santé ».",
+          "False": "Désactivé : Autoriser amélioration de stat - Santé n’est pas actif.",
+          "True": "Activé : Autoriser amélioration de stat - Santé est actif."
+        },
+        "bAllowEnhanceStat_Attack": {
+          "help": "Active ou désactive « Autoriser amélioration de stat - Attaque ».",
+          "False": "Désactivé : Autoriser amélioration de stat - Attaque n’est pas actif.",
+          "True": "Activé : Autoriser amélioration de stat - Attaque est actif."
+        },
+        "bAllowEnhanceStat_Stamina": {
+          "help": "Active ou désactive « Autoriser amélioration de stat - Endurance ».",
+          "False": "Désactivé : Autoriser amélioration de stat - Endurance n’est pas actif.",
+          "True": "Activé : Autoriser amélioration de stat - Endurance est actif."
+        },
+        "bAllowEnhanceStat_Weight": {
+          "help": "Active ou désactive « Autoriser amélioration de stat - Poids ».",
+          "False": "Désactivé : Autoriser amélioration de stat - Poids n’est pas actif.",
+          "True": "Activé : Autoriser amélioration de stat - Poids est actif."
+        },
+        "bAllowEnhanceStat_WorkSpeed": {
+          "help": "Active ou désactive « Autoriser amélioration de stat - Vitesse de travail ».",
+          "False": "Désactivé : Autoriser amélioration de stat - Vitesse de travail n’est pas actif.",
+          "True": "Activé : Autoriser amélioration de stat - Vitesse de travail est actif."
+        },
+        "PhysicsActiveDropItemMaxNum": {
+          "help": "Contrôle « Nombre maximum d'objets tombés avec physique active ». Valeur par défaut : -1. Plage autorisée : -1-10000. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "PlayerDataPalStorageUpdateCheckTickInterval": {
+          "help": "Contrôle « Intervalle de vérification des données de stockage de Pals du joueur ». Valeur par défaut : 1.000000. Plage autorisée : 0.1-60. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "MonsterFarmActionSpeedRate": {
+          "help": "Contrôle « Multiplicateur de vitesse de production d'objets par pâturage ». Valeur par défaut : 1.000000. Plage autorisée : 0.1-5. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "AutoTransferMasterCheckIntervalSeconds": {
+          "help": "Contrôle « Intervalle de vérification du transfert automatique de maître de guilde (secondes) ». Valeur par défaut : 3600.000000. Plage autorisée : 60-86400. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "AutoTransferMasterThresholdDays": {
+          "help": "Contrôle « Seuil de jours d'inactivité pour le transfert automatique de maître de guilde ». Valeur par défaut : 14. Plage autorisée : 1-365. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "MaxGuildsPerFrame": {
+          "help": "Contrôle « Nombre maximum de guildes traitées par frame ». Valeur par défaut : 10. Plage autorisée : 1-100. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "bEnableVoiceChat": {
+          "help": "Active ou désactive « Activer le chat vocal en jeu ».",
+          "False": "Désactivé : Activer le chat vocal en jeu n’est pas actif.",
+          "True": "Activé : Activer le chat vocal en jeu est actif."
+        },
+        "VoiceChatMaxVolumeDistance": {
+          "help": "Contrôle « Distance sans atténuation du volume du chat vocal ». Valeur par défaut : 3000.000000. Plage autorisée : 100-50000. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "VoiceChatZeroVolumeDistance": {
+          "help": "Contrôle « Distance à laquelle le volume du chat vocal devient nul ». Valeur par défaut : 15000.000000. Plage autorisée : 100-50000. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "bEnableBuildingPlayerUIdDisplay": {
+          "help": "Active ou désactive « Afficher l'ID du joueur créateur sur les structures ».",
+          "False": "Désactivé : Afficher l'ID du joueur créateur sur les structures n’est pas actif.",
+          "True": "Activé : Afficher l'ID du joueur créateur sur les structures est actif."
+        },
+        "BuildingNameDisplayCacheTTLSeconds": {
+          "help": "Contrôle « Durée de validité du cache d'affichage du nom des bâtiments (secondes) ». Valeur par défaut : 60. Plage autorisée : 1-3600. Les modifications affectent le système de jeu ou de serveur correspondant."
+        },
+        "EnablePredatorBossPal": {
+          "help": "Contrôle « Activer les Pal Boss de zone »."
+        },
+        "SupplyDropSpan": {
+          "help": "Contrôle « Intervalle de largage de ravitaillement ou de chute de météorite (en minutes) »."
+        },
+        "ChatPostLimitPerMinute": {
+          "help": "Contrôle « Limite de messages par minute dans le chat »."
+        },
+        "MaxBuildingLimitNum": {
+          "help": "Contrôle « Nombre maximal de constructions autorisées par joueur »."
+        },
+        "ServerReplicatePawnCullDistance": {
+          "help": "Contrôle « Distance de rendu des entités du serveur »."
+        },
+        "bAllowGlobalPalboxExport": {
+          "help": "Contrôle « Permettre l’exportation globale de Palbox »."
+        },
+        "bAllowGlobalPalboxImport": {
+          "help": "Contrôle « Permettre l’importation globale de Palbox »."
         }
       }
+    },
+    "footer": {
+      "community": "Créé avec ❤️ par la communauté, pour la communauté.",
+      "copyright": "2024-{{year}} © Bluefissure"
+    },
+    "dashboard": {
+      "searchPlaceholder": "Rechercher un réglage…",
+      "settingsCount": "{{count}} paramètres",
+      "categories": "Catégories",
+      "resetAll": "Tout réinitialiser",
+      "resetSubtitle": "Charger les valeurs par défaut",
+      "previewTitle": "Aperçu de la configuration",
+      "statusLiveTitle": "Aperçu en direct",
+      "statusLiveSubtitle": "Mise à jour en temps réel",
+      "statusLanguagesTitle": "9 langues",
+      "statusLanguagesSubtitle": "Entièrement traduit",
+      "statusThemeTitle": "Clair et sombre",
+      "statusThemeSubtitle": "Thème automatique",
+      "resetDone": "Paramètres réinitialisés",
+      "resetDoneDescription": "Tous les paramètres ont été restaurés à leurs valeurs par défaut."
     }
   }
 }

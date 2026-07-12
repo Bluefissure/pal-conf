@@ -15,6 +15,7 @@ function TextInput(props: {
     type?: string;
     disabled?: boolean;
     multiline?: boolean;
+    description?: string;
 }) {
     const {
         id,
@@ -24,13 +25,14 @@ function TextInput(props: {
         onChange,
         disabled,
         multiline,
+        description,
     } = props;
     const inputElement = multiline ? (
         <textarea
             id={id}
             value={value}
             onChange={onChange}
-            className="w-[98%] h-[100px] p-2 border border-gray-300 rounded-md"
+            className="min-h-[110px] w-full rounded-xl border bg-background px-3 py-2 text-sm shadow-sm outline-none focus:ring-2 focus:ring-ring"
             disabled={disabled}
         />
     ): (
@@ -39,18 +41,19 @@ function TextInput(props: {
             id={id}
             onChange={onChange}
             type={type}
-            className="w-[98%]"
+            className="w-full"
             disabled={disabled}
         />
     )
     return (
-        <div className="flex flex-col items-center space-y-2">
+        <div className="flex flex-col items-stretch space-y-2">
             <TooltipProvider>
                 <Tooltip>
                     <TooltipTrigger className="cursor-default mr-auto">
                         <Label>{name}</Label>
-                        <TooltipContent>
-                            <p>{id}</p>
+                        <TooltipContent className="max-w-sm">
+                            <p className="font-mono text-xs text-muted-foreground">{id}</p>
+                            {description && <p className="mt-1 whitespace-pre-line leading-relaxed">{description}</p>}
                         </TooltipContent>
                     </TooltipTrigger>
                 </Tooltip>

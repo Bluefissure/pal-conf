@@ -1,7 +1,7 @@
 {
   "translation": {
     "unknown": "未知",
-    "title": "幻兽帕鲁服务器配置生成器",
+    "title": "Palworld 服务器配置生成器",
     "introduction": "修改值，下面的输出将实时更新。",
     "serverSettings": "服务器设置",
     "ingameSettings": "游戏内设置",
@@ -169,27 +169,471 @@
         "BuildingNameDisplayCacheTTLSeconds": "建筑名称显示缓存有效期(秒)"
       },
       "description": {
+        "Difficulty": {
+          "help": "选择“难度”的行为。默认值：None。"
+        },
+        "RandomizerType": {
+          "help": "选择“随机器类型”的行为。默认值：None。",
+          "None": "未设置随机器",
+          "Region": "设置为随机地区",
+          "All": "设置为完全随机"
+        },
+        "RandomizerSeed": {
+          "help": "设置“随机种子”。默认值：空。"
+        },
+        "bIsRandomizerPalLevelRandom": {
+          "help": "启用或禁用“完全随机野外帕鲁等级”。",
+          "False": "禁用：完全随机野外帕鲁等级不会生效。",
+          "True": "启用：完全随机野外帕鲁等级会生效。"
+        },
+        "DayTimeSpeedRate": {
+          "help": "调整“白天流逝速度”。默认值：1.000000。 允许范围：0.1-5。更改会影响对应的游戏或服务器系统。"
+        },
+        "NightTimeSpeedRate": {
+          "help": "调整“夜间流逝速度”。默认值：1.000000。 允许范围：0.1-5。更改会影响对应的游戏或服务器系统。"
+        },
+        "ExpRate": {
+          "help": "调整“经验值倍率”。默认值：1.000000。 允许范围：0-20。更改会影响对应的游戏或服务器系统。"
+        },
+        "PalCaptureRate": {
+          "help": "调整“捕捉概率倍率”。默认值：1.000000。 允许范围：0.5-5。更改会影响对应的游戏或服务器系统。"
+        },
+        "PalSpawnNumRate": {
+          "help": "调整“帕鲁出现数量倍率”。默认值：1.000000。 允许范围：0.5-5。更改会影响对应的游戏或服务器系统。"
+        },
+        "PalDamageRateAttack": {
+          "help": "调整“帕鲁攻击伤害倍率”。默认值：1.000000。 允许范围：0.1-5。更改会影响对应的游戏或服务器系统。"
+        },
+        "PalDamageRateDefense": {
+          "help": "调整“帕鲁承受伤害倍率”。默认值：1.000000。 允许范围：0.1-5。更改会影响对应的游戏或服务器系统。"
+        },
+        "PlayerDamageRateAttack": {
+          "help": "调整“玩家攻击伤害倍率”。默认值：1.000000。 允许范围：0.1-5。更改会影响对应的游戏或服务器系统。"
+        },
+        "PlayerDamageRateDefense": {
+          "help": "调整“玩家承受伤害倍率”。默认值：1.000000。 允许范围：0.1-5。更改会影响对应的游戏或服务器系统。"
+        },
+        "PlayerStomachDecreaceRate": {
+          "help": "调整“玩家饱食度降低倍率”。默认值：1.000000。 允许范围：0.1-5。更改会影响对应的游戏或服务器系统。"
+        },
+        "PlayerStaminaDecreaceRate": {
+          "help": "调整“玩家耐力降低倍率”。默认值：1.000000。 允许范围：0.1-5。更改会影响对应的游戏或服务器系统。"
+        },
+        "PlayerAutoHPRegeneRate": {
+          "help": "调整“玩家生命值自然回复倍率”。默认值：1.000000。 允许范围：0.1-5。更改会影响对应的游戏或服务器系统。"
+        },
+        "PlayerAutoHpRegeneRateInSleep": {
+          "help": "调整“玩家睡眠时生命值回复倍率”。默认值：1.000000。 允许范围：0.1-5。更改会影响对应的游戏或服务器系统。"
+        },
+        "PalStomachDecreaceRate": {
+          "help": "调整“帕鲁饱食度降低倍率”。默认值：1.000000。 允许范围：0.1-5。更改会影响对应的游戏或服务器系统。"
+        },
+        "PalStaminaDecreaceRate": {
+          "help": "调整“帕鲁耐力降低倍率”。默认值：1.000000。 允许范围：0.1-5。更改会影响对应的游戏或服务器系统。"
+        },
+        "PalAutoHPRegeneRate": {
+          "help": "调整“帕鲁生命值自然回复倍率”。默认值：1.000000。 允许范围：0.1-5。更改会影响对应的游戏或服务器系统。"
+        },
+        "PalAutoHpRegeneRateInSleep": {
+          "help": "调整“帕鲁睡眠时/终端中生命值回复倍率”。默认值：1.000000。 允许范围：0.1-5。更改会影响对应的游戏或服务器系统。"
+        },
+        "BuildObjectHpRate": {
+          "help": "调整“建筑物生命值倍率”。默认值：1.000000。 允许范围：0.5-5。更改会影响对应的游戏或服务器系统。"
+        },
+        "BuildObjectDamageRate": {
+          "help": "调整“对建筑物伤害倍率”。默认值：1.000000。 允许范围：0.5-3。更改会影响对应的游戏或服务器系统。"
+        },
+        "BuildObjectDeteriorationDamageRate": {
+          "help": "调整“非基地圈内建筑物的劣化速度倍率”。默认值：1.000000。 允许范围：0-10。更改会影响对应的游戏或服务器系统。"
+        },
+        "CollectionDropRate": {
+          "help": "调整“道具采集量倍率”。默认值：1.000000。 允许范围：0.5-5。更改会影响对应的游戏或服务器系统。"
+        },
+        "CollectionObjectHpRate": {
+          "help": "调整“可采集物品生命值倍率”。默认值：1.000000。 允许范围：0.5-3。更改会影响对应的游戏或服务器系统。"
+        },
+        "CollectionObjectRespawnSpeedRate": {
+          "help": "调整“可采集物品重生间隔倍率”。默认值：1.000000。 允许范围：0.5-5。更改会影响对应的游戏或服务器系统。"
+        },
+        "EnemyDropItemRate": {
+          "help": "调整“道具掉落量倍率”。默认值：1.000000。 允许范围：0.5-5。更改会影响对应的游戏或服务器系统。"
+        },
         "DeathPenalty": {
+          "help": "选择“死亡惩罚”的行为。默认值：All。",
           "None": "无损失",
           "Item": "丢失非装备物品",
           "ItemAndEquipment": "丢失物品和装备",
           "All": "丢失所有物品、装备、帕鲁（在背包中的）"
         },
+        "bEnablePlayerToPlayerDamage": {
+          "help": "启用或禁用“启用玩家对玩家伤害”。",
+          "False": "禁用：启用玩家对玩家伤害不会生效。",
+          "True": "启用：启用玩家对玩家伤害会生效。"
+        },
+        "bEnableFriendlyFire": {
+          "help": "启用或禁用“启用友伤”。",
+          "False": "禁用：启用友伤不会生效。",
+          "True": "启用：启用友伤会生效。"
+        },
+        "bEnableInvaderEnemy": {
+          "help": "启用或禁用“启用袭击事件”。",
+          "False": "禁用：启用袭击事件不会生效。",
+          "True": "启用：启用袭击事件会生效。"
+        },
+        "bActiveUNKO": {
+          "help": "启用或禁用“激活帕鲁便便”。",
+          "False": "禁用：激活帕鲁便便不会生效。",
+          "True": "启用：激活帕鲁便便会生效。"
+        },
+        "bEnableAimAssistPad": {
+          "help": "启用或禁用“启用手柄瞄准辅助”。",
+          "False": "禁用：启用手柄瞄准辅助不会生效。",
+          "True": "启用：启用手柄瞄准辅助会生效。"
+        },
+        "bEnableAimAssistKeyboard": {
+          "help": "启用或禁用“启用键盘瞄准辅助”。",
+          "False": "禁用：启用键盘瞄准辅助不会生效。",
+          "True": "启用：启用键盘瞄准辅助会生效。"
+        },
+        "DropItemMaxNum": {
+          "help": "调整“掉落物品最大存在数量”。默认值：3000。 允许范围：0-10000。更改会影响对应的游戏或服务器系统。"
+        },
+        "DropItemMaxNum_UNKO": {
+          "help": "调整“帕鲁便便掉落最大数量”。默认值：100。 允许范围：0-5000。更改会影响对应的游戏或服务器系统。"
+        },
+        "BaseCampMaxNum": {
+          "help": "调整“全地图据点最大数量”。默认值：128。 允许范围：0-10240。更改会影响对应的游戏或服务器系统。"
+        },
+        "BaseCampMaxNumInGuild": {
+          "help": "调整“公会的据点最大数量”。默认值：3。 允许范围：1-50。更改会影响对应的游戏或服务器系统。"
+        },
+        "BaseCampWorkerMaxNum": {
+          "help": "调整“可分配至据点工作的帕鲁数量上限”。默认值：15。 允许范围：1-50。更改会影响对应的游戏或服务器系统。"
+        },
+        "DropItemAliveMaxHours": {
+          "help": "调整“掉落物品存活最大小时数”。默认值：1.000000。 允许范围：0-240。更改会影响对应的游戏或服务器系统。"
+        },
+        "bAutoResetGuildNoOnlinePlayers": {
+          "help": "启用或禁用“自动重置无在线玩家的公会”。",
+          "False": "禁用：自动重置无在线玩家的公会不会生效。",
+          "True": "启用：自动重置无在线玩家的公会会生效。"
+        },
+        "AutoResetGuildTimeNoOnlinePlayers": {
+          "help": "调整“自动重置无在线玩家的公会时间(小时)”。默认值：72.000000。 允许范围：0-240。更改会影响对应的游戏或服务器系统。"
+        },
+        "GuildPlayerMaxNum": {
+          "help": "调整“公会玩家最大数量”。默认值：20。 允许范围：1-100。更改会影响对应的游戏或服务器系统。"
+        },
+        "PalEggDefaultHatchingTime": {
+          "help": "调整“巨大蛋孵化所需时间(小时)”。默认值：72.000000。 允许范围：0-240。更改会影响对应的游戏或服务器系统。"
+        },
+        "WorkSpeedRate": {
+          "help": "调整“工作速率”。默认值：1.000000。 允许范围：0.1-5。更改会影响对应的游戏或服务器系统。"
+        },
+        "AutoSaveSpan": {
+          "help": "调整“自动保存间隔”。默认值：30.000000。 允许范围：30-3600。更改会影响对应的游戏或服务器系统。"
+        },
+        "CrossplayPlatforms": {
+          "help": "为“允许连接平台”选择一个或多个值。"
+        },
         "LogFormatType": {
+          "help": "选择“日志格式类型”的行为。默认值：Text。",
           "Text": "使用文本格式记录日志",
           "Json": "使用 JSON 格式记录日志"
         },
-        "RandomizerType": {
-          "None": "未设置随机器",
-          "Region": "设置为随机地区",
-          "All": "设置为完全随机"
+        "bIsMultiplay": {
+          "help": "启用或禁用“是否多人游戏”。",
+          "False": "禁用：是否多人游戏不会生效。",
+          "True": "启用：是否多人游戏会生效。"
+        },
+        "bIsPvP": {
+          "help": "启用或禁用“是否 PvP”。",
+          "False": "禁用：是否 PvP不会生效。",
+          "True": "启用：是否 PvP会生效。"
+        },
+        "bHardcore": {
+          "help": "启用或禁用“是否硬核模式”。",
+          "False": "禁用：是否硬核模式不会生效。",
+          "True": "启用：是否硬核模式会生效。"
+        },
+        "bPalLost": {
+          "help": "启用或禁用“是否帕鲁丢失模式”。",
+          "False": "禁用：是否帕鲁丢失模式不会生效。",
+          "True": "启用：是否帕鲁丢失模式会生效。"
+        },
+        "bCharacterRecreateInHardcore": {
+          "help": "启用或禁用“是否允许在硬核模式下重新创建角色”。",
+          "False": "禁用：是否允许在硬核模式下重新创建角色不会生效。",
+          "True": "启用：是否允许在硬核模式下重新创建角色会生效。"
+        },
+        "bCanPickupOtherGuildDeathPenaltyDrop": {
+          "help": "启用或禁用“能否拾取其他公会玩家的死亡惩罚掉落物”。",
+          "False": "禁用：能否拾取其他公会玩家的死亡惩罚掉落物不会生效。",
+          "True": "启用：能否拾取其他公会玩家的死亡惩罚掉落物会生效。"
+        },
+        "bEnableNonLoginPenalty": {
+          "help": "启用或禁用“启用超时未登录惩罚”。",
+          "False": "禁用：启用超时未登录惩罚不会生效。",
+          "True": "启用：启用超时未登录惩罚会生效。"
+        },
+        "bEnableFastTravel": {
+          "help": "启用或禁用“启用快速传送”。",
+          "False": "禁用：启用快速传送不会生效。",
+          "True": "启用：启用快速传送会生效。"
+        },
+        "bIsStartLocationSelectByMap": {
+          "help": "启用或禁用“是否通过地图选择复活位置”。",
+          "False": "禁用：是否通过地图选择复活位置不会生效。",
+          "True": "启用：是否通过地图选择复活位置会生效。"
+        },
+        "bExistPlayerAfterLogout": {
+          "help": "启用或禁用“登出后玩家人物是否存在”。",
+          "False": "禁用：登出后玩家人物是否存在不会生效。",
+          "True": "启用：登出后玩家人物是否存在会生效。"
+        },
+        "bEnableDefenseOtherGuildPlayer": {
+          "help": "启用或禁用“启用据点内防御其他公会玩家”。",
+          "False": "禁用：启用据点内防御其他公会玩家不会生效。",
+          "True": "启用：启用据点内防御其他公会玩家会生效。"
+        },
+        "bInvisibleOtherGuildBaseCampAreaFX": {
+          "help": "启用或禁用“隐藏其他公会据点区域特效”。",
+          "False": "禁用：隐藏其他公会据点区域特效不会生效。",
+          "True": "启用：隐藏其他公会据点区域特效会生效。"
+        },
+        "bBuildAreaLimit": {
+          "help": "启用或禁用“建筑区域限制”。",
+          "False": "禁用：建筑区域限制不会生效。",
+          "True": "启用：建筑区域限制会生效。"
+        },
+        "ItemWeightRate": {
+          "help": "调整“物品重量倍率”。默认值：1.000000。 允许范围：0.1-5。更改会影响对应的游戏或服务器系统。"
+        },
+        "bShowPlayerList": {
+          "help": "启用或禁用“启用服务器内可以查看其他玩家列表”。",
+          "False": "禁用：启用服务器内可以查看其他玩家列表不会生效。",
+          "True": "启用：启用服务器内可以查看其他玩家列表会生效。"
+        },
+        "CoopPlayerMaxNum": {
+          "help": "调整“合作玩家最大数量”。默认值：4。 允许范围：1-4。更改会影响对应的游戏或服务器系统。"
+        },
+        "ServerPlayerMaxNum": {
+          "help": "调整“服务器玩家最大数量”。默认值：32。 允许范围：1-512。更改会影响对应的游戏或服务器系统。"
+        },
+        "ServerName": {
+          "help": "设置“服务器名称”。默认值：Default Palworld Server。"
+        },
+        "ServerDescription": {
+          "help": "设置“服务器描述”。默认值：空。"
+        },
+        "AdminPassword": {
+          "help": "设置“管理员密码”。默认值：空。"
+        },
+        "ServerPassword": {
+          "help": "设置“服务器密码”。默认值：空。"
+        },
+        "PublicPort": {
+          "help": "调整“公共端口”。默认值：8211。更改会影响对应的游戏或服务器系统。"
+        },
+        "PublicIP": {
+          "help": "设置“公共 IP”。默认值：空。"
+        },
+        "RCONEnabled": {
+          "help": "启用或禁用“启用 RCON”。",
+          "False": "禁用：启用 RCON不会生效。",
+          "True": "启用：启用 RCON会生效。"
+        },
+        "RCONPort": {
+          "help": "调整“RCON 端口”。默认值：25575。更改会影响对应的游戏或服务器系统。"
+        },
+        "RESTAPIEnabled": {
+          "help": "启用或禁用“启用 REST API”。",
+          "False": "禁用：启用 REST API不会生效。",
+          "True": "启用：启用 REST API会生效。"
+        },
+        "RESTAPIPort": {
+          "help": "调整“REST API 端口”。默认值：8212。更改会影响对应的游戏或服务器系统。"
+        },
+        "bIsUseBackupSaveData": {
+          "help": "启用或禁用“是否自动备份存档数据”。",
+          "False": "禁用：是否自动备份存档数据不会生效。",
+          "True": "启用：是否自动备份存档数据会生效。"
+        },
+        "Region": {
+          "help": "设置“地区”。默认值：空。"
+        },
+        "bUseAuth": {
+          "help": "启用或禁用“使用授权”。",
+          "False": "禁用：使用授权不会生效。",
+          "True": "启用：使用授权会生效。"
+        },
+        "BanListURL": {
+          "help": "设置“封禁列表 URL”。默认值：https://b.palworldgame.com/api/banlist.txt。"
+        },
+        "EquipmentDurabilityDamageRate": {
+          "help": "调整“装备耐久度损坏率”。默认值：1.000000。 允许范围：0.1-5。更改会影响对应的游戏或服务器系统。"
+        },
+        "ItemContainerForceMarkDirtyInterval": {
+          "help": "调整“物品容器强制标记为脏的间隔（秒）”。默认值：1.000000。 允许范围：0.1-10。更改会影响对应的游戏或服务器系统。"
+        },
+        "ItemCorruptionMultiplier": {
+          "help": "调整“物品腐化倍率”。默认值：1.000000。 允许范围：0.1-10。更改会影响对应的游戏或服务器系统。"
         },
         "bEnableFastTravelOnlyBaseCamp": {
           "help": "设置是否仅允许在基地（帕鲁终端）之间进行快速旅行。",
           "False": "可在鹰像与帕鲁终端之间快速旅行。",
           "True": "仅可在帕鲁终端之间快速旅行，鹰像将被禁用。"
+        },
+        "bAllowClientMod": {
+          "help": "启用或禁用“允许客户端Mod”。",
+          "False": "禁用：允许客户端Mod不会生效。",
+          "True": "启用：允许客户端Mod会生效。"
+        },
+        "bIsShowJoinLeftMessage": {
+          "help": "启用或禁用“显示玩家加入/离开消息”。",
+          "False": "禁用：显示玩家加入/离开消息不会生效。",
+          "True": "启用：显示玩家加入/离开消息会生效。"
+        },
+        "DenyTechnologyList": {
+          "help": "为“禁用科技列表”选择一个或多个值。"
+        },
+        "GuildRejoinCooldownMinutes": {
+          "help": "调整“公会重加冷却时间(分钟)”。默认值：0。 允许范围：0-1440。更改会影响对应的游戏或服务器系统。"
+        },
+        "BlockRespawnTime": {
+          "help": "调整“阻止重生时间”。默认值：5.000000。 允许范围：0-60。更改会影响对应的游戏或服务器系统。"
+        },
+        "RespawnPenaltyDurationThreshold": {
+          "help": "调整“重生惩罚持续时间阈值”。默认值：0.000000。 允许范围：0-3600。更改会影响对应的游戏或服务器系统。"
+        },
+        "RespawnPenaltyTimeScale": {
+          "help": "调整“重生惩罚时间倍数”。默认值：2.000000。 允许范围：0-10。更改会影响对应的游戏或服务器系统。"
+        },
+        "bDisplayPvPItemNumOnWorldMap_BaseCamp": {
+          "help": "启用或禁用“地图显示PVP掉落物数量（基地）”。",
+          "False": "禁用：地图显示PVP掉落物数量（基地）不会生效。",
+          "True": "启用：地图显示PVP掉落物数量（基地）会生效。"
+        },
+        "bDisplayPvPItemNumOnWorldMap_Player": {
+          "help": "启用或禁用“地图显示PVP掉落物数量（玩家）”。",
+          "False": "禁用：地图显示PVP掉落物数量（玩家）不会生效。",
+          "True": "启用：地图显示PVP掉落物数量（玩家）会生效。"
+        },
+        "AdditionalDropItemWhenPlayerKillingInPvPMode": {
+          "help": "设置“PVP击杀附加掉落物”。默认值：PlayerDropItem。"
+        },
+        "AdditionalDropItemNumWhenPlayerKillingInPvPMode": {
+          "help": "调整“PVP击杀附加掉落物数量”。默认值：1。 允许范围：0-100。更改会影响对应的游戏或服务器系统。"
+        },
+        "bAdditionalDropItemWhenPlayerKillingInPvPMode": {
+          "help": "启用或禁用“启用PVP击杀附加掉落”。",
+          "False": "禁用：启用PVP击杀附加掉落不会生效。",
+          "True": "启用：启用PVP击杀附加掉落会生效。"
+        },
+        "bAllowEnhanceStat_Health": {
+          "help": "启用或禁用“允许加点-生命”。",
+          "False": "禁用：允许加点-生命不会生效。",
+          "True": "启用：允许加点-生命会生效。"
+        },
+        "bAllowEnhanceStat_Attack": {
+          "help": "启用或禁用“允许加点-攻击”。",
+          "False": "禁用：允许加点-攻击不会生效。",
+          "True": "启用：允许加点-攻击会生效。"
+        },
+        "bAllowEnhanceStat_Stamina": {
+          "help": "启用或禁用“允许加点-体力”。",
+          "False": "禁用：允许加点-体力不会生效。",
+          "True": "启用：允许加点-体力会生效。"
+        },
+        "bAllowEnhanceStat_Weight": {
+          "help": "启用或禁用“允许加点-负重”。",
+          "False": "禁用：允许加点-负重不会生效。",
+          "True": "启用：允许加点-负重会生效。"
+        },
+        "bAllowEnhanceStat_WorkSpeed": {
+          "help": "启用或禁用“允许加点-工作速度”。",
+          "False": "禁用：允许加点-工作速度不会生效。",
+          "True": "启用：允许加点-工作速度会生效。"
+        },
+        "PhysicsActiveDropItemMaxNum": {
+          "help": "调整“可启用物理模拟的掉落物最大数量”。默认值：-1。 允许范围：-1-10000。更改会影响对应的游戏或服务器系统。"
+        },
+        "PlayerDataPalStorageUpdateCheckTickInterval": {
+          "help": "调整“玩家帕鲁仓库数据更新检测间隔”。默认值：1.000000。 允许范围：0.1-60。更改会影响对应的游戏或服务器系统。"
+        },
+        "MonsterFarmActionSpeedRate": {
+          "help": "调整“帕鲁放牧产出物品速度倍率”。默认值：1.000000。 允许范围：0.1-5。更改会影响对应的游戏或服务器系统。"
+        },
+        "AutoTransferMasterCheckIntervalSeconds": {
+          "help": "调整“公会归属自动转移检测间隔(秒)”。默认值：3600.000000。 允许范围：60-86400。更改会影响对应的游戏或服务器系统。"
+        },
+        "AutoTransferMasterThresholdDays": {
+          "help": "调整“公会会长自动移交离线天数阈值”。默认值：14。 允许范围：1-365。更改会影响对应的游戏或服务器系统。"
+        },
+        "MaxGuildsPerFrame": {
+          "help": "调整“单帧处理公会最大数量”。默认值：10。 允许范围：1-100。更改会影响对应的游戏或服务器系统。"
+        },
+        "bEnableVoiceChat": {
+          "help": "启用或禁用“启用游戏内语音聊天”。",
+          "False": "禁用：启用游戏内语音聊天不会生效。",
+          "True": "启用：启用游戏内语音聊天会生效。"
+        },
+        "VoiceChatMaxVolumeDistance": {
+          "help": "调整“语音音量无衰减距离”。默认值：3000.000000。 允许范围：100-50000。更改会影响对应的游戏或服务器系统。"
+        },
+        "VoiceChatZeroVolumeDistance": {
+          "help": "调整“语音完全静音距离”。默认值：15000.000000。 允许范围：100-50000。更改会影响对应的游戏或服务器系统。"
+        },
+        "bEnableBuildingPlayerUIdDisplay": {
+          "help": "启用或禁用“显示建筑建造者玩家ID”。",
+          "False": "禁用：显示建筑建造者玩家ID不会生效。",
+          "True": "启用：显示建筑建造者玩家ID会生效。"
+        },
+        "BuildingNameDisplayCacheTTLSeconds": {
+          "help": "调整“建筑名称显示缓存有效期(秒)”。默认值：60。 允许范围：1-3600。更改会影响对应的游戏或服务器系统。"
+        },
+        "EnablePredatorBossPal": {
+          "help": "调整“启用猛兽 Boss 帕鲁”。"
+        },
+        "SupplyDropSpan": {
+          "help": "调整“陨石或空投的间隔（分钟）”。"
+        },
+        "ChatPostLimitPerMinute": {
+          "help": "调整“每分钟聊天限制数”。"
+        },
+        "MaxBuildingLimitNum": {
+          "help": "调整“每个玩家的建筑物最大数量”。"
+        },
+        "ServerReplicatePawnCullDistance": {
+          "help": "调整“玩家与帕鲁同步距离”。"
+        },
+        "bAllowGlobalPalboxExport": {
+          "help": "调整“允许通过跨界帕鲁终端保存帕鲁的基因序列”。"
+        },
+        "bAllowGlobalPalboxImport": {
+          "help": "调整“允许通过跨界帕鲁终端的基因序列复原帕鲁”。"
         }
       }
+    },
+    "footer": {
+      "community": "由社区用 ❤️ 打造，服务于社区。",
+      "copyright": "2024-{{year}} © Bluefissure"
+    },
+    "dashboard": {
+      "searchPlaceholder": "搜索设置…",
+      "settingsCount": "{{count}} 项设置",
+      "categories": "分类",
+      "resetAll": "全部重置",
+      "resetSubtitle": "加载默认值",
+      "previewTitle": "配置预览",
+      "statusLiveTitle": "实时预览",
+      "statusLiveSubtitle": "实时更新",
+      "statusLanguagesTitle": "9 种语言",
+      "statusLanguagesSubtitle": "完整翻译",
+      "statusThemeTitle": "浅色与深色",
+      "statusThemeSubtitle": "自动主题",
+      "resetDone": "设置已重置",
+      "resetDoneDescription": "所有设置均已恢复为默认值。"
     }
   }
 }

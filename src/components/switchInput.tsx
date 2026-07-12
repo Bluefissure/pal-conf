@@ -24,7 +24,7 @@ export function SwitchInput(props: {
         description,
     } = props;
     return (
-        <div className="flex">
+        <div className="flex items-start gap-4">
             <TooltipProvider>
                 <Tooltip>
                     <TooltipTrigger className="cursor-default leading-6">
@@ -36,7 +36,7 @@ export function SwitchInput(props: {
                     </TooltipTrigger>
                 </Tooltip>
             </TooltipProvider>
-            <Switch className="ml-auto" checked={checked} id={id} onCheckedChange={onCheckedChange} disabled={disabled} />
+            <Switch className="ml-auto shrink-0" checked={checked} id={id} onCheckedChange={onCheckedChange} disabled={disabled} />
         </div>
     );
 }

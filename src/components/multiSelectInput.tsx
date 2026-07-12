@@ -33,8 +33,9 @@ export function MultiSelectInput(props: {
     dKey: Key;
     selectedLabels: LabelValues;
     onLabelsChange: (labels: string[]) => void;
+    description?: string;
 }) {
-    const { dKey, selectedLabels, onLabelsChange } = props;
+    const { dKey, selectedLabels, onLabelsChange, description } = props;
     const labels = {
       CrossplayPlatforms: CrossplayPlatformsLabels,
       DenyTechnologyList: DenyTechnologyLabels,
@@ -61,14 +62,15 @@ export function MultiSelectInput(props: {
                     <Tooltip>
                         <TooltipTrigger className="cursor-default">
                             <Trans i18nKey={get(I18nStr.entry.name, dKey, "")} />
-                            <TooltipContent>
-                                <p>{dKey}</p>
+                            <TooltipContent className="max-w-sm">
+                                <p className="font-mono text-xs text-muted-foreground">{dKey}</p>
+                                {description && <p className="mt-1 whitespace-pre-line leading-relaxed">{description}</p>}
                             </TooltipContent>
                         </TooltipTrigger>
                     </Tooltip>
                 </TooltipProvider>
             </Label>
-            <div className="flex w-full items-start justify-between rounded-md border px-4 py-1 sm:flex-row sm:items-center">
+            <div className="flex min-h-11 w-full items-start justify-between rounded-xl border bg-background/70 px-3 py-2 shadow-sm sm:flex-row sm:items-center">
                 <p className="text-sm font-medium leading-none">
                     <span className="leading-7">{labelDesc}</span>
                 </p>
@@ -78,7 +80,7 @@ export function MultiSelectInput(props: {
                             <ChevronDown />
                         </Button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent className="w-56 max-h-96 overflow-y-auto">
+                    <DropdownMenuContent className="w-80 max-h-[28rem] overflow-y-auto">
                     { labels.map((label) => (
                         <DropdownMenuCheckboxItem
                             key={`multi-select-${dKey}-${label.name}`}
