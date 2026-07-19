@@ -66,6 +66,7 @@ You can add the `?lng=<langCode>`(such as `?lng=zh_CN` or `?lng=ja_JP`) to the e
 ## Acknowledgement
 
 - The `uesave-wasm` part to load/save `.sav` file is ported from https://github.com/iebb/PalworldSaveEditor/tree/master/rust/
+- Oodle decompression for `PlM1` saves uses [`ooz-wasm`](https://github.com/SnosMe/ooz-wasm), licensed under GPL-3.0-or-later.
 - The vite plugin that handles wasm well enough at https://github.com/Menci/vite-plugin-wasm/
 
 ## Sponsor

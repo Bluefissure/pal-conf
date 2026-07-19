@@ -291,7 +291,7 @@ const FIXED_HEADER = {
 };
 
 export const DEFAULT_WORLDOPTION_SAV = {
-  magic: 828009552,
+  format: "PlM1",
   gvas: {
     header: FIXED_HEADER,
     root: {

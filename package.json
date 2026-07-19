@@ -8,7 +8,8 @@
         "dev": "vite --host 0.0.0.0",
         "build": "tsc && vite build",
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-        "preview": "vite preview --host 0.0.0.0"
+        "preview": "vite preview --host 0.0.0.0",
+        "test": "vitest run"
     },
     "dependencies": {
         "@radix-ui/react-accordion": "^1.1.2",
@@ -33,6 +34,7 @@
         "lossless-json": "^4.0.1",
         "lucide-react": "^0.314.0",
         "next-themes": "^0.2.1",
+        "ooz-wasm": "^2.0.0",
         "pako": "^2.1.0",
         "react": "^18.2.0",
         "react-country-flag": "^3.1.0",
@@ -61,6 +63,7 @@
         "typescript": "^5.2.2",
         "vite": "^5.0.13",
         "vite-plugin-top-level-await": "^1.4.1",
-        "vite-plugin-wasm": "^3.3.0"
+        "vite-plugin-wasm": "^3.3.0",
+        "vitest": "^1.6.1"
     }
 }

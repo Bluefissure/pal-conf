@@ -31,7 +31,7 @@ import { Input } from "./components/ui/input";
 
 // lib & utils
 import * as LosslessJSON from "lossless-json";
-import { analyzeFile, writeFile } from "./lib/save";
+import { analyzeFile, SAVE_FORMAT, writeFile } from "./lib/save";
 
 // Constants
 import { configVersion } from '../package.json';
@@ -327,7 +327,7 @@ function App() {
     gvasToSave.root.properties.OptionWorldData.Struct.value.Struct.Settings.Struct.value.Struct = serializeEntriesToWorldOptionJson() as WorldOption;
     writeFile(
       {
-        magic: 828009552,
+        format: SAVE_FORMAT.PLM1,
         gvas: gvasToSave,
       },
       "WorldOption.sav",
